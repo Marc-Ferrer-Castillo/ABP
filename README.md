@@ -6,3 +6,4 @@ Proyecto ABP para desarrollar una aplicación de escritorio y otra de Android pa
 * Dani Domínguez
 * Carlos Aguilar
 * Albert Ricart
+* Marc Ferrer

@@ -1,4 +1,4 @@
-Entendiendo la forma de trabajo de GitHub
+Resumen Github
 =========================================
 
   - [Introducción](#introducción)

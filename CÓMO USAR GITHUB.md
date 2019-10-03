@@ -16,9 +16,9 @@ La forma de trabajo de GitHub es ligera, su forma de trabajo basado-en-ramas sop
 
 ## Crear una rama ##
 
-Nunca: editar sobre la rama MASTER directamente.
+Nunca: editar sobre la rama MASTER directamente. :exclamation:
 
-Siempre: Crear una rama (new branch) que duplicá la rama master para trabajar con la copia libremente.
+Siempre: Crear una rama (new branch) que duplicá la rama master para trabajar con la copia libremente. :thumbsup:
 
 
 ## Agregar _commits_ ##
@@ -45,4 +45,4 @@ Puedes seguir enviando tus cambios a la rama en plena discusión de tus _commits
 
 Después del _Pull Request_ la nueva rama se fusiona con la rama master
 
-Una vez funcionado, los _Pull Requests_ mantiene un registro del historial de cambios de tu código. Debido a esto puedes buscar, regresar a cualquier punto atrás en el tiempo para entender por qué y cómo una decisión fue tomada.
+Una vez hecho, los _Pull Requests_ se guardan en un registro del historial de cambios de tu código. Gracias a esto puedes buscar y volver a cualquier punto atrás en el tiempo para entender por qué y cómo una decisión fue tomada.

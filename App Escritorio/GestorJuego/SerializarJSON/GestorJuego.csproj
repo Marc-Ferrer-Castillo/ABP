@@ -57,8 +57,10 @@
     <Compile Include="GestorJuego.Designer.cs">
       <DependentUpon>GestorJuego.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pregunta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Respuesta.cs" />
     <EmbeddedResource Include="GestorJuego.ca.resx">
       <DependentUpon>GestorJuego.cs</DependentUpon>
     </EmbeddedResource>

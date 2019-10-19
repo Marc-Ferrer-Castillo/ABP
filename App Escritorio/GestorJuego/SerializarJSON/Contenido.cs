@@ -8,11 +8,13 @@ namespace SerializarJSON
 {
     public class Contenido
     {
-        public string pregunta { get; set; }
-        public List<String> respuestas { get; set; }
-        public int respuestaCorrecta { get; set; }
+        public Pregunta pregunta { get; set; }
+        public List<Respuesta> respuestas { get; set; }
+        public byte respuestaCorrecta { get; set; }
+        //Propiedad para mostrar en la listbox
+        public string displayMember { get {return pregunta.strPregunta;}}
 
-        public Contenido(string pregunta, List<string> respuestas, int respuestaCorrecta)
+        public Contenido(Pregunta pregunta, List<Respuesta> respuestas, byte respuestaCorrecta)
         {
             this.pregunta = pregunta;
             this.respuestas = respuestas;

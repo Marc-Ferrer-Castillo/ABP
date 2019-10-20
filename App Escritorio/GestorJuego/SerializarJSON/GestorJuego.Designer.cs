@@ -32,6 +32,7 @@
             this.pictureBoxSortir = new System.Windows.Forms.PictureBox();
             this.textBoxPregunta = new System.Windows.Forms.TextBox();
             this.groupBoxContenido = new System.Windows.Forms.GroupBox();
+            this.pictureBoxNetejar = new System.Windows.Forms.PictureBox();
             this.panelRespostaCorrecte = new System.Windows.Forms.Panel();
             this.radioButtonD = new System.Windows.Forms.RadioButton();
             this.radioButtonA = new System.Windows.Forms.RadioButton();
@@ -57,6 +58,7 @@
             this.pictureBoxEliminarSel = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).BeginInit();
             this.groupBoxContenido.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNetejar)).BeginInit();
             this.panelRespostaCorrecte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAfegir)).BeginInit();
@@ -73,6 +75,7 @@
             // pictureBoxSortir
             // 
             this.pictureBoxSortir.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxSortir.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxSortir, "pictureBoxSortir");
             this.pictureBoxSortir.Name = "pictureBoxSortir";
             this.pictureBoxSortir.TabStop = false;
@@ -91,6 +94,7 @@
             // groupBoxContenido
             // 
             this.groupBoxContenido.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxContenido.Controls.Add(this.pictureBoxNetejar);
             this.groupBoxContenido.Controls.Add(this.panelRespostaCorrecte);
             this.groupBoxContenido.Controls.Add(this.pictureBoxEliminar);
             this.groupBoxContenido.Controls.Add(this.pictureBoxAfegir);
@@ -104,6 +108,14 @@
             resources.ApplyResources(this.groupBoxContenido, "groupBoxContenido");
             this.groupBoxContenido.Name = "groupBoxContenido";
             this.groupBoxContenido.TabStop = false;
+            // 
+            // pictureBoxNetejar
+            // 
+            this.pictureBoxNetejar.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.pictureBoxNetejar, "pictureBoxNetejar");
+            this.pictureBoxNetejar.Name = "pictureBoxNetejar";
+            this.pictureBoxNetejar.TabStop = false;
+            this.pictureBoxNetejar.Click += new System.EventHandler(this.pictureBoxNetejar_Click);
             // 
             // panelRespostaCorrecte
             // 
@@ -144,6 +156,7 @@
             // 
             // pictureBoxEliminar
             // 
+            this.pictureBoxEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxEliminar, "pictureBoxEliminar");
             this.pictureBoxEliminar.Name = "pictureBoxEliminar";
             this.pictureBoxEliminar.TabStop = false;
@@ -151,6 +164,7 @@
             // 
             // pictureBoxAfegir
             // 
+            this.pictureBoxAfegir.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxAfegir, "pictureBoxAfegir");
             this.pictureBoxAfegir.Name = "pictureBoxAfegir";
             this.pictureBoxAfegir.TabStop = false;
@@ -159,6 +173,7 @@
             // pictureBoxGuardar
             // 
             this.pictureBoxGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxGuardar, "pictureBoxGuardar");
             this.pictureBoxGuardar.Name = "pictureBoxGuardar";
             this.pictureBoxGuardar.TabStop = false;
@@ -244,6 +259,7 @@
             // pictureBoxGestPersonatges
             // 
             this.pictureBoxGestPersonatges.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxGestPersonatges.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxGestPersonatges, "pictureBoxGestPersonatges");
             this.pictureBoxGestPersonatges.Name = "pictureBoxGestPersonatges";
             this.pictureBoxGestPersonatges.TabStop = false;
@@ -251,6 +267,7 @@
             // pictureBoxMinimizar
             // 
             this.pictureBoxMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxMinimizar, "pictureBoxMinimizar");
             this.pictureBoxMinimizar.Name = "pictureBoxMinimizar";
             this.pictureBoxMinimizar.TabStop = false;
@@ -259,6 +276,7 @@
             // pictureBoxImportar
             // 
             this.pictureBoxImportar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxImportar.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxImportar, "pictureBoxImportar");
             this.pictureBoxImportar.Name = "pictureBoxImportar";
             this.pictureBoxImportar.TabStop = false;
@@ -267,6 +285,7 @@
             // pictureBoxExportar
             // 
             this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxExportar, "pictureBoxExportar");
             this.pictureBoxExportar.Name = "pictureBoxExportar";
             this.pictureBoxExportar.TabStop = false;
@@ -275,6 +294,7 @@
             // pictureBoxEliminarSel
             // 
             this.pictureBoxEliminarSel.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxEliminarSel.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.pictureBoxEliminarSel, "pictureBoxEliminarSel");
             this.pictureBoxEliminarSel.Name = "pictureBoxEliminarSel";
             this.pictureBoxEliminarSel.TabStop = false;
@@ -285,6 +305,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
+            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Disseny_Final;
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxEliminarSel);
             this.Controls.Add(this.pictureBoxExportar);
@@ -302,6 +323,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).EndInit();
             this.groupBoxContenido.ResumeLayout(false);
             this.groupBoxContenido.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNetejar)).EndInit();
             this.panelRespostaCorrecte.ResumeLayout(false);
             this.panelRespostaCorrecte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminar)).EndInit();
@@ -346,6 +368,7 @@
         private System.Windows.Forms.PictureBox pictureBoxEliminar;
         private System.Windows.Forms.PictureBox pictureBoxAfegir;
         private System.Windows.Forms.Panel panelRespostaCorrecte;
+        private System.Windows.Forms.PictureBox pictureBoxNetejar;
     }
 }
 

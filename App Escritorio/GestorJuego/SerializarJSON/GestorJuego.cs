@@ -206,7 +206,15 @@ namespace SerializarJSON
                 //Limpia textboxs
                 limpiarCampos();
             }
-        }        
+        }
+
+        //Limpia todos los campos para poder añadir una nueva pregunta
+        private void pictureBoxNetejar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+            listBoxContenidos.ClearSelected();
+            textBoxPregunta.Focus();
+        }
 
         // Elimina elemento del listbox y de la lista de contenidos
         private void pictureBoxEliminarSel_Click(object sender, EventArgs e)
@@ -263,7 +271,7 @@ namespace SerializarJSON
             }
         }
 
-
+       
 
         /*    METODOS
          *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗
@@ -308,7 +316,7 @@ namespace SerializarJSON
             }
             else
             {
-                MessageBox.Show("Selecciona quina és la resposta correcte", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selecciona quina és la resposta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 panelRespostaCorrecte.Focus();
             }
 
@@ -500,5 +508,7 @@ namespace SerializarJSON
 
             return correcte;
         }
+
+        
     }
 }

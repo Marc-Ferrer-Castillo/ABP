@@ -185,14 +185,10 @@ namespace SerializarJSON
                 //Añade aquellas respuestas que contengan una respuesta(string) a la lista
                 listaRespuestas.Add(respuestaA);
                 listaRespuestas.Add(respuestaB);
-                if (!respuestaIsNullOrEmpty(respuestaC.strResposta))
-                {
-                    listaRespuestas.Add(respuestaC);
-                    if (!respuestaIsNullOrEmpty(respuestaD.strResposta))
-                    {
-                        listaRespuestas.Add(respuestaD);
-                    }
-                }
+                listaRespuestas.Add(respuestaC);
+                listaRespuestas.Add(respuestaD);
+                    
+                
 
                 //Instancia y crea contenido
                 Contenido contenido = new Contenido(pregunta, listaRespuestas, respCorrecte(respuestaA, respuestaB, respuestaC, respuestaD));

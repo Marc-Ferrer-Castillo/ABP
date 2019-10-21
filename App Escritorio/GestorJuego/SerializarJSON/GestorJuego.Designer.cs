@@ -305,7 +305,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
-            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Disseny_Final;
+            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Disseny;
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxEliminarSel);
             this.Controls.Add(this.pictureBoxExportar);

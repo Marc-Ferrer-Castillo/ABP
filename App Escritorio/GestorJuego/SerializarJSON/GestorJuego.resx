@@ -142,7 +142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxSortir.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="textBoxPregunta.AutoCompleteCustomSource" xml:space="preserve">
     <value>Quina va ser la primera missió de l´ESA?</value>
@@ -177,147 +177,6 @@
   <data name="&gt;&gt;textBoxPregunta.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;pictureBoxNetejar.Name" xml:space="preserve">
-    <value>pictureBoxNetejar</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxNetejar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxNetejar.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxNetejar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.Name" xml:space="preserve">
-    <value>panelRespostaCorrecte</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEliminar.Name" xml:space="preserve">
-    <value>pictureBoxEliminar</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEliminar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEliminar.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEliminar.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAfegir.Name" xml:space="preserve">
-    <value>pictureBoxAfegir</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAfegir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAfegir.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAfegir.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxGuardar.Name" xml:space="preserve">
-    <value>pictureBoxGuardar</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxGuardar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxGuardar.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxGuardar.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.Name" xml:space="preserve">
-    <value>groupBoxDificultat</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta4.Name" xml:space="preserve">
-    <value>textBoxResposta4</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta4.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta4.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta3.Name" xml:space="preserve">
-    <value>textBoxResposta3</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta3.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta3.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta2.Name" xml:space="preserve">
-    <value>textBoxResposta2</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta2.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta2.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta1.Name" xml:space="preserve">
-    <value>textBoxResposta1</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta1.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;textBoxResposta1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="groupBoxContenido.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 116</value>
-  </data>
-  <data name="groupBoxContenido.Size" type="System.Drawing.Size, System.Drawing">
-    <value>641, 430</value>
-  </data>
-  <data name="groupBoxContenido.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;groupBoxContenido.Name" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;groupBoxContenido.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxContenido.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBoxContenido.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="pictureBoxNetejar.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 371</value>
   </data>
@@ -338,75 +197,6 @@
   </data>
   <data name="&gt;&gt;pictureBoxNetejar.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;radioButtonD.Name" xml:space="preserve">
-    <value>radioButtonD</value>
-  </data>
-  <data name="&gt;&gt;radioButtonD.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonD.Parent" xml:space="preserve">
-    <value>panelRespostaCorrecte</value>
-  </data>
-  <data name="&gt;&gt;radioButtonD.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radioButtonA.Name" xml:space="preserve">
-    <value>radioButtonA</value>
-  </data>
-  <data name="&gt;&gt;radioButtonA.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonA.Parent" xml:space="preserve">
-    <value>panelRespostaCorrecte</value>
-  </data>
-  <data name="&gt;&gt;radioButtonA.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;radioButtonC.Name" xml:space="preserve">
-    <value>radioButtonC</value>
-  </data>
-  <data name="&gt;&gt;radioButtonC.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonC.Parent" xml:space="preserve">
-    <value>panelRespostaCorrecte</value>
-  </data>
-  <data name="&gt;&gt;radioButtonC.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;radioButtonB.Name" xml:space="preserve">
-    <value>radioButtonB</value>
-  </data>
-  <data name="&gt;&gt;radioButtonB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonB.Parent" xml:space="preserve">
-    <value>panelRespostaCorrecte</value>
-  </data>
-  <data name="&gt;&gt;radioButtonB.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="panelRespostaCorrecte.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 134</value>
-  </data>
-  <data name="panelRespostaCorrecte.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 188</value>
-  </data>
-  <data name="panelRespostaCorrecte.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.Name" xml:space="preserve">
-    <value>panelRespostaCorrecte</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;panelRespostaCorrecte.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="radioButtonD.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -531,6 +321,27 @@
   <data name="&gt;&gt;radioButtonB.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="panelRespostaCorrecte.Location" type="System.Drawing.Point, System.Drawing">
+    <value>567, 134</value>
+  </data>
+  <data name="panelRespostaCorrecte.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 188</value>
+  </data>
+  <data name="panelRespostaCorrecte.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;panelRespostaCorrecte.Name" xml:space="preserve">
+    <value>panelRespostaCorrecte</value>
+  </data>
+  <data name="&gt;&gt;panelRespostaCorrecte.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelRespostaCorrecte.Parent" xml:space="preserve">
+    <value>groupBoxContenido</value>
+  </data>
+  <data name="&gt;&gt;panelRespostaCorrecte.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pictureBoxEliminar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -600,51 +411,6 @@
   <data name="&gt;&gt;pictureBoxGuardar.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;radioButtonDificil.Name" xml:space="preserve">
-    <value>radioButtonDificil</value>
-  </data>
-  <data name="&gt;&gt;radioButtonDificil.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonDificil.Parent" xml:space="preserve">
-    <value>groupBoxDificultat</value>
-  </data>
-  <data name="&gt;&gt;radioButtonDificil.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radioButtonFacil.Name" xml:space="preserve">
-    <value>radioButtonFacil</value>
-  </data>
-  <data name="&gt;&gt;radioButtonFacil.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonFacil.Parent" xml:space="preserve">
-    <value>groupBoxDificultat</value>
-  </data>
-  <data name="&gt;&gt;radioButtonFacil.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="groupBoxDificultat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>373, 320</value>
-  </data>
-  <data name="groupBoxDificultat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 43</value>
-  </data>
-  <data name="groupBoxDificultat.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.Name" xml:space="preserve">
-    <value>groupBoxDificultat</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.Parent" xml:space="preserve">
-    <value>groupBoxContenido</value>
-  </data>
-  <data name="&gt;&gt;groupBoxDificultat.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="radioButtonDificil.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -695,6 +461,27 @@
   </data>
   <data name="&gt;&gt;radioButtonFacil.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="groupBoxDificultat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>373, 320</value>
+  </data>
+  <data name="groupBoxDificultat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 43</value>
+  </data>
+  <data name="groupBoxDificultat.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;groupBoxDificultat.Name" xml:space="preserve">
+    <value>groupBoxDificultat</value>
+  </data>
+  <data name="&gt;&gt;groupBoxDificultat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxDificultat.Parent" xml:space="preserve">
+    <value>groupBoxContenido</value>
+  </data>
+  <data name="&gt;&gt;groupBoxDificultat.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="textBoxResposta4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 11.25pt</value>
@@ -798,6 +585,27 @@
   <data name="&gt;&gt;textBoxResposta1.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="groupBoxContenido.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 116</value>
+  </data>
+  <data name="groupBoxContenido.Size" type="System.Drawing.Size, System.Drawing">
+    <value>641, 430</value>
+  </data>
+  <data name="groupBoxContenido.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBoxContenido.Name" xml:space="preserve">
+    <value>groupBoxContenido</value>
+  </data>
+  <data name="&gt;&gt;groupBoxContenido.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxContenido.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxContenido.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -859,7 +667,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBoxListadoContenidos.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="pictureBoxGestPersonatges.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -886,7 +694,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxGestPersonatges.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pictureBoxMinimizar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -913,7 +721,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxMinimizar.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="pictureBoxImportar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -940,7 +748,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxImportar.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="pictureBoxExportar.Location" type="System.Drawing.Point, System.Drawing">
     <value>1002, 547</value>
@@ -961,7 +769,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxExportar.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="pictureBoxEliminarSel.Location" type="System.Drawing.Point, System.Drawing">
     <value>726, 547</value>
@@ -982,6 +790,27 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxEliminarSel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pictureBoxAjuda.Location" type="System.Drawing.Point, System.Drawing">
+    <value>985, 12</value>
+  </data>
+  <data name="pictureBoxAjuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 42</value>
+  </data>
+  <data name="pictureBoxAjuda.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAjuda.Name" xml:space="preserve">
+    <value>pictureBoxAjuda</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAjuda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAjuda.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAjuda.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

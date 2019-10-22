@@ -504,7 +504,11 @@ namespace SerializarJSON
 
             return correcte;
         }
-
-        
+        // Abre ventana de ayuda
+        private void pictureBoxAjuda_Click(object sender, EventArgs e)
+        {
+            FormAjuda ajuda = new FormAjuda(0);
+            ajuda.Show();
+        }
     }
 }

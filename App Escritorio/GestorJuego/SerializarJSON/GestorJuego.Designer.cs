@@ -56,6 +56,7 @@
             this.pictureBoxImportar = new System.Windows.Forms.PictureBox();
             this.pictureBoxExportar = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarSel = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAjuda = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).BeginInit();
             this.groupBoxContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNetejar)).BeginInit();
@@ -70,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSortir
@@ -300,13 +302,22 @@
             this.pictureBoxEliminarSel.TabStop = false;
             this.pictureBoxEliminarSel.Click += new System.EventHandler(this.pictureBoxEliminarSel_Click);
             // 
+            // pictureBoxAjuda
+            // 
+            this.pictureBoxAjuda.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.pictureBoxAjuda, "pictureBoxAjuda");
+            this.pictureBoxAjuda.Name = "pictureBoxAjuda";
+            this.pictureBoxAjuda.TabStop = false;
+            this.pictureBoxAjuda.Click += new System.EventHandler(this.pictureBoxAjuda_Click);
+            // 
             // GestorJuego
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
-            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Disseny;
+            this.BackgroundImage = global::SerializarJSON.Properties.Resources.UI_gestor_preguntes;
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBoxAjuda);
             this.Controls.Add(this.pictureBoxEliminarSel);
             this.Controls.Add(this.pictureBoxExportar);
             this.Controls.Add(this.pictureBoxGestPersonatges);
@@ -337,6 +348,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,6 +381,7 @@
         private System.Windows.Forms.PictureBox pictureBoxAfegir;
         private System.Windows.Forms.Panel panelRespostaCorrecte;
         private System.Windows.Forms.PictureBox pictureBoxNetejar;
+        private System.Windows.Forms.PictureBox pictureBoxAjuda;
     }
 }
 

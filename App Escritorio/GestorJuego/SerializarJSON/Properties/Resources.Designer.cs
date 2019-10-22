@@ -103,6 +103,46 @@ namespace SerializarJSON.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ficha_personaje {
+            get {
+                object obj = ResourceManager.GetObject("ficha personaje", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ficha_personaje1 {
+            get {
+                object obj = ResourceManager.GetObject("ficha personaje1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UI_gestor_personatge {
+            get {
+                object obj = ResourceManager.GetObject("UI gestor personatge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UI_gestor_personatge1 {
+            get {
+                object obj = ResourceManager.GetObject("UI gestor personatge1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UI_gestor_preguntes {
             get {
                 object obj = ResourceManager.GetObject("UI gestor preguntes", resourceCulture);

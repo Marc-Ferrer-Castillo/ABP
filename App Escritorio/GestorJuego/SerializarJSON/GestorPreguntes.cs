@@ -514,7 +514,12 @@ namespace SerializarJSON
         private void pictureBoxGestPersonatges_Click(object sender, EventArgs e)
         {
             //Pasa por constructor el numero de preguntas para limitar el numero de personajes/rangos
-
+            if (listaContenidos.Count > 0)
+            {
+                GestorPersonatges formPersonatges = new GestorPersonatges(listaContenidos.Count);
+                formPersonatges.ShowDialog();
+            }
+            
         }
     }
 }

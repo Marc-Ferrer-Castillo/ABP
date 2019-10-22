@@ -21,9 +21,7 @@ C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin
 C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\GestorJuego.csprojAssemblyReference.cache
-C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorJuego.resources
 C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.Properties.Resources.resources
-C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorJuego.ca.resources
 C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\GestorJuego.csproj.GenerateResource.cache
 C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\GestorJuego.csproj.CoreCompileInputs.cache
 C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\ca\SerializarJSON.resources.dll
@@ -78,3 +76,7 @@ C:\Users\cep.CEPNET0\Downloads\ABP-master\App Escritorio\GestorJuego\SerializarJ
 C:\Users\cep.CEPNET0\Downloads\ABP-master\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\GestorJuego.csproj.CopyComplete
 C:\Users\cep.CEPNET0\Downloads\ABP-master\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.exe
 C:\Users\cep.CEPNET0\Downloads\ABP-master\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.pdb
+C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.FormAjuda.resources
+C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorPersonatges.resources
+C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorPreguntes.resources
+C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorPreguntes.ca.resources

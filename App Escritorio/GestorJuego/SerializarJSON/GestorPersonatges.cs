@@ -12,7 +12,7 @@ namespace SerializarJSON
 {
     public partial class GestorPersonatges : Form
     {
-        public GestorPersonatges()
+        public GestorPersonatges(int count)
         {
             InitializeComponent();
         }

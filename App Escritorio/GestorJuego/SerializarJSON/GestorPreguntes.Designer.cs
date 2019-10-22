@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestorPreguntes));
             this.pictureBoxSortir = new System.Windows.Forms.PictureBox();
             this.textBoxPregunta = new System.Windows.Forms.TextBox();
             this.groupBoxContenido = new System.Windows.Forms.GroupBox();
@@ -78,20 +77,28 @@
             // 
             this.pictureBoxSortir.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxSortir.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxSortir, "pictureBoxSortir");
+            this.pictureBoxSortir.Location = new System.Drawing.Point(1142, 17);
             this.pictureBoxSortir.Name = "pictureBoxSortir";
+            this.pictureBoxSortir.Size = new System.Drawing.Size(82, 33);
+            this.pictureBoxSortir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSortir.TabIndex = 0;
             this.pictureBoxSortir.TabStop = false;
             this.pictureBoxSortir.Click += new System.EventHandler(this.pictureBoxSortir_Click);
             // 
             // textBoxPregunta
             // 
             this.textBoxPregunta.AutoCompleteCustomSource.AddRange(new string[] {
-            resources.GetString("textBoxPregunta.AutoCompleteCustomSource")});
+            "Quina va ser la primera missió de l´ESA?"});
             this.textBoxPregunta.BackColor = System.Drawing.Color.LightGray;
             this.textBoxPregunta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBoxPregunta, "textBoxPregunta");
+            this.textBoxPregunta.Font = new System.Drawing.Font("Arial", 15.75F);
             this.textBoxPregunta.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxPregunta.Location = new System.Drawing.Point(21, 67);
+            this.textBoxPregunta.MaxLength = 10;
             this.textBoxPregunta.Name = "textBoxPregunta";
+            this.textBoxPregunta.Size = new System.Drawing.Size(540, 25);
+            this.textBoxPregunta.TabIndex = 1;
+            this.textBoxPregunta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBoxContenido
             // 
@@ -107,15 +114,19 @@
             this.groupBoxContenido.Controls.Add(this.textBoxResposta2);
             this.groupBoxContenido.Controls.Add(this.textBoxResposta1);
             this.groupBoxContenido.Controls.Add(this.textBoxPregunta);
-            resources.ApplyResources(this.groupBoxContenido, "groupBoxContenido");
+            this.groupBoxContenido.Location = new System.Drawing.Point(79, 116);
             this.groupBoxContenido.Name = "groupBoxContenido";
+            this.groupBoxContenido.Size = new System.Drawing.Size(641, 430);
+            this.groupBoxContenido.TabIndex = 0;
             this.groupBoxContenido.TabStop = false;
             // 
             // pictureBoxNetejar
             // 
             this.pictureBoxNetejar.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxNetejar, "pictureBoxNetejar");
+            this.pictureBoxNetejar.Location = new System.Drawing.Point(21, 371);
             this.pictureBoxNetejar.Name = "pictureBoxNetejar";
+            this.pictureBoxNetejar.Size = new System.Drawing.Size(120, 41);
+            this.pictureBoxNetejar.TabIndex = 15;
             this.pictureBoxNetejar.TabStop = false;
             this.pictureBoxNetejar.Click += new System.EventHandler(this.pictureBoxNetejar_Click);
             // 
@@ -125,50 +136,78 @@
             this.panelRespostaCorrecte.Controls.Add(this.radioButtonA);
             this.panelRespostaCorrecte.Controls.Add(this.radioButtonC);
             this.panelRespostaCorrecte.Controls.Add(this.radioButtonB);
-            resources.ApplyResources(this.panelRespostaCorrecte, "panelRespostaCorrecte");
+            this.panelRespostaCorrecte.Location = new System.Drawing.Point(567, 134);
             this.panelRespostaCorrecte.Name = "panelRespostaCorrecte";
+            this.panelRespostaCorrecte.Size = new System.Drawing.Size(70, 188);
+            this.panelRespostaCorrecte.TabIndex = 12;
             // 
             // radioButtonD
             // 
-            resources.ApplyResources(this.radioButtonD, "radioButtonD");
+            this.radioButtonD.AutoSize = true;
+            this.radioButtonD.Font = new System.Drawing.Font("Malgun Gothic", 11.25F);
+            this.radioButtonD.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButtonD.Location = new System.Drawing.Point(18, 160);
             this.radioButtonD.Name = "radioButtonD";
+            this.radioButtonD.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonD.TabIndex = 9;
             this.radioButtonD.TabStop = true;
             this.radioButtonD.UseVisualStyleBackColor = true;
+            this.radioButtonD.Visible = false;
             // 
             // radioButtonA
             // 
-            resources.ApplyResources(this.radioButtonA, "radioButtonA");
+            this.radioButtonA.AutoSize = true;
+            this.radioButtonA.Font = new System.Drawing.Font("Malgun Gothic", 11.25F);
+            this.radioButtonA.Location = new System.Drawing.Point(18, 13);
             this.radioButtonA.Name = "radioButtonA";
+            this.radioButtonA.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonA.TabIndex = 6;
             this.radioButtonA.TabStop = true;
             this.radioButtonA.UseVisualStyleBackColor = true;
             // 
             // radioButtonC
             // 
-            resources.ApplyResources(this.radioButtonC, "radioButtonC");
+            this.radioButtonC.AutoSize = true;
+            this.radioButtonC.Font = new System.Drawing.Font("Malgun Gothic", 11.25F);
+            this.radioButtonC.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButtonC.Location = new System.Drawing.Point(18, 110);
             this.radioButtonC.Name = "radioButtonC";
+            this.radioButtonC.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonC.TabIndex = 8;
             this.radioButtonC.TabStop = true;
             this.radioButtonC.UseVisualStyleBackColor = true;
+            this.radioButtonC.Visible = false;
             // 
             // radioButtonB
             // 
-            resources.ApplyResources(this.radioButtonB, "radioButtonB");
+            this.radioButtonB.AutoSize = true;
+            this.radioButtonB.Font = new System.Drawing.Font("Malgun Gothic", 11.25F);
+            this.radioButtonB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButtonB.Location = new System.Drawing.Point(18, 62);
             this.radioButtonB.Name = "radioButtonB";
+            this.radioButtonB.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonB.TabIndex = 7;
             this.radioButtonB.TabStop = true;
             this.radioButtonB.UseVisualStyleBackColor = true;
             // 
             // pictureBoxEliminar
             // 
             this.pictureBoxEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxEliminar, "pictureBoxEliminar");
+            this.pictureBoxEliminar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBoxEliminar.Location = new System.Drawing.Point(295, 108);
             this.pictureBoxEliminar.Name = "pictureBoxEliminar";
+            this.pictureBoxEliminar.Size = new System.Drawing.Size(100, 34);
+            this.pictureBoxEliminar.TabIndex = 13;
             this.pictureBoxEliminar.TabStop = false;
             this.pictureBoxEliminar.Click += new System.EventHandler(this.pictureBoxEliminar_Click);
             // 
             // pictureBoxAfegir
             // 
             this.pictureBoxAfegir.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxAfegir, "pictureBoxAfegir");
+            this.pictureBoxAfegir.Location = new System.Drawing.Point(187, 108);
             this.pictureBoxAfegir.Name = "pictureBoxAfegir";
+            this.pictureBoxAfegir.Size = new System.Drawing.Size(100, 34);
+            this.pictureBoxAfegir.TabIndex = 13;
             this.pictureBoxAfegir.TabStop = false;
             this.pictureBoxAfegir.Click += new System.EventHandler(this.pictureBoxAfegir_Click);
             // 
@@ -176,8 +215,11 @@
             // 
             this.pictureBoxGuardar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxGuardar, "pictureBoxGuardar");
+            this.pictureBoxGuardar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBoxGuardar.Location = new System.Drawing.Point(410, 371);
             this.pictureBoxGuardar.Name = "pictureBoxGuardar";
+            this.pictureBoxGuardar.Size = new System.Drawing.Size(120, 41);
+            this.pictureBoxGuardar.TabIndex = 12;
             this.pictureBoxGuardar.TabStop = false;
             this.pictureBoxGuardar.Click += new System.EventHandler(this.pictureBoxGuardar_Click);
             // 
@@ -185,21 +227,30 @@
             // 
             this.groupBoxDificultat.Controls.Add(this.radioButtonDificil);
             this.groupBoxDificultat.Controls.Add(this.radioButtonFacil);
-            resources.ApplyResources(this.groupBoxDificultat, "groupBoxDificultat");
+            this.groupBoxDificultat.Location = new System.Drawing.Point(373, 320);
             this.groupBoxDificultat.Name = "groupBoxDificultat";
+            this.groupBoxDificultat.Size = new System.Drawing.Size(188, 43);
+            this.groupBoxDificultat.TabIndex = 11;
             this.groupBoxDificultat.TabStop = false;
             // 
             // radioButtonDificil
             // 
-            resources.ApplyResources(this.radioButtonDificil, "radioButtonDificil");
+            this.radioButtonDificil.AutoSize = true;
+            this.radioButtonDificil.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.radioButtonDificil.Location = new System.Drawing.Point(97, 17);
             this.radioButtonDificil.Name = "radioButtonDificil";
+            this.radioButtonDificil.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonDificil.TabIndex = 0;
             this.radioButtonDificil.TabStop = true;
             this.radioButtonDificil.UseVisualStyleBackColor = true;
             // 
             // radioButtonFacil
             // 
-            resources.ApplyResources(this.radioButtonFacil, "radioButtonFacil");
+            this.radioButtonFacil.AutoSize = true;
+            this.radioButtonFacil.Location = new System.Drawing.Point(16, 17);
             this.radioButtonFacil.Name = "radioButtonFacil";
+            this.radioButtonFacil.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonFacil.TabIndex = 0;
             this.radioButtonFacil.TabStop = true;
             this.radioButtonFacil.UseVisualStyleBackColor = true;
             // 
@@ -207,33 +258,47 @@
             // 
             this.textBoxResposta4.BackColor = System.Drawing.Color.LightGray;
             this.textBoxResposta4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBoxResposta4, "textBoxResposta4");
+            this.textBoxResposta4.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta4.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxResposta4.Location = new System.Drawing.Point(21, 290);
             this.textBoxResposta4.Name = "textBoxResposta4";
+            this.textBoxResposta4.Size = new System.Drawing.Size(540, 18);
+            this.textBoxResposta4.TabIndex = 5;
+            this.textBoxResposta4.Visible = false;
             // 
             // textBoxResposta3
             // 
             this.textBoxResposta3.BackColor = System.Drawing.Color.LightGray;
             this.textBoxResposta3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBoxResposta3, "textBoxResposta3");
+            this.textBoxResposta3.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta3.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxResposta3.Location = new System.Drawing.Point(21, 243);
             this.textBoxResposta3.Name = "textBoxResposta3";
+            this.textBoxResposta3.Size = new System.Drawing.Size(540, 18);
+            this.textBoxResposta3.TabIndex = 4;
+            this.textBoxResposta3.Visible = false;
             // 
             // textBoxResposta2
             // 
             this.textBoxResposta2.BackColor = System.Drawing.Color.LightGray;
             this.textBoxResposta2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBoxResposta2, "textBoxResposta2");
+            this.textBoxResposta2.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta2.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxResposta2.Location = new System.Drawing.Point(21, 195);
             this.textBoxResposta2.Name = "textBoxResposta2";
+            this.textBoxResposta2.Size = new System.Drawing.Size(540, 18);
+            this.textBoxResposta2.TabIndex = 3;
             // 
             // textBoxResposta1
             // 
             this.textBoxResposta1.BackColor = System.Drawing.Color.LightGray;
             this.textBoxResposta1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBoxResposta1, "textBoxResposta1");
+            this.textBoxResposta1.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta1.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxResposta1.Location = new System.Drawing.Point(21, 146);
             this.textBoxResposta1.Name = "textBoxResposta1";
+            this.textBoxResposta1.Size = new System.Drawing.Size(540, 18);
+            this.textBoxResposta1.TabIndex = 2;
             // 
             // saveFileDialog1
             // 
@@ -244,26 +309,40 @@
             // 
             this.listBoxContenidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.listBoxContenidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.listBoxContenidos, "listBoxContenidos");
+            this.listBoxContenidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxContenidos.Font = new System.Drawing.Font("Arial", 15.75F);
             this.listBoxContenidos.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.listBoxContenidos.FormattingEnabled = true;
+            this.listBoxContenidos.ItemHeight = 24;
+            this.listBoxContenidos.Location = new System.Drawing.Point(3, 14);
+            this.listBoxContenidos.Margin = new System.Windows.Forms.Padding(0);
             this.listBoxContenidos.Name = "listBoxContenidos";
+            this.listBoxContenidos.Size = new System.Drawing.Size(420, 412);
+            this.listBoxContenidos.TabIndex = 11;
             this.listBoxContenidos.SelectedIndexChanged += new System.EventHandler(this.listBoxContenidos_SelectedIndexChanged);
             // 
             // groupBoxListadoContenidos
             // 
             this.groupBoxListadoContenidos.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxListadoContenidos.Controls.Add(this.listBoxContenidos);
-            resources.ApplyResources(this.groupBoxListadoContenidos, "groupBoxListadoContenidos");
+            this.groupBoxListadoContenidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
+            this.groupBoxListadoContenidos.Location = new System.Drawing.Point(719, 117);
+            this.groupBoxListadoContenidos.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxListadoContenidos.Name = "groupBoxListadoContenidos";
+            this.groupBoxListadoContenidos.Size = new System.Drawing.Size(426, 429);
+            this.groupBoxListadoContenidos.TabIndex = 12;
             this.groupBoxListadoContenidos.TabStop = false;
             // 
             // pictureBoxGestPersonatges
             // 
             this.pictureBoxGestPersonatges.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestPersonatges.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxGestPersonatges, "pictureBoxGestPersonatges");
+            this.pictureBoxGestPersonatges.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBoxGestPersonatges.Location = new System.Drawing.Point(-16, 6);
             this.pictureBoxGestPersonatges.Name = "pictureBoxGestPersonatges";
+            this.pictureBoxGestPersonatges.Size = new System.Drawing.Size(173, 53);
+            this.pictureBoxGestPersonatges.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxGestPersonatges.TabIndex = 0;
             this.pictureBoxGestPersonatges.TabStop = false;
             this.pictureBoxGestPersonatges.Click += new System.EventHandler(this.pictureBoxGestPersonatges_Click);
             // 
@@ -271,8 +350,12 @@
             // 
             this.pictureBoxMinimizar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxMinimizar, "pictureBoxMinimizar");
+            this.pictureBoxMinimizar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBoxMinimizar.Location = new System.Drawing.Point(1051, 17);
             this.pictureBoxMinimizar.Name = "pictureBoxMinimizar";
+            this.pictureBoxMinimizar.Size = new System.Drawing.Size(82, 33);
+            this.pictureBoxMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxMinimizar.TabIndex = 0;
             this.pictureBoxMinimizar.TabStop = false;
             this.pictureBoxMinimizar.Click += new System.EventHandler(this.pictureBoxMinimizar_Click);
             // 
@@ -280,8 +363,12 @@
             // 
             this.pictureBoxImportar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxImportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxImportar, "pictureBoxImportar");
+            this.pictureBoxImportar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBoxImportar.Location = new System.Drawing.Point(1001, 74);
             this.pictureBoxImportar.Name = "pictureBoxImportar";
+            this.pictureBoxImportar.Size = new System.Drawing.Size(144, 41);
+            this.pictureBoxImportar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxImportar.TabIndex = 0;
             this.pictureBoxImportar.TabStop = false;
             this.pictureBoxImportar.Click += new System.EventHandler(this.pictureBoxImportar_Click);
             // 
@@ -289,8 +376,10 @@
             // 
             this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxExportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxExportar, "pictureBoxExportar");
+            this.pictureBoxExportar.Location = new System.Drawing.Point(1002, 547);
             this.pictureBoxExportar.Name = "pictureBoxExportar";
+            this.pictureBoxExportar.Size = new System.Drawing.Size(143, 42);
+            this.pictureBoxExportar.TabIndex = 13;
             this.pictureBoxExportar.TabStop = false;
             this.pictureBoxExportar.Click += new System.EventHandler(this.pictureBoxExportar_Click);
             // 
@@ -298,25 +387,31 @@
             // 
             this.pictureBoxEliminarSel.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxEliminarSel.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBoxEliminarSel, "pictureBoxEliminarSel");
+            this.pictureBoxEliminarSel.Location = new System.Drawing.Point(726, 547);
             this.pictureBoxEliminarSel.Name = "pictureBoxEliminarSel";
+            this.pictureBoxEliminarSel.Size = new System.Drawing.Size(191, 41);
+            this.pictureBoxEliminarSel.TabIndex = 14;
             this.pictureBoxEliminarSel.TabStop = false;
             this.pictureBoxEliminarSel.Click += new System.EventHandler(this.pictureBoxEliminarSel_Click);
             // 
             // pictureBoxAjuda
             // 
             this.pictureBoxAjuda.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.pictureBoxAjuda, "pictureBoxAjuda");
+            this.pictureBoxAjuda.Location = new System.Drawing.Point(982, 12);
             this.pictureBoxAjuda.Name = "pictureBoxAjuda";
+            this.pictureBoxAjuda.Size = new System.Drawing.Size(40, 42);
+            this.pictureBoxAjuda.TabIndex = 15;
             this.pictureBoxAjuda.TabStop = false;
             this.pictureBoxAjuda.Click += new System.EventHandler(this.pictureBoxAjuda_Click);
             // 
-            // GestorJuego
+            // GestorPreguntes
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
             this.BackgroundImage = global::SerializarJSON.Properties.Resources.UI_gestor_preguntes;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1230, 600);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxAjuda);
             this.Controls.Add(this.pictureBoxEliminarSel);
@@ -327,11 +422,15 @@
             this.Controls.Add(this.pictureBoxSortir);
             this.Controls.Add(this.groupBoxContenido);
             this.Controls.Add(this.groupBoxListadoContenidos);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1230, 600);
             this.MinimizeBox = false;
-            this.Name = "GestorJuego";
-            this.ShowIcon = false;
+            this.MinimumSize = new System.Drawing.Size(1230, 600);
+            this.Name = "GestorPreguntes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Editor de contingut";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).EndInit();
             this.groupBoxContenido.ResumeLayout(false);
             this.groupBoxContenido.PerformLayout();

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace SerializarJSON
 {
-    public partial class GestorJuego : Form
+    public partial class GestorPreguntes : Form
     {
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
@@ -41,7 +41,7 @@ namespace SerializarJSON
          */
 
         // Inicializa los componentes
-        public GestorJuego()
+        public GestorPreguntes()
         {
             InitializeComponent();
         }
@@ -509,6 +509,12 @@ namespace SerializarJSON
         {
             FormAjuda ajuda = new FormAjuda(0);
             ajuda.Show();
+        }
+        // Abre formulario gestor de personatges
+        private void pictureBoxGestPersonatges_Click(object sender, EventArgs e)
+        {
+            //Pasa por constructor el numero de preguntas para limitar el numero de personajes/rangos
+
         }
     }
 }

@@ -57,11 +57,11 @@
     <Compile Include="FormAjuda.Designer.cs">
       <DependentUpon>FormAjuda.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestorJuego.cs">
+    <Compile Include="GestorPreguntes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestorJuego.Designer.cs">
-      <DependentUpon>GestorJuego.cs</DependentUpon>
+    <Compile Include="GestorPreguntes.Designer.cs">
+      <DependentUpon>GestorPreguntes.cs</DependentUpon>
     </Compile>
     <Compile Include="Pregunta.cs" />
     <Compile Include="Program.cs" />
@@ -70,11 +70,11 @@
     <EmbeddedResource Include="FormAjuda.resx">
       <DependentUpon>FormAjuda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestorJuego.ca.resx">
-      <DependentUpon>GestorJuego.cs</DependentUpon>
+    <EmbeddedResource Include="GestorPreguntes.ca.resx">
+      <DependentUpon>GestorPreguntes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestorJuego.resx">
-      <DependentUpon>GestorJuego.cs</DependentUpon>
+    <EmbeddedResource Include="GestorPreguntes.resx">
+      <DependentUpon>GestorPreguntes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

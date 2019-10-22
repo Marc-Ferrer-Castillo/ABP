@@ -16,7 +16,7 @@ namespace SerializarJSON
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GestorJuego());
+            Application.Run(new GestorPreguntes());
         }
     }
 }

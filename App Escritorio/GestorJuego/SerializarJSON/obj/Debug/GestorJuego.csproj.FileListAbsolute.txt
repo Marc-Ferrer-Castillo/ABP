@@ -82,3 +82,4 @@ C:\Users\Marc\Documents\GitHub\proyectoABP\App Escritorio\GestorJuego\Serializar
 C:\Users\Marc\Documents\GitHub\proyectoABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorPersonatges.resources
 C:\Users\Marc\Documents\GitHub\proyectoABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorPreguntes.resources
 C:\Users\Marc\Documents\GitHub\proyectoABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.GestorPreguntes.ca.resources
+C:\Users\Marc\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\SerializarJSON.FormMenuPrincipal.resources

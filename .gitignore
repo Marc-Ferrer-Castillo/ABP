@@ -40,3 +40,13 @@ App Escritorio/GestorJuego/SerializarJSON/obj/Debug/GestorJuego.csproj.CoreCompi
 App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/Server/sqlite3/storage.ide-wal
 App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/Server/sqlite3/storage.ide-shm
 App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/.suo
+*.cache
+App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/.suo
+*.ide
+App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/Server/sqlite3/storage.ide-shm
+App Escritorio/GestorJuego/SerializarJSON/obj/Debug/ca/SerializarJSON.resources.dll
+App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/Server/sqlite3/storage.ide-shm
+App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/Server/sqlite3/storage.ide-wal
+App Escritorio/GestorJuego/SerializarJSON/bin/Debug/ca/SerializarJSON.resources.dll
+App Escritorio/GestorJuego/SerializarJSON/bin/Debug/SerializarJSON.exe
+App Escritorio/GestorJuego/SerializarJSON/bin/Debug/SerializarJSON.pdb

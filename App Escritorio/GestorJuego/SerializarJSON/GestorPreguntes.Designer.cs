@@ -422,7 +422,6 @@
             this.Controls.Add(this.pictureBoxSortir);
             this.Controls.Add(this.groupBoxContenido);
             this.Controls.Add(this.groupBoxListadoContenidos);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1230, 600);

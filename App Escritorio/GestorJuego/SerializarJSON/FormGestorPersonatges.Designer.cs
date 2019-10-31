@@ -1,6 +1,6 @@
 ﻿namespace SerializarJSON
 {
-    partial class GestorPersonatges
+    partial class FormGestorPersonatges
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestorPersonatges));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestorPersonatges));
             this.panelPersonatges = new System.Windows.Forms.Panel();
             this.panelP0 = new System.Windows.Forms.Panel();
             this.comboBoxP0MaxEncerts = new System.Windows.Forms.ComboBox();

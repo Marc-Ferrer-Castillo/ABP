@@ -57,23 +57,29 @@
     <Compile Include="FormAjuda.Designer.cs">
       <DependentUpon>FormAjuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGestorContingut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestorContingut.Designer.cs">
+      <DependentUpon>FormGestorContingut.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMenuPrincipal.Designer.cs">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestorPersonatges.cs">
+    <Compile Include="FormGestorPersonatges.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestorPersonatges.Designer.cs">
-      <DependentUpon>GestorPersonatges.cs</DependentUpon>
+    <Compile Include="FormGestorPersonatges.Designer.cs">
+      <DependentUpon>FormGestorPersonatges.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestorPreguntes.cs">
+    <Compile Include="FormGestorPreguntes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestorPreguntes.Designer.cs">
-      <DependentUpon>GestorPreguntes.cs</DependentUpon>
+    <Compile Include="FormGestorPreguntes.Designer.cs">
+      <DependentUpon>FormGestorPreguntes.cs</DependentUpon>
     </Compile>
     <Compile Include="Pregunta.cs" />
     <Compile Include="Program.cs" />
@@ -82,17 +88,20 @@
     <EmbeddedResource Include="FormAjuda.resx">
       <DependentUpon>FormAjuda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGestorContingut.resx">
+      <DependentUpon>FormGestorContingut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestorPersonatges.resx">
-      <DependentUpon>GestorPersonatges.cs</DependentUpon>
+    <EmbeddedResource Include="FormGestorPersonatges.resx">
+      <DependentUpon>FormGestorPersonatges.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestorPreguntes.ca.resx">
-      <DependentUpon>GestorPreguntes.cs</DependentUpon>
+    <EmbeddedResource Include="FormGestorPreguntes.ca.resx">
+      <DependentUpon>FormGestorPreguntes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestorPreguntes.resx">
-      <DependentUpon>GestorPreguntes.cs</DependentUpon>
+    <EmbeddedResource Include="FormGestorPreguntes.resx">
+      <DependentUpon>FormGestorPreguntes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

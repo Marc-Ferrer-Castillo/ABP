@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SerializarJSON
 {
-    public partial class GestorPersonatges : Form
+    public partial class FormGestorPersonatges : Form
     {
-        public GestorPersonatges(int count)
+        public FormGestorPersonatges(int count)
         {
             InitializeComponent();
         }

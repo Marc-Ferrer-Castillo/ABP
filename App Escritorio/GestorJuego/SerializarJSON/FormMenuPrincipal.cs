@@ -25,9 +25,64 @@ namespace SerializarJSON
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
+        // Inicializar componentes
         public FormMenuPrincipal()
         {
             InitializeComponent();
+        }
+
+        // Cerrar formulario
+        private void pictureBoxSortir_Click(object sender, EventArgs e)
+        {
+            var respuesta = MessageBox.Show("Segur que vols sortir?", "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        // Minimizar formulario
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        // Abre ventana de ayuda
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FormAjuda ajuda = new FormAjuda(0);
+            ajuda.Show();
+        }
+
+        private void pictureBoxExportar_Click(object sender, EventArgs e)
+        {
+            // PROGRAMAR GUARDADO DE DATOS EN CARPETAS
+
+            ////Opciones del saveDialog para nombre y extension
+            //SaveFileDialogGuardar.FileName = "Contingut";
+            //SaveFileDialogGuardar.DefaultExt = "*.json";
+            //SaveFileDialogGuardar.DefaultExt = ".json";
+
+            ////Muestra pantalla para guardar el fichero
+            //if (SaveFileDialogGuardar.ShowDialog() == DialogResult.OK)
+            //{
+            //    Stream fileStream = SaveFileDialogGuardar.OpenFile();
+            //    StreamWriter sw = new StreamWriter(fileStream);
+
+            //    //Serializa JSON y guarda
+            //    sw.Write(Newtonsoft.Json.JsonConvert.SerializeObject(listaContenidos));
+
+            //    //Cierra streams
+            //    sw.Close();
+            //    fileStream.Close();
+            //}
+        }
+
+        // Planeta 1: obre gestor de contingut
+        private void buttonPlaneta1_Click(object sender, EventArgs e)
+        {
+            FormGestorContingut gestorContingut = new FormGestorContingut();
+            gestorContingut.ShowDialog();
         }
     }
 }

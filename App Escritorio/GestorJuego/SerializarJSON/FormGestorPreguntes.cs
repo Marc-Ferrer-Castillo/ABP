@@ -11,7 +11,7 @@ using System.IO;
 
 namespace SerializarJSON
 {
-    public partial class GestorPreguntes : Form
+    public partial class FormGestorPreguntes : Form
     {
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
@@ -41,7 +41,7 @@ namespace SerializarJSON
          */
 
         // Inicializa los componentes
-        public GestorPreguntes()
+        public FormGestorPreguntes()
         {
             InitializeComponent();
         }
@@ -125,24 +125,7 @@ namespace SerializarJSON
         // Boton Exportar
         private void pictureBoxExportar_Click(object sender, EventArgs e)
         {
-            //Opciones del saveDialog para nombre y extension
-            SaveFileDialogGuardar.FileName = "Contingut";
-            SaveFileDialogGuardar.DefaultExt = "*.json";
-            SaveFileDialogGuardar.DefaultExt = ".json";
-
-            //Muestra pantalla para guardar el fichero
-            if (SaveFileDialogGuardar.ShowDialog() == DialogResult.OK)
-            {
-                Stream fileStream = SaveFileDialogGuardar.OpenFile();
-                StreamWriter sw = new StreamWriter(fileStream);
-
-                //Serializa JSON y guarda
-                sw.Write(Newtonsoft.Json.JsonConvert.SerializeObject(listaContenidos));
-
-                //Cierra streams
-                sw.Close();
-                fileStream.Close();
-            }
+            this.Close();
         }
 
         // Guardar y añadir a la listbox
@@ -504,19 +487,21 @@ namespace SerializarJSON
 
             return correcte;
         }
+
         // Abre ventana de ayuda
         private void pictureBoxAjuda_Click(object sender, EventArgs e)
         {
             FormAjuda ajuda = new FormAjuda(0);
             ajuda.Show();
         }
+
         // Abre formulario gestor de personatges
         private void pictureBoxGestPersonatges_Click(object sender, EventArgs e)
         {
             //Pasa por constructor el numero de preguntas para limitar el numero de personajes/rangos
             if (listaContenidos.Count > 0)
             {
-                GestorPersonatges formPersonatges = new GestorPersonatges(listaContenidos.Count);
+                FormGestorPersonatges formPersonatges = new FormGestorPersonatges(listaContenidos.Count);
                 formPersonatges.ShowDialog();
             }
             

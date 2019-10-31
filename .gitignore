@@ -50,3 +50,4 @@ App Escritorio/GestorJuego/.vs/GestorJuegoSolucion/v15/Server/sqlite3/storage.id
 App Escritorio/GestorJuego/SerializarJSON/bin/Debug/ca/SerializarJSON.resources.dll
 App Escritorio/GestorJuego/SerializarJSON/bin/Debug/SerializarJSON.exe
 App Escritorio/GestorJuego/SerializarJSON/bin/Debug/SerializarJSON.pdb
+*.exe

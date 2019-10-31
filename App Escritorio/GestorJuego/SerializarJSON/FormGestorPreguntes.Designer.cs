@@ -1,6 +1,6 @@
 ﻿namespace SerializarJSON
 {
-    partial class GestorPreguntes
+    partial class FormGestorPreguntes
     {
         /// <summary>
         /// Variable del diseñador necesaria.

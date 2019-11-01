@@ -80,6 +80,7 @@
     <Compile Include="FormGestorPreguntes.Designer.cs">
       <DependentUpon>FormGestorPreguntes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Metodo.cs" />
     <Compile Include="Personaje.cs" />
     <Compile Include="Planeta.cs" />
     <Compile Include="Pregunta.cs" />
@@ -166,6 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\planeta3false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gestor de Preguntes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

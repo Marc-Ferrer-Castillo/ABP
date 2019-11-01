@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestorPreguntes));
             this.pictureBoxSortir = new System.Windows.Forms.PictureBox();
             this.textBoxPregunta = new System.Windows.Forms.TextBox();
             this.groupBoxContenido = new System.Windows.Forms.GroupBox();
@@ -53,7 +52,6 @@
             this.groupBoxListadoContenidos = new System.Windows.Forms.GroupBox();
             this.pictureBoxGestPersonatges = new System.Windows.Forms.PictureBox();
             this.pictureBoxMinimizar = new System.Windows.Forms.PictureBox();
-            this.pictureBoxImportar = new System.Windows.Forms.PictureBox();
             this.pictureBoxExportar = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarSel = new System.Windows.Forms.PictureBox();
             this.pictureBoxAjuda = new System.Windows.Forms.PictureBox();
@@ -68,7 +66,6 @@
             this.groupBoxListadoContenidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestPersonatges)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).BeginInit();
@@ -360,19 +357,6 @@
             this.pictureBoxMinimizar.TabStop = false;
             this.pictureBoxMinimizar.Click += new System.EventHandler(this.pictureBoxMinimizar_Click);
             // 
-            // pictureBoxImportar
-            // 
-            this.pictureBoxImportar.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxImportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxImportar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBoxImportar.Location = new System.Drawing.Point(1001, 74);
-            this.pictureBoxImportar.Name = "pictureBoxImportar";
-            this.pictureBoxImportar.Size = new System.Drawing.Size(144, 41);
-            this.pictureBoxImportar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxImportar.TabIndex = 0;
-            this.pictureBoxImportar.TabStop = false;
-            this.pictureBoxImportar.Click += new System.EventHandler(this.pictureBoxImportar_Click);
-            // 
             // pictureBoxExportar
             // 
             this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
@@ -382,7 +366,7 @@
             this.pictureBoxExportar.Size = new System.Drawing.Size(143, 42);
             this.pictureBoxExportar.TabIndex = 13;
             this.pictureBoxExportar.TabStop = false;
-            this.pictureBoxExportar.Click += new System.EventHandler(this.pictureBoxExportar_Click);
+            this.pictureBoxExportar.Click += new System.EventHandler(this.pictureBoxExportar_Click_1);
             // 
             // pictureBoxEliminarSel
             // 
@@ -410,7 +394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Gestor_de_Preguntes;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1230, 600);
             this.ControlBox = false;
@@ -418,7 +402,6 @@
             this.Controls.Add(this.pictureBoxEliminarSel);
             this.Controls.Add(this.pictureBoxExportar);
             this.Controls.Add(this.pictureBoxGestPersonatges);
-            this.Controls.Add(this.pictureBoxImportar);
             this.Controls.Add(this.pictureBoxMinimizar);
             this.Controls.Add(this.pictureBoxSortir);
             this.Controls.Add(this.groupBoxContenido);
@@ -445,7 +428,6 @@
             this.groupBoxListadoContenidos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestPersonatges)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).EndInit();
@@ -473,7 +455,6 @@
         private System.Windows.Forms.RadioButton radioButtonFacil;
         private System.Windows.Forms.PictureBox pictureBoxGestPersonatges;
         private System.Windows.Forms.PictureBox pictureBoxMinimizar;
-        private System.Windows.Forms.PictureBox pictureBoxImportar;
         private System.Windows.Forms.PictureBox pictureBoxExportar;
         private System.Windows.Forms.PictureBox pictureBoxGuardar;
         private System.Windows.Forms.PictureBox pictureBoxEliminarSel;

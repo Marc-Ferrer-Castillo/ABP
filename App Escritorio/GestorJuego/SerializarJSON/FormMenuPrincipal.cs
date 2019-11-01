@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SerializarJSON
-{
+{    
     public partial class FormMenuPrincipal : Form
     {
+        // Planetas vacíos        
+        public Planeta planeta1 { get ; set;}
+        public Planeta planeta2 { get; set; }
+        public Planeta planeta3 { get; set; }
+
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
@@ -109,6 +114,11 @@ namespace SerializarJSON
         // Click Planeta 1
         private void pictureBoxPlaneta1_Click(object sender, EventArgs e)
         {
+            FormGestorContingut gestorContingut = new FormGestorContingut(planeta1, 1);
+            gestorContingut.ShowDialog();
+            
+            //planeta1 = ;
+
             pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
         }
         // Click Planeta 2

@@ -128,31 +128,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Disseny Final.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Disseny Final1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Disseny1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UI gestor preguntes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UI gestor personatge.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UI gestor personatge1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ficha personaje.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ficha personaje1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Gestor de Preguntes.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

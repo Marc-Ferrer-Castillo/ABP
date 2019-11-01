@@ -341,7 +341,7 @@
             this.pictureBoxGestPersonatges.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBoxGestPersonatges.Location = new System.Drawing.Point(-16, 6);
             this.pictureBoxGestPersonatges.Name = "pictureBoxGestPersonatges";
-            this.pictureBoxGestPersonatges.Size = new System.Drawing.Size(173, 53);
+            this.pictureBoxGestPersonatges.Size = new System.Drawing.Size(156, 53);
             this.pictureBoxGestPersonatges.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxGestPersonatges.TabIndex = 0;
             this.pictureBoxGestPersonatges.TabStop = false;

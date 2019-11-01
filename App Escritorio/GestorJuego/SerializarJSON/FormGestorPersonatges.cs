@@ -16,5 +16,10 @@ namespace SerializarJSON
         {
             InitializeComponent();
         }
+
+        private void FormGestorPersonatges_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

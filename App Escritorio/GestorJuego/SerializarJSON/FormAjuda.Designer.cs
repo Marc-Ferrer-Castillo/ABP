@@ -28,32 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelContenedor = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAjuda));
+            this.pictureBoxAjudaMainMenu = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjudaMainMenu)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelContenedor
+            // pictureBoxAjudaMainMenu
             // 
-            this.panelContenedor.AutoScroll = true;
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(800, 663);
-            this.panelContenedor.TabIndex = 0;
+            this.pictureBoxAjudaMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxAjudaMainMenu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAjudaMainMenu.Image")));
+            this.pictureBoxAjudaMainMenu.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxAjudaMainMenu.MaximumSize = new System.Drawing.Size(1000, 600);
+            this.pictureBoxAjudaMainMenu.MinimumSize = new System.Drawing.Size(1000, 600);
+            this.pictureBoxAjudaMainMenu.Name = "pictureBoxAjudaMainMenu";
+            this.pictureBoxAjudaMainMenu.Size = new System.Drawing.Size(1000, 600);
+            this.pictureBoxAjudaMainMenu.TabIndex = 0;
+            this.pictureBoxAjudaMainMenu.TabStop = false;
             // 
             // FormAjuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 663);
-            this.Controls.Add(this.panelContenedor);
+            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.pictureBoxAjudaMainMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(1000, 600);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FormAjuda";
             this.Text = "FormAjuda";
+            this.Load += new System.EventHandler(this.FormAjuda_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjudaMainMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.PictureBox pictureBoxAjudaMainMenu;
     }
 }

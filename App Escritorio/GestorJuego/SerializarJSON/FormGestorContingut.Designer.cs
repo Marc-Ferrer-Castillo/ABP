@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestorContingut));
             this.pictureBoxSiguiente = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSiguiente
             // 
-            this.pictureBoxSiguiente.Location = new System.Drawing.Point(1180, 599);
+            this.pictureBoxSiguiente.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxSiguiente.Location = new System.Drawing.Point(980, 527);
             this.pictureBoxSiguiente.Name = "pictureBoxSiguiente";
-            this.pictureBoxSiguiente.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxSiguiente.Size = new System.Drawing.Size(145, 41);
             this.pictureBoxSiguiente.TabIndex = 0;
             this.pictureBoxSiguiente.TabStop = false;
             this.pictureBoxSiguiente.Click += new System.EventHandler(this.pictureBoxSiguiente_Click);
@@ -45,9 +47,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 661);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1230, 600);
             this.Controls.Add(this.pictureBoxSiguiente);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(1230, 600);
+            this.MinimumSize = new System.Drawing.Size(1230, 600);
             this.Name = "FormGestorContingut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGestorContingut";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).EndInit();
             this.ResumeLayout(false);

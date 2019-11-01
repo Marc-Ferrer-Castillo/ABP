@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace SerializarJSON
 {
-    class Pregunta
+    public class Pregunta
     {
         public byte id { get; set; }
         public String pregunta { get; set; }
         public List<Respuesta> respuestas{ get; set; }
         public bool dificultad { get; set; }
+
+
+        public Pregunta(byte id, string pregunta, List<Respuesta> respuestas, bool dificultad)
+        {
+            this.id = id;
+            this.pregunta = pregunta;
+            this.respuestas = respuestas;
+            this.dificultad = dificultad;
+        }
     }
 }

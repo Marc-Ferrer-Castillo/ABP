@@ -13,21 +13,38 @@ namespace SerializarJSON
 {
     public partial class FormGestorPreguntes : Form
     {
+        
+        public Planeta planeta { get; set; }
+
+        // Contenido de FormGestorContingut
+        String contenido;
+
+        // Corresponde al planeta pulsado en el Menu Principal
+        byte idPlaneta;
+
+        // Guarda el id de la pregunta
+        byte idPregunta = 0;
+
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
-                
-        //// Lista para guardarlas
-        //List<Respuesta> listaRespuestas = new List<Respuesta>();
-        //// Lista de contenidos
-        //public List<Contenido> listaContenidos = new List<Contenido>();
+
+        // Lista para guardar 4 respuestas
+        List<Respuesta> listaRespuestas = new List<Respuesta>();
+
+        // Lista de preguntas
+        public List<Pregunta> listaPreguntas = new List<Pregunta>();
+
         //// Crea un objeto save dialog
         //SaveFileDialog SaveFileDialogGuardar = new SaveFileDialog();
-        //// Guarda el número de respuestas posibles (Incrementa al darle a "Afegir" y decrementa con "Eliminar")
-        //public byte nRespostes = 2;
-        //// id de pregunta guardada
-        //int idPregunta = 0;
+
+        // Guarda el número de respuestas posibles (Incrementa al darle a "Afegir" y decrementa con "Eliminar")
+        public byte nRespostes = 2;
+
+        
+
+
 
 
 
@@ -41,11 +58,106 @@ namespace SerializarJSON
          */
 
         // Inicializa los componentes
-        public FormGestorPreguntes()
+        public FormGestorPreguntes(String contenido, byte idPlaneta)
         {
             InitializeComponent();
+            this.contenido = contenido;
+            this.idPlaneta = idPlaneta;
         }
-       
+
+        // Guardar y añadir a la listbox
+        private void pictureBoxGuardar_Click(object sender, EventArgs e)
+        {
+            // Guarda las respuestas de los textbox en una lista para ser verificadas
+            List<String> respuestasTextBoxs = new List<string>();
+            respuestasTextBoxs.Add(textBoxResposta1.Text);
+            respuestasTextBoxs.Add(textBoxResposta2.Text);
+            if (nRespostes == 3)
+            {
+                respuestasTextBoxs.Add(textBoxResposta3.Text);
+            }
+            else if (nRespostes == 4)
+            {
+                respuestasTextBoxs.Add(textBoxResposta3.Text);
+                respuestasTextBoxs.Add(textBoxResposta4.Text);
+            }
+
+
+            bool formularioCorrecto = false;
+
+            // Comprueba que se haya introducido una pregunta
+            if ( Metodo.revisarContenido(textBoxPregunta.Text) )
+            {
+                // Comprueba que no haya ninguna pregunta repetida
+                if ( Metodo.preguntaRepetida(textBoxPregunta.Text, listaPreguntas) )
+                {
+                    // Comprueba que no falte por marcar algun radioButton
+                    if ( radioCheck() )
+                    {
+                        // Comprueba que se hayan introducido 
+                        if ( Metodo.revisarContenido( respuestasTextBoxs) )
+                        {
+                            formularioCorrecto = true;
+                        }
+                        else
+                        {
+                            //Error
+                            MessageBox.Show("Introdueix la resposta que falta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }                    
+                }
+                else
+                {
+                    //Error
+                    MessageBox.Show("Aquesta pregunta ja existeix", "Pregunta duplicada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxPregunta.Focus();
+                }
+            }
+            else
+            {
+                //Error
+                MessageBox.Show("Escriu una pregunta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPregunta.Focus();
+            }
+
+            // Si se han pasado todas las comprobaciones
+            if ( formularioCorrecto )
+            {
+                // Vacia la lista de respuestas
+                listaRespuestas.Clear();
+
+                // Instancia tantas respuestas como textBoxs haya activado el usuario
+                // Después las añade a la lista
+                Respuesta a = new Respuesta(1, textBoxResposta1.Text, radioButtonA.Checked);
+                Respuesta b = new Respuesta(2, textBoxResposta2.Text, radioButtonB.Checked);
+                listaRespuestas.Add(a);
+                listaRespuestas.Add(b);
+                if (nRespostes == 3)
+                {
+                    Respuesta c = new Respuesta(3, textBoxResposta3.Text, radioButtonC.Checked);
+                    listaRespuestas.Add(c);
+                }
+                else if (nRespostes == 4)
+                {
+                    Respuesta c = new Respuesta(3, textBoxResposta3.Text, radioButtonC.Checked);
+                    Respuesta d = new Respuesta(4, textBoxResposta4.Text, radioButtonD.Checked);
+                    listaRespuestas.Add(c);
+                    listaRespuestas.Add(d);
+                }
+
+                // Instancia pregunta y la añade a la lista de preguntas
+                Pregunta pregunta = new Pregunta(idPregunta++, textBoxPregunta.Text, listaRespuestas, radioButtonFacil.Checked);
+                listaPreguntas.Add(pregunta);
+
+                //Añade al listBox el nuevo contenido
+                refrescarListBox();
+
+                //Limpia todos los campos para rellenar de nuevo el formulario
+                limpiarCampos();
+            }
+        }
+
+
         // Permite mover la ventana
         protected override void WndProc(ref Message m)
         {
@@ -57,19 +169,19 @@ namespace SerializarJSON
         // Refrescar listBoxContenidos
         private void refrescarListBox()
         {
-            //listBoxContenidos.DataSource = null;
-            //listBoxContenidos.DataSource = listaContenidos;
-            //listBoxContenidos.DisplayMember = "displayMember";            
+            listBoxContenidos.DataSource = null;
+            listBoxContenidos.DataSource = listaPreguntas;
+            listBoxContenidos.DisplayMember = "pregunta";
         }
         
         // Botón para salir
         private void pictureBoxSortir_Click(object sender, EventArgs e)
         {
-            //var respuesta = MessageBox.Show("Segur que vols sortir?", "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            //if (respuesta == DialogResult.Yes)
-            //{
-            //    this.Close();
-            //}
+            var respuesta = MessageBox.Show("Segur que vols sortir?", "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }        
 
         // Selección de un elemento de la listbox de contenidos
@@ -122,70 +234,28 @@ namespace SerializarJSON
             //Importar JSON CODIGO
         }
 
-        // Boton Exportar
-        private void pictureBoxExportar_Click(object sender, EventArgs e)
+        // Boton Continuar
+        private void pictureBoxExportar_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            // Si hay alguna pregunta
+            if (listaPreguntas.Count > 0)
+            {
+                // Instancia un planeta nuevo
+                Planeta planeta = new Planeta(idPlaneta, contenido, listaPreguntas);
+
+                this.planeta = planeta;
+
+                this.Close();
+            }
+            else
+            {
+                //Error
+                MessageBox.Show("No hi han dades per guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
-        // Guardar y añadir a la listbox
-        private void pictureBoxGuardar_Click(object sender, EventArgs e)
-        {
-            //// Vacia la lista de respuestas
-            //listaRespuestas.Clear();
 
-            //// Instancia 4 respuestas (Algunas pueden contener string vacío)
-            //Respuesta a = new Respuesta(textBoxResposta1.Text);
-            //Respuesta b = new Respuesta(textBoxResposta2.Text);
-            //Respuesta c = new Respuesta(textBoxResposta3.Text);
-            //Respuesta d = new Respuesta(textBoxResposta4.Text);
-
-            //// Añade las 4 respuesta a la listaRespuestas
-            //listaRespuestas.Add(a);
-            //listaRespuestas.Add(b);
-            //listaRespuestas.Add(c);
-            //listaRespuestas.Add(d);
-
-            //// Si el formulario es correcto
-            //if (validarDatos(textBoxPregunta.Text, listaRespuestas))
-            //{
-            //    // Instancia pregunta con id, dificultad y la pregunta
-            //    Pregunta pregunta = new Pregunta(idPregunta, dificultat(), textBoxPregunta.Text);
-                
-            //    // La siguiente pregunta tendrá un id distinto
-            //    idPregunta++;
-
-            //    // Instancia 4 respuestas con id, respuesta y si es correcta o no
-            //    //  (Algunas pueden contener string vacío)
-            //    Respuesta respuestaA = new Respuesta(1, a.strResposta, esCorrecte(1));
-            //    Respuesta respuestaB = new Respuesta(2, b.strResposta, esCorrecte(2));
-            //    Respuesta respuestaC = new Respuesta(3, c.strResposta, esCorrecte(3));
-            //    Respuesta respuestaD = new Respuesta(4, d.strResposta, esCorrecte(4));
-
-            //    //Vacia la lista de respuestas
-            //    listaRespuestas.Clear();
-
-            //    //Añade aquellas respuestas que contengan una respuesta(string) a la lista
-            //    listaRespuestas.Add(respuestaA);
-            //    listaRespuestas.Add(respuestaB);
-            //    listaRespuestas.Add(respuestaC);
-            //    listaRespuestas.Add(respuestaD);
-                    
-                
-
-            //    //Instancia y crea contenido
-            //    Contenido contenido = new Contenido(pregunta, listaRespuestas, respCorrecte(respuestaA, respuestaB, respuestaC, respuestaD));
-
-            //    //Añade contenido a la lista de contenidos
-            //    listaContenidos.Add(contenido);
-
-            //    //Añade al listBox el nuevo contenido
-            //    refrescarListBox();
-
-            //    //Limpia textboxs
-            //    limpiarCampos();
-            //}
-        }
 
         //Limpia todos los campos para poder añadir una nueva pregunta
         private void pictureBoxNetejar_Click(object sender, EventArgs e)
@@ -214,40 +284,40 @@ namespace SerializarJSON
 
         // Afegir textbox resposta
         private void pictureBoxAfegir_Click(object sender, EventArgs e)
-        {            
-            //if (!textBoxResposta3.Visible)
-            //{
-            //    textBoxResposta3.Visible = true;
-            //    radioButtonC.Visible = true;
-            //    nRespostes++;
-            //}
-            //else if (!textBoxResposta4.Visible)
-            //{
-            //    textBoxResposta4.Visible = true;
-            //    radioButtonD.Visible = true;
-            //    nRespostes++;
-            //}
+        {
+            if (!textBoxResposta3.Visible)
+            {
+                textBoxResposta3.Visible = true;
+                radioButtonC.Visible = true;
+                nRespostes++;
+            }
+            else if (!textBoxResposta4.Visible)
+            {
+                textBoxResposta4.Visible = true;
+                radioButtonD.Visible = true;
+                nRespostes++;
+            }
         }
 
         // Eliminar textbox reposta
         private void pictureBoxEliminar_Click(object sender, EventArgs e)
         {
-            //if (textBoxResposta4.Visible)
-            //{
-            //    textBoxResposta4.Visible = false;
-            //    textBoxResposta4.Clear();
-            //    radioButtonD.Visible = false;
-            //    radioButtonD.Checked = false;
-            //    nRespostes--;
-            //}
-            //else if (textBoxResposta3.Visible)
-            //{
-            //    textBoxResposta3.Visible = false;
-            //    textBoxResposta3.Clear();
-            //    radioButtonC.Visible = false;
-            //    radioButtonC.Checked = false;
-            //    nRespostes--;
-            //}
+            if (textBoxResposta4.Visible)
+            {
+                textBoxResposta4.Visible = false;
+                textBoxResposta4.Clear();
+                radioButtonD.Visible = false;
+                radioButtonD.Checked = false;
+                nRespostes--;
+            }
+            else if (textBoxResposta3.Visible)
+            {
+                textBoxResposta3.Visible = false;
+                textBoxResposta3.Clear();
+                radioButtonC.Visible = false;
+                radioButtonC.Checked = false;
+                nRespostes--;
+            }
         }
 
         // Abre ventana de ayuda
@@ -278,235 +348,59 @@ namespace SerializarJSON
          *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
          */
 
-        ///// <summary>
-        ///// Limpia textbox pregunta/respuestas y desmarca todos los radioButtons.
-        ///// </summary>
-        //private void limpiarCampos()
-        //{
-        //    textBoxPregunta.Clear();
-        //    textBoxResposta1.Clear();
-        //    textBoxResposta2.Clear();
-        //    textBoxResposta3.Clear();
-        //    textBoxResposta4.Clear();
+        /// <summary>
+        /// Limpia textbox pregunta/respuestas y desmarca todos los radioButtons.
+        /// </summary>
+        private void limpiarCampos()
+        {
+            textBoxPregunta.Clear();
+            textBoxResposta1.Clear();
+            textBoxResposta2.Clear();
+            textBoxResposta3.Clear();
+            textBoxResposta4.Clear();
 
-        //    radioButtonA.Checked = false;
-        //    radioButtonB.Checked = false;
-        //    radioButtonC.Checked = false;
-        //    radioButtonD.Checked = false;
+            radioButtonA.Checked = false;
+            radioButtonB.Checked = false;
+            radioButtonC.Checked = false;
+            radioButtonD.Checked = false;
 
-        //    radioButtonDificil.Checked = false;
-        //    radioButtonFacil.Checked = false;
-        //}
+            radioButtonDificil.Checked = false;
+            radioButtonFacil.Checked = false;
+        }
 
-        ///// <summary>
-        ///// Retorna TRUE si se ha seleccionado alguna respuesta correcta
-        ///// </summary>
-        ///// <returns></returns>
-        //private bool respostaCorrecteSeleccioanda()
-        //{
-        //    //Resposta correcte seleccionada
-        //    bool correcte = false;
-        //    if (radioButtonA.Checked || radioButtonB.Checked || radioButtonC.Checked || radioButtonD.Checked)
-        //    {
-        //        correcte = true;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Selecciona quina és la resposta correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        panelRespostaCorrecte.Focus();
-        //    }
+        /// <summary>
+        /// Retorna FALSE si falta por marcar un radioButton
+        /// </summary>
+        /// <returns></returns>
+        private bool radioCheck()
+        {
+            //Resposta correcte seleccionada
+            bool retorno = false;
 
-        //    return correcte;
-        //}
+            if (radioButtonA.Checked || radioButtonB.Checked || radioButtonC.Checked || radioButtonD.Checked)
+            {
+                retorno = true;
+            }
+            else
+            {
+                //Error
+                MessageBox.Show("Indica una resposta correcte", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                panelRespostaCorrecte.Focus();
+            }
+            if (radioButtonFacil.Checked || radioButtonDificil.Checked)
+            {
+                retorno = true;
+            }
+            else
+            {
+                //Error
+                MessageBox.Show("Indica una dificultat", "Error dificultat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                panelRespostaCorrecte.Focus();
+            }
 
-        ///// <summary>
-        ///// Retorna TRUE si se ha seleccionado una dificultad.
-        ///// </summary>
-        ///// <returns></returns>
-        //private bool dificultatSeleccionada()
-        //{
-        //    // Dificultat seleccionada
-        //    bool dificultat = false;
-        //    if (radioButtonFacil.Checked || radioButtonDificil.Checked)
-        //    {
-        //        dificultat = true;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Selecciona la dificultat de la pregunta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        textBoxPregunta.Focus();
-        //    }
+            return retorno;
+        }
 
-        //    return dificultat;
-        //}
-
-        ///// <summary>
-        ///// Si el usuario ha rellenado el formulario y no existe ya la pregunta: retorna TRUE. Sino FALSE.
-        ///// </summary>
-        ///// <param name="pregunta"></param>
-        ///// <param name="respostes"></param>
-        ///// <returns></returns>
-        //private bool validarDatos(String pregunta, List<Respuesta> respostes)
-        //{
-        //    //Comprovacion datos validos
-        //    bool formularioCorrecto = false;
-
-        //    if ((!string.IsNullOrEmpty(textBoxPregunta.Text)) && comprobarRespuestas(respostes) && respostaCorrecteSeleccioanda() && dificultatSeleccionada() && (!comprobarRepetidas()))
-        //    {
-        //        formularioCorrecto = true;
-        //    }
-
-        //    return formularioCorrecto;
-        //}
-
-        ///// <summary>
-        ///// Devuelve TRUE si la pregunta ya existe. Sino FALSE.
-        ///// </summary>
-        ///// <returns></returns>
-        //private bool comprobarRepetidas()
-        //{
-        //    bool coincidencia = false;
-        //    for (int i = 0; i < listaContenidos.Count; i++)
-        //    {
-        //        if (textBoxPregunta.Text == listaContenidos[i].pregunta.strPregunta)
-        //        {
-        //            MessageBox.Show("Aquesta pregunta ja existeix", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            textBoxPregunta.Focus();
-        //            coincidencia = true;
-        //        }
-        //    }
-        //    return coincidencia;
-        //}
-
-        ///// <summary>
-        ///// Comprueba que todas las respuestas no sean nulas o estén vacías. Usa método respuestaIsNullOrEmpty().
-        ///// </summary>
-        ///// <param name="respostes"></param>
-        ///// <returns></returns>
-        //private bool comprobarRespuestas(List<Respuesta> ListRespostes)
-        //{
-        //    bool retorno = false;
-        //    byte numRespCorrectes = 0;
-        //    for (int i = 0; i < nRespostes; i++)
-        //    {
-        //        if (respuestaIsNullOrEmpty(ListRespostes[i].strResposta))
-        //        {
-        //            numRespCorrectes++;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Introdueix la resposta que falta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //    if (numRespCorrectes == nRespostes)
-        //    {
-        //        retorno = true;
-        //    }
-        //    return retorno;
-        //}
-
-        ///// <summary>
-        ///// Retorna TRUE si la respuesta es nula o vacía, sino FALSE
-        ///// </summary>
-        ///// <param name="respuesta"></param>
-        ///// <returns></returns>
-        //private bool respuestaIsNullOrEmpty(String respuesta)
-        //{
-        //    bool retorno = true;
-        //    if (string.IsNullOrEmpty(respuesta))
-        //    {
-        //        retorno = false;
-        //    }
-        //    return retorno;
-        //}
-
-        ///// <summary>
-        ///// Devuelve TRUE si la pregunta es dificil, FALSE si es facil.
-        ///// </summary>
-        ///// <returns></returns>
-        //private bool dificultat()
-        //{
-        //    bool dificultat = false;
-        //    if (radioButtonDificil.Checked)
-        //    {
-        //        dificultat = true;
-        //    }
-        //    return dificultat;
-        //}
-
-        ///// <summary>
-        ///// Retorna: 0 = ERROR // Numero de la respuesta correcta (1,2,3,4)
-        ///// </summary>
-        ///// <param name="respuestaA"></param>
-        ///// <param name="respuestaB"></param>
-        ///// <param name="respuestaC"></param>
-        ///// <param name="respuestaD"></param>
-        ///// <returns></returns>
-        //private static byte respCorrecte(Respuesta respuestaA, Respuesta respuestaB, Respuesta respuestaC, Respuesta respuestaD)
-        //{
-        //    byte respCorrecte = 0;
-        //    if (respuestaA.esCorrecte)
-        //    {
-        //        respCorrecte = 1;
-        //    }
-        //    else if (respuestaB.esCorrecte)
-        //    {
-        //        respCorrecte = 2;
-        //    }
-        //    else if (respuestaC.esCorrecte)
-        //    {
-        //        respCorrecte = 3;
-        //    }
-        //    else if (respuestaD.esCorrecte)
-        //    {
-        //        respCorrecte = 4;
-        //    }
-        //    return respCorrecte;
-        //}
-
-        ///// <summary>
-        ///// Retorna TRUE si esta respuesta es marcada como correcta, sino FALSE.
-        ///// </summary>
-        ///// <param name="v"></param>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //private bool esCorrecte(byte id)
-        //{
-        //    bool correcte = false;
-        //    switch (id)
-        //    {
-        //        case 1:
-        //            if (radioButtonA.Checked)
-        //            {
-        //                correcte = true;
-        //            }
-        //            break;
-        //        case 2:
-        //            if (radioButtonB.Checked)
-        //            {
-        //                correcte = true;
-        //            }
-        //            break;
-        //        case 3:
-        //            if (radioButtonC.Checked)
-        //            {
-        //                correcte = true;
-        //            }
-        //            break;
-        //        case 4:
-        //            if (radioButtonD.Checked)
-        //            {
-        //                correcte = true;
-        //            }
-        //            break;
-
-        //    }
-
-        //    return correcte;
-        //}
-
-
-
-
+        
     }
 }

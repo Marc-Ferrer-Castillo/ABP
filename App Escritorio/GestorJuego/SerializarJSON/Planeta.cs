@@ -6,10 +6,24 @@ using System.Threading.Tasks;
 
 namespace SerializarJSON
 {
-    class Planeta
+    public class Planeta
     {
         public byte id { get; set; }
         public String contenido { get; set; }
         public List<Pregunta> preguntas { get; set; }
+
+        public Planeta()
+        {
+        }       
+
+        public Planeta(byte id, string contenido, List<Pregunta> preguntas)
+        {
+            this.id = id;
+            this.contenido = contenido;
+            this.preguntas = preguntas;
+        }
+
+
+
     }
 }

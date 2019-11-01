@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestorContingut));
             this.pictureBoxSiguiente = new System.Windows.Forms.PictureBox();
+            this.textBoxContenido = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +44,17 @@
             this.pictureBoxSiguiente.TabStop = false;
             this.pictureBoxSiguiente.Click += new System.EventHandler(this.pictureBoxSiguiente_Click);
             // 
+            // textBoxContenido
+            // 
+            this.textBoxContenido.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBoxContenido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxContenido.Font = new System.Drawing.Font("Myriad Pro Cond", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContenido.Location = new System.Drawing.Point(99, 182);
+            this.textBoxContenido.Multiline = true;
+            this.textBoxContenido.Name = "textBoxContenido";
+            this.textBoxContenido.Size = new System.Drawing.Size(1026, 336);
+            this.textBoxContenido.TabIndex = 1;
+            // 
             // FormGestorContingut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -50,6 +62,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1230, 600);
+            this.Controls.Add(this.textBoxContenido);
             this.Controls.Add(this.pictureBoxSiguiente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1230, 600);
@@ -59,11 +72,13 @@
             this.Text = "FormGestorContingut";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxSiguiente;
+        private System.Windows.Forms.TextBox textBoxContenido;
     }
 }

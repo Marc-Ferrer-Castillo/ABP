@@ -50,6 +50,7 @@
             // pictureBoxSortir
             // 
             this.pictureBoxSortir.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxSortir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxSortir.Location = new System.Drawing.Point(422, 13);
             this.pictureBoxSortir.Name = "pictureBoxSortir";
             this.pictureBoxSortir.Size = new System.Drawing.Size(69, 29);
@@ -60,6 +61,7 @@
             // pictureBoxMinimizar
             // 
             this.pictureBoxMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxMinimizar.Location = new System.Drawing.Point(350, 13);
             this.pictureBoxMinimizar.Name = "pictureBoxMinimizar";
             this.pictureBoxMinimizar.Size = new System.Drawing.Size(66, 29);
@@ -70,6 +72,7 @@
             // pictureBoxAjuda
             // 
             this.pictureBoxAjuda.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxAjuda.Cursor = System.Windows.Forms.Cursors.Help;
             this.pictureBoxAjuda.Location = new System.Drawing.Point(286, 12);
             this.pictureBoxAjuda.Name = "pictureBoxAjuda";
             this.pictureBoxAjuda.Size = new System.Drawing.Size(33, 30);
@@ -90,6 +93,7 @@
             // comboBoxIdioma
             // 
             this.comboBoxIdioma.BackColor = System.Drawing.Color.White;
+            this.comboBoxIdioma.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIdioma.Font = new System.Drawing.Font("Myriad Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxIdioma.FormattingEnabled = true;
@@ -118,6 +122,7 @@
             // pictureBoxPlaneta1
             // 
             this.pictureBoxPlaneta1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPlaneta1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPlaneta1.Image = global::SerializarJSON.Properties.Resources.Planeta1false;
             this.pictureBoxPlaneta1.Location = new System.Drawing.Point(48, 237);
             this.pictureBoxPlaneta1.Name = "pictureBoxPlaneta1";
@@ -129,6 +134,7 @@
             // pictureBoxPlaneta2
             // 
             this.pictureBoxPlaneta2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPlaneta2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPlaneta2.Image = global::SerializarJSON.Properties.Resources.planeta2false;
             this.pictureBoxPlaneta2.Location = new System.Drawing.Point(198, 237);
             this.pictureBoxPlaneta2.Name = "pictureBoxPlaneta2";
@@ -140,6 +146,7 @@
             // pictureBoxPlaneta3
             // 
             this.pictureBoxPlaneta3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPlaneta3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPlaneta3.Image = global::SerializarJSON.Properties.Resources.planeta3false;
             this.pictureBoxPlaneta3.Location = new System.Drawing.Point(347, 237);
             this.pictureBoxPlaneta3.Name = "pictureBoxPlaneta3";

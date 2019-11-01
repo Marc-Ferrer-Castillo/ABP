@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contenido.cs" />
     <Compile Include="FormAjuda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,10 +80,8 @@
     <Compile Include="FormGestorPreguntes.Designer.cs">
       <DependentUpon>FormGestorPreguntes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pregunta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Respuesta.cs" />
     <EmbeddedResource Include="FormAjuda.resx">
       <DependentUpon>FormAjuda.cs</DependentUpon>
     </EmbeddedResource>

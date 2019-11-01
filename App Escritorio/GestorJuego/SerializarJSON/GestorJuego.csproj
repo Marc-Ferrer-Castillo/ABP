@@ -80,8 +80,12 @@
     <Compile Include="FormGestorPreguntes.Designer.cs">
       <DependentUpon>FormGestorPreguntes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personaje.cs" />
+    <Compile Include="Planeta.cs" />
+    <Compile Include="Pregunta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Respuesta.cs" />
     <EmbeddedResource Include="FormAjuda.resx">
       <DependentUpon>FormAjuda.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +148,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\esp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Planeta1true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeta2true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeta3true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Planeta1false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeta2false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeta3false.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

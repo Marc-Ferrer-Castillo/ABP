@@ -97,9 +97,9 @@
             "Català",
             "Castellà",
             "Anglés"});
-            this.comboBoxIdioma.Location = new System.Drawing.Point(189, 123);
+            this.comboBoxIdioma.Location = new System.Drawing.Point(192, 123);
             this.comboBoxIdioma.Name = "comboBoxIdioma";
-            this.comboBoxIdioma.Size = new System.Drawing.Size(121, 33);
+            this.comboBoxIdioma.Size = new System.Drawing.Size(113, 33);
             this.comboBoxIdioma.TabIndex = 7;
             this.comboBoxIdioma.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdioma_SelectedIndexChanged);
             // 
@@ -118,9 +118,10 @@
             // pictureBoxPlaneta1
             // 
             this.pictureBoxPlaneta1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxPlaneta1.Location = new System.Drawing.Point(52, 237);
+            this.pictureBoxPlaneta1.Image = global::SerializarJSON.Properties.Resources.Planeta1false;
+            this.pictureBoxPlaneta1.Location = new System.Drawing.Point(48, 237);
             this.pictureBoxPlaneta1.Name = "pictureBoxPlaneta1";
-            this.pictureBoxPlaneta1.Size = new System.Drawing.Size(98, 96);
+            this.pictureBoxPlaneta1.Size = new System.Drawing.Size(105, 96);
             this.pictureBoxPlaneta1.TabIndex = 9;
             this.pictureBoxPlaneta1.TabStop = false;
             this.pictureBoxPlaneta1.Click += new System.EventHandler(this.pictureBoxPlaneta1_Click);
@@ -128,9 +129,10 @@
             // pictureBoxPlaneta2
             // 
             this.pictureBoxPlaneta2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxPlaneta2.Location = new System.Drawing.Point(201, 237);
+            this.pictureBoxPlaneta2.Image = global::SerializarJSON.Properties.Resources.planeta2false;
+            this.pictureBoxPlaneta2.Location = new System.Drawing.Point(198, 237);
             this.pictureBoxPlaneta2.Name = "pictureBoxPlaneta2";
-            this.pictureBoxPlaneta2.Size = new System.Drawing.Size(99, 96);
+            this.pictureBoxPlaneta2.Size = new System.Drawing.Size(104, 96);
             this.pictureBoxPlaneta2.TabIndex = 10;
             this.pictureBoxPlaneta2.TabStop = false;
             this.pictureBoxPlaneta2.Click += new System.EventHandler(this.pictureBoxPlaneta2_Click);
@@ -138,9 +140,10 @@
             // pictureBoxPlaneta3
             // 
             this.pictureBoxPlaneta3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxPlaneta3.Location = new System.Drawing.Point(350, 237);
+            this.pictureBoxPlaneta3.Image = global::SerializarJSON.Properties.Resources.planeta3false;
+            this.pictureBoxPlaneta3.Location = new System.Drawing.Point(347, 237);
             this.pictureBoxPlaneta3.Name = "pictureBoxPlaneta3";
-            this.pictureBoxPlaneta3.Size = new System.Drawing.Size(97, 96);
+            this.pictureBoxPlaneta3.Size = new System.Drawing.Size(101, 96);
             this.pictureBoxPlaneta3.TabIndex = 11;
             this.pictureBoxPlaneta3.TabStop = false;
             this.pictureBoxPlaneta3.Click += new System.EventHandler(this.pictureBoxPlaneta3_Click);
@@ -151,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SerializarJSON.Properties.Resources.Menu_Inici_0;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(500, 599);
+            this.ClientSize = new System.Drawing.Size(500, 600);
             this.Controls.Add(this.pictureBoxPlaneta3);
             this.Controls.Add(this.pictureBoxPlaneta2);
             this.Controls.Add(this.pictureBoxPlaneta1);
@@ -162,7 +165,11 @@
             this.Controls.Add(this.pictureBoxMinimizar);
             this.Controls.Add(this.pictureBoxSortir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(500, 600);
+            this.MinimumSize = new System.Drawing.Size(500, 600);
             this.Name = "FormMenuPrincipal";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();

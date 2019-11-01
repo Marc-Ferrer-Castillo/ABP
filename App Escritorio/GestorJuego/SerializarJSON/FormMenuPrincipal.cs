@@ -109,17 +109,17 @@ namespace SerializarJSON
         // Click Planeta 1
         private void pictureBoxPlaneta1_Click(object sender, EventArgs e)
         {
-
+            pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
         }
         // Click Planeta 2
         private void pictureBoxPlaneta2_Click(object sender, EventArgs e)
         {
-
+            pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2true;
         }
         // Click Planeta 3
         private void pictureBoxPlaneta3_Click(object sender, EventArgs e)
         {
-
+            pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;
         }
     }
 }

@@ -12,8 +12,16 @@ namespace SerializarJSON
 {
     public partial class FormAjuda : Form
     {
+        //Constantes necesarias para mover form
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
+
         public FormAjuda(byte idAjuda)
         {
+            InitializeComponent();
+
             if (idAjuda == 0)
             {
                 //muestra la ayuda del gestor de preguntas
@@ -26,7 +34,16 @@ namespace SerializarJSON
             {
                 //muestra la ayuda del gestor de contingut
             }
-            InitializeComponent();
+            else if (idAjuda == 3)
+            {
+                // muestra la ayuda del menu principal
+                pictureBoxAjudaMainMenu.Visible = true;
+            }            
+        }
+
+        private void FormAjuda_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

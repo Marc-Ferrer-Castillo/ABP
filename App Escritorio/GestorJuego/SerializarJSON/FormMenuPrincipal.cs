@@ -50,7 +50,7 @@ namespace SerializarJSON
         // Abre ventana de ayuda
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            FormAjuda ajuda = new FormAjuda(0);
+            FormAjuda ajuda = new FormAjuda(3);
             ajuda.Show();
         }
 

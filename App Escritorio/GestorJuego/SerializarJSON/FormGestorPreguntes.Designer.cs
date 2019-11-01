@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestorPreguntes));
             this.pictureBoxSortir = new System.Windows.Forms.PictureBox();
             this.textBoxPregunta = new System.Windows.Forms.TextBox();
             this.groupBoxContenido = new System.Windows.Forms.GroupBox();
@@ -376,7 +377,7 @@
             // 
             this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxExportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxExportar.Location = new System.Drawing.Point(1002, 547);
+            this.pictureBoxExportar.Location = new System.Drawing.Point(1002, 548);
             this.pictureBoxExportar.Name = "pictureBoxExportar";
             this.pictureBoxExportar.Size = new System.Drawing.Size(143, 42);
             this.pictureBoxExportar.TabIndex = 13;
@@ -387,7 +388,7 @@
             // 
             this.pictureBoxEliminarSel.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxEliminarSel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxEliminarSel.Location = new System.Drawing.Point(726, 547);
+            this.pictureBoxEliminarSel.Location = new System.Drawing.Point(726, 548);
             this.pictureBoxEliminarSel.Name = "pictureBoxEliminarSel";
             this.pictureBoxEliminarSel.Size = new System.Drawing.Size(191, 41);
             this.pictureBoxEliminarSel.TabIndex = 14;
@@ -404,12 +405,12 @@
             this.pictureBoxAjuda.TabStop = false;
             this.pictureBoxAjuda.Click += new System.EventHandler(this.pictureBoxAjuda_Click);
             // 
-            // GestorPreguntes
+            // FormGestorPreguntes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
-            this.BackgroundImage = global::SerializarJSON.Properties.Resources.UI_gestor_preguntes;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1230, 600);
             this.ControlBox = false;
@@ -427,7 +428,7 @@
             this.MaximumSize = new System.Drawing.Size(1230, 600);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1230, 600);
-            this.Name = "GestorPreguntes";
+            this.Name = "FormGestorPreguntes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editor de contingut";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).EndInit();

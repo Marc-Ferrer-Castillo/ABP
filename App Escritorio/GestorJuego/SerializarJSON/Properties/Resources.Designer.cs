@@ -123,6 +123,16 @@ namespace SerializarJSON.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gestor_de_Preguntes {
+            get {
+                object obj = ResourceManager.GetObject("Gestor de Preguntes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UI_gestor_personatge {
             get {
                 object obj = ResourceManager.GetObject("UI gestor personatge", resourceCulture);

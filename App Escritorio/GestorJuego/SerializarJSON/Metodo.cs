@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 /*
  *  Clase donde se guardarán todos los métodos de manera STATIC.
  *  Acceder desde cualquier Form de la siguiente manera: 
- *      objeto.metodo( );
+ *      Metodo.metodo()
  */
 namespace SerializarJSON
 {

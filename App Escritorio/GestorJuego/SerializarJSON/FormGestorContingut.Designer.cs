@@ -98,11 +98,12 @@
             // 
             this.pictureBoxMenu.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxMenu.Location = new System.Drawing.Point(0, 10);
+            this.pictureBoxMenu.Location = new System.Drawing.Point(0, 9);
             this.pictureBoxMenu.Name = "pictureBoxMenu";
-            this.pictureBoxMenu.Size = new System.Drawing.Size(125, 46);
+            this.pictureBoxMenu.Size = new System.Drawing.Size(125, 48);
             this.pictureBoxMenu.TabIndex = 5;
             this.pictureBoxMenu.TabStop = false;
+            this.pictureBoxMenu.Click += new System.EventHandler(this.pictureBoxCerrar_Click);
             // 
             // FormGestorContingut
             // 

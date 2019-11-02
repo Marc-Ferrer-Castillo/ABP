@@ -414,34 +414,24 @@ namespace SerializarJSON
         /// </summary>
         /// <returns></returns>
         private bool radioCheck()
-        {
-            //Resposta correcte seleccionada
+        {            
             bool retorno = false;
 
-            if (radioButtonA.Checked || radioButtonB.Checked || radioButtonC.Checked || radioButtonD.Checked)
+            //Resposta correcte seleccionada? //Dificultat seleccionada?
+            if ( radioButtonA.Checked || radioButtonB.Checked || radioButtonC.Checked || radioButtonD.Checked
+                || radioButtonFacil.Checked || radioButtonDificil.Checked )
             {
                 retorno = true;
             }
             else
             {
                 //Error
-                MessageBox.Show("Indica una resposta correcte", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Indica una resposta correcte i/o una dificultat de la pregunta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 panelRespostaCorrecte.Focus();
-            }
-            if (radioButtonFacil.Checked || radioButtonDificil.Checked)
-            {
-                retorno = true;
-            }
-            else
-            {
-                //Error
-                MessageBox.Show("Indica una dificultat", "Error dificultat", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                panelRespostaCorrecte.Focus();
-            }
+            }   
 
             return retorno;
         }
-
         
     }
 }

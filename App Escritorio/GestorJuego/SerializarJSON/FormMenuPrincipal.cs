@@ -7,7 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * Este es el primer formulario en abrirse, se instancia por primera vez desde la clase Program.cs por defecto
+ * 
+ * El código está ordenado respectivamente por Constantes, Variables, Eventos y Métodos
+ *      Nota: Existen más métodos en la clase Metodo (Archivo Metodo.cs) que se usan desde varios formularios (Reciclaje de código)
+ */
 namespace SerializarJSON
 {    
     public partial class FormMenuPrincipal : Form
@@ -111,7 +116,7 @@ namespace SerializarJSON
             //}
         }
         
-        // Cuanndo un idioma es seleccionado
+        // Cuando un idioma es seleccionado
         private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             // catala seleccionado
@@ -260,34 +265,35 @@ namespace SerializarJSON
         /// <param name="planeta"></param>
         private void guardarPlaneta(Planeta planeta)
         {
+            
             switch (planeta.id)
             {
-                case 0:
-                    planetas.Insert(0, planeta);
+                case 0:                    
+                    planetas[0] = planeta;
                     break;
                 case 1:
-                    planetas.Insert(1, planeta);
+                    planetas[1] = planeta;
                     break;
                 case 2:
-                    planetas.Insert(2, planeta);
+                    planetas[2] = planeta;
                     break;
                 case 3:
-                    planetas.Insert(3, planeta);
+                    planetas[3] = planeta;
                     break;
                 case 4:
-                    planetas.Insert(4, planeta);
+                    planetas[4] = planeta;
                     break;
                 case 5:
-                    planetas.Insert(5, planeta);
+                    planetas[5] = planeta;
                     break;
                 case 6:
-                    planetas.Insert(6, planeta);
+                    planetas[6] = planeta;
                     break;
                 case 7:
-                    planetas.Insert(7, planeta);
+                    planetas[7] = planeta;
                     break;
                 case 8:
-                    planetas.Insert(8, planeta);
+                    planetas[8] = planeta;
                     break;
             }
         }

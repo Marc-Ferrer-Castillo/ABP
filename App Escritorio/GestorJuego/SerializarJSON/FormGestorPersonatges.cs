@@ -39,7 +39,7 @@ namespace SerializarJSON
         *                                                                           
         */
 
-        //lista para los 3 personajes
+        // Lista para los 3 personajes
         List<Personaje> personajes = new List<Personaje>();
 
 
@@ -77,17 +77,7 @@ namespace SerializarJSON
             base.WndProc(ref m);
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        //metodo para inicializar los personajes
-        private void inicializarPersonajes()
-        {
-            foreach (var personaje in personajes)
-            {
-                personaje.nom = "";
-                personaje.frase = "";
-            }
-        }        
+        }            
 
         private void FormGestorPersonatges_Load(object sender, EventArgs e)
         {
@@ -104,31 +94,25 @@ namespace SerializarJSON
             }
         }
 
-        //click volver al menu principal
+        // click volver al menu principal
         private void pictureBoxMenu_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        //click minimizar
+        // click minimizar
         private void pictureBoxMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        //click ajuda
+        // click ajuda
         private void pictureBoxAjuda_Click(object sender, EventArgs e)
         {
             //el id 1 del FormAjuda corresponde con la ayuda para el gestor de personajes
             FormAjuda ajuda = new FormAjuda(1);
             ajuda.Show();
-        }
-
-        //metodo para mostrar error en caso de que haya un campo vacio
-        private void campBuit()
-        {
-            MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        }        
 
         private void pictureBoxExportar_Click(object sender, EventArgs e)
         {
@@ -182,6 +166,33 @@ namespace SerializarJSON
 
 
 
+        }
+
+
+
+        /*    METODOS
+        *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗
+        *    ████╗ ████║ ██╔════╝╚══██╔══╝██╔═══██╗ ██╔══██╗  ██╔═══██╗ ██╔════╝
+        *    ██╔████╔██║ █████╗     ██║   ██║   ██║ ██║   ██║ ██║   ██║ ███████╗
+        *    ██║╚██╔╝██║ ██╔══╝     ██║   ██║   ██║ ██║  ██║  ██║   ██║ ╚════██║
+        *    ██║ ╚═╝ ██║ ███████╗   ██║   ╚██████╔╝ ██████╔╝  ╚██████╔╝ ███████║
+        *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
+        */
+
+        //metodo para inicializar los personajes
+        private void inicializarPersonajes()
+        {
+            foreach (var personaje in personajes)
+            {
+                personaje.nom = "";
+                personaje.frase = "";
+            }
+        }
+
+        // Muestra error en caso de que haya un campo vacio
+        private void campBuit()
+        {
+            MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

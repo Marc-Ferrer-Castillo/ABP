@@ -14,24 +14,23 @@ namespace SerializarJSON
         /// <summary>
         /// 0 == CAT / 1 == ESP / 2 == ENG
         /// </summary>
-        //public byte idioma { get; set; }
+        public byte idioma { get; set; }
 
         public Planeta()
         {
         }
 
-        public Planeta(byte id /*,byte idioma*/)
+        public Planeta(byte id )
         {
             this.id = id;
-           // this.idioma = idioma;
+           
         }
 
-        public Planeta(byte id, string contenido, List<Pregunta> preguntas/*, byte idioma*/)
+        public Planeta(byte id, string contenido, List<Pregunta> preguntas)
         {
             this.id = id;
             this.contenido = contenido;
             this.preguntas = preguntas;
-            //this.idioma = idioma;
         }
     }
 }

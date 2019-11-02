@@ -12,7 +12,7 @@ using System.IO;
 namespace SerializarJSON
 {
     public partial class FormGestorPreguntes : Form
-    {        
+    {
         /***
         *     ██████╗ ██████╗ ███╗   ██╗███████╗████████╗ █████╗ ███╗   ██╗████████╗███████╗███████╗
         *    ██╔════╝██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔══██╗████╗  ██║╚══██╔══╝██╔════╝██╔════╝
@@ -23,7 +23,10 @@ namespace SerializarJSON
         *                                                                                           
         */
 
-        //Constantes necesarias para mover form
+        // Máximo de respuestas por pregunta
+        private const byte MAX_RESPUESTAS = 4;
+
+        // Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
@@ -190,7 +193,7 @@ namespace SerializarJSON
                 }
 
                 // Instancia pregunta y la añade a la lista de preguntas
-                Pregunta pregunta = new Pregunta(idPregunta++, textBoxPregunta.Text, listaRespuestas, radioButtonFacil.Checked);
+                Pregunta pregunta = new Pregunta(idPregunta++, textBoxPregunta.Text, listaRespuestas, !radioButtonFacil.Checked);
                 listaPreguntas.Add(pregunta);
 
                 //Añade al listBox el nuevo contenido
@@ -222,45 +225,56 @@ namespace SerializarJSON
         // Selección de un elemento de la listbox de contenidos FALTA PROGRAMAR
         private void listBoxContenidos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ////Asigna a ContenidoMostrado el contenido seleccionado en la listbox
-            //    //(Contenido): Cast para convertir de object a Pelicula
-            //Contenido contenidoMostrado = (Contenido)listBoxContenidos.SelectedItem;
+            //Asigna a ContenidoMostrado el contenido seleccionado en la listbox
+            //(Contenido): Cast para convertir de object a Pelicula
+            Pregunta preguntaSeleccionada = (Pregunta)listBoxPreguntas.SelectedItem;
 
-            ////Si el contenido no es nulo
-            //if (contenidoMostrado != null)
-            //{
-            //    //Muestra en los campos correspondientes a los valores guardados
-            //    textBoxPregunta.Text = contenidoMostrado.pregunta.strPregunta;
-            //    textBoxResposta1.Text = contenidoMostrado.respuestas[0].strResposta;
-            //    textBoxResposta2.Text = contenidoMostrado.respuestas[1].strResposta;
-            //    textBoxResposta3.Text = contenidoMostrado.respuestas[2].strResposta;
-            //    textBoxResposta4.Text = contenidoMostrado.respuestas[3].strResposta;
+            //Si el contenido no es nulo
+            if (preguntaSeleccionada != null)
+            {
+                //Muestra la pregunta del elemento seleccionado
+                textBoxPregunta.Text = preguntaSeleccionada.pregunta;
 
-            //    switch (contenidoMostrado.respuestaCorrecta)
-            //    {
-            //        case 1:
-            //            radioButtonA.Checked = true;
-            //            break;
-            //        case 2:
-            //            radioButtonB.Checked = true;
-            //            break;
-            //        case 3:
-            //            radioButtonC.Checked = true;
-            //            break;
-            //        case 4:
-            //            radioButtonD.Checked = true;
-            //            break;
-            //    }
-            //    if (contenidoMostrado.pregunta.dificultat)
-            //    {
-            //        radioButtonDificil.Checked = true;
-            //    }
-            //    else
-            //    {
-            //        radioButtonFacil.Checked = true;
-            //    }
-            //}
-            
+                // Muestra tantas respuestas como contenga la pregunta
+                textBoxResposta1.Text = preguntaSeleccionada.respuestas[0].respuesta;
+                textBoxResposta2.Text = preguntaSeleccionada.respuestas[1].respuesta;
+                if ( preguntaSeleccionada.respuestas.Count == 3 )
+                {
+                    textBoxResposta3.Text = preguntaSeleccionada.respuestas[2].respuesta;
+                    if ( preguntaSeleccionada.respuestas.Count == 4 )
+                    {
+                        textBoxResposta4.Text = preguntaSeleccionada.respuestas[3].respuesta;
+                    }
+                }             
+                // Selecciona el radioButton de la respuesta correcta
+                if (preguntaSeleccionada.respuestas[0].esCorrecta)
+                {
+                    radioButtonA.Checked = true;
+                }
+                else if (preguntaSeleccionada.respuestas[1].esCorrecta)
+                {
+                    radioButtonB.Checked = true;
+                }
+                else if (preguntaSeleccionada.respuestas[1].esCorrecta)
+                {
+                    radioButtonC.Checked = true;
+                }
+                else 
+                {
+                    radioButtonD.Checked = true;
+                }
+
+                // Selecciona el radioButton con la dificultad de la pregunta
+                if ( preguntaSeleccionada.dificultad )
+                {
+                    radioButtonDificil.Checked = true;
+                }
+                else
+                {
+                    radioButtonFacil.Checked = true;
+                }
+            }
+
         }
      
         // Boton importar FALTA PROGRAMAR Y CAMBIAR NOMBRE
@@ -280,12 +294,18 @@ namespace SerializarJSON
         // Elimina elemento del listbox y de la lista de contenidos FALTA PROGRAMAR
         private void pictureBoxEliminarSel_Click(object sender, EventArgs e)
         {
-            //if (listBoxContenidos.SelectedItems.Count > 0)
-            //{
-            //    listaContenidos.RemoveAt(listBoxContenidos.SelectedIndex);
-            //    idPregunta--;
-            //    refrescarListBox();
-            //}
+            // Si hay por lo menos un elemento en la lista
+            if (listBoxPreguntas.SelectedItems.Count > 0)
+            {
+                // Quita de la lista de preguntas la pregunta seleccionada en la listbox
+                listaPreguntas.RemoveAt(listBoxPreguntas.SelectedIndex);
+
+                // Ahora hay una pregunta menos  ///PROBLEMA!: SI SE BORRA UNA PREGUNTA QUE NO SEA LA ULTIMA DE LA LISTA, LA SIGUIENTE PREGUNTA AÑADIDA TENDRÁ EL MISMO ID QUE LA ÚLTIMA
+                idPregunta--; 
+
+                // Vuelve a cargar la listbox
+                refrescarListBox();
+            }
         }
 
         // Minimizar formulario

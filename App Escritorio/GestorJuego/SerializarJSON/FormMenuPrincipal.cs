@@ -267,47 +267,7 @@ namespace SerializarJSON
             }
             // Cambia el color de los planetas si tienen > 0 preguntas
             colorPlanetas(comboBoxIdioma.SelectedIndex);
-        }
-
-        /// <summary>
-        /// Guarda el planeta recibido en su lugar de la lista
-        /// según su propiedad id
-        /// </summary>
-        /// <param name="planeta"></param>
-        private void guardarPlaneta(Planeta planeta)
-        {
-            
-            switch (planeta.id)
-            {
-                case 0:                    
-                    planetas[0] = planeta;
-                    break;
-                case 1:
-                    planetas[1] = planeta;
-                    break;
-                case 2:
-                    planetas[2] = planeta;
-                    break;
-                case 3:
-                    planetas[3] = planeta;
-                    break;
-                case 4:
-                    planetas[4] = planeta;
-                    break;
-                case 5:
-                    planetas[5] = planeta;
-                    break;
-                case 6:
-                    planetas[6] = planeta;
-                    break;
-                case 7:
-                    planetas[7] = planeta;
-                    break;
-                case 8:
-                    planetas[8] = planeta;
-                    break;
-            }
-        }
+        }        
 
         /// <summary>
         /// Instancia 9 planetas con su atributo id y una lista de 1 pregunta vacia en la priemera posicion
@@ -356,7 +316,7 @@ namespace SerializarJSON
                     pictureBoxBandera.Image = SerializarJSON.Properties.Resources.cat;
                     pictureBoxBandera.Visible = true;
 
-                    if (planetas[0].preguntas.Count > 1)
+                    if (planetas[0].preguntas.Count > 0 && Metodo.revisarContenido(planetas[0].preguntas[0].pregunta) )
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
@@ -366,7 +326,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1false;
                     }
-                    if (planetas[1].preguntas.Count > 1)
+                    if (planetas[1].preguntas.Count > 0 && Metodo.revisarContenido(planetas[1].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2true;
@@ -376,7 +336,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2false;
                     }
-                    if (planetas[2].preguntas.Count > 1)
+                    if (planetas[2].preguntas.Count > 0 && Metodo.revisarContenido(planetas[2].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;
@@ -393,7 +353,7 @@ namespace SerializarJSON
                     // Cambia la imagen y hace el control visible
                     pictureBoxBandera.Image = SerializarJSON.Properties.Resources.esp;
                     pictureBoxBandera.Visible = true;
-                    if (planetas[3].preguntas.Count > 1)
+                    if (planetas[3].preguntas.Count > 0 && Metodo.revisarContenido(planetas[3].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
@@ -403,7 +363,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1false;
                     }
-                    if (planetas[4].preguntas.Count > 1)
+                    if (planetas[4].preguntas.Count > 0 && Metodo.revisarContenido(planetas[4].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2true;
@@ -413,7 +373,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2false;
                     }
-                    if (planetas[5].preguntas.Count > 1)
+                    if (planetas[5].preguntas.Count > 0 && Metodo.revisarContenido(planetas[5].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;
@@ -430,7 +390,7 @@ namespace SerializarJSON
                     pictureBoxBandera.Image = SerializarJSON.Properties.Resources.eng;
                     pictureBoxBandera.Visible = true;
 
-                    if (planetas[6].preguntas.Count > 1)
+                    if (planetas[6].preguntas.Count > 1 && Metodo.revisarContenido(planetas[6].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
@@ -440,7 +400,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1false;
                     }
-                    if (planetas[7].preguntas.Count > 1)
+                    if (planetas[7].preguntas.Count > 1 && Metodo.revisarContenido(planetas[7].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2true;
@@ -450,7 +410,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2false;
                     }
-                    if (planetas[8].preguntas.Count > 1)
+                    if (planetas[8].preguntas.Count > 1 && Metodo.revisarContenido(planetas[8].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;

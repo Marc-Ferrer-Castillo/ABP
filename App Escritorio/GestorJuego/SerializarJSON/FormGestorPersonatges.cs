@@ -12,6 +12,9 @@ namespace SerializarJSON
 {
     public partial class FormGestorPersonatges : Form
     {
+        //lista para los 3 personajes
+        List<Personaje> personajes = new List<Personaje>();
+
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
@@ -25,10 +28,21 @@ namespace SerializarJSON
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
+        //metodo para inicializar los personajes
+        private void inicializarPersonajes()
+        {
+            foreach (var personaje in personajes)
+            {
+                personaje.nom = "";
+                personaje.frase = "";
+            }
+        }
+
         //inicializar componentes
         public FormGestorPersonatges()
         {
             InitializeComponent();
+            inicializarPersonajes();
         }
 
         private void FormGestorPersonatges_Load(object sender, EventArgs e)
@@ -61,26 +75,68 @@ namespace SerializarJSON
         //click ajuda
         private void pictureBoxAjuda_Click(object sender, EventArgs e)
         {
+            //el id 1 del FormAjuda corresponde con la ayuda para el gestor de personajes
             FormAjuda ajuda = new FormAjuda(1);
             ajuda.Show();
         }
 
+        //metodo para mostrar error en caso de que haya un campo vacio
+        private void campBuit()
+        {
+            MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void pictureBoxExportar_Click(object sender, EventArgs e)
         {
-            //lista para los 3 personajes
-            List<Personaje> personajes = new List<Personaje>();
 
-            //guardamos datos del personaje1
-            personajes[0].nom = textBoxNomP1.Text;
-            personajes[0].frase = textBoxDesc1.Text;
+            //si hay campos vacios avisamos al usuario con el metodo campBuit().
+            if (textBoxNomP1.Text == "")
+            {
+                campBuit();
+                textBoxNomP1.Focus();
+            }
+            else if (textBoxDesc1.Text == "")
+            {
+                campBuit();
+                textBoxDesc1.Focus();
+            }
+            else if (textBoxNomP2.Text == "")
+            {
+                campBuit();
+                textBoxNomP2.Focus();
+            }
+            else if (textBoxDesc2.Text == "")
+            {
+                campBuit();
+                textBoxDesc2.Focus();
+            }
+            else if (textBoxNomP3.Text == "")
+            {
+                campBuit();
+                textBoxNomP3.Focus();
+            }
+            else if (textBoxDesc3.Text == "")
+            {
+                campBuit();
+                textBoxDesc3.Focus();
+            }
+            else
+            {
+                //guardamos datos del personaje1
+                personajes[0].nom = textBoxNomP1.Text;
+                personajes[0].frase = textBoxDesc1.Text;
 
-            //guardamos datos del personaje2
-            personajes[1].nom = textBoxNomP2.Text;
-            personajes[1].frase = textBoxDesc2.Text;
+                //guardamos datos del personaje2
+                personajes[1].nom = textBoxNomP2.Text;
+                personajes[1].frase = textBoxDesc2.Text;
 
-            //guardamos datos del personaje3
-            personajes[2].nom = textBoxNomP3.Text;
-            personajes[2].frase = textBoxDesc3.Text;
+                //guardamos datos del personaje3
+                personajes[2].nom = textBoxNomP3.Text;
+                personajes[2].frase = textBoxDesc3.Text;
+            }
+
+
+
 
         }
     }

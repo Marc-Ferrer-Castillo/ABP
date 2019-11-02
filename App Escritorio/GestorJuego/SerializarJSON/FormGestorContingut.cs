@@ -24,5 +24,10 @@ namespace SerializarJSON
             FormGestorPreguntes  gestorPreguntes = new FormGestorPreguntes();
             gestorPreguntes.ShowDialog();
         }
+
+        private void FormGestorContingut_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

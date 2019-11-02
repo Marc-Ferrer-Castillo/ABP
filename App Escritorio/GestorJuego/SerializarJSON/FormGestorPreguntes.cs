@@ -81,17 +81,19 @@ namespace SerializarJSON
                 for (int i = 0; i < planeta.preguntas.Count; i++)
                 {
                     // Añade las preguntas a la lista
-                    listaPreguntas.Add(planeta.preguntas[i]);
+                    listaPreguntas.Add( planeta.preguntas[i]);
 
-                    // Borra la primera pregunta que viene vacía
-                    listaPreguntas.RemoveAt(0);
+                    // Borra la primera pregunta si viene vacía
+                    if ( ! Metodo.revisarContenido( listaPreguntas[0].pregunta ) )
+                    {
+                        listaPreguntas.RemoveAt(0);
+                    }
+                    
                 }
                 
                 refrescarListBox();
 
-            }catch (Exception) { }
-            
-                
+            }catch (Exception) {} 
             
         }
 

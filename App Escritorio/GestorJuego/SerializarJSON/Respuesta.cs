@@ -8,13 +8,11 @@ namespace SerializarJSON
 {
     public class Respuesta
     {
-        public byte id { get; set; }
         public String respuesta { get; set; }
         public bool esCorrecta { get; set; }
 
-        public Respuesta(byte id, string respuesta, bool esCorrecta)
+        public Respuesta(string respuesta, bool esCorrecta)
         {
-            this.id = id;
             this.respuesta = respuesta;
             this.esCorrecta = esCorrecta;
         }

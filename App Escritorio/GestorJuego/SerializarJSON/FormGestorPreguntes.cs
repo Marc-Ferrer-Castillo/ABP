@@ -45,9 +45,6 @@ namespace SerializarJSON
         // Guarda información de un planeta recibido del gestor de contenido
         Planeta planeta = new Planeta();
 
-        // Guarda el id de la pregunta
-        byte idPregunta = 0;
-
         // Lista para guardar 4 respuestas
         List<Respuesta> listaRespuestas = new List<Respuesta>();
 
@@ -175,25 +172,25 @@ namespace SerializarJSON
 
                 // Instancia tantas respuestas como textBoxs haya activado el usuario
                 // Después las añade a la lista
-                Respuesta a = new Respuesta(1, textBoxResposta1.Text, radioButtonA.Checked);
-                Respuesta b = new Respuesta(2, textBoxResposta2.Text, radioButtonB.Checked);
+                Respuesta a = new Respuesta(textBoxResposta1.Text, radioButtonA.Checked);
+                Respuesta b = new Respuesta(textBoxResposta2.Text, radioButtonB.Checked);
                 listaRespuestas.Add(a);
                 listaRespuestas.Add(b);
                 if (nRespostes == 3)
                 {
-                    Respuesta c = new Respuesta(3, textBoxResposta3.Text, radioButtonC.Checked);
+                    Respuesta c = new Respuesta(textBoxResposta3.Text, radioButtonC.Checked);
                     listaRespuestas.Add(c);
                 }
                 else if (nRespostes == 4)
                 {
-                    Respuesta c = new Respuesta(3, textBoxResposta3.Text, radioButtonC.Checked);
-                    Respuesta d = new Respuesta(4, textBoxResposta4.Text, radioButtonD.Checked);
+                    Respuesta c = new Respuesta(textBoxResposta3.Text, radioButtonC.Checked);
+                    Respuesta d = new Respuesta(textBoxResposta4.Text, radioButtonD.Checked);
                     listaRespuestas.Add(c);
                     listaRespuestas.Add(d);
                 }
 
                 // Instancia pregunta y la añade a la lista de preguntas
-                Pregunta pregunta = new Pregunta(idPregunta++, textBoxPregunta.Text, listaRespuestas, !radioButtonFacil.Checked);
+                Pregunta pregunta = new Pregunta(textBoxPregunta.Text, listaRespuestas, !radioButtonFacil.Checked);
                 listaPreguntas.Add(pregunta);
 
                 //Añade al listBox el nuevo contenido
@@ -303,9 +300,6 @@ namespace SerializarJSON
             {
                 // Quita de la lista de preguntas la pregunta seleccionada en la listbox
                 listaPreguntas.RemoveAt(listBoxPreguntas.SelectedIndex);
-
-                // Ahora hay una pregunta menos  ///PROBLEMA!: SI SE BORRA UNA PREGUNTA QUE NO SEA LA ULTIMA DE LA LISTA, LA SIGUIENTE PREGUNTA AÑADIDA TENDRÁ EL MISMO ID QUE LA ÚLTIMA
-                idPregunta--; 
 
                 // Vuelve a cargar la listbox
                 refrescarListBox();

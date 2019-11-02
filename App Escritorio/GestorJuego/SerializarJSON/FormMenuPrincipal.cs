@@ -285,7 +285,7 @@ namespace SerializarJSON
             for (byte i = 0; i < MAX_PLANETAS; i++)
             {
                 // Instancia una pregunta con id 0 y string vacío
-                Pregunta preguntaVacia = new Pregunta(0, "");
+                Pregunta preguntaVacia = new Pregunta("");
                 
                 // Instancia una lista de preguntas vacias 
                 List<Pregunta> preguntasVacias = new List<Pregunta>();

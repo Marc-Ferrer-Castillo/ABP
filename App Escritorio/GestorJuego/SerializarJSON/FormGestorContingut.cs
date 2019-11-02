@@ -124,5 +124,25 @@ namespace SerializarJSON
             }
             
         }
+
+        // Abre el formulario de ayuda sobre este formulario
+        private void pictureBoxAyuda_Click(object sender, EventArgs e)
+        {
+            FormAjuda formAjuda = new FormAjuda(2);
+            formAjuda.Show();
+        }
+
+        // Cierra el formulario
+        private void pictureBoxCerrar_Click(object sender, EventArgs e)
+        {
+            // Pregunta si esta seguro que desea cerrar
+            var respuesta = MessageBox.Show("Els canvis no es desaran\nSegur que vols sortir?", "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            
+            // Si es así, se cierra el form
+            if (respuesta == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

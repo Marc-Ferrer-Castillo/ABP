@@ -31,7 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestorContingut));
             this.pictureBoxSiguiente = new System.Windows.Forms.PictureBox();
             this.textBoxContenido = new System.Windows.Forms.TextBox();
+            this.pictureBoxAyuda = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMinimizar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAyuda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSiguiente
@@ -55,6 +63,47 @@
             this.textBoxContenido.Size = new System.Drawing.Size(1026, 336);
             this.textBoxContenido.TabIndex = 1;
             // 
+            // pictureBoxAyuda
+            // 
+            this.pictureBoxAyuda.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxAyuda.Location = new System.Drawing.Point(977, 12);
+            this.pictureBoxAyuda.Name = "pictureBoxAyuda";
+            this.pictureBoxAyuda.Size = new System.Drawing.Size(38, 40);
+            this.pictureBoxAyuda.TabIndex = 2;
+            this.pictureBoxAyuda.TabStop = false;
+            this.pictureBoxAyuda.Click += new System.EventHandler(this.pictureBoxAyuda_Click);
+            // 
+            // pictureBoxMinimizar
+            // 
+            this.pictureBoxMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxMinimizar.Location = new System.Drawing.Point(1053, 16);
+            this.pictureBoxMinimizar.Name = "pictureBoxMinimizar";
+            this.pictureBoxMinimizar.Size = new System.Drawing.Size(79, 34);
+            this.pictureBoxMinimizar.TabIndex = 3;
+            this.pictureBoxMinimizar.TabStop = false;
+            // 
+            // pictureBoxCerrar
+            // 
+            this.pictureBoxCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCerrar.Location = new System.Drawing.Point(1143, 16);
+            this.pictureBoxCerrar.Name = "pictureBoxCerrar";
+            this.pictureBoxCerrar.Size = new System.Drawing.Size(79, 34);
+            this.pictureBoxCerrar.TabIndex = 4;
+            this.pictureBoxCerrar.TabStop = false;
+            this.pictureBoxCerrar.Click += new System.EventHandler(this.pictureBoxCerrar_Click);
+            // 
+            // pictureBoxMenu
+            // 
+            this.pictureBoxMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxMenu.Location = new System.Drawing.Point(0, 10);
+            this.pictureBoxMenu.Name = "pictureBoxMenu";
+            this.pictureBoxMenu.Size = new System.Drawing.Size(125, 46);
+            this.pictureBoxMenu.TabIndex = 5;
+            this.pictureBoxMenu.TabStop = false;
+            // 
             // FormGestorContingut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -62,6 +111,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1230, 600);
+            this.Controls.Add(this.pictureBoxMenu);
+            this.Controls.Add(this.pictureBoxCerrar);
+            this.Controls.Add(this.pictureBoxMinimizar);
+            this.Controls.Add(this.pictureBoxAyuda);
             this.Controls.Add(this.textBoxContenido);
             this.Controls.Add(this.pictureBoxSiguiente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -71,6 +124,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGestorContingut";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAyuda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,5 +137,9 @@
 
         private System.Windows.Forms.PictureBox pictureBoxSiguiente;
         private System.Windows.Forms.TextBox textBoxContenido;
+        private System.Windows.Forms.PictureBox pictureBoxAyuda;
+        private System.Windows.Forms.PictureBox pictureBoxMinimizar;
+        private System.Windows.Forms.PictureBox pictureBoxCerrar;
+        private System.Windows.Forms.PictureBox pictureBoxMenu;
     }
 }

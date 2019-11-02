@@ -62,7 +62,10 @@
             // pictureBoxMinimizar
             // 
             this.pictureBoxMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxMinimizar.ErrorImage = null;
+            this.pictureBoxMinimizar.InitialImage = null;
             this.pictureBoxMinimizar.Location = new System.Drawing.Point(819, 12);
             this.pictureBoxMinimizar.Name = "pictureBoxMinimizar";
             this.pictureBoxMinimizar.Size = new System.Drawing.Size(84, 33);

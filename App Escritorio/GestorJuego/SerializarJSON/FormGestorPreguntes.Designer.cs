@@ -342,6 +342,7 @@
             this.pictureBoxGestContingut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxGestContingut.TabIndex = 0;
             this.pictureBoxGestContingut.TabStop = false;
+            this.pictureBoxGestContingut.Click += new System.EventHandler(this.pictureBoxGestContingut_Click);
             // 
             // pictureBoxMinimizar
             // 

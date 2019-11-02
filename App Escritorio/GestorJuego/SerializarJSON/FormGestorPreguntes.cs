@@ -215,7 +215,11 @@ namespace SerializarJSON
         // Botón para salir
         private void pictureBoxSortir_Click(object sender, EventArgs e)
         {
-            var respuesta = MessageBox.Show("Segur que vols sortir?", "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            // Pregunta si esta seguro que desea cerrar
+            var respuesta = MessageBox.Show("Els canvis no es desaran\nSegur que vols sortir?", 
+                "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Si es así, se cierra el form
             if (respuesta == DialogResult.Yes)
             {
                 this.Close();
@@ -450,6 +454,23 @@ namespace SerializarJSON
             listBoxPreguntas.DataSource = null;
             listBoxPreguntas.DataSource = listaPreguntas;
             listBoxPreguntas.DisplayMember = "pregunta";
+        }
+
+        // Vuelve atrás al gestor de contenido                                                 
+        private void pictureBoxGestContingut_Click(object sender, EventArgs e)
+        {
+            // Pregunta si esta seguro que desea cerrar
+            var respuesta = MessageBox.Show("Els canvis no es desaran\nSegur que vols sortir?",
+                "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Si es así, se cierra el form
+            if (respuesta == DialogResult.Yes)
+            {
+                FormGestorContingut gestorContingut = new FormGestorContingut(planeta);
+                gestorContingut.ShowDialog();
+                this.Close();
+            }
+            
         }
     }
 }

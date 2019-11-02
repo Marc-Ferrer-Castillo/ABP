@@ -102,7 +102,10 @@ namespace SerializarJSON
         // Cerrar formulario
         private void pictureBoxSortir_Click(object sender, EventArgs e)
         {
-            var respuesta = MessageBox.Show("Segur que vols sortir?", "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            // Pregunta si esta seguro que desea cerrar
+            var respuesta = MessageBox.Show("Els canvis no es desaran\nSegur que vols sortir?", "Confirmar sortida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Si es así, se cierra el form
             if (respuesta == DialogResult.Yes)
             {
                 this.Close();

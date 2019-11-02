@@ -12,22 +12,38 @@ using System.IO;
 namespace SerializarJSON
 {
     public partial class FormGestorPreguntes : Form
-    {
-        // Guarda información de un planeta recibido del gestor de contenido
-        Planeta planeta = new Planeta();              
-
-        // Guarda el id de la pregunta
-        byte idPregunta = 0;
-
-        //
-        private const int MAX_PLANETAS = 3;
-        private const int MAX_IDIOMAS = 3;
-
+    {        
+        /***
+        *     ██████╗ ██████╗ ███╗   ██╗███████╗████████╗ █████╗ ███╗   ██╗████████╗███████╗███████╗
+        *    ██╔════╝██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔══██╗████╗  ██║╚══██╔══╝██╔════╝██╔════╝
+        *    ██║     ██║   ██║██╔██╗ ██║███████╗   ██║   ███████║██╔██╗ ██║   ██║   █████╗  ███████╗
+        *    ██║     ██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██║██║╚██╗██║   ██║   ██╔══╝  ╚════██║
+        *    ╚██████╗╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║██║ ╚████║   ██║   ███████╗███████║
+        *     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚══════╝
+        *                                                                                           
+        */
 
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
+
+
+        /***
+        *     █████╗ ████████╗██████╗ ██╗██████╗ ██╗   ██╗████████╗ ██████╗ ███████╗
+        *    ██╔══██╗╚══██╔══╝██╔══██╗██║██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██╔════╝
+        *    ███████║   ██║   ██████╔╝██║██████╔╝██║   ██║   ██║   ██║   ██║███████╗
+        *    ██╔══██║   ██║   ██╔══██╗██║██╔══██╗██║   ██║   ██║   ██║   ██║╚════██║
+        *    ██║  ██║   ██║   ██║  ██║██║██████╔╝╚██████╔╝   ██║   ╚██████╔╝███████║
+        *    ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═════╝  ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝
+        *                                                                           
+        */
+
+        // Guarda información de un planeta recibido del gestor de contenido
+        Planeta planeta = new Planeta();
+
+        // Guarda el id de la pregunta
+        byte idPregunta = 0;
 
         // Lista para guardar 4 respuestas
         List<Respuesta> listaRespuestas = new List<Respuesta>();
@@ -42,7 +58,15 @@ namespace SerializarJSON
         public byte nRespostes = 2;
 
 
-
+        /***
+        *     ██████╗ ██████╗ ███╗   ██╗███████╗████████╗██████╗ ██╗   ██╗ ██████╗████████╗ ██████╗ ██████╗ ███████╗███████╗
+        *    ██╔════╝██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗██╔════╝██╔════╝
+        *    ██║     ██║   ██║██╔██╗ ██║███████╗   ██║   ██████╔╝██║   ██║██║        ██║   ██║   ██║██████╔╝█████╗  ███████╗
+        *    ██║     ██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██╗██║   ██║██║        ██║   ██║   ██║██╔══██╗██╔══╝  ╚════██║
+        *    ╚██████╗╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║╚██████╔╝╚██████╗   ██║   ╚██████╔╝██║  ██║███████╗███████║
+        *     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝
+        *                                                                                                                   
+        */
 
         // Constructor del formulario
         public FormGestorPreguntes(Planeta planeta)
@@ -56,8 +80,13 @@ namespace SerializarJSON
             {
                 for (int i = 0; i < planeta.preguntas.Count; i++)
                 {
+                    // Añade las preguntas a la lista
                     listaPreguntas.Add(planeta.preguntas[i]);
+
+                    // Borra la primera pregunta que viene vacía
+                    listaPreguntas.RemoveAt(0);
                 }
+                
                 refrescarListBox();
 
             }catch (Exception) { }
@@ -77,8 +106,6 @@ namespace SerializarJSON
          *    ███████╗ ╚████╔╝  ███████╗ ██║ ╚████║   ██║   ╚██████╔╝ ███████║
          *    ╚══════╝  ╚═══╝   ╚══════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ╚══════╝                                                                 
          */
-
-
 
         // Guardar y añadir a la listbox
         private void pictureBoxGuardar_Click(object sender, EventArgs e)
@@ -172,7 +199,6 @@ namespace SerializarJSON
             }
         }
 
-
         // Permite mover la ventana
         protected override void WndProc(ref Message m)
         {
@@ -249,8 +275,6 @@ namespace SerializarJSON
             //Importar JSON CODIGO
         }
 
-
-
         //Limpia todos los campos para poder añadir una nueva pregunta FALTA PROGRAMAR
         private void pictureBoxNetejar_Click(object sender, EventArgs e)
         {
@@ -321,26 +345,17 @@ namespace SerializarJSON
             ajuda.Show();
         }
 
+        // Botón Continuar
         private void pictureBoxContinuar_Click(object sender, EventArgs e)
         {
             // Si hay alguna pregunta
             if (listaPreguntas.Count > 0)
             {
                 // Instancia un planeta nuevo                
-                Planeta planetaNuevo = new Planeta(this.planeta.id, this.planeta.contenido, listaPreguntas, this.planeta.idioma);
+                Planeta planetaNuevo = new Planeta(this.planeta.id, this.planeta.contenido, listaPreguntas);
 
-                // Guarda el planeta en el lugar correspondiente de la lista estatica de planetas
-                for (int i = 0; i < MAX_IDIOMAS; i++)
-                {
-                    for (int j = 0; j < MAX_PLANETAS; j++)
-                    {
-                        if (this.planeta.idioma.Equals(i) && this.planeta.id.Equals(j))
-                        {
-                            FormMenuPrincipal.planetas[i+j] = planetaNuevo;
-                        }
-                    }
-                }
-                                
+                FormMenuPrincipal.planetas[this.planeta.id] = planetaNuevo;
+
                 this.Close();
             }
             else
@@ -361,6 +376,7 @@ namespace SerializarJSON
             //}
 
         }
+
 
         /*    METODOS
          *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗

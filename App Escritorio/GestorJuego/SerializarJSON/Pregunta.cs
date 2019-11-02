@@ -21,5 +21,11 @@ namespace SerializarJSON
             this.respuestas = respuestas;
             this.dificultad = dificultad;
         }
+
+        public Pregunta(byte id, string pregunta)
+        {
+            this.id = id;
+            this.pregunta = pregunta;
+        }
     }
 }

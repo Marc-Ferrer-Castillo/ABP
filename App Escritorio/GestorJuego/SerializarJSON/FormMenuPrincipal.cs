@@ -131,5 +131,12 @@ namespace SerializarJSON
         {
             pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;
         }
+
+        //Obrir gestor de personatges
+        private void pictureBoxGestorPersonatges_Click(object sender, EventArgs e)
+        {
+            FormGestorPersonatges formGestorPersonatges = new FormGestorPersonatges();
+            formGestorPersonatges.Show();
+        }
     }
 }

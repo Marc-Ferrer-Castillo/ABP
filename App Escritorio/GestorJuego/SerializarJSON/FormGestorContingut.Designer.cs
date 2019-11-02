@@ -70,6 +70,7 @@
             this.Name = "FormGestorContingut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGestorContingut";
+            this.Load += new System.EventHandler(this.FormGestorContingut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

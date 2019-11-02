@@ -133,8 +133,8 @@
   <data name="planeta2false" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\planeta2false.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Planeta1true" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Planeta1true.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="planeta2false" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\planeta2false.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,11 +142,11 @@
   <data name="cat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Menu Inici 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Menu Inici 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="planeta3false" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\planeta3false.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Planeta1true" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Planeta1true.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="planeta3true" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\planeta3true.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +157,16 @@
   <data name="Planeta1false" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Planeta1false.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Gestor de Preguntes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gestor de Preguntes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Ajuda Personatges" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ajuda Personatges.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ajuda Contingut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ajuda Contingut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ajuda Menu Inici" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ajuda Menu Inici.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ajuda Preguntes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ajuda Preguntes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

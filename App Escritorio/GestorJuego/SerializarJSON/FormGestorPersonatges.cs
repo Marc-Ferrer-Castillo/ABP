@@ -82,10 +82,6 @@ namespace SerializarJSON
             personajes[2].nom = textBoxNomP3.Text;
             personajes[2].frase = textBoxDesc3.Text;
 
-
-
-
-
         }
     }
 }

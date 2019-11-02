@@ -74,7 +74,7 @@
             // pictureBoxAjuda
             // 
             this.pictureBoxAjuda.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxAjuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAjuda.Cursor = System.Windows.Forms.Cursors.Help;
             this.pictureBoxAjuda.Location = new System.Drawing.Point(286, 12);
             this.pictureBoxAjuda.Name = "pictureBoxAjuda";
             this.pictureBoxAjuda.Size = new System.Drawing.Size(33, 30);
@@ -85,7 +85,6 @@
             // pictureBoxExportar
             // 
             this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxExportar.Location = new System.Drawing.Point(179, 522);
             this.pictureBoxExportar.Name = "pictureBoxExportar";
             this.pictureBoxExportar.Size = new System.Drawing.Size(142, 42);
@@ -98,7 +97,7 @@
             this.comboBoxIdioma.BackColor = System.Drawing.Color.White;
             this.comboBoxIdioma.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxIdioma.Font = new System.Drawing.Font("Myriad Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxIdioma.FormattingEnabled = true;
             this.comboBoxIdioma.Items.AddRange(new object[] {
             "Català",
@@ -139,7 +138,7 @@
             this.pictureBoxPlaneta2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxPlaneta2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPlaneta2.Image = global::SerializarJSON.Properties.Resources.planeta2false;
-            this.pictureBoxPlaneta2.Location = new System.Drawing.Point(201, 237);
+            this.pictureBoxPlaneta2.Location = new System.Drawing.Point(198, 237);
             this.pictureBoxPlaneta2.Name = "pictureBoxPlaneta2";
             this.pictureBoxPlaneta2.Size = new System.Drawing.Size(104, 96);
             this.pictureBoxPlaneta2.TabIndex = 10;
@@ -162,10 +161,10 @@
             // 
             this.pictureBoxGestorPersonatges.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestorPersonatges.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestorPersonatges.Location = new System.Drawing.Point(179, 415);
+            this.pictureBoxGestorPersonatges.Location = new System.Drawing.Point(179, 414);
             this.pictureBoxGestorPersonatges.Name = "pictureBoxGestorPersonatges";
             this.pictureBoxGestorPersonatges.Size = new System.Drawing.Size(142, 42);
-            this.pictureBoxGestorPersonatges.TabIndex = 12;
+            this.pictureBoxGestorPersonatges.TabIndex = 13;
             this.pictureBoxGestorPersonatges.TabStop = false;
             this.pictureBoxGestorPersonatges.Click += new System.EventHandler(this.pictureBoxGestorPersonatges_Click);
             // 

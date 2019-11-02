@@ -17,14 +17,6 @@ namespace SerializarJSON
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
 
-        // Permite mover la ventana
-        protected override void WndProc(ref Message n)
-        {
-            base.WndProc(ref n);
-            if (n.Msg == WM_NCHITTEST)
-                n.Result = (IntPtr)(HT_CAPTION);
-        }
-
 
         public FormAjuda(byte idAjuda)
         {

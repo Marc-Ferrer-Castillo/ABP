@@ -207,15 +207,7 @@ namespace SerializarJSON
             base.WndProc(ref m);
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        // Refrescar listBoxContenidos
-        private void refrescarListBox()
-        {
-            listBoxContenidos.DataSource = null;
-            listBoxContenidos.DataSource = listaPreguntas;
-            listBoxContenidos.DisplayMember = "pregunta";
-        }
+        }        
         
         // Botón para salir
         private void pictureBoxSortir_Click(object sender, EventArgs e)
@@ -366,18 +358,8 @@ namespace SerializarJSON
                 MessageBox.Show("No hi han dades per guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // Abre formulario gestor de personatges FALTA PROGRAMAR
-        private void pictureBoxGestPersonatges_Click(object sender, EventArgs e)
-        {
-            ////Pasa por constructor el numero de preguntas para limitar el numero de personajes/rangos
-            //if (listaContenidos.Count > 0)
-            //{
-            //    FormGestorPersonatges formPersonatges = new FormGestorPersonatges(listaContenidos.Count);
-            //    formPersonatges.ShowDialog();
-            //}
-
-        }
+        
+        
 
 
         /*    METODOS
@@ -441,6 +423,13 @@ namespace SerializarJSON
 
             return retorno;
         }
-        
+
+        //Refrescar la listboxPreguntas
+        private void refrescarListBox()
+        {
+            listBoxPreguntas.DataSource = null;
+            listBoxPreguntas.DataSource = listaPreguntas;
+            listBoxPreguntas.DisplayMember = "pregunta";
+        }
     }
 }

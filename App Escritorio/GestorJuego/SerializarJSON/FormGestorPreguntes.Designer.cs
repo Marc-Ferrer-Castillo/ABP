@@ -48,9 +48,9 @@
             this.textBoxResposta2 = new System.Windows.Forms.TextBox();
             this.textBoxResposta1 = new System.Windows.Forms.TextBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.listBoxContenidos = new System.Windows.Forms.ListBox();
+            this.listBoxPreguntas = new System.Windows.Forms.ListBox();
             this.groupBoxListadoContenidos = new System.Windows.Forms.GroupBox();
-            this.pictureBoxGestPersonatges = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGestContingut = new System.Windows.Forms.PictureBox();
             this.pictureBoxMinimizar = new System.Windows.Forms.PictureBox();
             this.pictureBoxContinuar = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarSel = new System.Windows.Forms.PictureBox();
@@ -64,7 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuardar)).BeginInit();
             this.groupBoxDificultat.SuspendLayout();
             this.groupBoxListadoContenidos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestPersonatges)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestContingut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContinuar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).BeginInit();
@@ -303,26 +303,26 @@
             this.saveFileDialog1.DefaultExt = "json";
             this.saveFileDialog1.FileName = "Contingut";
             // 
-            // listBoxContenidos
+            // listBoxPreguntas
             // 
-            this.listBoxContenidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.listBoxContenidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxContenidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxContenidos.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.listBoxContenidos.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.listBoxContenidos.FormattingEnabled = true;
-            this.listBoxContenidos.ItemHeight = 24;
-            this.listBoxContenidos.Location = new System.Drawing.Point(3, 14);
-            this.listBoxContenidos.Margin = new System.Windows.Forms.Padding(0);
-            this.listBoxContenidos.Name = "listBoxContenidos";
-            this.listBoxContenidos.Size = new System.Drawing.Size(420, 412);
-            this.listBoxContenidos.TabIndex = 11;
-            this.listBoxContenidos.SelectedIndexChanged += new System.EventHandler(this.listBoxContenidos_SelectedIndexChanged);
+            this.listBoxPreguntas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.listBoxPreguntas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxPreguntas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxPreguntas.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.listBoxPreguntas.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.listBoxPreguntas.FormattingEnabled = true;
+            this.listBoxPreguntas.ItemHeight = 24;
+            this.listBoxPreguntas.Location = new System.Drawing.Point(3, 14);
+            this.listBoxPreguntas.Margin = new System.Windows.Forms.Padding(0);
+            this.listBoxPreguntas.Name = "listBoxPreguntas";
+            this.listBoxPreguntas.Size = new System.Drawing.Size(420, 412);
+            this.listBoxPreguntas.TabIndex = 11;
+            this.listBoxPreguntas.SelectedIndexChanged += new System.EventHandler(this.listBoxContenidos_SelectedIndexChanged);
             // 
             // groupBoxListadoContenidos
             // 
             this.groupBoxListadoContenidos.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxListadoContenidos.Controls.Add(this.listBoxContenidos);
+            this.groupBoxListadoContenidos.Controls.Add(this.listBoxPreguntas);
             this.groupBoxListadoContenidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
             this.groupBoxListadoContenidos.Location = new System.Drawing.Point(719, 117);
             this.groupBoxListadoContenidos.Margin = new System.Windows.Forms.Padding(0);
@@ -331,18 +331,17 @@
             this.groupBoxListadoContenidos.TabIndex = 12;
             this.groupBoxListadoContenidos.TabStop = false;
             // 
-            // pictureBoxGestPersonatges
+            // pictureBoxGestContingut
             // 
-            this.pictureBoxGestPersonatges.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxGestPersonatges.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestPersonatges.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBoxGestPersonatges.Location = new System.Drawing.Point(-16, 6);
-            this.pictureBoxGestPersonatges.Name = "pictureBoxGestPersonatges";
-            this.pictureBoxGestPersonatges.Size = new System.Drawing.Size(156, 53);
-            this.pictureBoxGestPersonatges.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxGestPersonatges.TabIndex = 0;
-            this.pictureBoxGestPersonatges.TabStop = false;
-            this.pictureBoxGestPersonatges.Click += new System.EventHandler(this.pictureBoxGestPersonatges_Click);
+            this.pictureBoxGestContingut.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxGestContingut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxGestContingut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBoxGestContingut.Location = new System.Drawing.Point(-16, 6);
+            this.pictureBoxGestContingut.Name = "pictureBoxGestContingut";
+            this.pictureBoxGestContingut.Size = new System.Drawing.Size(156, 53);
+            this.pictureBoxGestContingut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxGestContingut.TabIndex = 0;
+            this.pictureBoxGestContingut.TabStop = false;
             // 
             // pictureBoxMinimizar
             // 
@@ -401,7 +400,7 @@
             this.Controls.Add(this.pictureBoxAjuda);
             this.Controls.Add(this.pictureBoxEliminarSel);
             this.Controls.Add(this.pictureBoxContinuar);
-            this.Controls.Add(this.pictureBoxGestPersonatges);
+            this.Controls.Add(this.pictureBoxGestContingut);
             this.Controls.Add(this.pictureBoxMinimizar);
             this.Controls.Add(this.pictureBoxSortir);
             this.Controls.Add(this.groupBoxContenido);
@@ -426,7 +425,7 @@
             this.groupBoxDificultat.ResumeLayout(false);
             this.groupBoxDificultat.PerformLayout();
             this.groupBoxListadoContenidos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestPersonatges)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestContingut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContinuar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).EndInit();
@@ -448,12 +447,12 @@
         private System.Windows.Forms.RadioButton radioButtonC;
         private System.Windows.Forms.RadioButton radioButtonB;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.ListBox listBoxContenidos;
+        private System.Windows.Forms.ListBox listBoxPreguntas;
         private System.Windows.Forms.GroupBox groupBoxListadoContenidos;
         private System.Windows.Forms.GroupBox groupBoxDificultat;
         private System.Windows.Forms.RadioButton radioButtonDificil;
         private System.Windows.Forms.RadioButton radioButtonFacil;
-        private System.Windows.Forms.PictureBox pictureBoxGestPersonatges;
+        private System.Windows.Forms.PictureBox pictureBoxGestContingut;
         private System.Windows.Forms.PictureBox pictureBoxMinimizar;
         private System.Windows.Forms.PictureBox pictureBoxContinuar;
         private System.Windows.Forms.PictureBox pictureBoxGuardar;

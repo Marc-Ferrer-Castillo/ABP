@@ -52,7 +52,7 @@
             this.groupBoxListadoContenidos = new System.Windows.Forms.GroupBox();
             this.pictureBoxGestPersonatges = new System.Windows.Forms.PictureBox();
             this.pictureBoxMinimizar = new System.Windows.Forms.PictureBox();
-            this.pictureBoxContinuar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxExportar = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarSel = new System.Windows.Forms.PictureBox();
             this.pictureBoxAjuda = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).BeginInit();
@@ -66,7 +66,7 @@
             this.groupBoxListadoContenidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestPersonatges)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContinuar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).BeginInit();
             this.SuspendLayout();
@@ -357,16 +357,16 @@
             this.pictureBoxMinimizar.TabStop = false;
             this.pictureBoxMinimizar.Click += new System.EventHandler(this.pictureBoxMinimizar_Click);
             // 
-            // pictureBoxContinuar
+            // pictureBoxExportar
             // 
-            this.pictureBoxContinuar.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxContinuar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxContinuar.Location = new System.Drawing.Point(1002, 548);
-            this.pictureBoxContinuar.Name = "pictureBoxContinuar";
-            this.pictureBoxContinuar.Size = new System.Drawing.Size(143, 42);
-            this.pictureBoxContinuar.TabIndex = 13;
-            this.pictureBoxContinuar.TabStop = false;
-            this.pictureBoxContinuar.Click += new System.EventHandler(this.pictureBoxContinuar_Click);
+            this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxExportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxExportar.Location = new System.Drawing.Point(1002, 548);
+            this.pictureBoxExportar.Name = "pictureBoxExportar";
+            this.pictureBoxExportar.Size = new System.Drawing.Size(143, 42);
+            this.pictureBoxExportar.TabIndex = 13;
+            this.pictureBoxExportar.TabStop = false;
+            this.pictureBoxExportar.Click += new System.EventHandler(this.pictureBoxExportar_Click_1);
             // 
             // pictureBoxEliminarSel
             // 
@@ -400,7 +400,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxAjuda);
             this.Controls.Add(this.pictureBoxEliminarSel);
-            this.Controls.Add(this.pictureBoxContinuar);
+            this.Controls.Add(this.pictureBoxExportar);
             this.Controls.Add(this.pictureBoxGestPersonatges);
             this.Controls.Add(this.pictureBoxMinimizar);
             this.Controls.Add(this.pictureBoxSortir);
@@ -428,7 +428,7 @@
             this.groupBoxListadoContenidos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestPersonatges)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContinuar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarSel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).EndInit();
             this.ResumeLayout(false);
@@ -455,7 +455,7 @@
         private System.Windows.Forms.RadioButton radioButtonFacil;
         private System.Windows.Forms.PictureBox pictureBoxGestPersonatges;
         private System.Windows.Forms.PictureBox pictureBoxMinimizar;
-        private System.Windows.Forms.PictureBox pictureBoxContinuar;
+        private System.Windows.Forms.PictureBox pictureBoxExportar;
         private System.Windows.Forms.PictureBox pictureBoxGuardar;
         private System.Windows.Forms.PictureBox pictureBoxEliminarSel;
         private System.Windows.Forms.PictureBox pictureBoxEliminar;

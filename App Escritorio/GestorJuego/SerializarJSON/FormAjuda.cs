@@ -17,33 +17,56 @@ namespace SerializarJSON
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
 
+        // Permite mover la ventana
+        protected override void WndProc(ref Message n)
+        {
+            base.WndProc(ref n);
+            if (n.Msg == WM_NCHITTEST)
+                n.Result = (IntPtr)(HT_CAPTION);
+        }
+
 
         public FormAjuda(byte idAjuda)
         {
             InitializeComponent();
 
-            if (idAjuda == 0)
+            switch (idAjuda)
             {
                 //muestra la ayuda del gestor de preguntas
-            }
-            else if (idAjuda == 1)
-            {
-                //muestra la ayuda del gestor de personatges  
-            }
-            else if (idAjuda == 2)
-            {
+                case 0:
+                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Preguntes;
+                    break;
+
+                //muestra la ayuda del gestor de personatges
+                case 1:
+                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Personatges;
+                    break;
+
                 //muestra la ayuda del gestor de contingut
-            }
-            else if (idAjuda == 3)
-            {
+                case 2:
+                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Contingut;
+                    break;
                 // muestra la ayuda del menu principal
-                pictureBoxAjudaMainMenu.Visible = true;
-            }            
+                case 3:
+                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Menu_Inici;
+                    break;
+            }
+            
         }
 
         private void FormAjuda_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBoxSortir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void pictureBoxMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

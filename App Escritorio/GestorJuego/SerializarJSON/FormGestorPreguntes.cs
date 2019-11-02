@@ -13,16 +13,17 @@ namespace SerializarJSON
 {
     public partial class FormGestorPreguntes : Form
     {
-        // Guarda información de un planeta recibido del gestor de contenido
-        Planeta planeta = new Planeta();              
+        
+        public Planeta planeta { get; set; }
+
+        // Contenido de FormGestorContingut
+        String contenido;
+
+        // Corresponde al planeta pulsado en el Menu Principal
+        byte idPlaneta;
 
         // Guarda el id de la pregunta
         byte idPregunta = 0;
-
-        //
-        private const int MAX_PLANETAS = 3;
-        private const int MAX_IDIOMAS = 3;
-
 
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
@@ -33,7 +34,7 @@ namespace SerializarJSON
         List<Respuesta> listaRespuestas = new List<Respuesta>();
 
         // Lista de preguntas
-        List<Pregunta> listaPreguntas = new List<Pregunta>();
+        public List<Pregunta> listaPreguntas = new List<Pregunta>();
 
         //// Crea un objeto save dialog
         //SaveFileDialog SaveFileDialogGuardar = new SaveFileDialog();
@@ -41,30 +42,8 @@ namespace SerializarJSON
         // Guarda el número de respuestas posibles (Incrementa al darle a "Afegir" y decrementa con "Eliminar")
         public byte nRespostes = 2;
 
+        
 
-
-
-        // Constructor del formulario
-        public FormGestorPreguntes(Planeta planeta)
-        {
-            InitializeComponent();
-                        
-            this.planeta = planeta;
-
-            // Si el planeta recibido ya contiene preguntas, se agregan a la lista
-            try
-            {
-                for (int i = 0; i < planeta.preguntas.Count; i++)
-                {
-                    listaPreguntas.Add(planeta.preguntas[i]);
-                }
-                refrescarListBox();
-
-            }catch (Exception) { }
-            
-                
-            
-        }
 
 
 
@@ -78,7 +57,13 @@ namespace SerializarJSON
          *    ╚══════╝  ╚═══╝   ╚══════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ╚══════╝                                                                 
          */
 
-
+        // Inicializa los componentes
+        public FormGestorPreguntes(String contenido, byte idPlaneta)
+        {
+            InitializeComponent();
+            this.contenido = contenido;
+            this.idPlaneta = idPlaneta;
+        }
 
         // Guardar y añadir a la listbox
         private void pictureBoxGuardar_Click(object sender, EventArgs e)
@@ -199,7 +184,7 @@ namespace SerializarJSON
             }
         }        
 
-        // Selección de un elemento de la listbox de contenidos FALTA PROGRAMAR
+        // Selección de un elemento de la listbox de contenidos
         private void listBoxContenidos_SelectedIndexChanged(object sender, EventArgs e)
         {
             ////Asigna a ContenidoMostrado el contenido seleccionado en la listbox
@@ -243,15 +228,36 @@ namespace SerializarJSON
             
         }
      
-        // Boton importar FALTA PROGRAMAR Y CAMBIAR NOMBRE
+        // Boton importar
         private void pictureBoxImportar_Click(object sender, EventArgs e)
         {
             //Importar JSON CODIGO
         }
 
+        // Boton Continuar
+        private void pictureBoxExportar_Click_1(object sender, EventArgs e)
+        {
+            // Si hay alguna pregunta
+            if (listaPreguntas.Count > 0)
+            {
+                // Instancia un planeta nuevo
+                Planeta planeta = new Planeta(idPlaneta, contenido, listaPreguntas);
+
+                this.planeta = planeta;
+
+                this.Close();
+            }
+            else
+            {
+                //Error
+                MessageBox.Show("No hi han dades per guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
 
 
-        //Limpia todos los campos para poder añadir una nueva pregunta FALTA PROGRAMAR
+
+        //Limpia todos los campos para poder añadir una nueva pregunta
         private void pictureBoxNetejar_Click(object sender, EventArgs e)
         {
             //limpiarCampos();
@@ -259,7 +265,7 @@ namespace SerializarJSON
             //textBoxPregunta.Focus();
         }
 
-        // Elimina elemento del listbox y de la lista de contenidos FALTA PROGRAMAR
+        // Elimina elemento del listbox y de la lista de contenidos
         private void pictureBoxEliminarSel_Click(object sender, EventArgs e)
         {
             //if (listBoxContenidos.SelectedItems.Count > 0)
@@ -321,36 +327,7 @@ namespace SerializarJSON
             ajuda.Show();
         }
 
-        private void pictureBoxContinuar_Click(object sender, EventArgs e)
-        {
-            // Si hay alguna pregunta
-            if (listaPreguntas.Count > 0)
-            {
-                // Instancia un planeta nuevo                
-                Planeta planetaNuevo = new Planeta(this.planeta.id, this.planeta.contenido, listaPreguntas, this.planeta.idioma);
-
-                // Guarda el planeta en el lugar correspondiente de la lista estatica de planetas
-                for (int i = 0; i < MAX_IDIOMAS; i++)
-                {
-                    for (int j = 0; j < MAX_PLANETAS; j++)
-                    {
-                        if (this.planeta.idioma.Equals(i) && this.planeta.id.Equals(j))
-                        {
-                            FormMenuPrincipal.planetas[i+j] = planetaNuevo;
-                        }
-                    }
-                }
-                                
-                this.Close();
-            }
-            else
-            {
-                //Error
-                MessageBox.Show("No hi han dades per guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Abre formulario gestor de personatges FALTA PROGRAMAR
+        // Abre formulario gestor de personatges
         private void pictureBoxGestPersonatges_Click(object sender, EventArgs e)
         {
             ////Pasa por constructor el numero de preguntas para limitar el numero de personajes/rangos

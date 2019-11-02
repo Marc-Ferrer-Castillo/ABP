@@ -12,18 +12,15 @@ namespace SerializarJSON
 {    
     public partial class FormMenuPrincipal : Form
     {
+        // Planetas vacíos        
+        public Planeta planeta1 { get ; set;}
+        public Planeta planeta2 { get; set; }
+        public Planeta planeta3 { get; set; }
+
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
-        
-        // Constante max planetas
-        private const int MAX_PLANETAS = 9;
-
-        // Lista de planetas
-        public static List<Planeta> planetas = new List<Planeta>();
-
-         
 
         // Permite mover la ventana
         protected override void WndProc(ref Message m)
@@ -33,35 +30,11 @@ namespace SerializarJSON
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
-
-
-        // Constructor
+        // Inicializar componentes
         public FormMenuPrincipal()
         {
             InitializeComponent();
-            crearPlanetas();
         }
-
-        // Constructor con parametros usado al volver de la edicion
-        public FormMenuPrincipal(Planeta planeta)
-        {
-            InitializeComponent();            
-
-            //Guarda el planeta recibido por parámetro en su lugar correspondiente de la lista
-            guardarPlaneta(planeta);
-        }
-
-
-
-
-        /*    EVENTOS
-         *    ███████╗██╗   ██╗ ███████╗ ███╗   ██╗████████╗ ██████╗  ███████╗
-         *    ██╔════╝██║   ██║ ██╔════╝ ████╗  ██║╚══██╔══╝██╔═══██╗ ██╔════╝
-         *    █████╗  ██║   ██║ █████╗   ██╔██╗ ██║   ██║   ██║   ██║ ███████╗
-         *    ██╔══╝  ╚██╗ ██╔╝ ██╔══╝   ██║╚██╗██║   ██║   ██║   ██║ ╚════██║
-         *    ███████╗ ╚████╔╝  ███████╗ ██║ ╚████║   ██║   ╚██████╔╝ ███████║
-         *    ╚══════╝  ╚═══╝   ╚══════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ╚══════╝                                                                 
-         */
 
         // Cerrar formulario
         private void pictureBoxSortir_Click(object sender, EventArgs e)
@@ -86,7 +59,6 @@ namespace SerializarJSON
             ajuda.Show();
         }
 
-        // Botón exportar FALTA PROGRAMAR
         private void pictureBoxExportar_Click(object sender, EventArgs e)
         {
             // PROGRAMAR GUARDADO DE DATOS EN CARPETAS
@@ -110,7 +82,9 @@ namespace SerializarJSON
             //    fileStream.Close();
             //}
         }
+
         
+
         // Cuanndo un idioma es seleccionado
         private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -140,180 +114,29 @@ namespace SerializarJSON
         // Click Planeta 1
         private void pictureBoxPlaneta1_Click(object sender, EventArgs e)
         {
-            abrirGestorContenido(0);            
-        }
+            FormGestorContingut gestorContingut = new FormGestorContingut(planeta1, 1);
+            gestorContingut.ShowDialog();
+            
+            //planeta1 = ;
 
+            pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
+        }
         // Click Planeta 2
         private void pictureBoxPlaneta2_Click(object sender, EventArgs e)
         {
-            abrirGestorContenido(1);            
+            pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2true;
         }
-
         // Click Planeta 3
         private void pictureBoxPlaneta3_Click(object sender, EventArgs e)
         {
-            abrirGestorContenido(2);            
+            pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;
         }
 
-
-
-
-        /*    METODOS
-         *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗
-         *    ████╗ ████║ ██╔════╝╚══██╔══╝██╔═══██╗ ██╔══██╗  ██╔═══██╗ ██╔════╝
-         *    ██╔████╔██║ █████╗     ██║   ██║   ██║ ██║   ██║ ██║   ██║ ███████╗
-         *    ██║╚██╔╝██║ ██╔══╝     ██║   ██║   ██║ ██║  ██║  ██║   ██║ ╚════██║
-         *    ██║ ╚═╝ ██║ ███████╗   ██║   ╚██████╔╝ ██████╔╝  ╚██████╔╝ ███████║
-         *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
-         */
-
-        /// <summary>
-        /// Abre el formulario Gestor de Contenido 
-        /// según el idioma seleccionado en el comboBox
-        /// y pasa el planeta correspondiente al nuevo formulario por su constructor.
-        /// Finalmente reemplaza la imagen del planeta.
-        /// </summary>
-        /// <param name="numPlaneta"></param>
-        private void abrirGestorContenido(byte numPlaneta)
+        //Obrir gestor de personatges
+        private void pictureBoxGestorPersonatges_Click(object sender, EventArgs e)
         {
-            if (comboBoxIdioma.SelectedIndex == 0)
-            {
-                switch (numPlaneta)
-                {
-                    case 0:
-                        FormGestorContingut gestorContingut1 = new FormGestorContingut(planetas[0]);
-                        gestorContingut1.ShowDialog();                        
-                        break;
-
-                    case 1:
-                        FormGestorContingut gestorContingut2 = new FormGestorContingut(planetas[1]);
-                        gestorContingut2.ShowDialog();                        
-                        break;
-
-                    case 2:
-                        FormGestorContingut gestorContingut3 = new FormGestorContingut(planetas[2]);
-                        gestorContingut3.ShowDialog();                        
-                        break;
-                }
-                // Cambia el planeta a color
-                pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
-            }
-            else if (comboBoxIdioma.SelectedIndex == 1)
-            {
-                switch (numPlaneta)
-                {
-                    case 0:
-                        FormGestorContingut gestorContingut1 = new FormGestorContingut(planetas[3]);
-                        gestorContingut1.ShowDialog();                       
-                        break;
-
-                    case 1:
-                        FormGestorContingut gestorContingut2 = new FormGestorContingut(planetas[4]);
-                        gestorContingut2.ShowDialog();
-                        break;
-
-                    case 2:
-                        FormGestorContingut gestorContingut3 = new FormGestorContingut(planetas[5]);
-                        gestorContingut3.ShowDialog();
-                        break;
-                }
-                // Cambia el planeta a color
-                pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2true;
-            }
-            else if (comboBoxIdioma.SelectedIndex == 2)
-            {
-                switch (numPlaneta)
-                {
-                    case 0:
-                        FormGestorContingut gestorContingut1 = new FormGestorContingut(planetas[6]);
-                        gestorContingut1.ShowDialog();
-                        break;
-
-                    case 1:
-                        FormGestorContingut gestorContingut2 = new FormGestorContingut(planetas[7]);
-                        gestorContingut2.ShowDialog();
-                        break;
-
-                    case 2:
-                        FormGestorContingut gestorContingut3 = new FormGestorContingut(planetas[8]);
-                        gestorContingut3.ShowDialog();
-                        break;
-                }
-                // Cambia el planeta a color
-                pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;
-            }
-            else
-            {
-                MessageBox.Show("Selecciona l'idioma per aquests planetes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            FormGestorPersonatges formGestorPersonatges = new FormGestorPersonatges();
+            formGestorPersonatges.Show();
         }
-
-        /// <summary>
-        /// Guarda el planeta recibido en su lugar de la lista
-        /// según su propiedad id
-        /// </summary>
-        /// <param name="planeta"></param>
-        private void guardarPlaneta(Planeta planeta)
-        {
-            switch (planeta.id)
-            {
-                case 0:
-                    planetas.Insert(0, planeta);
-                    break;
-                case 1:
-                    planetas.Insert(1, planeta);
-                    break;
-                case 2:
-                    planetas.Insert(2, planeta);
-                    break;
-                case 3:
-                    planetas.Insert(3, planeta);
-                    break;
-                case 4:
-                    planetas.Insert(4, planeta);
-                    break;
-                case 5:
-                    planetas.Insert(5, planeta);
-                    break;
-                case 6:
-                    planetas.Insert(6, planeta);
-                    break;
-                case 7:
-                    planetas.Insert(7, planeta);
-                    break;
-                case 8:
-                    planetas.Insert(8, planeta);
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// Instancia 3 planetas de cada idioma y los guarda en su posicion de la lista correspondiente
-        /// Los 3 primeros planetas son idioma Catalan[0 - 1 - 2]
-        /// Los 3 siguientes son Español[3 - 4 - 5]
-        /// Los 3 últimos English[6 - 7 - 8]
-        /// </summary>
-        private void crearPlanetas()
-        {
-            for (int i = 0; i < MAX_PLANETAS; i++)
-            {
-                if (i < 3)
-                {
-                    Planeta planeta = new Planeta((byte)i, 0);
-                    planetas.Insert(i, planeta);
-                }
-                else if (i < 6)
-                {
-                    Planeta planeta = new Planeta((byte)i, 1);
-                    planetas.Insert(i, planeta);
-                }
-                else if (i < MAX_PLANETAS)
-                {
-                    Planeta planeta = new Planeta((byte)i, 2);
-                    planetas.Insert(i, planeta);
-                }
-            }
-        }
-
     }
 }

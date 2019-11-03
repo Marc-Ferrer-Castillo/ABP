@@ -111,6 +111,9 @@ namespace SerializarJSON
                 // Instancia un formulario con el planeta editado
                 FormGestorPreguntes gestorPreguntes = new FormGestorPreguntes( this.planeta );
 
+                // Esconde este formulario
+                this.Hide();
+
                 // Muestra el formulario
                 gestorPreguntes.ShowDialog();
 

@@ -45,9 +45,6 @@ namespace SerializarJSON
         // Guarda información de un planeta recibido del gestor de contenido
         Planeta planeta = new Planeta();
 
-        // Lista para guardar 4 respuestas
-        List<Respuesta> listaRespuestas = new List<Respuesta>();
-
         // Lista de preguntas
         List<Pregunta> listaPreguntas = new List<Pregunta>();
 
@@ -167,6 +164,9 @@ namespace SerializarJSON
             // Si se han pasado todas las comprobaciones
             if ( formularioCorrecto )
             {
+                // Lista para guardar 4 respuestas
+                List<Respuesta> listaRespuestas = new List<Respuesta>();
+
                 // Vacia la lista de respuestas
                 listaRespuestas.Clear();
 

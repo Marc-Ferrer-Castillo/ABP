@@ -46,10 +46,7 @@ namespace SerializarJSON
         Planeta planeta = new Planeta();
 
         // Lista de preguntas
-        List<Pregunta> listaPreguntas = new List<Pregunta>();
-
-        //// Crea un objeto save dialog
-        //SaveFileDialog SaveFileDialogGuardar = new SaveFileDialog();
+        List<Pregunta> listaPreguntas = new List<Pregunta>();        
 
         // Guarda el número de respuestas posibles (Incrementa al darle a "Afegir" y decrementa con "Eliminar")
         public byte nRespostes = 2;

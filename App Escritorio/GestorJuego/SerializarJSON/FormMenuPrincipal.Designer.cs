@@ -85,6 +85,7 @@
             // pictureBoxExportar
             // 
             this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxExportar.Location = new System.Drawing.Point(179, 522);
             this.pictureBoxExportar.Name = "pictureBoxExportar";
             this.pictureBoxExportar.Size = new System.Drawing.Size(142, 42);

@@ -14,7 +14,7 @@ namespace SerializarJSON
         /// <summary>
         /// 0 == CAT / 1 == ESP / 2 == ENG
         /// </summary>
-        public byte idioma { get; set; }
+        //public byte idioma { get; set; }
 
         public Planeta()
         {

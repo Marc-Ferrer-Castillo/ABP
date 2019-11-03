@@ -233,6 +233,9 @@ namespace SerializarJSON
             // Si el contenido no es nulo
             if (preguntaSeleccionada != null)
             {
+                // Limpia el formulario antes
+                limpiarCampos();
+
                 // Muestra la pregunta del elemento seleccionado
                 textBoxPregunta.Text = preguntaSeleccionada.pregunta;
 
@@ -343,14 +346,21 @@ namespace SerializarJSON
         // Afegir textbox resposta
         private void pictureBoxAfegir_Click(object sender, EventArgs e)
         {
+            // Si la respuesta 3 NO es visible
             if (!textBoxResposta3.Visible)
             {
+                // metodo: hace visible la respuesta tres
                 respuestaVisible(3, true);
+
+                // incrementa el numero de respuestas
                 nRespostes++;
             }
-            else if (!textBoxResposta4.Visible)
+            // Si la respuesta 4 no es visible y la 3 sí
+            else if (!textBoxResposta4.Visible && textBoxResposta3.Visible)
             {
+                // metodo: hace visible la respuesta 4
                 respuestaVisible(4, true);
+                // incrementa el numero de respuestas
                 nRespostes++;
             }
         }
@@ -358,19 +368,34 @@ namespace SerializarJSON
         // Eliminar textbox reposta
         private void pictureBoxEliminar_Click(object sender, EventArgs e)
         {
+            // Si la respuesta 4 es visible
             if (textBoxResposta4.Visible)
             {
-                respuestaVisible(3, false);                
+                // metodo: Hace invisible la respuesta 4
+                respuestaVisible(4, false);
+
+                // Limpia el campo
                 textBoxResposta4.Clear();
+
+                // Deselecciona el radio button D
                 radioButtonD.Checked = false;
+
+                // Decrementa el numero de respuestas
                 nRespostes--;
             }
+            // Si la respuesta 3 es visible 
             else if (textBoxResposta3.Visible)
             {
-                respuestaVisible(4, false);
+                // metodo: Hace invisible la respuesta 3
+                respuestaVisible(3, false);
+
+                // Limpia la respuesta 3
                 textBoxResposta3.Clear();
-                labelC.Visible = false;
+                
+                // Desmarca el radio button C
                 radioButtonC.Checked = false;
+
+                //Decrementa el numero de respuestas
                 nRespostes--;
             }
         }

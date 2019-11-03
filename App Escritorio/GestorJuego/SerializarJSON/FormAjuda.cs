@@ -46,21 +46,21 @@ namespace SerializarJSON
             {
                 //muestra la ayuda del gestor de preguntas
                 case 0:
-                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Preguntes;
+                    this.BackgroundImage = Properties.Resources.Ajuda_Preguntes;
                     break;
 
                 //muestra la ayuda del gestor de personatges
                 case 1:
-                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Personatges;
+                    this.BackgroundImage = Properties.Resources.Ajuda_Personatges;
                     break;
 
                 //muestra la ayuda del gestor de contingut
                 case 2:
-                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Contingut;
+                    this.BackgroundImage = Properties.Resources.Ajuda_Contingut;
                     break;
                 // muestra la ayuda del menu principal
                 case 3:
-                    pictureBoxAjuda.Image = Properties.Resources.Ajuda_Menu_Inici;
+                    this.BackgroundImage = Properties.Resources.Ajuda_Menu_Inici;
                     break;
             }
             
@@ -76,16 +76,21 @@ namespace SerializarJSON
          *    ╚══════╝  ╚═══╝   ╚══════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ╚══════╝                                                                 
          */
 
-        private void FormAjuda_Load(object sender, EventArgs e)
+        // Permite mover la ventana
+        protected override void WndProc(ref Message m)
         {
-
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
         }
 
+        // Botón cerrar formulario
         private void pictureBoxSortir_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
+        // Botón minimizar formulario
         private void pictureBoxMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;

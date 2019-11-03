@@ -223,52 +223,54 @@ namespace SerializarJSON
             }
         }        
 
-        // Selección de un elemento de la listbox de contenidos FALTA PROGRAMAR
+        // Selección de un elemento de la listbox de contenidos
         private void listBoxContenidos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Asigna a ContenidoMostrado el contenido seleccionado en la listbox
-            //(Contenido): Cast para convertir de object a Pelicula
+            // Asigna a ContenidoMostrado el contenido seleccionado en la listbox
+            // (Contenido): Cast para convertir de object a Pelicula
             Pregunta preguntaSeleccionada = (Pregunta)listBoxPreguntas.SelectedItem;
 
-            //Si el contenido no es nulo
+            // Si el contenido no es nulo
             if (preguntaSeleccionada != null)
             {
-                //Muestra la pregunta del elemento seleccionado
+                // Muestra la pregunta del elemento seleccionado
                 textBoxPregunta.Text = preguntaSeleccionada.pregunta;
 
-                // Muestra tantas respuestas como contenga la pregunta
-                //
+                // Muestra en los dos primeros textboxs las dos primeras respuestas del elemento seleccionado             
                 textBoxResposta1.Text = preguntaSeleccionada.respuestas[0].respuesta;
                 textBoxResposta2.Text = preguntaSeleccionada.respuestas[1].respuesta;
+
+                // Si el elemento seleccionado tiene más de dos respuestas
                 if ( preguntaSeleccionada.respuestas.Count > 2 )
-                {                    
-                    textBoxResposta3.Visible = true;
-                    radioButtonC.Visible = true;
-                    labelC.Visible = true;
+                {
+                    // metodo: hace visible la respuesta 3
+                    respuestaVisible(3, true);
+
+                    // Muestra la tercera respuesta en el textbox del elemento seleccionado
                     textBoxResposta3.Text = preguntaSeleccionada.respuestas[2].respuesta;
+
+                    // Si el elemento seleccionado tiene 4 respuestas
                     if ( preguntaSeleccionada.respuestas.Count == 4 )
-                    {                        
-                        textBoxResposta4.Visible = true;
-                        radioButtonD.Visible = true;
-                        labelD.Visible = true;
+                    {
+                        // metodo: hace visible la respuesta 4
+                        respuestaVisible(4, true);
+
+                        // Muestra la cuarta respuesta en el textbox del elemento seleccionado
                         textBoxResposta4.Text = preguntaSeleccionada.respuestas[3].respuesta;
                     }
+                    // Si el elemento seleccionado no tiene 4 respuestas
                     else
                     {
-                        textBoxResposta4.Visible = false;
-                        radioButtonD.Visible = false;
-                        labelD.Visible = false;
+                        // metodo: hace invisible la respuesta 4
+                        respuestaVisible(4, false);
                     }
                 }
+                // Si el elemento seleccionado no tiene > 2 respuestas
                 else
                 {
-                    textBoxResposta3.Visible = false;
-                    radioButtonC.Visible = false;
-                    labelC.Visible = false;
-
-                    textBoxResposta4.Visible = false;
-                    radioButtonD.Visible = false;
-                    labelD.Visible = false;
+                    // metodo: hace invisibles las respuestas 3 y 4
+                    respuestaVisible(3, false);
+                    respuestaVisible(4, false);
                 }
                 
 
@@ -343,16 +345,12 @@ namespace SerializarJSON
         {
             if (!textBoxResposta3.Visible)
             {
-                textBoxResposta3.Visible = true;
-                radioButtonC.Visible = true;
-                labelC.Visible = true;
+                respuestaVisible(3, true);
                 nRespostes++;
             }
             else if (!textBoxResposta4.Visible)
             {
-                textBoxResposta4.Visible = true;
-                radioButtonD.Visible = true;
-                labelD.Visible = true;
+                respuestaVisible(4, true);
                 nRespostes++;
             }
         }
@@ -362,19 +360,16 @@ namespace SerializarJSON
         {
             if (textBoxResposta4.Visible)
             {
-                textBoxResposta4.Visible = false;
+                respuestaVisible(3, false);                
                 textBoxResposta4.Clear();
-                labelD.Visible = false;
-                radioButtonD.Visible = false;
                 radioButtonD.Checked = false;
                 nRespostes--;
             }
             else if (textBoxResposta3.Visible)
             {
-                textBoxResposta3.Visible = false;
+                respuestaVisible(4, false);
                 textBoxResposta3.Clear();
                 labelC.Visible = false;
-                radioButtonC.Visible = false;
                 radioButtonC.Checked = false;
                 nRespostes--;
             }
@@ -495,6 +490,46 @@ namespace SerializarJSON
                 this.Close();
             }
             
+        }
+
+        /// <summary>
+        /// Indica el número de la respuesta en el primer parámetro.
+        /// Indica TRUE/FALSE en el segundo parametro para hacer visible u ocultar
+        /// </summary>
+        /// <param name="numRespuesta"></param>
+        /// <param name="visible"></param>
+        private void respuestaVisible (byte numRespuesta, bool visible)
+        {
+            if (numRespuesta == 3 && visible)
+            {
+                // Hace visible la respuesta 3
+                textBoxResposta3.Visible = true;
+                radioButtonC.Visible = true;
+                labelC.Visible = true;
+            }
+            else if (numRespuesta == 3 && !visible)
+            {
+                // Oculta la respuesta 3
+                textBoxResposta3.Visible = false;
+                radioButtonC.Visible = false;
+                labelC.Visible = false;
+            }
+
+            if (numRespuesta == 4 && visible)
+            {
+                // Hace visible la respuesta 4
+                textBoxResposta4.Visible = true;
+                radioButtonD.Visible = true;
+                labelD.Visible = true;
+            }
+            else if (numRespuesta == 4 && !visible)
+            {
+                // Oculta la respuesta 4
+                textBoxResposta4.Visible = false;
+                radioButtonD.Visible = false;
+                labelD.Visible = false;
+            }
+
         }
     }
 }

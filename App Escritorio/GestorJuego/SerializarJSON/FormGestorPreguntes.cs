@@ -253,7 +253,26 @@ namespace SerializarJSON
                         labelD.Visible = true;
                         textBoxResposta4.Text = preguntaSeleccionada.respuestas[3].respuesta;
                     }
-                }             
+                    else
+                    {
+                        textBoxResposta4.Visible = false;
+                        radioButtonD.Visible = false;
+                        labelD.Visible = false;
+                    }
+                }
+                else
+                {
+                    textBoxResposta3.Visible = false;
+                    radioButtonC.Visible = false;
+                    labelC.Visible = false;
+
+                    textBoxResposta4.Visible = false;
+                    radioButtonD.Visible = false;
+                    labelD.Visible = false;
+                }
+                
+
+
                 // Selecciona el radioButton de la respuesta correcta
                 if (preguntaSeleccionada.respuestas[0].esCorrecta)
                 {

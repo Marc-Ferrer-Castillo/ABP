@@ -169,9 +169,6 @@
     <None Include="Resources\planeta3false.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Gestor de Preguntes.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Ajuda Contingut.png" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ajuda Preguntes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gestor de Preguntes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

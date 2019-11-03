@@ -33,6 +33,10 @@
             this.groupBoxContenido = new System.Windows.Forms.GroupBox();
             this.pictureBoxNetejar = new System.Windows.Forms.PictureBox();
             this.panelRespostaCorrecte = new System.Windows.Forms.Panel();
+            this.labelD = new System.Windows.Forms.Label();
+            this.labelC = new System.Windows.Forms.Label();
+            this.labelB = new System.Windows.Forms.Label();
+            this.labelA = new System.Windows.Forms.Label();
             this.radioButtonD = new System.Windows.Forms.RadioButton();
             this.radioButtonA = new System.Windows.Forms.RadioButton();
             this.radioButtonC = new System.Windows.Forms.RadioButton();
@@ -130,6 +134,10 @@
             // 
             // panelRespostaCorrecte
             // 
+            this.panelRespostaCorrecte.Controls.Add(this.labelD);
+            this.panelRespostaCorrecte.Controls.Add(this.labelC);
+            this.panelRespostaCorrecte.Controls.Add(this.labelB);
+            this.panelRespostaCorrecte.Controls.Add(this.labelA);
             this.panelRespostaCorrecte.Controls.Add(this.radioButtonD);
             this.panelRespostaCorrecte.Controls.Add(this.radioButtonA);
             this.panelRespostaCorrecte.Controls.Add(this.radioButtonC);
@@ -138,6 +146,52 @@
             this.panelRespostaCorrecte.Name = "panelRespostaCorrecte";
             this.panelRespostaCorrecte.Size = new System.Drawing.Size(70, 188);
             this.panelRespostaCorrecte.TabIndex = 12;
+            // 
+            // labelD
+            // 
+            this.labelD.AutoSize = true;
+            this.labelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.labelD.Location = new System.Drawing.Point(32, 157);
+            this.labelD.Name = "labelD";
+            this.labelD.Size = new System.Drawing.Size(21, 20);
+            this.labelD.TabIndex = 19;
+            this.labelD.Text = "D";
+            this.labelD.Visible = false;
+            // 
+            // labelC
+            // 
+            this.labelC.AutoSize = true;
+            this.labelC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.labelC.Location = new System.Drawing.Point(32, 108);
+            this.labelC.Name = "labelC";
+            this.labelC.Size = new System.Drawing.Size(20, 20);
+            this.labelC.TabIndex = 18;
+            this.labelC.Text = "C";
+            this.labelC.Visible = false;
+            // 
+            // labelB
+            // 
+            this.labelB.AutoSize = true;
+            this.labelB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.labelB.Location = new System.Drawing.Point(32, 59);
+            this.labelB.Name = "labelB";
+            this.labelB.Size = new System.Drawing.Size(20, 20);
+            this.labelB.TabIndex = 17;
+            this.labelB.Text = "B";
+            // 
+            // labelA
+            // 
+            this.labelA.AutoSize = true;
+            this.labelA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.labelA.Location = new System.Drawing.Point(32, 10);
+            this.labelA.Name = "labelA";
+            this.labelA.Size = new System.Drawing.Size(20, 20);
+            this.labelA.TabIndex = 16;
+            this.labelA.Text = "A";
             // 
             // radioButtonD
             // 
@@ -394,7 +448,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
-            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Gestor_de_Preguntes;
+            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Gestor_de_Preguntes1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1230, 600);
             this.ControlBox = false;
@@ -463,6 +517,10 @@
         private System.Windows.Forms.Panel panelRespostaCorrecte;
         private System.Windows.Forms.PictureBox pictureBoxNetejar;
         private System.Windows.Forms.PictureBox pictureBoxAjuda;
+        private System.Windows.Forms.Label labelD;
+        private System.Windows.Forms.Label labelC;
+        private System.Windows.Forms.Label labelB;
+        private System.Windows.Forms.Label labelA;
     }
 }
 

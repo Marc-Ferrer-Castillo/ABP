@@ -237,13 +237,20 @@ namespace SerializarJSON
                 textBoxPregunta.Text = preguntaSeleccionada.pregunta;
 
                 // Muestra tantas respuestas como contenga la pregunta
+                //
                 textBoxResposta1.Text = preguntaSeleccionada.respuestas[0].respuesta;
                 textBoxResposta2.Text = preguntaSeleccionada.respuestas[1].respuesta;
-                if ( preguntaSeleccionada.respuestas.Count == 3 )
-                {
+                if ( preguntaSeleccionada.respuestas.Count > 2 )
+                {                    
+                    textBoxResposta3.Visible = true;
+                    radioButtonC.Visible = true;
+                    labelC.Visible = true;
                     textBoxResposta3.Text = preguntaSeleccionada.respuestas[2].respuesta;
                     if ( preguntaSeleccionada.respuestas.Count == 4 )
-                    {
+                    {                        
+                        textBoxResposta4.Visible = true;
+                        radioButtonD.Visible = true;
+                        labelD.Visible = true;
                         textBoxResposta4.Text = preguntaSeleccionada.respuestas[3].respuesta;
                     }
                 }             
@@ -319,12 +326,14 @@ namespace SerializarJSON
             {
                 textBoxResposta3.Visible = true;
                 radioButtonC.Visible = true;
+                labelC.Visible = true;
                 nRespostes++;
             }
             else if (!textBoxResposta4.Visible)
             {
                 textBoxResposta4.Visible = true;
                 radioButtonD.Visible = true;
+                labelD.Visible = true;
                 nRespostes++;
             }
         }
@@ -336,6 +345,7 @@ namespace SerializarJSON
             {
                 textBoxResposta4.Visible = false;
                 textBoxResposta4.Clear();
+                labelD.Visible = false;
                 radioButtonD.Visible = false;
                 radioButtonD.Checked = false;
                 nRespostes--;
@@ -344,6 +354,7 @@ namespace SerializarJSON
             {
                 textBoxResposta3.Visible = false;
                 textBoxResposta3.Clear();
+                labelC.Visible = false;
                 radioButtonC.Visible = false;
                 radioButtonC.Checked = false;
                 nRespostes--;

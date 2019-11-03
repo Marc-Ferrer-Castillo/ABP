@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,10 +41,10 @@ namespace SerializarJSON
 
         // Constante max planetas totales
         private const byte MAX_PLANETAS = 9;
-        // Constante maximo de lenguajes
-        private const byte MAX_LENGUAJES = 3;
-        // Constante maximo de planetas por lenguaje
-        private const byte PLANETASxIDIOMA = 3;
+
+        // Constante maximo de personajes
+        private const byte MAX_PERSONAJES = 3;
+
         // Constantes que hacen referencia al planeta pulsado
         private const byte PLANETA1 = 0;
         private const byte PLANETA2 = 1;
@@ -58,8 +60,16 @@ namespace SerializarJSON
         *    ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═════╝  ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝
         *                                                                           
         */
-        // Lista de planetas
+
+        // Lista estatica de planetas
         public static List<Planeta> planetas = new List<Planeta>();
+
+        // Lista estatic de personajes
+        public static List<Personaje> personajes = new List<Personaje>();
+
+        // Crea un objeto save dialog
+        SaveFileDialog SaveFileDialog = new SaveFileDialog();
+
 
 
         /***
@@ -80,6 +90,7 @@ namespace SerializarJSON
             // Crea 9 planetas con su id correspondiente [0-8]
             crearPlanetas();
         }
+
 
 
         /*    EVENTOS
@@ -125,31 +136,27 @@ namespace SerializarJSON
             ajuda.Show();
         }
 
-        // Botón exportar FALTA PROGRAMAR
+        // Botón exportar
         private void pictureBoxExportar_Click(object sender, EventArgs e)
         {
-            // PROGRAMAR GUARDADO DE DATOS EN CARPETAS
+            try
+            {
+                // Metodo: Commprueba personajes y planetas
+                if (ContenidoExistente())
+                {
+                    // Metodo: Guarda ficheros
+                    GuardarTodo();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "Falten personatges o planetes per omplir",
+                    "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+        }        
 
-            ////Opciones del saveDialog para nombre y extension
-            //SaveFileDialogGuardar.FileName = "Contingut";
-            //SaveFileDialogGuardar.DefaultExt = "*.json";
-            //SaveFileDialogGuardar.DefaultExt = ".json";
-
-            ////Muestra pantalla para guardar el fichero
-            //if (SaveFileDialogGuardar.ShowDialog() == DialogResult.OK)
-            //{
-            //    Stream fileStream = SaveFileDialogGuardar.OpenFile();
-            //    StreamWriter sw = new StreamWriter(fileStream);
-
-            //    //Serializa JSON y guarda
-            //    sw.Write(Newtonsoft.Json.JsonConvert.SerializeObject(listaContenidos));
-
-            //    //Cierra streams
-            //    sw.Close();
-            //    fileStream.Close();
-            //}
-        }
-        
         // Cuando un idioma es seleccionado
         private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -182,6 +189,7 @@ namespace SerializarJSON
             FormGestorPersonatges formGestorPersonatges = new FormGestorPersonatges();
             formGestorPersonatges.Show();
         }
+
 
 
         /*    METODOS
@@ -426,6 +434,100 @@ namespace SerializarJSON
                     break;
             }
         }
-        
+
+        /// <summary>
+        /// Guarda todo ordenado por directorios y pregunta al usuario si desea abrirlo
+        /// en caso de error muestra un mensaje
+        /// </summary>
+        private void GuardarTodo()
+        {
+            try
+            {
+                // Crea los directorios y subdirectorios
+                Directory.CreateDirectory(@"contingut del joc\planetas");
+                Directory.CreateDirectory(@"Contingut del Joc\personatges\imatges");
+
+                // Serializa a JSON la lista de planetas 
+                // guarda en el directorio "contingut del joc\planetas\planetas"
+                File.WriteAllText(@"contingut del joc\planetas\planetas.JSON",
+                    Newtonsoft.Json.JsonConvert.SerializeObject(planetas));
+
+
+                // Objtiene el directorio actual
+                String directorio = Directory.GetCurrentDirectory();
+
+                // Pregunta si esta seguro que desea cerrar
+                var respuesta = MessageBox.Show(
+                    "Arxius generats correctament\nVols anar al directori? ",
+                    "Fet",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.None);
+
+                // Si es así, abre la carpeta que contiene los archivos
+                if (respuesta == DialogResult.Yes)
+                {
+                    Process.Start(@directorio);
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "No s'han pogut generar els fitxers",
+                    "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Devuelve true si todos los planetas y personajes tienen un contenido valido
+        /// </summary>
+        /// <returns></returns>
+        private bool ContenidoExistente()
+        {
+            // Guarda el resultado de la revision
+            bool planetasOk = false, personajesOK = false, retorno = false;
+            // recorren bucles
+            byte i = 0, j = 0;
+
+
+            // Recorre planetas
+            while (i < MAX_PLANETAS)
+            {
+                // Si algun planeta no tiene un contenido valido
+                if ( !Metodo.revisarContenido(planetas[i].contenido) )
+                {
+                    // La variable se niega y sale del bucle
+                    planetasOk = false;
+                    i = MAX_PLANETAS;
+                }
+                
+                planetasOk = true;
+                i++;
+            }
+
+            // Recorre personajes
+            while (j < MAX_PERSONAJES)
+            {
+                if (! ( Metodo.revisarContenido(personajes[j].nom) && Metodo.revisarContenido(personajes[j].frase) ) )
+                {
+                    // La variable se niega y sale del bucle
+                    personajesOK = false;
+                    i = MAX_PLANETAS;
+                }
+
+                personajesOK = true;
+                j++;
+            }
+
+            // si las dos comprobaciones anteriores han ido bien
+            if (planetasOk && personajesOK)
+            {
+                // El retorno sera true
+                retorno = true;
+            }
+
+            // Retorna el retorno
+            return retorno;
+        }
     }
 }

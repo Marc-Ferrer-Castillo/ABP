@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SerializarJSON
 {
-    class Personaje
+    public class Personaje
     {
         public String nom { get; set; }
         public string frase { get; set; }

@@ -40,6 +40,7 @@ namespace SerializarJSON
                 if (! revisarContenido( respuestas[i] ) )
                 {
                    retorno = false;
+                   i = respuestas.Count;
                 }
                 i++;
             }

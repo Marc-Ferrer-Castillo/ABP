@@ -119,6 +119,7 @@
             this.Controls.Add(this.textBoxContenido);
             this.Controls.Add(this.pictureBoxSiguiente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1230, 600);
             this.MinimumSize = new System.Drawing.Size(1230, 600);
             this.Name = "FormGestorContingut";

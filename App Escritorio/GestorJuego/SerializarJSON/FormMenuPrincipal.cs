@@ -85,8 +85,8 @@ namespace SerializarJSON
         // Constructor
         public FormMenuPrincipal()
         {
-            InitializeComponent();
-            
+            InitializeComponent();                                 
+
             // Crea 9 planetas con su id correspondiente [0-8]
             crearPlanetas();
         }
@@ -187,7 +187,9 @@ namespace SerializarJSON
         private void pictureBoxGestorPersonatges_Click(object sender, EventArgs e)
         {
             FormGestorPersonatges formGestorPersonatges = new FormGestorPersonatges();
-            formGestorPersonatges.Show();
+            this.Hide();
+            formGestorPersonatges.ShowDialog();
+            this.Show();
         }
 
 
@@ -211,6 +213,7 @@ namespace SerializarJSON
             // Si el idioma es Catalan
             if (comboBoxIdioma.SelectedIndex == 0)
             {
+                this.Hide();
                 switch (numPlaneta)
                 {
                     case 0:
@@ -227,11 +230,13 @@ namespace SerializarJSON
                         FormGestorContingut gestorContingut3 = new FormGestorContingut(planetas[2]);
                         gestorContingut3.ShowDialog();
                         break;
-                }                
+                }
+                this.Show();
             }
             // Si el idioma es Español
             else if (comboBoxIdioma.SelectedIndex == 1)
             {
+                this.Hide();
                 switch (numPlaneta)
                 {
                     case 0:
@@ -248,11 +253,13 @@ namespace SerializarJSON
                         FormGestorContingut gestorContingut3 = new FormGestorContingut(planetas[5]);
                         gestorContingut3.ShowDialog();
                         break;
-                }                
+                }
+                this.Show();
             }
             // Si el idioma es Ingles
             else if (comboBoxIdioma.SelectedIndex == 2)
             {
+                this.Hide();
                 switch (numPlaneta)
                 {
                     case 0:
@@ -269,7 +276,8 @@ namespace SerializarJSON
                         FormGestorContingut gestorContingut3 = new FormGestorContingut(planetas[8]);
                         gestorContingut3.ShowDialog();
                         break;
-                }                
+                }
+                this.Show();
             }
             // Si ningún idioma es selccionado y se pulsa sobre un planeta
             else

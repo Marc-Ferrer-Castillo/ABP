@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestorPreguntes));
             this.pictureBoxSortir = new System.Windows.Forms.PictureBox();
             this.textBoxPregunta = new System.Windows.Forms.TextBox();
             this.groupBoxContenido = new System.Windows.Forms.GroupBox();
@@ -448,7 +449,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuText;
-            this.BackgroundImage = global::SerializarJSON.Properties.Resources.Gestor_de_Preguntes1;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1230, 600);
             this.ControlBox = false;

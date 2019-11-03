@@ -2,7 +2,9 @@ package com.example.jocmnactec;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.VideoView;
 
 public class SeleccioNivell extends AppCompatActivity {
 

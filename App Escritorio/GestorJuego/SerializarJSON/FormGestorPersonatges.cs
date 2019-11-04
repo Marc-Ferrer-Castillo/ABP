@@ -87,13 +87,34 @@ namespace SerializarJSON
             textBoxNomP1.Text = listaPersonajes[0].nom;
             textBoxDesc1.Text = listaPersonajes[0].frase;
 
+            if (listaPersonajes[0].rutaImagen != null)
+            {
+                pictureBoxPersonatge1.Image = Image.FromFile(listaPersonajes[0].rutaImagen);
+
+            }
+
+
             //cargamos datos del personaje1
             textBoxNomP2.Text = listaPersonajes[1].nom;
             textBoxDesc2.Text = listaPersonajes[1].frase;
 
+            if (listaPersonajes[1].rutaImagen != null)
+            {
+                pictureBoxPersonatge2.Image = Image.FromFile(listaPersonajes[1].rutaImagen);
+
+            }
+
             //cargamos datos del personaje1
             textBoxNomP3.Text = listaPersonajes[2].nom;
             textBoxDesc3.Text = listaPersonajes[2].frase;
+
+
+            if (listaPersonajes[2].rutaImagen != null)
+            {
+                pictureBoxPersonatge3.Image = Image.FromFile(listaPersonajes[2].rutaImagen);
+
+            }
+
         }
 
         // Cerrar formulario
@@ -174,9 +195,11 @@ namespace SerializarJSON
                 //guardamos datos del personaje3
                 listaPersonajes[2].nom = textBoxNomP3.Text;
                 listaPersonajes[2].frase = textBoxDesc3.Text;
+
+                Close();
             }
 
-            Close();
+            
         }
 
 
@@ -214,6 +237,10 @@ namespace SerializarJSON
                 {
                     string imagen = openFileDialog1.FileName;
                     pictureBoxPersonatge1.Image = Image.FromFile(imagen);
+                    pictureBoxPersonatge1.BackColor = Color.DarkGray;
+
+                    listaPersonajes[0].rutaImagen = imagen;
+
 
                 }
             }
@@ -231,7 +258,9 @@ namespace SerializarJSON
                 {
                     string imagen = openFileDialog1.FileName;
                     pictureBoxPersonatge2.Image = Image.FromFile(imagen);
+                    pictureBoxPersonatge2.BackColor = Color.DarkGray;
 
+                    listaPersonajes[1].rutaImagen = imagen;
                 }
             }
             catch (Exception)
@@ -248,7 +277,9 @@ namespace SerializarJSON
                 {
                     string imagen = openFileDialog1.FileName;
                     pictureBoxPersonatge3.Image = Image.FromFile(imagen);
+                    pictureBoxPersonatge3.BackColor = Color.DarkGray;
 
+                    listaPersonajes[2].rutaImagen = imagen;
                 }
             }
             catch (Exception)

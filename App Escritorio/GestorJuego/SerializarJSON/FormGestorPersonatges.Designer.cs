@@ -43,6 +43,7 @@
             this.pictureBoxPersonatge1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPersonatge2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPersonatge3 = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).BeginInit();
@@ -165,6 +166,7 @@
             this.pictureBoxPersonatge1.Size = new System.Drawing.Size(92, 89);
             this.pictureBoxPersonatge1.TabIndex = 18;
             this.pictureBoxPersonatge1.TabStop = false;
+            this.pictureBoxPersonatge1.Click += new System.EventHandler(this.pictureBoxPersonatge1_Click);
             // 
             // pictureBoxPersonatge2
             // 
@@ -172,8 +174,10 @@
             this.pictureBoxPersonatge2.Location = new System.Drawing.Point(43, 369);
             this.pictureBoxPersonatge2.Name = "pictureBoxPersonatge2";
             this.pictureBoxPersonatge2.Size = new System.Drawing.Size(91, 91);
+            this.pictureBoxPersonatge2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPersonatge2.TabIndex = 19;
             this.pictureBoxPersonatge2.TabStop = false;
+            this.pictureBoxPersonatge2.Click += new System.EventHandler(this.pictureBoxPersonatge2_Click);
             // 
             // pictureBoxPersonatge3
             // 
@@ -181,8 +185,14 @@
             this.pictureBoxPersonatge3.Location = new System.Drawing.Point(42, 547);
             this.pictureBoxPersonatge3.Name = "pictureBoxPersonatge3";
             this.pictureBoxPersonatge3.Size = new System.Drawing.Size(92, 91);
+            this.pictureBoxPersonatge3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonatge3.TabIndex = 20;
             this.pictureBoxPersonatge3.TabStop = false;
+            this.pictureBoxPersonatge3.Click += new System.EventHandler(this.pictureBoxPersonatge3_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormGestorPersonatges
             // 
@@ -245,5 +255,6 @@
         private System.Windows.Forms.PictureBox pictureBoxPersonatge1;
         private System.Windows.Forms.PictureBox pictureBoxPersonatge2;
         private System.Windows.Forms.PictureBox pictureBoxPersonatge3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

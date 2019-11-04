@@ -182,6 +182,18 @@ namespace SerializarJSON
                 campBuit();
                 textBoxDesc3.Focus();
             }
+            else if (listaPersonajes[0].rutaImagen == null)
+            {
+                campBuitImatge();
+            }
+            else if (listaPersonajes[1].rutaImagen == null)
+            {
+                campBuitImatge();
+            }
+            else if (listaPersonajes[2].rutaImagen == null)
+            {
+                campBuitImatge();
+            }
             else
             {
                 //guardamos datos del personaje1
@@ -228,6 +240,14 @@ namespace SerializarJSON
         {
             MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        private void campBuitImatge()
+        {
+            MessageBox.Show("Introdueixi una imatge", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void errorImatge()
+        {
+            MessageBox.Show("El arxiu seleccionat no es una imatge");
+        }
 
         private void pictureBoxPersonatge1_Click(object sender, EventArgs e)
         {
@@ -246,7 +266,7 @@ namespace SerializarJSON
             }
             catch (Exception)
             {
-                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+                errorImatge();
             }
         }
 
@@ -265,7 +285,7 @@ namespace SerializarJSON
             }
             catch (Exception)
             {
-                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+                errorImatge();
             }
         }
 
@@ -284,7 +304,7 @@ namespace SerializarJSON
             }
             catch (Exception)
             {
-                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+                errorImatge();
             }
         }
     }

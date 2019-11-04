@@ -470,7 +470,7 @@
             this.MinimumSize = new System.Drawing.Size(1230, 600);
             this.Name = "FormGestorPreguntes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editor de contingut";
+            this.Text = "Gestor de preguntes";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).EndInit();
             this.groupBoxContenido.ResumeLayout(false);
             this.groupBoxContenido.PerformLayout();

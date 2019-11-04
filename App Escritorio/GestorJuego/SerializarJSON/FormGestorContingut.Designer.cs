@@ -125,7 +125,7 @@
             this.MinimumSize = new System.Drawing.Size(1230, 600);
             this.Name = "FormGestorContingut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormGestorContingut";
+            this.Text = "Gestor de contingut";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAyuda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();

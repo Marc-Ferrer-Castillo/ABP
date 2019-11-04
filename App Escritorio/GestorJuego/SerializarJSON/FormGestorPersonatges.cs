@@ -40,7 +40,7 @@ namespace SerializarJSON
         */
 
         // Lista para los 3 personajes
-        List<Personaje> personajes = new List<Personaje>();
+        List<Personaje> listaPersonajes = new List<Personaje>();
 
 
 
@@ -54,18 +54,12 @@ namespace SerializarJSON
         *                                                                                                                   
         */
         //inicializar componentes
-        public FormGestorPersonatges()
+        public FormGestorPersonatges(List<Personaje> listaPersonajes)
         {
             InitializeComponent();
-
-            for (int i = 0; i < 3; i++)
-            {
-                Personaje personaje = new Personaje();
-                personajes.Add(personaje);
-                
-            }
-            
             inicializarPersonajes();
+            this.listaPersonajes = listaPersonajes;
+            
         }
 
 
@@ -89,17 +83,17 @@ namespace SerializarJSON
 
         private void FormGestorPersonatges_Load(object sender, EventArgs e)
         {
-            //guardamos datos del personaje1
-            textBoxNomP1.Text = personajes[0].nom;
-            textBoxDesc1.Text = personajes[0].frase;
+            //cargamos datos del personaje1
+            textBoxNomP1.Text = listaPersonajes[0].nom;
+            textBoxDesc1.Text = listaPersonajes[0].frase;
 
-            //guardamos datos del personaje1
-            textBoxNomP2.Text = personajes[1].nom;
-            textBoxDesc2.Text = personajes[1].frase;
+            //cargamos datos del personaje1
+            textBoxNomP2.Text = listaPersonajes[1].nom;
+            textBoxDesc2.Text = listaPersonajes[1].frase;
 
-            //guardamos datos del personaje1
-            textBoxNomP3.Text = personajes[2].nom;
-            textBoxDesc3.Text = personajes[2].frase;
+            //cargamos datos del personaje1
+            textBoxNomP3.Text = listaPersonajes[2].nom;
+            textBoxDesc3.Text = listaPersonajes[2].frase;
         }
 
         // Cerrar formulario
@@ -132,6 +126,7 @@ namespace SerializarJSON
             ajuda.Show();
         }        
 
+        //guardar personajes
         private void pictureBoxExportar_Click(object sender, EventArgs e)
         {
 
@@ -169,16 +164,16 @@ namespace SerializarJSON
             else
             {
                 //guardamos datos del personaje1
-                personajes[0].nom = textBoxNomP1.Text;
-                personajes[0].frase = textBoxDesc1.Text;
+                listaPersonajes[0].nom = textBoxNomP1.Text;
+                listaPersonajes[0].frase = textBoxDesc1.Text;
 
                 //guardamos datos del personaje2
-                personajes[1].nom = textBoxNomP2.Text;
-                personajes[1].frase = textBoxDesc2.Text;
+                listaPersonajes[1].nom = textBoxNomP2.Text;
+                listaPersonajes[1].frase = textBoxDesc2.Text;
 
                 //guardamos datos del personaje3
-                personajes[2].nom = textBoxNomP3.Text;
-                personajes[2].frase = textBoxDesc3.Text;
+                listaPersonajes[2].nom = textBoxNomP3.Text;
+                listaPersonajes[2].frase = textBoxDesc3.Text;
             }
 
             Close();
@@ -198,7 +193,7 @@ namespace SerializarJSON
         //metodo para inicializar los personajes
         private void inicializarPersonajes()
         {
-            foreach (var personaje in personajes)
+            foreach (var personaje in listaPersonajes)
             {
                 personaje.nom = "";
                 personaje.frase = "";

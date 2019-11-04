@@ -17,7 +17,7 @@ using System.Windows.Forms;
  *          2. Segun el idioma seleccionado y el planeta pulsado, se pasar al constructor del gestor de contenido un planeta u otro
  *          
  * 
- * El código está ordenado respectivamente por Constantes, Atributos, Constructores, Eventos y Métodos
+ * El código está ordenado respectivamente por Constantes, Atributos, Constructores, Eventos y Métodos.
  *      Nota: Existen más métodos en la clase Metodo (Archivo Metodo.cs) que se usan desde varios formularios (Reciclaje de código)
  */
 namespace SerializarJSON
@@ -65,7 +65,7 @@ namespace SerializarJSON
         public static List<Planeta> planetas = new List<Planeta>();
 
         // Lista estatic de personajes
-        public static List<Personaje> personajes = new List<Personaje>();
+        public static List<Personaje> listaPersonajes = new List<Personaje>();
 
         // Crea un objeto save dialog
         SaveFileDialog SaveFileDialog = new SaveFileDialog();
@@ -89,6 +89,7 @@ namespace SerializarJSON
 
             // Crea 9 planetas con su id correspondiente [0-8]
             crearPlanetas();
+            crearPersonajes();
         }
 
 
@@ -187,7 +188,7 @@ namespace SerializarJSON
         //Obrir gestor de personatges
         private void pictureBoxGestorPersonatges_Click(object sender, EventArgs e)
         {
-            FormGestorPersonatges formGestorPersonatges = new FormGestorPersonatges();
+            FormGestorPersonatges formGestorPersonatges = new FormGestorPersonatges(listaPersonajes);
             this.Hide();
             formGestorPersonatges.ShowDialog();
             this.Show();
@@ -203,6 +204,18 @@ namespace SerializarJSON
          *    ██║ ╚═╝ ██║ ███████╗   ██║   ╚██████╔╝ ██████╔╝  ╚██████╔╝ ███████║
          *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
          */
+
+        private void crearPersonajes()
+        {
+            int i;
+            for (i = 0; i < MAX_PERSONAJES; i++)
+            {
+                Personaje personaje = new Personaje();
+                listaPersonajes.Add(personaje);
+            }
+            
+        }
+
 
         /// <summary>        
         /// Pasa el planeta correspondiente al formulario gestor de contenido por su constructor.
@@ -517,7 +530,7 @@ namespace SerializarJSON
             // Recorre personajes
             while (j < MAX_PERSONAJES)
             {
-                if (! ( Metodo.revisarContenido(personajes[j].nom) && Metodo.revisarContenido(personajes[j].frase) ) )
+                if (! ( Metodo.revisarContenido(listaPersonajes[j].nom) && Metodo.revisarContenido(listaPersonajes[j].frase) ) )
                 {
                     // La variable se niega y sale del bucle
                     personajesOK = false;

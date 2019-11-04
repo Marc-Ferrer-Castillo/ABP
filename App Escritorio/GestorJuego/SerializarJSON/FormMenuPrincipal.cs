@@ -17,7 +17,7 @@ using System.Windows.Forms;
  *          2. Segun el idioma seleccionado y el planeta pulsado, se pasar al constructor del gestor de contenido un planeta u otro
  *          
  * 
- * El código está ordenado respectivamente por Constantes, Atributos, Constructores, Eventos y Métodos
+ * El código está ordenado respectivamente por Constantes, Atributos, Constructores, Eventos y Métodos.
  *      Nota: Existen más métodos en la clase Metodo (Archivo Metodo.cs) que se usan desde varios formularios (Reciclaje de código)
  */
 namespace SerializarJSON

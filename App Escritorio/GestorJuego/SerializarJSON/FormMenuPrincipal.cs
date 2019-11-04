@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms; 
 /*
  * Este es el primer formulario en abrirse, se instancia por primera vez desde la clase Program.cs por defecto
  * 
@@ -102,6 +102,7 @@ namespace SerializarJSON
          *    ╚══════╝  ╚═══╝   ╚══════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ╚══════╝                                                                 
          */
 
+        
         // Permite mover la ventana
         protected override void WndProc(ref Message m)
         {
@@ -537,5 +538,6 @@ namespace SerializarJSON
             // Retorna el retorno
             return retorno;
         }
+
     }
 }

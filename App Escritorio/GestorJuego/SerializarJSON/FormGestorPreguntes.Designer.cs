@@ -437,6 +437,7 @@
             // pictureBoxAjuda
             // 
             this.pictureBoxAjuda.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxAjuda.Cursor = System.Windows.Forms.Cursors.Help;
             this.pictureBoxAjuda.Location = new System.Drawing.Point(982, 12);
             this.pictureBoxAjuda.Name = "pictureBoxAjuda";
             this.pictureBoxAjuda.Size = new System.Drawing.Size(40, 42);

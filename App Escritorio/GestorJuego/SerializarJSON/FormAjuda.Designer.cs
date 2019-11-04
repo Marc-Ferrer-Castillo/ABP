@@ -72,7 +72,7 @@
             this.MaximumSize = new System.Drawing.Size(1000, 600);
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FormAjuda";
-            this.Text = "FormAjuda";
+            this.Text = "Ajuda";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).EndInit();
             this.ResumeLayout(false);

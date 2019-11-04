@@ -56,7 +56,7 @@
             // 
             this.textBoxContenido.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBoxContenido.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxContenido.Font = new System.Drawing.Font("Myriad Pro Cond", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContenido.Location = new System.Drawing.Point(99, 182);
             this.textBoxContenido.Multiline = true;
             this.textBoxContenido.Name = "textBoxContenido";
@@ -66,6 +66,7 @@
             // pictureBoxAyuda
             // 
             this.pictureBoxAyuda.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxAyuda.Cursor = System.Windows.Forms.Cursors.Help;
             this.pictureBoxAyuda.Location = new System.Drawing.Point(977, 12);
             this.pictureBoxAyuda.Name = "pictureBoxAyuda";
             this.pictureBoxAyuda.Size = new System.Drawing.Size(38, 40);

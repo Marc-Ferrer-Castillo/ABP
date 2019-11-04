@@ -83,7 +83,7 @@ namespace SerializarJSON
 
         private void FormGestorPersonatges_Load(object sender, EventArgs e)
         {
-            //cargamos datos del personaje1
+            //cargamos datos del 1º personaje
             textBoxNomP1.Text = listaPersonajes[0].nom;
             textBoxDesc1.Text = listaPersonajes[0].frase;
 
@@ -94,7 +94,7 @@ namespace SerializarJSON
             }
 
 
-            //cargamos datos del personaje1
+            //cargamos datos del 2º personaje
             textBoxNomP2.Text = listaPersonajes[1].nom;
             textBoxDesc2.Text = listaPersonajes[1].frase;
 
@@ -104,7 +104,7 @@ namespace SerializarJSON
 
             }
 
-            //cargamos datos del personaje1
+            //cargamos datos del 3º personaje
             textBoxNomP3.Text = listaPersonajes[2].nom;
             textBoxDesc3.Text = listaPersonajes[2].frase;
 
@@ -151,7 +151,7 @@ namespace SerializarJSON
         private void pictureBoxExportar_Click(object sender, EventArgs e)
         {
 
-            //si hay campos vacios avisamos al usuario con el metodo campBuit().
+            //si hay campos vacios avisamos al usuario con el metodo campBuit();
             if (textBoxNomP1.Text == "")
             {
                 campBuit();
@@ -182,6 +182,7 @@ namespace SerializarJSON
                 campBuit();
                 textBoxDesc3.Focus();
             }
+            //si hay imagenes sin cargar avisamos al usuario con el metodo campBuitImatge();
             else if (listaPersonajes[0].rutaImagen == null)
             {
                 campBuitImatge();
@@ -196,15 +197,15 @@ namespace SerializarJSON
             }
             else
             {
-                //guardamos datos del personaje1
+                //guardamos datos del 1º personaje
                 listaPersonajes[0].nom = textBoxNomP1.Text;
                 listaPersonajes[0].frase = textBoxDesc1.Text;
 
-                //guardamos datos del personaje2
+                //guardamos datos del 2º personaje
                 listaPersonajes[1].nom = textBoxNomP2.Text;
                 listaPersonajes[1].frase = textBoxDesc2.Text;
 
-                //guardamos datos del personaje3
+                //guardamos datos del 3º personaje
                 listaPersonajes[2].nom = textBoxNomP3.Text;
                 listaPersonajes[2].frase = textBoxDesc3.Text;
 
@@ -215,40 +216,7 @@ namespace SerializarJSON
         }
 
 
-
-        /*    METODOS
-        *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗
-        *    ████╗ ████║ ██╔════╝╚══██╔══╝██╔═══██╗ ██╔══██╗  ██╔═══██╗ ██╔════╝
-        *    ██╔████╔██║ █████╗     ██║   ██║   ██║ ██║   ██║ ██║   ██║ ███████╗
-        *    ██║╚██╔╝██║ ██╔══╝     ██║   ██║   ██║ ██║  ██║  ██║   ██║ ╚════██║
-        *    ██║ ╚═╝ ██║ ███████╗   ██║   ╚██████╔╝ ██████╔╝  ╚██████╔╝ ███████║
-        *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
-        */
-
-        //metodo para inicializar los personajes
-        private void inicializarPersonajes()
-        {
-            foreach (var personaje in listaPersonajes)
-            {
-                personaje.nom = "";
-                personaje.frase = "";
-            }
-        }
-
-        // Muestra error en caso de que haya un campo vacio
-        private void campBuit()
-        {
-            MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void campBuitImatge()
-        {
-            MessageBox.Show("Introdueixi una imatge", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void errorImatge()
-        {
-            MessageBox.Show("El arxiu seleccionat no es una imatge");
-        }
-
+        //Introducció de les imatges dels personatges i errors 
         private void pictureBoxPersonatge1_Click(object sender, EventArgs e)
         {
             try
@@ -307,5 +275,46 @@ namespace SerializarJSON
                 errorImatge();
             }
         }
+
+
+
+        /*    METODOS
+        *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗
+        *    ████╗ ████║ ██╔════╝╚══██╔══╝██╔═══██╗ ██╔══██╗  ██╔═══██╗ ██╔════╝
+        *    ██╔████╔██║ █████╗     ██║   ██║   ██║ ██║   ██║ ██║   ██║ ███████╗
+        *    ██║╚██╔╝██║ ██╔══╝     ██║   ██║   ██║ ██║  ██║  ██║   ██║ ╚════██║
+        *    ██║ ╚═╝ ██║ ███████╗   ██║   ╚██████╔╝ ██████╔╝  ╚██████╔╝ ███████║
+        *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
+        */
+
+        //metodo para inicializar los personajes
+        private void inicializarPersonajes()
+        {
+            foreach (var personaje in listaPersonajes)
+            {
+                personaje.nom = "";
+                personaje.frase = "";
+            }
+        }
+
+        // Muestra error en caso de que haya un campo vacio
+        private void campBuit()
+        {
+            MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        //Muestra error en caso de imagen sin cargar
+        private void campBuitImatge()
+        {
+            MessageBox.Show("Introdueixi una imatge", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        //Muestra error en caso de que el archivo no sea una imagen
+        private void errorImatge()
+        {
+            MessageBox.Show("El arxiu seleccionat no es una imatge");
+        }
+
+       
     }
 }

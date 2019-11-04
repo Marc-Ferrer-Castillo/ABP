@@ -105,7 +105,7 @@
             "Català",
             "Castellà",
             "Anglés"});
-            this.comboBoxIdioma.Location = new System.Drawing.Point(192, 123);
+            this.comboBoxIdioma.Location = new System.Drawing.Point(189, 112);
             this.comboBoxIdioma.Name = "comboBoxIdioma";
             this.comboBoxIdioma.Size = new System.Drawing.Size(113, 33);
             this.comboBoxIdioma.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             this.pictureBoxBandera.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxBandera.Image = global::SerializarJSON.Properties.Resources.esp;
-            this.pictureBoxBandera.Location = new System.Drawing.Point(129, 123);
+            this.pictureBoxBandera.Location = new System.Drawing.Point(129, 112);
             this.pictureBoxBandera.Name = "pictureBoxBandera";
             this.pictureBoxBandera.Size = new System.Drawing.Size(54, 33);
             this.pictureBoxBandera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

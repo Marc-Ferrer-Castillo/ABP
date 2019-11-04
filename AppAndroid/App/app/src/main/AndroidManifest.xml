@@ -9,13 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SeleccioNivell"></activity>
+        <activity
+            android:name=".Contingut"
+            android:screenOrientation="sensorLandscape" />
+        <activity android:name=".Joc"
+            android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".AssignacioPersonatge"
+            android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".SeleccioNivell"
+            android:screenOrientation="sensorLandscape"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

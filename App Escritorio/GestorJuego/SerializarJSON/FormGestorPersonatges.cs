@@ -94,7 +94,7 @@ namespace SerializarJSON
             }
 
 
-            //cargamos datos del personaje1
+            //cargamos datos del personaje2
             textBoxNomP2.Text = listaPersonajes[1].nom;
             textBoxDesc2.Text = listaPersonajes[1].frase;
 
@@ -104,7 +104,7 @@ namespace SerializarJSON
 
             }
 
-            //cargamos datos del personaje1
+            //cargamos datos del personaje3
             textBoxNomP3.Text = listaPersonajes[2].nom;
             textBoxDesc3.Text = listaPersonajes[2].frase;
 
@@ -182,6 +182,7 @@ namespace SerializarJSON
                 campBuit();
                 textBoxDesc3.Focus();
             }
+            //si hay imagenes sin cargar avisamos al usuario con el metodo campBuitImatge()
             else if (listaPersonajes[0].rutaImagen == null)
             {
                 campBuitImatge();
@@ -215,40 +216,7 @@ namespace SerializarJSON
         }
 
 
-
-        /*    METODOS
-        *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗
-        *    ████╗ ████║ ██╔════╝╚══██╔══╝██╔═══██╗ ██╔══██╗  ██╔═══██╗ ██╔════╝
-        *    ██╔████╔██║ █████╗     ██║   ██║   ██║ ██║   ██║ ██║   ██║ ███████╗
-        *    ██║╚██╔╝██║ ██╔══╝     ██║   ██║   ██║ ██║  ██║  ██║   ██║ ╚════██║
-        *    ██║ ╚═╝ ██║ ███████╗   ██║   ╚██████╔╝ ██████╔╝  ╚██████╔╝ ███████║
-        *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
-        */
-
-        //metodo para inicializar los personajes
-        private void inicializarPersonajes()
-        {
-            foreach (var personaje in listaPersonajes)
-            {
-                personaje.nom = "";
-                personaje.frase = "";
-            }
-        }
-
-        // Muestra error en caso de que haya un campo vacio
-        private void campBuit()
-        {
-            MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void campBuitImatge()
-        {
-            MessageBox.Show("Introdueixi una imatge", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void errorImatge()
-        {
-            MessageBox.Show("El arxiu seleccionat no es una imatge");
-        }
-
+        //Introducció de les imatges dels personatges
         private void pictureBoxPersonatge1_Click(object sender, EventArgs e)
         {
             try
@@ -307,5 +275,46 @@ namespace SerializarJSON
                 errorImatge();
             }
         }
+
+
+
+        /*    METODOS
+        *    ███╗   ███╗ ███████╗████████╗ ██████╗  ██████╗    ██████╗  ███████╗
+        *    ████╗ ████║ ██╔════╝╚══██╔══╝██╔═══██╗ ██╔══██╗  ██╔═══██╗ ██╔════╝
+        *    ██╔████╔██║ █████╗     ██║   ██║   ██║ ██║   ██║ ██║   ██║ ███████╗
+        *    ██║╚██╔╝██║ ██╔══╝     ██║   ██║   ██║ ██║  ██║  ██║   ██║ ╚════██║
+        *    ██║ ╚═╝ ██║ ███████╗   ██║   ╚██████╔╝ ██████╔╝  ╚██████╔╝ ███████║
+        *    ╚═╝     ╚═╝ ╚══════╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═════╝  ╚══════╝                                                                
+        */
+
+        //metodo para inicializar los personajes
+        private void inicializarPersonajes()
+        {
+            foreach (var personaje in listaPersonajes)
+            {
+                personaje.nom = "";
+                personaje.frase = "";
+            }
+        }
+
+        // Muestra error en caso de que haya un campo vacio
+        private void campBuit()
+        {
+            MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        //Muestra error en caso de imagen sin cargar
+        private void campBuitImatge()
+        {
+            MessageBox.Show("Introdueixi una imatge", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        //Muestra error en caso de que el archivo no sea una imagen
+        private void errorImatge()
+        {
+            MessageBox.Show("El arxiu seleccionat no es una imatge");
+        }
+
+       
     }
 }

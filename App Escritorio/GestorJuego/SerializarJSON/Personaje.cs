@@ -11,6 +11,11 @@ namespace SerializarJSON
         public String nom { get; set; }
         public string frase { get; set; }
 
+        public Personaje()
+        {
+
+        }
+
         public Personaje(string nom, string frase)
         {
             this.nom = nom;

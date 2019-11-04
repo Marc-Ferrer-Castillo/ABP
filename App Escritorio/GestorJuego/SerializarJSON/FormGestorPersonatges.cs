@@ -57,6 +57,14 @@ namespace SerializarJSON
         public FormGestorPersonatges()
         {
             InitializeComponent();
+
+            for (int i = 0; i < 3; i++)
+            {
+                Personaje personaje = new Personaje();
+                personajes.Add(personaje);
+                
+            }
+            
             inicializarPersonajes();
         }
 
@@ -81,7 +89,17 @@ namespace SerializarJSON
 
         private void FormGestorPersonatges_Load(object sender, EventArgs e)
         {
+            //guardamos datos del personaje1
+            textBoxNomP1.Text = personajes[0].nom;
+            textBoxDesc1.Text = personajes[0].frase;
 
+            //guardamos datos del personaje1
+            textBoxNomP2.Text = personajes[1].nom;
+            textBoxDesc2.Text = personajes[1].frase;
+
+            //guardamos datos del personaje1
+            textBoxNomP3.Text = personajes[2].nom;
+            textBoxDesc3.Text = personajes[2].frase;
         }
 
         // Cerrar formulario
@@ -163,9 +181,7 @@ namespace SerializarJSON
                 personajes[2].frase = textBoxDesc3.Text;
             }
 
-
-
-
+            Close();
         }
 
 
@@ -193,6 +209,57 @@ namespace SerializarJSON
         private void campBuit()
         {
             MessageBox.Show("Completa el camp buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void pictureBoxPersonatge1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBoxPersonatge1.Image = Image.FromFile(imagen);
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+            }
+        }
+
+        private void pictureBoxPersonatge2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBoxPersonatge2.Image = Image.FromFile(imagen);
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+            }
+        }
+
+        private void pictureBoxPersonatge3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBoxPersonatge3.Image = Image.FromFile(imagen);
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+            }
         }
     }
 }

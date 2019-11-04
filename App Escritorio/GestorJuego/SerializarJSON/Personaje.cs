@@ -10,6 +10,7 @@ namespace SerializarJSON
     {
         public String nom { get; set; }
         public string frase { get; set; }
+        public string rutaImagen { get; set; }
 
         public Personaje()
         {

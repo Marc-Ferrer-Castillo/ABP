@@ -161,9 +161,11 @@
             // pictureBoxPersonatge1
             // 
             this.pictureBoxPersonatge1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxPersonatge1.Location = new System.Drawing.Point(42, 194);
+            this.pictureBoxPersonatge1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxPersonatge1.Location = new System.Drawing.Point(42, 192);
             this.pictureBoxPersonatge1.Name = "pictureBoxPersonatge1";
-            this.pictureBoxPersonatge1.Size = new System.Drawing.Size(92, 89);
+            this.pictureBoxPersonatge1.Size = new System.Drawing.Size(92, 93);
+            this.pictureBoxPersonatge1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonatge1.TabIndex = 18;
             this.pictureBoxPersonatge1.TabStop = false;
             this.pictureBoxPersonatge1.Click += new System.EventHandler(this.pictureBoxPersonatge1_Click);
@@ -171,10 +173,11 @@
             // pictureBoxPersonatge2
             // 
             this.pictureBoxPersonatge2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPersonatge2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPersonatge2.Location = new System.Drawing.Point(43, 369);
             this.pictureBoxPersonatge2.Name = "pictureBoxPersonatge2";
             this.pictureBoxPersonatge2.Size = new System.Drawing.Size(91, 91);
-            this.pictureBoxPersonatge2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPersonatge2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonatge2.TabIndex = 19;
             this.pictureBoxPersonatge2.TabStop = false;
             this.pictureBoxPersonatge2.Click += new System.EventHandler(this.pictureBoxPersonatge2_Click);
@@ -182,6 +185,7 @@
             // pictureBoxPersonatge3
             // 
             this.pictureBoxPersonatge3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPersonatge3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPersonatge3.Location = new System.Drawing.Point(42, 547);
             this.pictureBoxPersonatge3.Name = "pictureBoxPersonatge3";
             this.pictureBoxPersonatge3.Size = new System.Drawing.Size(92, 91);

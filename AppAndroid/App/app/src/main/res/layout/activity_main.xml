@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    gif de fondo: https://stackoverflow.com/questions/6533942/adding-gif-image-in-an-imageview-in-android
+-->
 <RelativeLayout
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/fondoidioma"
-        android:scaleType="fitCenter"/>
+        android:src="@drawable/frame"/>
 
     <ImageView
         android:id="@+id/catalan"

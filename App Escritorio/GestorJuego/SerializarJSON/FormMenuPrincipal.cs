@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms; 
+
 /*
  * Este es el primer formulario en abrirse, se instancia por primera vez desde la clase Program.cs por defecto
  * 
@@ -143,21 +144,28 @@ namespace SerializarJSON
         {
             try
             {
-                // Metodo: Commprueba personajes y planetas
+                //Metodo: Commprueba personajes y planetas
                 if (ContenidoExistente())
                 {
-                    // Metodo: Guarda ficheros
+                    //Metodo: Guarda ficheros
                     GuardarTodo();
+                }
+                else //Error
+                {
+                    MessageBox.Show(
+                    "Falten personatges o planetes per omplir",
+                    "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show(
-                    "Falten personatges o planetes per omplir",
+                    "No s'han pogut generar els fitxers",
                     "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-        }        
+            }
+        }
 
         // Cuando un idioma es seleccionado
         private void comboBoxIdioma_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,8 +215,8 @@ namespace SerializarJSON
 
         private void crearPersonajes()
         {
-            int i;
-            for (i = 0; i < MAX_PERSONAJES; i++)
+            
+            for (int i = 0; i < MAX_PERSONAJES; i++)
             {
                 Personaje personaje = new Personaje();
                 listaPersonajes.Add(personaje);
@@ -423,7 +431,7 @@ namespace SerializarJSON
                     pictureBoxBandera.Image = SerializarJSON.Properties.Resources.eng;
                     pictureBoxBandera.Visible = true;
 
-                    if (planetas[6].preguntas.Count > 1 && Metodo.revisarContenido(planetas[6].preguntas[0].pregunta))
+                    if (planetas[6].preguntas.Count > 0 && Metodo.revisarContenido(planetas[6].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1true;
@@ -433,7 +441,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta1.Image = SerializarJSON.Properties.Resources.Planeta1false;
                     }
-                    if (planetas[7].preguntas.Count > 1 && Metodo.revisarContenido(planetas[7].preguntas[0].pregunta))
+                    if (planetas[7].preguntas.Count > 0 && Metodo.revisarContenido(planetas[7].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2true;
@@ -443,7 +451,7 @@ namespace SerializarJSON
                         // Quita el color del planeta
                         pictureBoxPlaneta2.Image = SerializarJSON.Properties.Resources.planeta2false;
                     }
-                    if (planetas[8].preguntas.Count > 1 && Metodo.revisarContenido(planetas[8].preguntas[0].pregunta))
+                    if (planetas[8].preguntas.Count > 0 && Metodo.revisarContenido(planetas[8].preguntas[0].pregunta))
                     {
                         // Cambia el planeta a color
                         pictureBoxPlaneta3.Image = SerializarJSON.Properties.Resources.planeta3true;
@@ -463,41 +471,47 @@ namespace SerializarJSON
         /// </summary>
         private void GuardarTodo()
         {
-            try
+            
+            // Crea los directorios y subdirectorios
+            Directory.CreateDirectory(@"contingut del joc\planetas");
+            Directory.CreateDirectory(@"Contingut del Joc\personatges\imatges");
+
+            // Serializa a JSON la lista de planetas 
+            // guarda en el directorio "contingut del joc\planetas\planetas"
+            File.WriteAllText(@"contingut del joc\planetas\planetas.JSON",
+                Newtonsoft.Json.JsonConvert.SerializeObject(planetas));
+
+            // Serializa a JSON la lista de personajes
+            // guarda en el directorio "contingut del joc\personajes"
+            File.WriteAllText(@"contingut del joc\personatges\personatges.JSON",
+                Newtonsoft.Json.JsonConvert.SerializeObject(listaPersonajes));
+
+
+            // Copia las imagenes a la carpeta de imagenes y las renombra
+            System.IO.File.Copy(listaPersonajes[0].rutaImagen,
+                    Directory.GetCurrentDirectory() + "\\Contingut del Joc\\personatges\\imatges\\imagen1.png", true);
+            System.IO.File.Copy(listaPersonajes[1].rutaImagen,
+                    Directory.GetCurrentDirectory() + "\\Contingut del Joc\\personatges\\imatges\\imagen2.png", true);
+            System.IO.File.Copy(listaPersonajes[2].rutaImagen,
+                    Directory.GetCurrentDirectory() + "\\Contingut del Joc\\personatges\\imatges\\imagen3.png", true);
+            
+
+            // Pregunta si esta seguro que desea cerrar
+            var respuesta = MessageBox.Show(
+                "Arxius generats correctament\nVols anar al directori? ",
+                "Fet",
+                MessageBoxButtons.YesNo, MessageBoxIcon.None);
+
+            // Si es así, abre la carpeta que contiene los archivos
+            if (respuesta == DialogResult.Yes)
             {
-                // Crea los directorios y subdirectorios
-                Directory.CreateDirectory(@"contingut del joc\planetas");
-                Directory.CreateDirectory(@"Contingut del Joc\personatges\imatges");
-
-                // Serializa a JSON la lista de planetas 
-                // guarda en el directorio "contingut del joc\planetas\planetas"
-                File.WriteAllText(@"contingut del joc\planetas\planetas.JSON",
-                    Newtonsoft.Json.JsonConvert.SerializeObject(planetas));
-
-
                 // Objtiene el directorio actual
                 String directorio = Directory.GetCurrentDirectory();
 
-                // Pregunta si esta seguro que desea cerrar
-                var respuesta = MessageBox.Show(
-                    "Arxius generats correctament\nVols anar al directori? ",
-                    "Fet",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.None);
-
-                // Si es así, abre la carpeta que contiene los archivos
-                if (respuesta == DialogResult.Yes)
-                {
-                    Process.Start(@directorio);
-                }
-
+                Process.Start(@directorio);
             }
-            catch (Exception)
-            {
-                MessageBox.Show(
-                    "No s'han pogut generar els fitxers",
-                    "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            
         }
 
         /// <summary>
@@ -515,6 +529,7 @@ namespace SerializarJSON
             // Recorre planetas
             while (i < MAX_PLANETAS)
             {
+
                 // Si algun planeta no tiene un contenido valido
                 if ( !Metodo.revisarContenido(planetas[i].contenido) )
                 {
@@ -522,22 +537,31 @@ namespace SerializarJSON
                     planetasOk = false;
                     i = MAX_PLANETAS;
                 }
+                else
+                {
+                    planetasOk = true;
+                }
                 
-                planetasOk = true;
+                
                 i++;
             }
 
             // Recorre personajes
             while (j < MAX_PERSONAJES)
             {
-                if (! ( Metodo.revisarContenido(listaPersonajes[j].nom) && Metodo.revisarContenido(listaPersonajes[j].frase) ) )
+                if (! ( Metodo.revisarContenido(listaPersonajes[j].nom) 
+                     && Metodo.revisarContenido(listaPersonajes[j].frase) 
+                     && Metodo.revisarContenido(listaPersonajes[j].rutaImagen) ) )
                 {
                     // La variable se niega y sale del bucle
                     personajesOK = false;
                     i = MAX_PLANETAS;
                 }
-
-                personajesOK = true;
+                else
+                {
+                    personajesOK = true;
+                }
+                
                 j++;
             }
 

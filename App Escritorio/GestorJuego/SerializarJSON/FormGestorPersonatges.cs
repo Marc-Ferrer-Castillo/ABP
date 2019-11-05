@@ -53,12 +53,14 @@ namespace SerializarJSON
         *     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝
         *                                                                                                                   
         */
+
         //inicializar componentes
         public FormGestorPersonatges(List<Personaje> listaPersonajes)
         {
             InitializeComponent();
             inicializarPersonajes();
             this.listaPersonajes = listaPersonajes;
+
             
         }
 

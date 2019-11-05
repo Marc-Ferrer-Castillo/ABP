@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondoidioma"
+        android:scaleType="fitCenter"/>
+
+    <ImageView
+        android:id="@+id/catalan"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="160dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/cat"
+        android:scaleType="centerInside"/>
+
+    <ImageView
+        android:id="@+id/castellano"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="90dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/esp"
+        android:scaleType="centerInside"/>
+
+    <ImageView
+        android:id="@+id/ingles"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/eng"
+        android:scaleType="centerInside"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INICIAR"
+        android:textSize="50dp"
+        android:textColor="@color/Blanco"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
+

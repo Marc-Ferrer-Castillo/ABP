@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".resultado"></activity>
-        <activity android:name=".contenido" />
-        <activity android:name=".juego" />
-        <activity android:name=".dificultad" />
+        <activity android:name=".resultado"
+            android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".contenido"
+            android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".juego"
+            android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".dificultad"
+            android:screenOrientation="sensorLandscape"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="sensorLandscape">

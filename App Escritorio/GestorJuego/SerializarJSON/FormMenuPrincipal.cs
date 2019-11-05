@@ -68,8 +68,7 @@ namespace SerializarJSON
         // Lista estatic de personajes
         public static List<Personaje> listaPersonajes = new List<Personaje>();
 
-        // Crea un objeto save dialog
-        SaveFileDialog SaveFileDialog = new SaveFileDialog();
+        
 
 
 
@@ -147,9 +146,9 @@ namespace SerializarJSON
                 //Metodo: Commprueba personajes y planetas
                 if (ContenidoExistente())
                 {
-                    //Metodo: Guarda ficheros
+                //Metodo: Guarda ficheros
                     GuardarTodo();
-                }
+        }
                 else //Error
                 {
                     MessageBox.Show(
@@ -157,7 +156,7 @@ namespace SerializarJSON
                     "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+}
             catch (Exception)
             {
                 MessageBox.Show(
@@ -471,47 +470,62 @@ namespace SerializarJSON
         /// </summary>
         private void GuardarTodo()
         {
+            // Instancia objeto de la clase FolderBroseDialog
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            // Descripción del cuadro de dialogo
+            fbd.Description = "Selecciona un directori on guardar els fitxers";
             
-            // Crea los directorios y subdirectorios
-            Directory.CreateDirectory(@"contingut del joc\planetas");
-            Directory.CreateDirectory(@"Contingut del Joc\personatges\imatges");
+            // Guarda la ruta seleccionada por el usuario
+            String ruta = "";
 
-            // Serializa a JSON la lista de planetas 
-            // guarda en el directorio "contingut del joc\planetas\planetas"
-            File.WriteAllText(@"contingut del joc\planetas\planetas.JSON",
-                Newtonsoft.Json.JsonConvert.SerializeObject(planetas));
-
-            // Serializa a JSON la lista de personajes
-            // guarda en el directorio "contingut del joc\personajes"
-            File.WriteAllText(@"contingut del joc\personatges\personatges.JSON",
-                Newtonsoft.Json.JsonConvert.SerializeObject(listaPersonajes));
-
-
-            // Copia las imagenes a la carpeta de imagenes y las renombra
-            System.IO.File.Copy(listaPersonajes[0].rutaImagen,
-                    Directory.GetCurrentDirectory() + "\\Contingut del Joc\\personatges\\imatges\\imagen1.png", true);
-            System.IO.File.Copy(listaPersonajes[1].rutaImagen,
-                    Directory.GetCurrentDirectory() + "\\Contingut del Joc\\personatges\\imatges\\imagen2.png", true);
-            System.IO.File.Copy(listaPersonajes[2].rutaImagen,
-                    Directory.GetCurrentDirectory() + "\\Contingut del Joc\\personatges\\imatges\\imagen3.png", true);
-            
-
-            // Pregunta si esta seguro que desea cerrar
-            var respuesta = MessageBox.Show(
-                "Arxius generats correctament\nVols anar al directori? ",
-                "Fet",
-                MessageBoxButtons.YesNo, MessageBoxIcon.None);
-
-            // Si es así, abre la carpeta que contiene los archivos
-            if (respuesta == DialogResult.Yes)
+            // Cuando el usuario pulse ok
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
-                // Objtiene el directorio actual
-                String directorio = Directory.GetCurrentDirectory();
-
-                Process.Start(@directorio);
-            }
-
+                // Ruta sera la ruta seleccionada
+                ruta = fbd.SelectedPath;
             
+
+                // Crea los directorios y subdirectorios
+                Directory.CreateDirectory(ruta + @"\contingut del joc\planetas");
+                Directory.CreateDirectory(ruta + @"\Contingut del Joc\personatges\imatges");
+
+                // Serializa a JSON la lista de planetas 
+                // guarda en el directorio "contingut del joc\planetas\planetas"
+                File.WriteAllText(ruta + @"\contingut del joc\planetas\planetas.JSON",
+                    Newtonsoft.Json.JsonConvert.SerializeObject(planetas));
+
+                // Serializa a JSON la lista de personajes
+                // guarda en el directorio "contingut del joc\personajes"
+                File.WriteAllText(ruta + @"\contingut del joc\personatges\personatges.JSON",
+                    Newtonsoft.Json.JsonConvert.SerializeObject(listaPersonajes));
+
+
+                // Copia las imagenes a la carpeta de imagenes y las renombra
+                System.IO.File.Copy(listaPersonajes[0].rutaImagen,
+                        ruta + @"\Contingut del Joc\personatges\imatges\imagen1.png", true);
+                System.IO.File.Copy(listaPersonajes[1].rutaImagen,
+                        ruta + @"\Contingut del Joc\personatges\imatges\imagen2.png", true);
+                System.IO.File.Copy(listaPersonajes[2].rutaImagen,
+                        ruta + @"\Contingut del Joc\personatges\imatges\imagen3.png", true);
+
+
+                // Pregunta si esta seguro que desea cerrar
+                var respuesta = MessageBox.Show(
+                    "Arxius generats correctament\nVols anar al directori? ",
+                    "Fet",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.None);
+
+                // Si es así, abre la carpeta que contiene los archivos
+                if (respuesta == DialogResult.Yes)
+                {
+                    // Objtiene el directorio actual
+                    String directorio = Directory.GetCurrentDirectory();
+
+                    Process.Start(fbd.SelectedPath);
+                }
+
+            }
         }
 
         /// <summary>

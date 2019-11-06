@@ -63,7 +63,38 @@ namespace SerializarJSON
             this.idIdioma = idIdioma;
 
         }
+        //public FormGestorPersonatges(List<Personaje> listaPersonajes)
+        //{
 
+        //    textBoxNomP1.Text = listaPersonajes[0].nom;
+        //    textBoxDesc1.Text = listaPersonajes[0].frase;
+
+        //    textBoxNomP2.Text = listaPersonajes[1].nom;
+        //    textBoxDesc2.Text = listaPersonajes[1].frase;
+
+        //    textBoxNomP3.Text = listaPersonajes[2].nom;
+        //    textBoxDesc3.Text = listaPersonajes[2].frase;
+           
+        //    textBoxNomP1.Text = listaPersonajes[3].nom;
+        //    textBoxDesc1.Text = listaPersonajes[3].frase;
+           
+        //    textBoxNomP2.Text = listaPersonajes[4].nom;
+        //    textBoxDesc2.Text = listaPersonajes[4].frase;
+
+        //    textBoxNomP3.Text = listaPersonajes[5].nom;
+        //    textBoxDesc3.Text = listaPersonajes[5].frase;
+            
+        //    textBoxNomP1.Text = listaPersonajes[6].nom;
+        //    textBoxDesc1.Text = listaPersonajes[6].frase;
+
+        //    textBoxNomP2.Text = listaPersonajes[7].nom;
+        //    textBoxDesc2.Text = listaPersonajes[7].frase;
+
+        //    textBoxNomP3.Text = listaPersonajes[8].nom;
+        //    textBoxDesc3.Text = listaPersonajes[8].frase;
+           
+
+        //}
 
         /*    EVENTOS
          *    ███████╗██╗   ██╗ ███████╗ ███╗   ██╗████████╗ ██████╗  ███████╗

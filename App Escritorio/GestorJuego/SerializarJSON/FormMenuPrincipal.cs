@@ -641,7 +641,7 @@ namespace SerializarJSON
                 List<Personaje> personajes;
                 personajes = jArrayPersonajes.ToObject<List<Personaje>>();
 
-
+                
                 //FormGestorPersonatges hola = new FormGestorPersonatges(personajes);
       
 

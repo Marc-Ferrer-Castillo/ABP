@@ -156,6 +156,7 @@ C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bi
 C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin\Debug\SerializarJSON.exe
 C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin\Debug\SerializarJSON.pdb
 C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin\Debug\ca\SerializarJSON.resources.dll
+C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin\Debug\Newtonsoft.Json.dll
 C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\bin\Debug\Newtonsoft.Json.xml
 C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\ca\SerializarJSON.resources.dll
 C:\Users\alber\Documents\GitHub\ABP\App Escritorio\GestorJuego\SerializarJSON\obj\Debug\GestorJuego.csproj.CopyComplete

@@ -129,7 +129,7 @@ namespace SerializarJSON
                 textBoxDesc3.Text = listaPersonajes[8].frase;
             }
             
-
+            //Cargamos la 1 imagen
             if (Personaje.rutaImagen1 != null)
             {
                 pictureBoxPersonatge1.Image = Image.FromFile(Personaje.rutaImagen1);
@@ -137,7 +137,7 @@ namespace SerializarJSON
 
             }
 
-
+            //Cargamos la 2 imagen
             if (Personaje.rutaImagen2 != null)
             {
                 pictureBoxPersonatge2.Image = Image.FromFile(Personaje.rutaImagen2);
@@ -145,7 +145,7 @@ namespace SerializarJSON
 
             }
 
-
+            //Cargamos la 3 imagen
             if (Personaje.rutaImagen3 != null)
             {
                 pictureBoxPersonatge3.Image = Image.FromFile(Personaje.rutaImagen3);

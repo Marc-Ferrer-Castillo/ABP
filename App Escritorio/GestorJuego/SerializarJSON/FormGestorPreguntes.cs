@@ -315,7 +315,7 @@ namespace SerializarJSON
         //Limpia todos los campos para poder añadir una nueva pregunta FALTA PROGRAMAR
         private void pictureBoxNetejar_Click(object sender, EventArgs e)
         {
-            //limpiarCampos();
+            limpiarCampos();
             //listBoxContenidos.ClearSelected();
             //textBoxPregunta.Focus();
         }

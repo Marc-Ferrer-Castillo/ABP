@@ -86,49 +86,53 @@ namespace SerializarJSON
 
         private void FormGestorPersonatges_Load(object sender, EventArgs e)
         {
-            if (idIdioma == 0)
+            switch (idIdioma)
             {
-                //cargamos datos del 1º personaje en català
-                textBoxNomP1.Text = listaPersonajes[0].nom;
-                textBoxDesc1.Text = listaPersonajes[0].frase;
+                case 0:
+                    //cargamos datos del 1º personaje en català
+                    textBoxNomP1.Text = listaPersonajes[0].nom;
+                    textBoxDesc1.Text = listaPersonajes[0].frase;
 
-                //cargamos datos del 2º personaje en català
-                textBoxNomP2.Text = listaPersonajes[1].nom;
-                textBoxDesc2.Text = listaPersonajes[1].frase;
+                    //cargamos datos del 2º personaje en català
+                    textBoxNomP2.Text = listaPersonajes[1].nom;
+                    textBoxDesc2.Text = listaPersonajes[1].frase;
 
-                //cargamos datos del 3º personaje en català
-                textBoxNomP3.Text = listaPersonajes[2].nom;
-                textBoxDesc3.Text = listaPersonajes[2].frase;
+                    //cargamos datos del 3º personaje en català
+                    textBoxNomP3.Text = listaPersonajes[2].nom;
+                    textBoxDesc3.Text = listaPersonajes[2].frase;
+                    break;
+
+
+                case 1:
+                    //cargamos datos del 1º personaje en castellà
+                    textBoxNomP1.Text = listaPersonajes[3].nom;
+                    textBoxDesc1.Text = listaPersonajes[3].frase;
+
+                    //cargamos datos del 2º personaje en castellà
+                    textBoxNomP2.Text = listaPersonajes[4].nom;
+                    textBoxDesc2.Text = listaPersonajes[4].frase;
+
+                    //cargamos datos del 3º personaje en castellà
+                    textBoxNomP3.Text = listaPersonajes[5].nom;
+                    textBoxDesc3.Text = listaPersonajes[5].frase;
+                    break;
+
+
+                case 2:
+                    //cargamos datos del 1º personaje en angles
+                    textBoxNomP1.Text = listaPersonajes[6].nom;
+                    textBoxDesc1.Text = listaPersonajes[6].frase;
+
+                    //cargamos datos del 2º personaje en angles
+                    textBoxNomP2.Text = listaPersonajes[7].nom;
+                    textBoxDesc2.Text = listaPersonajes[7].frase;
+
+                    //cargamos datos del 3º personaje en angles
+                    textBoxNomP3.Text = listaPersonajes[8].nom;
+                    textBoxDesc3.Text = listaPersonajes[8].frase;
+                    break;
             }
-            else if (idIdioma == 1)
-            {
-                //cargamos datos del 1º personaje en castellà
-                textBoxNomP1.Text = listaPersonajes[3].nom;
-                textBoxDesc1.Text = listaPersonajes[3].frase;
-
-                //cargamos datos del 2º personaje en castellà
-                textBoxNomP2.Text = listaPersonajes[4].nom;
-                textBoxDesc2.Text = listaPersonajes[4].frase;
-
-                //cargamos datos del 3º personaje en castellà
-                textBoxNomP3.Text = listaPersonajes[5].nom;
-                textBoxDesc3.Text = listaPersonajes[5].frase;
-            }
-            else if (idIdioma == 2)
-            {
-                //cargamos datos del 1º personaje en angles
-                textBoxNomP1.Text = listaPersonajes[6].nom;
-                textBoxDesc1.Text = listaPersonajes[6].frase;
-
-                //cargamos datos del 2º personaje en angles
-                textBoxNomP2.Text = listaPersonajes[7].nom;
-                textBoxDesc2.Text = listaPersonajes[7].frase;
-
-                //cargamos datos del 3º personaje en angles
-                textBoxNomP3.Text = listaPersonajes[8].nom;
-                textBoxDesc3.Text = listaPersonajes[8].frase;
-            }
-            
+                        
             //Cargamos la 1 imagen
             if (Personaje.rutaImagen1 != null)
             {
@@ -235,47 +239,50 @@ namespace SerializarJSON
             }
             else
             {
-                if (idIdioma == 0)
+                switch (idIdioma)
                 {
-                    //guardamos datos del 1º personaje en català
-                    listaPersonajes[0].nom = textBoxNomP1.Text;
-                    listaPersonajes[0].frase = textBoxDesc1.Text;
+                    case 0:
+                        //guardamos datos del 1º personaje en català
+                        listaPersonajes[0].nom = textBoxNomP1.Text;
+                        listaPersonajes[0].frase = textBoxDesc1.Text;
 
-                    //guardamos datos del 2º personaje en català
-                    listaPersonajes[1].nom = textBoxNomP2.Text;
-                    listaPersonajes[1].frase = textBoxDesc2.Text;
+                        //guardamos datos del 2º personaje en català
+                        listaPersonajes[1].nom = textBoxNomP2.Text;
+                        listaPersonajes[1].frase = textBoxDesc2.Text;
 
-                    //guardamos datos del 3º personaje en català
-                    listaPersonajes[2].nom = textBoxNomP3.Text;
-                    listaPersonajes[2].frase = textBoxDesc3.Text;
-                }
-                else if (idIdioma == 1)
-                {
-                    //guardamos datos del 1º personaje en castellà
-                    listaPersonajes[3].nom = textBoxNomP1.Text;
-                    listaPersonajes[3].frase = textBoxDesc1.Text;
+                        //guardamos datos del 3º personaje en català
+                        listaPersonajes[2].nom = textBoxNomP3.Text;
+                        listaPersonajes[2].frase = textBoxDesc3.Text;
+                        break;
 
-                    //guardamos datos del 2º personaje en castellà
-                    listaPersonajes[4].nom = textBoxNomP2.Text;
-                    listaPersonajes[4].frase = textBoxDesc2.Text;
+                    case 1:
+                        //guardamos datos del 1º personaje en castellà
+                        listaPersonajes[3].nom = textBoxNomP1.Text;
+                        listaPersonajes[3].frase = textBoxDesc1.Text;
 
-                    //guardamos datos del 3º personaje en castellà
-                    listaPersonajes[5].nom = textBoxNomP3.Text;
-                    listaPersonajes[5].frase = textBoxDesc3.Text;
-                }
-                else if (idIdioma == 2)
-                {
-                    //guardamos datos del 1º personaje en angles
-                    listaPersonajes[6].nom = textBoxNomP1.Text;
-                    listaPersonajes[6].frase = textBoxDesc1.Text;
+                        //guardamos datos del 2º personaje en castellà
+                        listaPersonajes[4].nom = textBoxNomP2.Text;
+                        listaPersonajes[4].frase = textBoxDesc2.Text;
 
-                    //guardamos datos del 2º personaje en angles
-                    listaPersonajes[7].nom = textBoxNomP2.Text;
-                    listaPersonajes[7].frase = textBoxDesc2.Text;
+                        //guardamos datos del 3º personaje en castellà
+                        listaPersonajes[5].nom = textBoxNomP3.Text;
+                        listaPersonajes[5].frase = textBoxDesc3.Text;
+                        break;
 
-                    //guardamos datos del 3º personaje en angles
-                    listaPersonajes[8].nom = textBoxNomP3.Text;
-                    listaPersonajes[8].frase = textBoxDesc3.Text;
+                    case 2:
+                        //guardamos datos del 1º personaje en angles
+                        listaPersonajes[6].nom = textBoxNomP1.Text;
+                        listaPersonajes[6].frase = textBoxDesc1.Text;
+
+                        //guardamos datos del 2º personaje en angles
+                        listaPersonajes[7].nom = textBoxNomP2.Text;
+                        listaPersonajes[7].frase = textBoxDesc2.Text;
+
+                        //guardamos datos del 3º personaje en angles
+                        listaPersonajes[8].nom = textBoxNomP3.Text;
+                        listaPersonajes[8].frase = textBoxDesc3.Text;
+                        break;
+
                 }
 
                 Close();

@@ -119,6 +119,7 @@
             // 
             this.textBoxDesc1.BackColor = System.Drawing.Color.LightGray;
             this.textBoxDesc1.Location = new System.Drawing.Point(279, 269);
+            this.textBoxDesc1.MaximumSize = new System.Drawing.Size(800, 800);
             this.textBoxDesc1.Multiline = true;
             this.textBoxDesc1.Name = "textBoxDesc1";
             this.textBoxDesc1.Size = new System.Drawing.Size(223, 67);
@@ -205,7 +206,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(555, 791);
+            this.ClientSize = new System.Drawing.Size(800, 800);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxPersonatge3);
             this.Controls.Add(this.pictureBoxPersonatge2);
@@ -225,7 +226,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 800);
             this.MinimizeBox = false;
             this.Name = "FormGestorPersonatges";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

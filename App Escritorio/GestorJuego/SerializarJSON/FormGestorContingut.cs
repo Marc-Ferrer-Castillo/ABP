@@ -148,6 +148,9 @@ namespace SerializarJSON
             }
         }
 
-        
+        private void FormGestorContingut_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

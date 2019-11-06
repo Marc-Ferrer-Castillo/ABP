@@ -44,7 +44,7 @@ namespace SerializarJSON
         private const byte MAX_PLANETAS = 9;
 
         // Constante maximo de personajes
-        private const byte MAX_PERSONAJES = 3;
+        private const byte MAX_PERSONAJES = 9;
 
         // Constantes que hacen referencia al planeta pulsado
         private const byte PLANETA1 = 0;
@@ -195,10 +195,35 @@ namespace SerializarJSON
         //Obrir gestor de personatges
         private void pictureBoxGestorPersonatges_Click(object sender, EventArgs e)
         {
-            FormGestorPersonatges formGestorPersonatges = new FormGestorPersonatges(listaPersonajes);
-            this.Hide();
-            formGestorPersonatges.ShowDialog();
-            this.Show();
+            switch (comboBoxIdioma.SelectedIndex)
+            {
+                //idioma català
+                case 0:
+
+                    FormGestorPersonatges formGestorPersonatges0 = new FormGestorPersonatges(listaPersonajes, 0);
+                    this.Hide();
+                    formGestorPersonatges0.ShowDialog();
+                    this.Show();
+                    break;
+
+                //idioma castellà
+                case 1:
+                    FormGestorPersonatges formGestorPersonatges1 = new FormGestorPersonatges(listaPersonajes, 1);
+                    this.Hide();
+                    formGestorPersonatges1.ShowDialog();
+                    this.Show();
+                    break;
+
+                //idioma anglès
+                case 2:
+
+                    FormGestorPersonatges formGestorPersonatges2 = new FormGestorPersonatges(listaPersonajes, 2);
+                    this.Hide();
+                    formGestorPersonatges2.ShowDialog();
+                    this.Show();
+                    break;
+            }
+            
         }
 
 
@@ -502,11 +527,11 @@ namespace SerializarJSON
 
 
                 // Copia las imagenes a la carpeta de imagenes y las renombra
-                System.IO.File.Copy(listaPersonajes[0].rutaImagen,
+                System.IO.File.Copy(Personaje.rutaImagen1,
                         ruta + @"\Contingut del Joc\personatges\imatges\imagen1.png", true);
-                System.IO.File.Copy(listaPersonajes[1].rutaImagen,
+                System.IO.File.Copy(Personaje.rutaImagen2,
                         ruta + @"\Contingut del Joc\personatges\imatges\imagen2.png", true);
-                System.IO.File.Copy(listaPersonajes[2].rutaImagen,
+                System.IO.File.Copy(Personaje.rutaImagen3,
                         ruta + @"\Contingut del Joc\personatges\imatges\imagen3.png", true);
 
 
@@ -565,7 +590,9 @@ namespace SerializarJSON
             {
                 if (! ( Metodo.revisarContenido(listaPersonajes[j].nom) 
                      && Metodo.revisarContenido(listaPersonajes[j].frase) 
-                     && Metodo.revisarContenido(listaPersonajes[j].rutaImagen) ) )
+                     && Metodo.revisarContenido(Personaje.rutaImagen1)
+                     && Metodo.revisarContenido(Personaje.rutaImagen2)
+                     && Metodo.revisarContenido(Personaje.rutaImagen3) ) )
                 {
                     // La variable se niega y sale del bucle
                     personajesOK = false;

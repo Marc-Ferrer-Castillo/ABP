@@ -39,9 +39,9 @@ namespace SerializarJSON
         *                                                                           
         */
 
-        // Lista para los 3 personajes
+        // Lista para los 9 personajes
         List<Personaje> listaPersonajes = new List<Personaje>();
-
+        int idIdioma;
 
 
         /***
@@ -55,11 +55,12 @@ namespace SerializarJSON
         */
 
         //inicializar componentes
-        public FormGestorPersonatges(List<Personaje> listaPersonajes)
+        public FormGestorPersonatges(List<Personaje> listaPersonajes, int idIdioma)
         {
             InitializeComponent();
             inicializarPersonajes();
             this.listaPersonajes = listaPersonajes;
+            this.idIdioma = idIdioma;
 
             
         }
@@ -85,35 +86,70 @@ namespace SerializarJSON
 
         private void FormGestorPersonatges_Load(object sender, EventArgs e)
         {
-            //cargamos datos del 1º personaje
-            textBoxNomP1.Text = listaPersonajes[0].nom;
-            textBoxDesc1.Text = listaPersonajes[0].frase;
-
-            if (listaPersonajes[0].rutaImagen != null)
+            if (idIdioma == 0)
             {
-                pictureBoxPersonatge1.Image = Image.FromFile(listaPersonajes[0].rutaImagen);
+                //cargamos datos del 1º personaje en català
+                textBoxNomP1.Text = listaPersonajes[0].nom;
+                textBoxDesc1.Text = listaPersonajes[0].frase;
+
+                //cargamos datos del 2º personaje en català
+                textBoxNomP2.Text = listaPersonajes[1].nom;
+                textBoxDesc2.Text = listaPersonajes[1].frase;
+
+                //cargamos datos del 3º personaje en català
+                textBoxNomP3.Text = listaPersonajes[2].nom;
+                textBoxDesc3.Text = listaPersonajes[2].frase;
+            }
+            else if (idIdioma == 1)
+            {
+                //cargamos datos del 1º personaje en castellà
+                textBoxNomP1.Text = listaPersonajes[3].nom;
+                textBoxDesc1.Text = listaPersonajes[3].frase;
+
+                //cargamos datos del 2º personaje en castellà
+                textBoxNomP2.Text = listaPersonajes[4].nom;
+                textBoxDesc2.Text = listaPersonajes[4].frase;
+
+                //cargamos datos del 3º personaje en castellà
+                textBoxNomP3.Text = listaPersonajes[5].nom;
+                textBoxDesc3.Text = listaPersonajes[5].frase;
+            }
+            else if (idIdioma == 2)
+            {
+                //cargamos datos del 1º personaje en angles
+                textBoxNomP1.Text = listaPersonajes[6].nom;
+                textBoxDesc1.Text = listaPersonajes[6].frase;
+
+                //cargamos datos del 2º personaje en angles
+                textBoxNomP2.Text = listaPersonajes[7].nom;
+                textBoxDesc2.Text = listaPersonajes[7].frase;
+
+                //cargamos datos del 3º personaje en angles
+                textBoxNomP3.Text = listaPersonajes[8].nom;
+                textBoxDesc3.Text = listaPersonajes[8].frase;
+            }
+            
+
+            if (Personaje.rutaImagen1 != null)
+            {
+                pictureBoxPersonatge1.Image = Image.FromFile(Personaje.rutaImagen1);
+                pictureBoxPersonatge1.BackColor = Color.DarkGray;
 
             }
 
 
-            //cargamos datos del 2º personaje
-            textBoxNomP2.Text = listaPersonajes[1].nom;
-            textBoxDesc2.Text = listaPersonajes[1].frase;
-
-            if (listaPersonajes[1].rutaImagen != null)
+            if (Personaje.rutaImagen2 != null)
             {
-                pictureBoxPersonatge2.Image = Image.FromFile(listaPersonajes[1].rutaImagen);
+                pictureBoxPersonatge2.Image = Image.FromFile(Personaje.rutaImagen2);
+                pictureBoxPersonatge2.BackColor = Color.DarkGray;
 
             }
 
-            //cargamos datos del 3º personaje
-            textBoxNomP3.Text = listaPersonajes[2].nom;
-            textBoxDesc3.Text = listaPersonajes[2].frase;
 
-
-            if (listaPersonajes[2].rutaImagen != null)
+            if (Personaje.rutaImagen3 != null)
             {
-                pictureBoxPersonatge3.Image = Image.FromFile(listaPersonajes[2].rutaImagen);
+                pictureBoxPersonatge3.Image = Image.FromFile(Personaje.rutaImagen3);
+                pictureBoxPersonatge3.BackColor = Color.DarkGray;
 
             }
 
@@ -185,35 +221,65 @@ namespace SerializarJSON
                 textBoxDesc3.Focus();
             }
             //si hay imagenes sin cargar avisamos al usuario con el metodo campBuitImatge();
-            else if (listaPersonajes[0].rutaImagen == null)
+            else if (Personaje.rutaImagen1 == null)
             {
                 campBuitImatge();
             }
-            else if (listaPersonajes[1].rutaImagen == null)
+            else if (Personaje.rutaImagen2 == null)
             {
                 campBuitImatge();
             }
-            else if (listaPersonajes[2].rutaImagen == null)
+            else if (Personaje.rutaImagen3 == null)
             {
                 campBuitImatge();
             }
             else
             {
-                //guardamos datos del 1º personaje
-                listaPersonajes[0].nom = textBoxNomP1.Text;
-                listaPersonajes[0].frase = textBoxDesc1.Text;
+                if (idIdioma == 0)
+                {
+                    //guardamos datos del 1º personaje en català
+                    listaPersonajes[0].nom = textBoxNomP1.Text;
+                    listaPersonajes[0].frase = textBoxDesc1.Text;
 
-                //guardamos datos del 2º personaje
-                listaPersonajes[1].nom = textBoxNomP2.Text;
-                listaPersonajes[1].frase = textBoxDesc2.Text;
+                    //guardamos datos del 2º personaje en català
+                    listaPersonajes[1].nom = textBoxNomP2.Text;
+                    listaPersonajes[1].frase = textBoxDesc2.Text;
 
-                //guardamos datos del 3º personaje
-                listaPersonajes[2].nom = textBoxNomP3.Text;
-                listaPersonajes[2].frase = textBoxDesc3.Text;
+                    //guardamos datos del 3º personaje en català
+                    listaPersonajes[2].nom = textBoxNomP3.Text;
+                    listaPersonajes[2].frase = textBoxDesc3.Text;
+                }
+                else if (idIdioma == 1)
+                {
+                    //guardamos datos del 1º personaje en castellà
+                    listaPersonajes[3].nom = textBoxNomP1.Text;
+                    listaPersonajes[3].frase = textBoxDesc1.Text;
+
+                    //guardamos datos del 2º personaje en castellà
+                    listaPersonajes[4].nom = textBoxNomP2.Text;
+                    listaPersonajes[4].frase = textBoxDesc2.Text;
+
+                    //guardamos datos del 3º personaje en castellà
+                    listaPersonajes[5].nom = textBoxNomP3.Text;
+                    listaPersonajes[5].frase = textBoxDesc3.Text;
+                }
+                else if (idIdioma == 2)
+                {
+                    //guardamos datos del 1º personaje en angles
+                    listaPersonajes[6].nom = textBoxNomP1.Text;
+                    listaPersonajes[6].frase = textBoxDesc1.Text;
+
+                    //guardamos datos del 2º personaje en angles
+                    listaPersonajes[7].nom = textBoxNomP2.Text;
+                    listaPersonajes[7].frase = textBoxDesc2.Text;
+
+                    //guardamos datos del 3º personaje en angles
+                    listaPersonajes[8].nom = textBoxNomP3.Text;
+                    listaPersonajes[8].frase = textBoxDesc3.Text;
+                }
 
                 Close();
             }
-
             
         }
 
@@ -229,7 +295,7 @@ namespace SerializarJSON
                     pictureBoxPersonatge1.Image = Image.FromFile(imagen);
                     pictureBoxPersonatge1.BackColor = Color.DarkGray;
 
-                    listaPersonajes[0].rutaImagen = imagen;
+                    Personaje.rutaImagen1 = imagen;
 
 
                 }
@@ -250,7 +316,7 @@ namespace SerializarJSON
                     pictureBoxPersonatge2.Image = Image.FromFile(imagen);
                     pictureBoxPersonatge2.BackColor = Color.DarkGray;
 
-                    listaPersonajes[1].rutaImagen = imagen;
+                    Personaje.rutaImagen2 = imagen;
                 }
             }
             catch (Exception)
@@ -269,7 +335,7 @@ namespace SerializarJSON
                     pictureBoxPersonatge3.Image = Image.FromFile(imagen);
                     pictureBoxPersonatge3.BackColor = Color.DarkGray;
 
-                    listaPersonajes[2].rutaImagen = imagen;
+                    Personaje.rutaImagen3 = imagen;
                 }
             }
             catch (Exception)

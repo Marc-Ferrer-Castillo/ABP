@@ -89,6 +89,7 @@ namespace SerializarJSON
 
             // Crea 9 planetas con su id correspondiente [0-8]
             crearPlanetas();
+            // Crea 9 personajes vacíos
             crearPersonajes();
         }
 

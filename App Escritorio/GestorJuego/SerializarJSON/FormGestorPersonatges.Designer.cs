@@ -114,6 +114,7 @@
             this.textBoxNomP1.Name = "textBoxNomP1";
             this.textBoxNomP1.Size = new System.Drawing.Size(221, 20);
             this.textBoxNomP1.TabIndex = 12;
+         
             // 
             // textBoxDesc1
             // 

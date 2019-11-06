@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -621,8 +622,30 @@ namespace SerializarJSON
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
 
+       
+
+        }
+
+        private void pictureBoxImportar_Click(object sender, EventArgs e)
+        {
+
+            
+            FolderBrowserDialog abrirCarpetaExp = new FolderBrowserDialog();
 
 
+            if (abrirCarpetaExp.ShowDialog() == DialogResult.OK)
+            {
+
+                JArray jArrayPersonajes = JArray.Parse(File.ReadAllText( abrirCarpetaExp.SelectedPath + @"\personatges\personatges.JSON"));
+
+                List<Personaje> personajes;
+                personajes = jArrayPersonajes.ToObject<List<Personaje>>();
+
+
+                //FormGestorPersonatges hola = new FormGestorPersonatges(personajes);
+      
+
+            }
 
 
         }

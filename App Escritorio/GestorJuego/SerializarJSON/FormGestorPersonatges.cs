@@ -62,9 +62,7 @@ namespace SerializarJSON
             this.listaPersonajes = listaPersonajes;
             this.idIdioma = idIdioma;
 
-            
         }
-
 
 
         /*    EVENTOS
@@ -383,6 +381,6 @@ namespace SerializarJSON
             MessageBox.Show("El arxiu seleccionat no es una imatge");
         }
 
-       
+
     }
 }

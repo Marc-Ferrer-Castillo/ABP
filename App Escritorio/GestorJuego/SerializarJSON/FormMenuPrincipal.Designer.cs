@@ -39,6 +39,7 @@
             this.pictureBoxPlaneta2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlaneta3 = new System.Windows.Forms.PictureBox();
             this.pictureBoxGestorPersonatges = new System.Windows.Forms.PictureBox();
+            this.pictureBoxImportar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).BeginInit();
@@ -48,6 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlaneta2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlaneta3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestorPersonatges)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImportar)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSortir
@@ -170,6 +172,16 @@
             this.pictureBoxGestorPersonatges.TabStop = false;
             this.pictureBoxGestorPersonatges.Click += new System.EventHandler(this.pictureBoxGestorPersonatges_Click);
             // 
+            // pictureBoxImportar
+            // 
+            this.pictureBoxImportar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxImportar.Location = new System.Drawing.Point(2, 2);
+            this.pictureBoxImportar.Name = "pictureBoxImportar";
+            this.pictureBoxImportar.Size = new System.Drawing.Size(151, 52);
+            this.pictureBoxImportar.TabIndex = 14;
+            this.pictureBoxImportar.TabStop = false;
+            this.pictureBoxImportar.Click += new System.EventHandler(this.pictureBoxImportar_Click);
+            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +189,7 @@
             this.BackgroundImage = global::SerializarJSON.Properties.Resources.Menu_Inici_0;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(500, 600);
+            this.Controls.Add(this.pictureBoxImportar);
             this.Controls.Add(this.pictureBoxGestorPersonatges);
             this.Controls.Add(this.pictureBoxPlaneta3);
             this.Controls.Add(this.pictureBoxPlaneta2);
@@ -205,6 +218,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlaneta2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlaneta3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestorPersonatges)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImportar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -221,5 +235,6 @@
         private System.Windows.Forms.PictureBox pictureBoxPlaneta2;
         private System.Windows.Forms.PictureBox pictureBoxPlaneta3;
         private System.Windows.Forms.PictureBox pictureBoxGestorPersonatges;
+        private System.Windows.Forms.PictureBox pictureBoxImportar;
     }
 }

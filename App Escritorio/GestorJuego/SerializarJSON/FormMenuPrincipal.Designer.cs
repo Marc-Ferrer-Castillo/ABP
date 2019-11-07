@@ -208,7 +208,6 @@
             this.Name = "FormMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestor del joc de preguntes";
-            this.Load += new System.EventHandler(this.FormMenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSortir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjuda)).EndInit();

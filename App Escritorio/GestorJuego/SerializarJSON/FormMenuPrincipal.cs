@@ -15,9 +15,9 @@ using System.Windows.Forms;
  * Este es el primer formulario en abrirse, se instancia por primera vez desde la clase Program.cs por defecto
  * 
  * FUNCIONAMIENTO:
- *          1. Al abrirse el formulario por primera vez, se instancian 9 planetas con su id correspondiente
- *          2. Segun el idioma seleccionado y el planeta pulsado, se pasar al constructor del gestor de contenido un planeta u otro
- *          
+ *          1. Al abrirse el formulario por primera vez, se instancian 9 planetas con su id correspondiente y 9 personajes
+ *          2. Segun el idioma seleccionado y el planeta pulsado, se pasa al constructor del gestor de contenido un planeta u otro
+ *             Al hacer click en personajes se pasa por constructor 1, 2 o 3 para saber de qué idioma son esos personajes
  * 
  * El código está ordenado respectivamente por Constantes, Atributos, Constructores, Eventos y Métodos.
  *      Nota: Existen más métodos en la clase Metodo (Archivo Metodo.cs) que se usan desde varios formularios (Reciclaje de código)
@@ -70,8 +70,6 @@ namespace SerializarJSON
         public static List<Personaje> listaPersonajes = new List<Personaje>();
 
         
-
-
 
         /***
         *     ██████╗ ██████╗ ███╗   ██╗███████╗████████╗██████╗ ██╗   ██╗ ██████╗████████╗ ██████╗ ██████╗ ███████╗███████╗
@@ -231,7 +229,22 @@ namespace SerializarJSON
             }
             
         }
-
+        
+        // Botón importar
+        private void pictureBoxImportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                importar();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "No s'han pogut importar els fitxers",
+                    "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
         /*    METODOS
@@ -253,7 +266,6 @@ namespace SerializarJSON
             }
             
         }
-
 
         /// <summary>        
         /// Pasa el planeta correspondiente al formulario gestor de contenido por su constructor.
@@ -623,36 +635,39 @@ namespace SerializarJSON
             return retorno;
         }
 
-        private void FormMenuPrincipal_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Método para importar todo
+        /// </summary>
+        private void importar()
         {
-
-       
-
-        }
-
-        private void pictureBoxImportar_Click(object sender, EventArgs e)
-        {
-
-            
+            // Instancia un objeto de la clase FolderBrowserDialog
             FolderBrowserDialog abrirCarpetaExp = new FolderBrowserDialog();
 
+            /*
+             * Opciones del dialogo:
+             *      Descripción, Ruta inicial mostrada y botón nueva carpeta deshabilitado.
+             */
+            abrirCarpetaExp.Description = "Selecciona la carpeta \"contingut del joc\" i fes click en \"Acceptar\"";
+            abrirCarpetaExp.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            abrirCarpetaExp.ShowNewFolderButton = false;
 
+            // Da instrucciones previas al usuario
+            MessageBox.Show(
+                    "Selecciona la carpeta \"contingut del joc\" i fes click en \"Acceptar\"",
+                    "Instruccions",
+                    MessageBoxButtons.OK);
+
+            // Cuando el usuario pulse ok
             if (abrirCarpetaExp.ShowDialog() == DialogResult.OK)
             {
-
-                JArray jArrayPersonajes = JArray.Parse(File.ReadAllText( abrirCarpetaExp.SelectedPath + @"\personatges\personatges.JSON"));
-
+                // Deserializa e importa los personajes
+                JArray jArrayPersonajes = JArray.Parse(File.ReadAllText(abrirCarpetaExp.SelectedPath + @"\personatges\personatges.JSON"));                
                 listaPersonajes = jArrayPersonajes.ToObject<List<Personaje>>();
 
-
-
-               JArray jArrayPlanetas = JArray.Parse(File.ReadAllText(abrirCarpetaExp.SelectedPath + @"\planetas\planetas.JSON"));
-                
-               planetas = jArrayPlanetas.ToObject< List <Planeta> >();
-
+                // Deserializa e importa planetas
+                JArray jArrayPlanetas = JArray.Parse(File.ReadAllText(abrirCarpetaExp.SelectedPath + @"\planetas\planetas.JSON"));
+                planetas = jArrayPlanetas.ToObject<List<Planeta>>();
             }
-
-
         }
     }
 }

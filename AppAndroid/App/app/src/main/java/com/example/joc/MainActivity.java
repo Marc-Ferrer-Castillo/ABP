@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         ImageView esp = findViewById(R.id.castellano);
         ImageView eng = findViewById(R.id.ingles);
         ImageView iniciar = findViewById(R.id.btniniciar);
+        Button contenido = findViewById(R.id.contenido);
+        Button juego = findViewById(R.id.juego);
+        Button resultado = findViewById(R.id.resultado);
 
         // Click en INICIAR
         iniciar.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +78,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*BOTONES PROVISIONALES*/
+
+        contenido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), contenido.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+        juego.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), juego.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+        resultado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), resultado.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+
+
     }
+
+
+
     // Cambia el idioma  y recrea la actividad
     public void setLocale(String lang) {
 

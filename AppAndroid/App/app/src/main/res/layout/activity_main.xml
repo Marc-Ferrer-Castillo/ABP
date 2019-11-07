@@ -14,8 +14,40 @@
         android:id="@+id/btniniciar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/fondoidioma"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondoidioma" />
+
+    <!--TODO ESTO ES PROVISIONAL-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <Button
+            android:id="@+id/contenido"
+            android:layout_width="200dp"
+            android:height="90dp"
+            android:textSize="30dp"
+            android:layout_height="wrap_content"
+            android:text="CONTENIDO"
+            android:layout_margin="40dp"/>
+        <Button
+            android:id="@+id/juego"
+            android:layout_width="200dp"
+            android:height="90dp"
+            android:textSize="30dp"
+            android:layout_height="wrap_content"
+            android:text="JUEGO"
+            android:layout_margin="40dp"/>
+        <Button
+            android:id="@+id/resultado"
+            android:layout_width="200dp"
+            android:height="90dp"
+            android:textSize="30dp"
+            android:layout_height="wrap_content"
+            android:text="RESULTADO"
+            android:layout_margin="40dp"/>
+    </LinearLayout>
+    <!--TODO ESTO ES PROVISIONAL-->
 
     <ImageView
         android:id="@+id/catalan"

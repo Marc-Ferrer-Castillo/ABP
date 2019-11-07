@@ -1,8 +1,8 @@
 package com.example.joc;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     /*0=CATALAN  1=CASTELLANO  2=INGLES*/
     public static byte idioma;
@@ -28,30 +30,52 @@ public class MainActivity extends AppCompatActivity {
         ImageView cat = findViewById(R.id.catalan);
         ImageView esp = findViewById(R.id.castellano);
         ImageView eng = findViewById(R.id.ingles);
+        ImageView iniciar = findViewById(R.id.btniniciar);
 
+        // Click en INICIAR
+        iniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), dificultad.class);
+                // Dependiendo del idioma la variable idioma vale 0, 1 o 2
+                if (Locale.getDefault().getDisplayLanguage() == espanol){
+                    idioma = 1;
+                }
+                else if (Locale.getDefault().getDisplayLanguage() == catalan){
+                    idioma = 0;
+                }
+                else {
+                    idioma = 2;
+                }
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+
+        // Click en catalan
         cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setLocale(catalan);
             }
         });
-
+        // Click en español
         esp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLocale("es");
+                setLocale(espanol);
             }
         });
-
+        // Click en ingles
         eng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLocale("en");
+                setLocale(ingles);
             }
         });
 
     }
-
+    // Cambia el idioma  y recrea la actividad
     public void setLocale(String lang) {
 
         Locale locale = new Locale(lang);
@@ -62,4 +86,8 @@ public class MainActivity extends AppCompatActivity {
         res.updateConfiguration(conf, dm);
         recreate();
     }
+
+
+
+
 }

@@ -100,6 +100,7 @@
             // pictureBoxExportar
             // 
             this.pictureBoxExportar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxExportar.Location = new System.Drawing.Point(375, 729);
             this.pictureBoxExportar.Name = "pictureBoxExportar";
             this.pictureBoxExportar.Size = new System.Drawing.Size(128, 37);
@@ -118,17 +119,17 @@
             // textBoxDesc1
             // 
             this.textBoxDesc1.BackColor = System.Drawing.Color.LightGray;
-            this.textBoxDesc1.Location = new System.Drawing.Point(279, 269);
+            this.textBoxDesc1.Location = new System.Drawing.Point(279, 236);
             this.textBoxDesc1.MaximumSize = new System.Drawing.Size(800, 800);
             this.textBoxDesc1.Multiline = true;
             this.textBoxDesc1.Name = "textBoxDesc1";
-            this.textBoxDesc1.Size = new System.Drawing.Size(223, 67);
+            this.textBoxDesc1.Size = new System.Drawing.Size(223, 69);
             this.textBoxDesc1.TabIndex = 13;
             // 
             // textBoxNomP2
             // 
             this.textBoxNomP2.BackColor = System.Drawing.Color.LightGray;
-            this.textBoxNomP2.Location = new System.Drawing.Point(281, 369);
+            this.textBoxNomP2.Location = new System.Drawing.Point(281, 370);
             this.textBoxNomP2.Name = "textBoxNomP2";
             this.textBoxNomP2.Size = new System.Drawing.Size(221, 20);
             this.textBoxNomP2.TabIndex = 14;
@@ -136,16 +137,16 @@
             // textBoxDesc2
             // 
             this.textBoxDesc2.BackColor = System.Drawing.Color.LightGray;
-            this.textBoxDesc2.Location = new System.Drawing.Point(279, 445);
+            this.textBoxDesc2.Location = new System.Drawing.Point(279, 408);
             this.textBoxDesc2.Multiline = true;
             this.textBoxDesc2.Name = "textBoxDesc2";
-            this.textBoxDesc2.Size = new System.Drawing.Size(223, 70);
+            this.textBoxDesc2.Size = new System.Drawing.Size(223, 74);
             this.textBoxDesc2.TabIndex = 15;
             // 
             // textBoxNomP3
             // 
             this.textBoxNomP3.BackColor = System.Drawing.Color.LightGray;
-            this.textBoxNomP3.Location = new System.Drawing.Point(281, 547);
+            this.textBoxNomP3.Location = new System.Drawing.Point(281, 548);
             this.textBoxNomP3.Name = "textBoxNomP3";
             this.textBoxNomP3.Size = new System.Drawing.Size(221, 20);
             this.textBoxNomP3.TabIndex = 16;
@@ -153,19 +154,19 @@
             // textBoxDesc3
             // 
             this.textBoxDesc3.BackColor = System.Drawing.Color.LightGray;
-            this.textBoxDesc3.Location = new System.Drawing.Point(280, 623);
+            this.textBoxDesc3.Location = new System.Drawing.Point(279, 588);
             this.textBoxDesc3.Multiline = true;
             this.textBoxDesc3.Name = "textBoxDesc3";
-            this.textBoxDesc3.Size = new System.Drawing.Size(223, 68);
+            this.textBoxDesc3.Size = new System.Drawing.Size(223, 72);
             this.textBoxDesc3.TabIndex = 17;
             // 
             // pictureBoxPersonatge1
             // 
             this.pictureBoxPersonatge1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxPersonatge1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxPersonatge1.Location = new System.Drawing.Point(42, 192);
+            this.pictureBoxPersonatge1.Location = new System.Drawing.Point(43, 193);
             this.pictureBoxPersonatge1.Name = "pictureBoxPersonatge1";
-            this.pictureBoxPersonatge1.Size = new System.Drawing.Size(92, 93);
+            this.pictureBoxPersonatge1.Size = new System.Drawing.Size(109, 109);
             this.pictureBoxPersonatge1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonatge1.TabIndex = 18;
             this.pictureBoxPersonatge1.TabStop = false;
@@ -177,7 +178,7 @@
             this.pictureBoxPersonatge2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPersonatge2.Location = new System.Drawing.Point(43, 369);
             this.pictureBoxPersonatge2.Name = "pictureBoxPersonatge2";
-            this.pictureBoxPersonatge2.Size = new System.Drawing.Size(91, 91);
+            this.pictureBoxPersonatge2.Size = new System.Drawing.Size(109, 109);
             this.pictureBoxPersonatge2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonatge2.TabIndex = 19;
             this.pictureBoxPersonatge2.TabStop = false;
@@ -187,9 +188,9 @@
             // 
             this.pictureBoxPersonatge3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxPersonatge3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxPersonatge3.Location = new System.Drawing.Point(42, 547);
+            this.pictureBoxPersonatge3.Location = new System.Drawing.Point(43, 547);
             this.pictureBoxPersonatge3.Name = "pictureBoxPersonatge3";
-            this.pictureBoxPersonatge3.Size = new System.Drawing.Size(92, 91);
+            this.pictureBoxPersonatge3.Size = new System.Drawing.Size(109, 109);
             this.pictureBoxPersonatge3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonatge3.TabIndex = 20;
             this.pictureBoxPersonatge3.TabStop = false;

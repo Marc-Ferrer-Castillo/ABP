@@ -21,10 +21,10 @@ namespace SerializarJSON
 
         }
 
-        public Planeta(byte id )
+        public Planeta(byte id)
         {
             this.id = id;
-           
+
         }
 
         public Planeta(byte id, string contenido, List<Pregunta> preguntas)

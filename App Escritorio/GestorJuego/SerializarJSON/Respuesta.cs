@@ -11,6 +11,11 @@ namespace SerializarJSON
         public String respuesta { get; set; }
         public bool esCorrecta { get; set; }
 
+        public Respuesta()
+        {
+
+        }
+
         public Respuesta(string respuesta, bool esCorrecta)
         {
             this.respuesta = respuesta;

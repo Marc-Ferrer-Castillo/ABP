@@ -646,9 +646,9 @@ namespace SerializarJSON
 
 
 
-               //JArray jArrayPlanetas = JArray.Parse(File.ReadAllText(abrirCarpetaExp.SelectedPath + @"\planetas\planetas.JSON"));
+               JArray jArrayPlanetas = JArray.Parse(File.ReadAllText(abrirCarpetaExp.SelectedPath + @"\planetas\planetas.JSON"));
                 
-               //planetas = jArrayPlanetas.ToObject< List <Planeta> >();
+               planetas = jArrayPlanetas.ToObject< List <Planeta> >();
 
             }
 

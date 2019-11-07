@@ -12,6 +12,10 @@ namespace SerializarJSON
         public List<Respuesta> respuestas{ get; set; }
         public bool dificultad { get; set; }
 
+        public Pregunta ()
+        {
+
+        }
 
         public Pregunta(string pregunta, List<Respuesta> respuestas, bool dificultad)
         {

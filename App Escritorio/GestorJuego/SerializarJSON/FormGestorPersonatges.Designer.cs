@@ -114,7 +114,6 @@
             this.textBoxNomP1.Name = "textBoxNomP1";
             this.textBoxNomP1.Size = new System.Drawing.Size(221, 20);
             this.textBoxNomP1.TabIndex = 12;
-         
             // 
             // textBoxDesc1
             // 
@@ -207,7 +206,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(800, 800);
+            this.ClientSize = new System.Drawing.Size(555, 791);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxPersonatge3);
             this.Controls.Add(this.pictureBoxPersonatge2);

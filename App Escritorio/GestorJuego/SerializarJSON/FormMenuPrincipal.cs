@@ -224,6 +224,10 @@ namespace SerializarJSON
                     formGestorPersonatges2.ShowDialog();
                     this.Show();
                     break;
+
+                default:
+                    MessageBox.Show("Selecciona un idioma primer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
             }
             
         }
@@ -330,7 +334,7 @@ namespace SerializarJSON
             // Si ningún idioma es selccionado y se pulsa sobre un planeta
             else
             {
-                MessageBox.Show("Selecciona l'idioma per aquests planetes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selecciona un idioma primer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // Cambia el color de los planetas si tienen > 0 preguntas
             colorPlanetas(comboBoxIdioma.SelectedIndex);

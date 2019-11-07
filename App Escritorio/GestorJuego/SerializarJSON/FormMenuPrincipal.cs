@@ -642,12 +642,13 @@ namespace SerializarJSON
 
                 JArray jArrayPersonajes = JArray.Parse(File.ReadAllText( abrirCarpetaExp.SelectedPath + @"\personatges\personatges.JSON"));
 
-                List<Personaje> personajes;
-                personajes = jArrayPersonajes.ToObject<List<Personaje>>();
+                listaPersonajes = jArrayPersonajes.ToObject<List<Personaje>>();
 
+
+
+               //JArray jArrayPlanetas = JArray.Parse(File.ReadAllText(abrirCarpetaExp.SelectedPath + @"\planetas\planetas.JSON"));
                 
-                //FormGestorPersonatges hola = new FormGestorPersonatges(personajes);
-      
+               //planetas = jArrayPlanetas.ToObject< List <Planeta> >();
 
             }
 

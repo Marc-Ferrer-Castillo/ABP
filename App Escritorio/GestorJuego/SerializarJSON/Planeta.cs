@@ -18,6 +18,7 @@ namespace SerializarJSON
 
         public Planeta()
         {
+
         }
 
         public Planeta(byte id )

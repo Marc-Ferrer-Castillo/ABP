@@ -175,9 +175,9 @@
             // pictureBoxImportar
             // 
             this.pictureBoxImportar.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxImportar.Location = new System.Drawing.Point(2, 2);
+            this.pictureBoxImportar.Location = new System.Drawing.Point(6, 8);
             this.pictureBoxImportar.Name = "pictureBoxImportar";
-            this.pictureBoxImportar.Size = new System.Drawing.Size(151, 52);
+            this.pictureBoxImportar.Size = new System.Drawing.Size(142, 41);
             this.pictureBoxImportar.TabIndex = 14;
             this.pictureBoxImportar.TabStop = false;
             this.pictureBoxImportar.Click += new System.EventHandler(this.pictureBoxImportar_Click);

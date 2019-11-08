@@ -13,6 +13,7 @@
         android:textColor="@color/Blanco"
         android:textSize="60dp"
         android:background="@color/colorPrimaryDark"/>
+
     <Button
         android:id="@+id/dificil"
         android:layout_width="match_parent"

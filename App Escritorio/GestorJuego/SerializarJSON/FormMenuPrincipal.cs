@@ -667,6 +667,12 @@ namespace SerializarJSON
                 // Deserializa e importa planetas
                 JArray jArrayPlanetas = JArray.Parse(File.ReadAllText(abrirCarpetaExp.SelectedPath + @"\planetas\planetas.JSON"));
                 planetas = jArrayPlanetas.ToObject<List<Planeta>>();
+
+                //Importar imagenees
+                Personaje.rutaImagen1 = (abrirCarpetaExp.SelectedPath + @"\personatges\imatges\imagen1.png");
+                Personaje.rutaImagen2 = (abrirCarpetaExp.SelectedPath + @"\personatges\imatges\imagen2.png");
+                Personaje.rutaImagen3 = (abrirCarpetaExp.SelectedPath + @"\personatges\imatges\imagen3.png");
+
             }
         }
     }

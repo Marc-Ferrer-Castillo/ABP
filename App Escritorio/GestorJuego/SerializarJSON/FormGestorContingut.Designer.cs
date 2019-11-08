@@ -45,10 +45,9 @@
             // pictureBoxSiguiente
             // 
             this.pictureBoxSiguiente.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxSiguiente.Location = new System.Drawing.Point(1307, 649);
-            this.pictureBoxSiguiente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxSiguiente.Location = new System.Drawing.Point(980, 527);
             this.pictureBoxSiguiente.Name = "pictureBoxSiguiente";
-            this.pictureBoxSiguiente.Size = new System.Drawing.Size(193, 50);
+            this.pictureBoxSiguiente.Size = new System.Drawing.Size(145, 41);
             this.pictureBoxSiguiente.TabIndex = 0;
             this.pictureBoxSiguiente.TabStop = false;
             this.pictureBoxSiguiente.Click += new System.EventHandler(this.pictureBoxSiguiente_Click);
@@ -58,21 +57,19 @@
             this.textBoxContenido.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBoxContenido.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxContenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxContenido.Location = new System.Drawing.Point(132, 224);
-            this.textBoxContenido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxContenido.Location = new System.Drawing.Point(99, 182);
             this.textBoxContenido.Multiline = true;
             this.textBoxContenido.Name = "textBoxContenido";
-            this.textBoxContenido.Size = new System.Drawing.Size(1368, 414);
+            this.textBoxContenido.Size = new System.Drawing.Size(1026, 336);
             this.textBoxContenido.TabIndex = 1;
             // 
             // pictureBoxAyuda
             // 
             this.pictureBoxAyuda.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxAyuda.Cursor = System.Windows.Forms.Cursors.Help;
-            this.pictureBoxAyuda.Location = new System.Drawing.Point(1303, 15);
-            this.pictureBoxAyuda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxAyuda.Location = new System.Drawing.Point(977, 12);
             this.pictureBoxAyuda.Name = "pictureBoxAyuda";
-            this.pictureBoxAyuda.Size = new System.Drawing.Size(51, 49);
+            this.pictureBoxAyuda.Size = new System.Drawing.Size(38, 40);
             this.pictureBoxAyuda.TabIndex = 2;
             this.pictureBoxAyuda.TabStop = false;
             this.pictureBoxAyuda.Click += new System.EventHandler(this.pictureBoxAyuda_Click);
@@ -81,10 +78,9 @@
             // 
             this.pictureBoxMinimizar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxMinimizar.Location = new System.Drawing.Point(1404, 20);
-            this.pictureBoxMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxMinimizar.Location = new System.Drawing.Point(1053, 16);
             this.pictureBoxMinimizar.Name = "pictureBoxMinimizar";
-            this.pictureBoxMinimizar.Size = new System.Drawing.Size(105, 42);
+            this.pictureBoxMinimizar.Size = new System.Drawing.Size(79, 34);
             this.pictureBoxMinimizar.TabIndex = 3;
             this.pictureBoxMinimizar.TabStop = false;
             // 
@@ -92,10 +88,9 @@
             // 
             this.pictureBoxCerrar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCerrar.Location = new System.Drawing.Point(1524, 20);
-            this.pictureBoxCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxCerrar.Location = new System.Drawing.Point(1143, 16);
             this.pictureBoxCerrar.Name = "pictureBoxCerrar";
-            this.pictureBoxCerrar.Size = new System.Drawing.Size(105, 42);
+            this.pictureBoxCerrar.Size = new System.Drawing.Size(79, 34);
             this.pictureBoxCerrar.TabIndex = 4;
             this.pictureBoxCerrar.TabStop = false;
             this.pictureBoxCerrar.Click += new System.EventHandler(this.pictureBoxCerrar_Click);
@@ -104,32 +99,32 @@
             // 
             this.pictureBoxMenu.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxMenu.Location = new System.Drawing.Point(0, 11);
-            this.pictureBoxMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxMenu.Location = new System.Drawing.Point(0, 9);
             this.pictureBoxMenu.Name = "pictureBoxMenu";
-            this.pictureBoxMenu.Size = new System.Drawing.Size(167, 59);
+            this.pictureBoxMenu.Size = new System.Drawing.Size(125, 48);
             this.pictureBoxMenu.TabIndex = 5;
             this.pictureBoxMenu.TabStop = false;
             this.pictureBoxMenu.Click += new System.EventHandler(this.pictureBoxCerrar_Click);
             // 
             // FormGestorContingut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1640, 738);
+            this.ClientSize = new System.Drawing.Size(1230, 600);
             this.Controls.Add(this.pictureBoxMenu);
             this.Controls.Add(this.pictureBoxCerrar);
             this.Controls.Add(this.pictureBoxMinimizar);
             this.Controls.Add(this.pictureBoxAyuda);
             this.Controls.Add(this.textBoxContenido);
             this.Controls.Add(this.pictureBoxSiguiente);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1640, 738);
-            this.MinimumSize = new System.Drawing.Size(1640, 738);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1230, 600);
+            this.MinimumSize = new System.Drawing.Size(1078, 600);
             this.Name = "FormGestorContingut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestor de contingut";

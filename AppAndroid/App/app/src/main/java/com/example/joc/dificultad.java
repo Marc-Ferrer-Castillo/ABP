@@ -23,12 +23,12 @@ public class dificultad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dificultad);
 
-        /*Button facil = findViewById(R.id.facil);
-        Button dificil = findViewById(R.id.dificil);*/
+        Button facil = findViewById(R.id.facil);
+        Button dificil = findViewById(R.id.dificil);
 
 
 
-       /* facil.setOnClickListener(new View.OnClickListener() {
+       facil.setOnClickListener(new View.OnClickListener() {
        @Override
              public void onClick(View v) {
                  Intent intent = new Intent(getApplicationContext(), contenido.class);
@@ -45,6 +45,6 @@ public class dificultad extends AppCompatActivity {
                 // Inicia la actividad
                 startActivity(intent);
                 }
-        });*/
+        });
     }
 }

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Joc</string>
     <string name="iniciar">INICIAR</string>
+    <string name="facil">Facil</string>
+    <string name="dificil">Dificil</string>
 </resources>
 

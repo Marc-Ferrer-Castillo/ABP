@@ -1,6 +1,6 @@
 # QUIZ GAME
 
-A content editable sci-fiction game for mNACTEC museum 
+A content editable science-fiction game for mNACTEC museum 
 
 ![Image of a Rocket](https://raw.githubusercontent.com/Marc-Ferrer-Castillo/ABP/master/App%20Escritorio/UI/Imagenes/rocket.png)
 

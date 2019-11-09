@@ -13,19 +13,32 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Lista de planetas
+    public static  List<Planeta> planetas = new ArrayList<Planeta>();
+    // Lista de personajes
+    public static  List<Personaje> personajes = new ArrayList<Personaje>();
+
     public static final int REQUEST_CODE  = 1;
 
-    /*0=CATALAN  1=CASTELLANO  2=INGLES*/
+    /* Idioma de los planetas: 0=CATALAN  1=CASTELLANO  2=INGLES*/
     public static byte idioma;
 
     public static String catalan = "ca";
@@ -34,9 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String SEPARADOR             = File.separator;
     public static final String DIRECTORIO_CONTENIDO_ = Environment.getExternalStorageDirectory() + SEPARADOR + "contingut del joc";
-
-    public static final String RUTA_PLANETAS         = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges"+ SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
-    public static final String RUTA_PJS              = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "personatges.JSON";
+    public static final String RUTA_PLANETAS         = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
+    public static final String RUTA_PJS              = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges" + SEPARADOR + "personatges.JSON";
     public static final String DIRECTORIO_IMAGENES   = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges"+ SEPARADOR + "imatges";
 
     @Override
@@ -52,43 +64,8 @@ public class MainActivity extends AppCompatActivity {
         Button juego = findViewById(R.id.juego);
         Button resultado = findViewById(R.id.resultado);
 
-
-
-
-        // Controlem la versió d'Android que estem executant.
-        if (android.os.Build.VERSION.SDK_INT >= 23)
-        {
-            // Si no s'ha concedit el permís de lectura
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
-                    // Obre el menu perque es donguin permissos
-                    Intent intent = new Intent();
-                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    Uri uri = Uri.fromParts("package", getPackageName(), null);
-                    intent.setData(uri);
-                    startActivity(intent);
-
-                }
-                else {
-                    demanarPermisos();
-                }
-            }
-            // Si s' ha concedit el permís
-            else{
-
-            }
-        }
-        // Si executem una versió anterior a la versió Marshmallow (6.0),
-        // no cal demanar cap permís, i podem executar el nostre codi directament
-        else
-        {
-
-        }
-
+        // Controla que haya permisos de lectura
+        controlarPermisos();
 
 
         // Click en INICIAR
@@ -163,7 +140,43 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Controla permisos de lectura
+    private void controlarPermisos() {
 
+        // Controlem la versió d'Android que estem executant.
+        if (android.os.Build.VERSION.SDK_INT >= 23)
+        {
+            // Si no s'ha concedit el permís de lectura
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+                    // Obre el menu perque es donguin permissos
+                    Intent intent = new Intent();
+                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    Uri uri = Uri.fromParts("package", getPackageName(), null);
+                    intent.setData(uri);
+                    startActivity(intent);
+
+                }
+                else {
+                    demanarPermisos();
+                }
+            }
+            // Si s' ha concedit el permís
+            else{
+                deserializarJsons();
+            }
+        }
+        // Si executem una versió anterior a la versió Marshmallow (6.0),
+        // no cal demanar cap permís, i podem executar el nostre codi directament
+        else
+        {
+            deserializarJsons();
+        }
+    }
 
     // Cambia el idioma  y recrea la actividad
     public void setLocale(String lang) {
@@ -185,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                 // Si se han otorgado permisos
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-
+                    deserializarJsons();
                 }
                 // Si no
                 else {
@@ -204,4 +217,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Lee, deserializa los archivos JSON y los añade a la lista de objetos
+    public void deserializarJsons(){
+        Gson gson = new Gson();
+
+        try (BufferedReader lector = new BufferedReader(new FileReader(RUTA_PLANETAS) ) ) {
+
+            planetas = gson.fromJson(lector, new TypeToken<List<Planeta>>(){}.getType());
+            personajes = gson.fromJson(lector, new TypeToken<List<Personaje>>(){}.getType());
+
+            Toast.makeText(this, "CONTENIDO CARGADO CORRECTAMENTE",
+                    Toast.LENGTH_LONG).show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.File;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,9 +28,16 @@ public class MainActivity extends AppCompatActivity {
     /*0=CATALAN  1=CASTELLANO  2=INGLES*/
     public static byte idioma;
 
-    private String catalan = "ca";
-    private String espanol = "es";
-    private String ingles  = "en";
+    public static String catalan = "ca";
+    public static String espanol = "es";
+    public static String ingles  = "en";
+
+    public static final String SEPARADOR             = File.separator;
+    public static final String DIRECTORIO_CONTENIDO_ = Environment.getExternalStorageDirectory() + SEPARADOR + "contingut del joc";
+
+    public static final String RUTA_PLANETAS         = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges"+ SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
+    public static final String RUTA_PJS              = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "personatges.JSON";
+    public static final String DIRECTORIO_IMAGENES   = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges"+ SEPARADOR + "imatges";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,13 +196,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    // Pide permisos de lectura al usuario
     public void demanarPermisos(){
         // Demana permissos en temps d'execució
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE);
 
     }
-
 
 }

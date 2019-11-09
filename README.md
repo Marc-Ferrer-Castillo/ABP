@@ -4,14 +4,6 @@ A content editable science-fiction game for mNACTEC museum
 
 ![Image of a Rocket](https://raw.githubusercontent.com/Marc-Ferrer-Castillo/ABP/master/App%20Escritorio/UI/Imagenes/rocket.png)
 
-## Built With
-
-
-### Prerequisites
-
-Newtonsoft.Json.12.0.2
-Android minimum API level: 19 (4.4 KitKat)
-Windows Machine with .NETFramework (Version v4.6.1)
 
 ## Built With
 
@@ -21,6 +13,11 @@ Windows Machine with .NETFramework (Version v4.6.1)
 * [JSON](http://www.json.org/) - Data-interchange format 
 * [GSON](https://github.com/google/gson) - A Java serialization/deserialization library
  
+### Prerequisites
+
+Newtonsoft.Json.12.0.2
+Android minimum API level: 19 (4.4 KitKat)
+Windows Machine with .NETFramework (Version v4.6.1)
 
 ## Authors
 
@@ -29,3 +26,7 @@ Windows Machine with .NETFramework (Version v4.6.1)
 * [Marc Ferrer](https://github.com/ivancg86)
 * [Daniel Domínguez](https://github.com/danieldodi)
 * [Carlos Aguilar](https://github.com/aguilar3061)
+
+## Wireframes
+![Windows app wireframe](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Wireframes/WireFrame%20App%20Windows.jpg)
+![Android app wireframe](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Wireframes/Wireframe%20APP%20Android.png)

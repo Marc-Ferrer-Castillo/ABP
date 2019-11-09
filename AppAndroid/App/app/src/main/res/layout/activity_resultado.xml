@@ -15,5 +15,47 @@
         android:src="@drawable/bg5" />
 
 
-</RelativeLayout>
+    <ImageView
+        android:layout_width="359dp"
+        android:layout_height="333dp"
+        android:scaleType="center"
+        android:translationX="380dp"
+        android:translationY="420dp" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="407dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:translationX="960dp"
+        android:translationY="430dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="407dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:translationX="960dp"
+        android:translationY="580dp" />
+
+    <TextView
+        android:layout_width="690dp"
+        android:layout_height="127dp"
+        android:translationX="830dp"
+        android:translationY="660dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="83dp"
+        android:translationX="-640dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="180dp"
+        android:layout_height="152dp"
+        android:text=""
+        android:background="@drawable/sortir"/>
+</RelativeLayout>

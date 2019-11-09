@@ -23,6 +23,11 @@
         android:textColor="@color/Blanco"
         android:textSize="60dp"
         android:background="#ff0000"/>
+    <TextView
+        android:id="@+id/tiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
 </LinearLayout>
 

@@ -221,12 +221,14 @@ public class MainActivity extends AppCompatActivity {
     public void deserializarJsons(){
         Gson gson = new Gson();
 
-        try (BufferedReader lector = new BufferedReader(new FileReader(RUTA_PLANETAS) ) ) {
+        try {
+            BufferedReader lectorPlanetas = new BufferedReader(new FileReader(RUTA_PLANETAS));
+            BufferedReader lectorPjs = new BufferedReader(new FileReader(RUTA_PJS));
 
-            planetas = gson.fromJson(lector, new TypeToken<List<Planeta>>(){}.getType());
-            personajes = gson.fromJson(lector, new TypeToken<List<Personaje>>(){}.getType());
+            planetas = gson.fromJson(lectorPlanetas, new TypeToken<List<Planeta>>(){}.getType());
+            personajes = gson.fromJson(lectorPjs, new TypeToken<List<Personaje>>(){}.getType());
 
-            Toast.makeText(this, "CONTENIDO CARGADO CORRECTAMENTE",
+            Toast.makeText(this, "Contenidos Cargados Correctamente",
                     Toast.LENGTH_LONG).show();
 
         } catch (IOException e) {

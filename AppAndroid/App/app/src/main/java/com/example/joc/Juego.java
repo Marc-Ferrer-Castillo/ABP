@@ -1,19 +1,12 @@
 package com.example.joc;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridLayout;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Juego extends AppCompatActivity {
@@ -40,7 +33,6 @@ public class Juego extends AppCompatActivity {
         // coloca la pregunta en el textView
         preguntaView.setText(pregunta);
 
-
         // Lista de respuestas de la pregunta
         final List<Respuesta> respuestas = MainActivity.planetas.get(MainActivity.planetaMostrado).
                 getPreguntas().get(numPregunta).getRespuestas();
@@ -66,7 +58,7 @@ public class Juego extends AppCompatActivity {
 
                 // Instanciamos un intent con el contexto y la clase destinataria
                 Intent intent = new Intent(Juego.this, Contenido.class);
-
+                Intent intentResultado = new Intent(Juego.this, Resultado.class);
 
 
 
@@ -97,10 +89,9 @@ public class Juego extends AppCompatActivity {
 
                     //Si es el último planeta
                     else{
-                        Toast.makeText(Juego.this, "Has completat tots el planetes" + Environment.getExternalStorageDirectory() + "/ contingut del joc",
-                                Toast.LENGTH_LONG).show();
+                        // Muestra el activity resultado
+                        startActivity(intentResultado);
                     }
-
                 }
 
 
@@ -109,5 +100,4 @@ public class Juego extends AppCompatActivity {
         });
 
     }
-
 }

@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*Iterador de planetas*/
     public static byte planetaMostrado;
+    public static String idiomaSeleccionado = "ca";
 
     public static String catalan = "ca";
     public static String espanol = "es";
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView iniciar = findViewById(R.id.btniniciar);
 
 
+
+
         // Controla que haya permisos de lectura
         controlarPermisos();
 
@@ -71,28 +74,33 @@ public class MainActivity extends AppCompatActivity {
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), dificultad.class);
-                // Dependiendo del idiomaMostrado la variable idiomaMostrado vale 0, 1 o 2
-                if (Locale.getDefault().getDisplayLanguage() == espanol){
-                    planetaMostrado = 3;
-                }
-                else if (Locale.getDefault().getDisplayLanguage() == catalan){
-                    planetaMostrado = 0;
-                }
-                else {
-                    planetaMostrado = 6;
-                }
 
-                // Inicia la actividad
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), dificultad.class);
+
+            // Dependiendo del idiomaMostrado se empiza por un planeta u otro
+            if (idiomaSeleccionado == catalan){
+                planetaMostrado = 0;
+            }
+            else if (idiomaSeleccionado == espanol){
+                planetaMostrado = 3;
+            }
+            else {
+                planetaMostrado = 6;
+            }
+
+            // Inicia la actividad
+            startActivity(intent);
             }
         });
+
 
         // Click en catalan
         cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setLocale(catalan);
+                planetaMostrado = 0;
+                idiomaSeleccionado = "ca";
             }
         });
         // Click en español
@@ -100,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setLocale(espanol);
+                planetaMostrado = 3;
+                idiomaSeleccionado = "es";
             }
         });
         // Click en ingles
@@ -107,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setLocale(ingles);
+                planetaMostrado = 6;
+                idiomaSeleccionado = "en";
             }
         });
 

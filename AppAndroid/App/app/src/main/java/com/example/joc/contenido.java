@@ -43,6 +43,7 @@ public class contenido extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 // abre la activity del menu principal
                 startActivity(intent);
+
             }
         });
 

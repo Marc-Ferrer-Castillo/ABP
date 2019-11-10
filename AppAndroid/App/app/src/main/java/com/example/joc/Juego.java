@@ -53,6 +53,7 @@ public class Juego extends AppCompatActivity {
                 // El maximo de preguntas será igual al numero de preguntas que contenga el planeta
                 int maxPreguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).
                         getPreguntas().size();
+
                 // Como mucho hay 3 planetas por idioma
                 byte ultimoPlaneta = 3;
 

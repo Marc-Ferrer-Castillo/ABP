@@ -20,27 +20,27 @@ public class Dificultad extends AppCompatActivity {
         Button facil = findViewById(R.id.facil);
         Button dificil = findViewById(R.id.dificil);
         final TextView tiempo = findViewById(R.id.tiempo);
+        final Intent intent = new Intent(getApplicationContext(), Contenido.class);
+        final Intent intentMain = new Intent(getApplicationContext(), MainActivity.class);
 
-
-
-        facil.setOnClickListener(new View.OnClickListener() {
+        facil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Contenido.class);
+
                 // Inicia la actividad
                 startActivity(intent);
             }
         });
-        dificil.setOnClickListener(new View.OnClickListener()
 
-        {
+        dificil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
-                Intent intent = new Intent(getApplicationContext(), Contenido.class);
+
                 // Inicia la actividad
                 startActivity(intent);
             }
         });
+
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -48,9 +48,9 @@ public class Dificultad extends AppCompatActivity {
             }
 
             public void onFinish() {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                // Inicia la actividad
-                startActivity(intent);
+
+                // Vuelve al main
+                startActivity(intentMain);
             }
         }.start();
     }

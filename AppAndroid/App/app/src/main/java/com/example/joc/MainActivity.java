@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         // Controla que haya permisos de lectura
         controlarPermisos();
 
+        //Vuelve el iterador a 0
+        planetaMostrado = 0;
 
         // Click en INICIAR
         iniciar.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     planetaMostrado = 6;
                 }
-                //Vuelve el iterador a 0
-                planetaMostrado = 0;
+
                 // Inicia la actividad
                 startActivity(intent);
             }

@@ -25,7 +25,6 @@ public class contenido extends AppCompatActivity {
         informacion.setText(MainActivity.planetas.get(MainActivity.planetaMostrado).getContenido());
 
 
-
         // Botón continuar
         continuar.setOnClickListener(new View.OnClickListener() {
             @Override

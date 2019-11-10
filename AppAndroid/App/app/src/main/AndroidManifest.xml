@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         >
-        <activity android:name=".resultado"
+        <activity android:name=".Resultado"
             android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".contenido"
+        <activity android:name=".Contenido"
             android:screenOrientation="sensorLandscape"/>
         <activity android:name=".Juego"
             android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".dificultad"
+        <activity android:name=".Dificultad"
             android:screenOrientation="sensorLandscape"/>
         <activity
             android:name=".MainActivity"

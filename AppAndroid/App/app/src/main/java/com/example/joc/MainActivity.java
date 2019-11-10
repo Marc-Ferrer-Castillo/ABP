@@ -11,7 +11,6 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            Intent intent = new Intent(getApplicationContext(), dificultad.class);
+            Intent intent = new Intent(getApplicationContext(), Dificultad.class);
 
             // Dependiendo del idiomaMostrado se empiza por un planeta u otro
             if (idiomaSeleccionado == catalan){

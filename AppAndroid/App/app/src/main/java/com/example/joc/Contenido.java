@@ -14,7 +14,7 @@ import java.io.File;
 
 import static com.example.joc.MainActivity.DIRECTORIO_IMAGENES;
 
-public class contenido extends AppCompatActivity {
+public class Contenido extends AppCompatActivity {
 
     private final byte MAX_PLANETAS = 3;
 

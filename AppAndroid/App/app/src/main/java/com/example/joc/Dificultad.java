@@ -9,9 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Locale;
-
-public class dificultad extends AppCompatActivity {
+public class Dificultad extends AppCompatActivity {
 
 
     @Override
@@ -28,7 +26,7 @@ public class dificultad extends AppCompatActivity {
         facil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), contenido.class);
+                Intent intent = new Intent(getApplicationContext(), Contenido.class);
                 // Inicia la actividad
                 startActivity(intent);
             }
@@ -38,7 +36,7 @@ public class dificultad extends AppCompatActivity {
         {
             @Override
             public void onClick (View v){
-                Intent intent = new Intent(getApplicationContext(), contenido.class);
+                Intent intent = new Intent(getApplicationContext(), Contenido.class);
                 // Inicia la actividad
                 startActivity(intent);
             }

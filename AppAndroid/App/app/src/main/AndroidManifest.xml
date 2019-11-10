@@ -20,7 +20,6 @@
         <activity android:name=".juego"
             android:screenOrientation="sensorLandscape"/>
         <activity android:name=".dificultad"
-            android:launchMode="singleTask"
             android:screenOrientation="sensorLandscape"/>
         <activity
             android:name=".MainActivity"

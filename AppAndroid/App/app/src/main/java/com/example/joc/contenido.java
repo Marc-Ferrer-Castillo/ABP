@@ -2,11 +2,18 @@ package com.example.joc;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.File;
+
+import static com.example.joc.MainActivity.DIRECTORIO_IMAGENES;
+import static com.example.joc.MainActivity.SEPARADOR;
 
 public class contenido extends AppCompatActivity {
 
@@ -18,12 +25,17 @@ public class contenido extends AppCompatActivity {
         setContentView(R.layout.activity_contenido);
 
         ImageView continuar = findViewById(R.id.btncontinuar);
+        ImageView imagenNarrador = findViewById(R.id.imagenNarrador);
         ImageButton volverMenu = findViewById(R.id.inicio);
         TextView informacion = findViewById(R.id.informacion);
 
-
+        /*EL TEXTO SE CARGA DEL PLANTA planetaMostrado*/
         informacion.setText(MainActivity.planetas.get(MainActivity.planetaMostrado).getContenido());
 
+        /*CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview*/
+        String fname = new File(DIRECTORIO_IMAGENES, "imagen3.png").getAbsolutePath();
+        Bitmap myBitmap = BitmapFactory.decodeFile(fname);
+        imagenNarrador.setImageBitmap(myBitmap);
 
         // Botón continuar
         continuar.setOnClickListener(new View.OnClickListener() {

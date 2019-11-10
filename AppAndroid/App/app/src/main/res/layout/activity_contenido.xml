@@ -40,11 +40,11 @@
         android:paddingEnd="170dp"/>
 
     <ImageView
+        android:id="@+id/imagenNarrador"
         android:layout_width="490dp"
         android:layout_height="490dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/bb8"
         />
 
 

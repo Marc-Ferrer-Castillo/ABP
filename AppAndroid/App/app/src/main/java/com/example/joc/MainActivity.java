@@ -39,12 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
     /*Iterador de planetas*/
     public static byte planetaMostrado;
-    public static String idiomaSeleccionado = "ca";
+
+    /*Según el idioma seleccionado se empezara por un planeta u otro. Por defecto es el idioma de sistema*/
+    public static String idiomaSeleccionado = Locale.getDefault().getDisplayLanguage();
 
     public static String catalan = "ca";
     public static String espanol = "es";
     public static String ingles  = "en";
 
+    /*RUTAS A LOS FICHEROS JSON E IMAGENES*/
     public static final String SEPARADOR             = File.separator;
     public static final String DIRECTORIO_CONTENIDO_ = Environment.getExternalStorageDirectory() + SEPARADOR + "contingut del joc";
     public static final String RUTA_PLANETAS         = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
@@ -60,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         ImageView esp = findViewById(R.id.castellano);
         ImageView eng = findViewById(R.id.ingles);
         ImageView iniciar = findViewById(R.id.btniniciar);
-
-
 
 
         // Controla que haya permisos de lectura
@@ -219,6 +220,8 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (IOException e) {
             e.printStackTrace();
+            Toast.makeText(this, "NO S'HA TROVAT " + Environment.getExternalStorageDirectory() + "/ contingut del joc",
+                    Toast.LENGTH_LONG).show();
         }
     }
 }

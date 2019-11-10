@@ -83,7 +83,7 @@ public class Juego extends AppCompatActivity {
                 //Si no quedan mas preguntas en el planeta
                 else{
                     // Si no es el último planeta
-                    if (MainActivity.planetaMostrado < ultimoPlaneta-1){
+                    if (MainActivity.planetaMostrado < ultimoPlaneta - 1){
 
                         // Incrementamos 1 para mostrar el siguiente
                         MainActivity.planetaMostrado++;

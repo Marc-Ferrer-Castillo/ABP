@@ -26,6 +26,7 @@ public class RespuestaAdapter extends ArrayAdapter {
         this.contexto = contexto;
         this.respuestas = respuestas;
     }
+
     public View getView(int numRespuesta, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater)contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -34,8 +35,8 @@ public class RespuestaAdapter extends ArrayAdapter {
 
         TextView campoRespuesta = rowView.findViewById(R.id.placeRespuesta);
 
-        campoRespuesta.setText((CharSequence) MainActivity.planetas.get(MainActivity.planetaMostrado).
-                getPreguntas().get(Juego.numPregunta).getRespuestas().get(numRespuesta));
+        campoRespuesta.setText( MainActivity.planetas.get(MainActivity.planetaMostrado).
+                getPreguntas().get(Juego.numPregunta).getRespuestas().get(numRespuesta).getRespuesta());
 
         return(rowView);
     }

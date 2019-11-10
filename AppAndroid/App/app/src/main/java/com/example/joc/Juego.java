@@ -27,7 +27,9 @@ public class Juego extends AppCompatActivity {
         final List<Respuesta> respuestas = MainActivity.planetas.get(MainActivity.planetaMostrado).
                 getPreguntas().get(numPregunta).getRespuestas();
 
+        RespuestaAdapter adaptador = new RespuestaAdapter(this, respuestas);
 
+        gridRespuestas.setAdapter(adaptador);
 
     }
 

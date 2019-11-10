@@ -13,7 +13,6 @@ import android.widget.TextView;
 import java.io.File;
 
 import static com.example.joc.MainActivity.DIRECTORIO_IMAGENES;
-import static com.example.joc.MainActivity.SEPARADOR;
 
 public class contenido extends AppCompatActivity {
 
@@ -42,8 +41,8 @@ public class contenido extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), juego.class);
-                // abre la activity del juego
+                Intent intent = new Intent(getApplicationContext(), Juego.class);
+                // abre la activity del Juego
                 startActivity(intent);
             }
         });

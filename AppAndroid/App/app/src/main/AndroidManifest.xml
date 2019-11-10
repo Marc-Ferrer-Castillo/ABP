@@ -17,7 +17,7 @@
             android:screenOrientation="sensorLandscape"/>
         <activity android:name=".contenido"
             android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".juego"
+        <activity android:name=".Juego"
             android:screenOrientation="sensorLandscape"/>
         <activity android:name=".dificultad"
             android:screenOrientation="sensorLandscape"/>

@@ -11,37 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/fondoidioma" />
+        android:src="@drawable/narrador" />
 
 
     <ImageButton
         android:id="@+id/inicio"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:layout_alignParentLeft="true"
         android:layout_margin="10dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
         android:src="@drawable/sortir" />
 
+    <!--EL TEXTO SE CARGA EN TIEMPO DE EJECUCIÓN-->
     <TextView
         android:id="@+id/informacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/loremIpsum"
-        android:textSize="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="500dp"
+        android:textAlignment="textStart"
         android:textColor="@color/Blanco"
-        android:layout_margin="200dp"
-        />
+        android:textSize="50sp"
+        android:paddingTop="250dp"
+        android:paddingBottom="498dp"
+        android:paddingLeft="520dp"
+        android:paddingEnd="170dp"/>
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="490dp"
+        android:layout_height="490dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:src="@drawable/bb8"
         />
-
 
 
     <TextView
@@ -49,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/informacion"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-100dp"
+        android:layout_marginBottom="-175dp"
         android:text="@string/continuar"
         android:textColor="#7B7B7B"
         android:textSize="35sp" />

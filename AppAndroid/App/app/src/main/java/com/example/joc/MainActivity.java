@@ -13,7 +13,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE  = 1;
 
-    /* Idioma de los planetas: 0=CATALAN  1=CASTELLANO  2=INGLES*/
-    public static byte idioma;
+    /*Iterador de planetas*/
+    public static byte planetaMostrado;
+    public static String idiomaSeleccionado = "ca";
 
     public static String catalan = "ca";
     public static String espanol = "es";
@@ -60,39 +60,47 @@ public class MainActivity extends AppCompatActivity {
         ImageView esp = findViewById(R.id.castellano);
         ImageView eng = findViewById(R.id.ingles);
         ImageView iniciar = findViewById(R.id.btniniciar);
-        Button contenido = findViewById(R.id.contenido);
-        Button juego = findViewById(R.id.juego);
-        Button resultado = findViewById(R.id.resultado);
+
+
+
 
         // Controla que haya permisos de lectura
         controlarPermisos();
 
+        //Vuelve el iterador a 0
+        planetaMostrado = 0;
 
         // Click en INICIAR
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), dificultad.class);
-                // Dependiendo del idioma la variable idioma vale 0, 1 o 2
-                if (Locale.getDefault().getDisplayLanguage() == espanol){
-                    idioma = 1;
-                }
-                else if (Locale.getDefault().getDisplayLanguage() == catalan){
-                    idioma = 0;
-                }
-                else {
-                    idioma = 2;
-                }
-                // Inicia la actividad
-                startActivity(intent);
+
+            Intent intent = new Intent(getApplicationContext(), dificultad.class);
+
+            // Dependiendo del idiomaMostrado se empiza por un planeta u otro
+            if (idiomaSeleccionado == catalan){
+                planetaMostrado = 0;
+            }
+            else if (idiomaSeleccionado == espanol){
+                planetaMostrado = 3;
+            }
+            else {
+                planetaMostrado = 6;
+            }
+
+            // Inicia la actividad
+            startActivity(intent);
             }
         });
+
 
         // Click en catalan
         cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setLocale(catalan);
+                planetaMostrado = 0;
+                idiomaSeleccionado = "ca";
             }
         });
         // Click en español
@@ -100,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setLocale(espanol);
+                planetaMostrado = 3;
+                idiomaSeleccionado = "es";
             }
         });
         // Click en ingles
@@ -107,36 +117,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setLocale(ingles);
+                planetaMostrado = 6;
+                idiomaSeleccionado = "en";
             }
         });
 
-        /*-----------------------BOTONES PROVISIONALES------------------------------*/
 
-        contenido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), contenido.class);
-                // Inicia la actividad
-                startActivity(intent);
-            }
-        });
-        juego.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), juego.class);
-                // Inicia la actividad
-                startActivity(intent);
-            }
-        });
-        resultado.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), resultado.class);
-                // Inicia la actividad
-                startActivity(intent);
-            }
-        });
-        /*-----------------------BOTONES PROVISIONALES------------------------------*/
 
     }
 
@@ -178,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Cambia el idioma  y recrea la actividad
+    // Cambia el idiomaMostrado  y recrea la actividad
     public void setLocale(String lang) {
 
         Locale locale = new Locale(lang);

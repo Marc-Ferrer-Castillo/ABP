@@ -4,4 +4,5 @@
     <string name="app_name">Joc</string>
     <string name="facil">Fàcil</string>
     <string name="dificil">Difícil</string>
+    <string name="continuar">Fes click per continuar</string>
 </resources>

@@ -15,8 +15,8 @@
 
     <ImageButton
         android:id="@id/inicio"
-        android:layout_width="58dp"
-        android:layout_height="58dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:layout_margin="7dp"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
@@ -24,69 +24,27 @@
         android:scaleType="fitCenter"
         android:src="@drawable/sortir" />
 
+    //Textview para las preguntas
     <TextView
         android:id="@+id/pregunta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/inicio"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-66dp"
-        android:text="Exemple pregunta"
-        android:textSize="30sp"
-        android:textColor="@color/Blanco" />
+        android:textSize="50sp"
+        android:textColor="@color/Blanco"
+        android:layout_marginTop="360dp"/>
 
-    <ImageButton
-        android:id="@+id/resposta1"
-        android:layout_width="323dp"
-        android:layout_height="101dp"
-        android:layout_alignBottom="@id/pregunta"
-        android:layout_marginBottom="-150dp"
-        android:layout_marginStart="35dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/jocresposta" />
+    //GridView para las respuestas
+    <GridView
+        android:id="@+id/gridRespuestas"
+        android:layout_width="match_parent"
+        android:layout_height="900dp"
+        android:layout_weight="9"
+        android:numColumns="2"
+        android:layout_alignParentBottom="true"
+        android:stretchMode="columnWidth"
+        />
 
-    <ImageButton
-        android:id="@+id/resposta2"
-        android:layout_width="323dp"
-        android:layout_height="101dp"
-        android:layout_alignBottom="@id/pregunta"
-        android:layout_marginBottom="-150dp"
-        android:layout_marginStart="375dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/jocresposta" />
 
-    <ImageButton
-        android:id="@+id/resposta3"
-        android:layout_width="323dp"
-        android:layout_height="101dp"
-        android:layout_alignBottom="@id/pregunta"
-        android:layout_marginBottom="-250dp"
-        android:layout_marginStart="35dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/jocresposta" />
 
-    <ImageButton
-        android:id="@+id/resposta4"
-        android:layout_width="323dp"
-        android:layout_height="101dp"
-        android:layout_alignBottom="@id/pregunta"
-        android:layout_marginStart="375dp"
-        android:layout_marginBottom="-268dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/jocresposta" />
-
-    <GridLayout
-        android:id="@+id/respuestas"
-        android:layout_width="724dp"
-        android:layout_height="425dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="496dp"
-        android:layout_marginTop="528dp"
-        android:columnCount="2"
-        android:rowCount="2"></GridLayout>
 </RelativeLayout>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="iniciar">EMPEZAR</string>
-    <string name="app_name">Juego</string>
-    <string name="facil">Facil</string>
-    <string name="dificil">Dificil</string>
-</resources>

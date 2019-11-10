@@ -71,7 +71,7 @@ public class Juego extends AppCompatActivity {
 
 
                 // Si quedan mas preguntas en el planeta
-                if (numPregunta < maxPreguntas){
+                if (numPregunta < maxPreguntas-1){
 
                     // Incrementamos 1 para mostrar la siguiente
                     numPregunta++;
@@ -80,10 +80,10 @@ public class Juego extends AppCompatActivity {
                     recreate();
                 }
 
-                //Si no
+                //Si no quedan mas preguntas en el planeta
                 else{
                     // Si no es el último planeta
-                    if (MainActivity.planetaMostrado < ultimoPlaneta){
+                    if (MainActivity.planetaMostrado < ultimoPlaneta-1){
 
                         // Incrementamos 1 para mostrar el siguiente
                         MainActivity.planetaMostrado++;
@@ -94,6 +94,7 @@ public class Juego extends AppCompatActivity {
                         // Vuelve para mostrar el contenido
                         startActivity(intent);
                     }
+
                     //Si es el último planeta
                     else{
                         Toast.makeText(Juego.this, "Has completat tots el planetes" + Environment.getExternalStorageDirectory() + "/ contingut del joc",

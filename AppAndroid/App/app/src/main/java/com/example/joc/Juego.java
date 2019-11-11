@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ public class Juego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
 
         // Objeto GridView donde iran las respuestas
-        final ListView gridRespuestas = findViewById(R.id.listRespuestas);
+        final GridView gridRespuestas = findViewById(R.id.listRespuestas);
 
         // Objeto Textview donde ira la pregunta
         TextView preguntaView = findViewById(R.id.pregunta);

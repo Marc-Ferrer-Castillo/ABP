@@ -35,11 +35,11 @@
         android:layout_marginTop="360dp"/>
 
     //GridView para las respuestas
-    <ListView
+    <GridView
         android:id="@+id/listRespuestas"
         android:layout_width="match_parent"
         android:layout_height="900dp"
-        android:numColumns="1"
+        android:numColumns="2"
         android:layout_alignParentBottom="true"
         android:stretchMode="columnWidth"
         />

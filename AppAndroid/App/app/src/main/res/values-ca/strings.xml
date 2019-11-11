@@ -5,4 +5,5 @@
     <string name="facil">Fàcil</string>
     <string name="dificil">Difícil</string>
     <string name="continuar">Fes click per continuar</string>
+    <string name="numAciertos">El numero de encerts es </string>
 </resources>

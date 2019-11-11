@@ -3,10 +3,13 @@ package com.example.joc;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.List;
 
 public class Juego extends AppCompatActivity {
@@ -21,7 +24,7 @@ public class Juego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
 
         // Objeto GridView donde iran las respuestas
-        ListView gridRespuestas = findViewById(R.id.gridRespuestas);
+        final ListView gridRespuestas = findViewById(R.id.gridRespuestas);
 
         // Objeto Textview donde ira la pregunta
         TextView preguntaView = findViewById(R.id.pregunta);
@@ -55,12 +58,20 @@ public class Juego extends AppCompatActivity {
                         getPreguntas().size();
 
 
-
                 // Instanciamos un intent con el contexto y la clase destinataria
                 Intent intent = new Intent(Juego.this, Contenido.class);
                 Intent intentResultado = new Intent(Juego.this, Resultado.class);
 
 
+                Integer respuestaSeleccionada = (Integer)view.getTag();
+
+                if (respuestas.get(respuestaSeleccionada).isEsCorrecta() ){
+
+                    Resultado.aciertos++;
+
+                    Toast.makeText(Juego.this, "ACIERTO",
+                            Toast.LENGTH_LONG).show();
+                }
 
                 // Si quedan mas preguntas en el planeta
                 if (numPregunta < maxPreguntas-1){

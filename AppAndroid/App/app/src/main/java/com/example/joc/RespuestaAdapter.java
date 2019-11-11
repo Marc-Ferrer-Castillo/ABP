@@ -38,6 +38,8 @@ public class RespuestaAdapter extends ArrayAdapter {
         campoRespuesta.setText( MainActivity.planetas.get(MainActivity.planetaMostrado).
                 getPreguntas().get(Juego.numPregunta).getRespuestas().get(numRespuesta).getRespuesta());
 
+        rowView.setTag(Integer.valueOf(numRespuesta));
+
         return(rowView);
     }
 

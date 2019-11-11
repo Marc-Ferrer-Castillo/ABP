@@ -32,7 +32,7 @@ public class Contenido extends AppCompatActivity {
         informacion.setText(MainActivity.planetas.get(MainActivity.planetaMostrado).getContenido());
 
         /*CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview*/
-        String fname = new File(DIRECTORIO_IMAGENES, "imagen3.png").getAbsolutePath();
+        String fname = new File(DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
         Bitmap myBitmap = BitmapFactory.decodeFile(fname);
         imagenNarrador.setImageBitmap(myBitmap);
 

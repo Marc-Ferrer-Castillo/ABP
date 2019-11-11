@@ -41,10 +41,13 @@
         android:translationY="580dp" />
 
     <TextView
+        android:id="@+id/aciertos"
         android:layout_width="690dp"
         android:layout_height="127dp"
         android:translationX="830dp"
-        android:translationY="660dp" />
+        android:translationY="660dp"
+        android:textSize="40dp"
+        android:outlineAmbientShadowColor="@color/Blanco"/>
 
     <Button
         android:id="@+id/button"

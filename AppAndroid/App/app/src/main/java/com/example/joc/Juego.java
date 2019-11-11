@@ -3,20 +3,21 @@ package com.example.joc;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 public class Juego extends AppCompatActivity {
 
     //Iterador de preguntas
     public static int numPregunta = 0;
-
+    protected List<Respuesta> respuestas =  new ArrayList<Respuesta>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +25,59 @@ public class Juego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
 
         // Objeto GridView donde iran las respuestas
-        final ListView gridRespuestas = findViewById(R.id.gridRespuestas);
+        final ListView gridRespuestas = findViewById(R.id.listRespuestas);
 
         // Objeto Textview donde ira la pregunta
         TextView preguntaView = findViewById(R.id.pregunta);
 
+
         // Contiene el string con la pregunta numPregunta de planetaMostrado
-        String pregunta = MainActivity.planetas.get(MainActivity.planetaMostrado).
-                getPreguntas().get(numPregunta).getPregunta();
+        List<Pregunta> preguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).getPreguntas();
 
-        // coloca la pregunta en el textView
-        preguntaView.setText(pregunta);
 
-        // Lista de respuestas de la pregunta
-        final List<Respuesta> respuestas = MainActivity.planetas.get(MainActivity.planetaMostrado).
-                getPreguntas().get(numPregunta).getRespuestas();
+        // Guarda las preguntas según la dificultad seleccionada
+        List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
-        // Instancia nuestro adaptador personalizado
-        RespuestaAdapter adaptador = new RespuestaAdapter(this, respuestas);
 
-        // La grid usa ahora este adaptador personalizado
-        gridRespuestas.setAdapter(adaptador);
+        //Si el modo es facil
+        if (Dificultad.dificultadSeleccionada){
+
+            for (int i = 0 ; i < preguntas.size() ; i++){
+
+                if (preguntas.get(i).isDificultad()){
+
+                    preguntasFiltradas.add(preguntas.get(i) );
+                }
+            }
+        }
+        else{
+
+            for (int i = 0 ; i <  preguntas.size() ; i++){
+
+                if (preguntas.get(i).isDificultad() == false ){
+
+                    preguntasFiltradas.add(preguntas.get(i) );
+                }
+            }
+        }
+
+
+        if(!(preguntasFiltradas.size() == 0)) {
+            // coloca la pregunta en el textView
+            preguntaView.setText(preguntasFiltradas.get(numPregunta).getPregunta());
+
+            // Lista de respuestas de la pregunta
+            respuestas = preguntasFiltradas.get(numPregunta).getRespuestas();
+
+            // Instancia nuestro adaptador personalizado
+            RespuestaAdapter adaptador = new RespuestaAdapter(this, respuestas);
+
+            // La grid usa ahora este adaptador personalizado
+            gridRespuestas.setAdapter(adaptador);
+        }
+        else{
+            pasarPlaneta();
+        }
 
 
 
@@ -58,13 +91,9 @@ public class Juego extends AppCompatActivity {
                         getPreguntas().size();
 
 
-                // Instanciamos un intent con el contexto y la clase destinataria
-                Intent intent = new Intent(Juego.this, Contenido.class);
-                Intent intentResultado = new Intent(Juego.this, Resultado.class);
-
-
                 Integer respuestaSeleccionada = (Integer)view.getTag();
 
+                // Si la respuesta es correcta
                 if (respuestas.get(respuestaSeleccionada).isEsCorrecta() ){
 
                     Resultado.aciertos++;
@@ -85,24 +114,7 @@ public class Juego extends AppCompatActivity {
 
                 //Si no quedan mas preguntas en el planeta
                 else{
-                    // Si no es el último planeta
-                    if (MainActivity.planetaMostrado < MainActivity.ultimoPlaneta ){
-
-                        // Incrementamos 1 para mostrar el siguiente
-                        MainActivity.planetaMostrado++;
-
-                        // Reiniciamos el iterador de preguntas para que muestre la priemera en el siguiente planeta
-                        numPregunta = 0;
-
-                        // Vuelve para mostrar el contenido
-                        startActivity(intent);
-                    }
-
-                    //Si es el último planeta
-                    else{
-                        // Muestra el activity resultado
-                        startActivity(intentResultado);
-                    }
+                    pasarPlaneta();
                 }
 
 
@@ -111,4 +123,36 @@ public class Juego extends AppCompatActivity {
         });
 
     }
-}
+
+    private void pasarPlaneta(){
+
+        Intent intent = new Intent(Juego.this, Contenido.class);
+        Intent intentResultado = new Intent(Juego.this, Resultado.class);
+
+        // El maximo de preguntas será igual al numero de preguntas que contenga el planeta
+        int maxPreguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).
+                getPreguntas().size();
+
+
+
+        //Si no quedan mas preguntas en el planeta
+        if(!(numPregunta < maxPreguntas-1)){
+            // Si no es el último planeta
+            if (MainActivity.planetaMostrado < MainActivity.ultimoPlaneta ){
+
+                // Incrementamos 1 para mostrar el siguiente
+                MainActivity.planetaMostrado++;
+
+                // Reiniciamos el iterador de preguntas para que muestre la priemera en el siguiente planeta
+                numPregunta = 0;
+
+                // Vuelve para mostrar el contenido
+                startActivity(intent);
+            }
+            else{
+                startActivity(intentResultado);
+            }
+
+
+    }
+}}

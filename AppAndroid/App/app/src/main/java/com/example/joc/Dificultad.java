@@ -12,6 +12,8 @@ import android.widget.TextView;
 public class Dificultad extends AppCompatActivity {
 
 
+    public static boolean dificultadSeleccionada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class Dificultad extends AppCompatActivity {
 
                 // Inicia la actividad
                 startActivity(intent);
+                dificultadSeleccionada = true;
             }
         });
 
@@ -38,6 +41,7 @@ public class Dificultad extends AppCompatActivity {
 
                 // Inicia la actividad
                 startActivity(intent);
+                dificultadSeleccionada = false;
             }
         });
 

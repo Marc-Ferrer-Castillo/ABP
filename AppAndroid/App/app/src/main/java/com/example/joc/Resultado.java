@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Resultado extends AppCompatActivity {
@@ -22,10 +24,27 @@ public class Resultado extends AppCompatActivity {
 
 
         TextView aciertosView = findViewById(R.id.aciertos);
-        Button salir = findViewById(R.id.salir);
+        ImageButton salir = findViewById(R.id.inicio);
+        ImageView personaje =findViewById(R.id.personaje);
+        TextView nombre = findViewById(R.id.nombre);
+        TextView frase = findViewById(R.id.nombre);
+
         final Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
-        aciertosView.setText("El numero de aciertos es de " + String.valueOf(aciertos) );
+        if(aciertos < 3)
+        {
+            personaje.setImageResource(R.drawable.rocket);
+        }
+        else if (aciertos > 7)
+        {
+            personaje.setImageResource(R.drawable.narrador);
+        }
+        else
+        {
+            personaje.setImageResource(R.drawable.cat);
+        }
+
+        aciertosView.setText(getString(R.string.numAciertos) + String.valueOf(aciertos) );
         aciertos = 0;
 
         salir.setOnClickListener(new View.OnClickListener(){

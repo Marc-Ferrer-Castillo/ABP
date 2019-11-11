@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     /*Iterador de planetas*/
     public static byte planetaMostrado;
+    // Como mucho hay 3 planetas por idioma
+    public static int ultimoPlaneta;
 
     /*Según el idioma seleccionado se empezara por un planeta u otro. Por defecto es el idioma de sistema*/
     public static String idiomaSeleccionado = Locale.getDefault().getDisplayLanguage();
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         //Vuelve el iterador a 0
         planetaMostrado = 0;
 
+
         // Click en INICIAR
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +89,10 @@ public class MainActivity extends AppCompatActivity {
             }
             else {
                 planetaMostrado = 6;
+
             }
+            //El último planeta sera el planeta mostrado + 2 posiciones
+            ultimoPlaneta = planetaMostrado + 2;
 
             // Inicia la actividad
             startActivity(intent);

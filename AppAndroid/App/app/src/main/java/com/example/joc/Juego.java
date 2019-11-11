@@ -54,8 +54,7 @@ public class Juego extends AppCompatActivity {
                 int maxPreguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).
                         getPreguntas().size();
 
-                // Como mucho hay 3 planetas por idioma
-                byte ultimoPlaneta = 3;
+
 
                 // Instanciamos un intent con el contexto y la clase destinataria
                 Intent intent = new Intent(Juego.this, Contenido.class);
@@ -76,7 +75,7 @@ public class Juego extends AppCompatActivity {
                 //Si no quedan mas preguntas en el planeta
                 else{
                     // Si no es el último planeta
-                    if (MainActivity.planetaMostrado < ultimoPlaneta - 1){
+                    if (MainActivity.planetaMostrado < MainActivity.ultimoPlaneta ){
 
                         // Incrementamos 1 para mostrar el siguiente
                         MainActivity.planetaMostrado++;

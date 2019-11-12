@@ -16,9 +16,10 @@ import java.util.List;
 
 public class Juego extends AppCompatActivity {
 
-    //Iterador de preguntas
+    // Iterador de preguntas
     public static int numPregunta = 0;
-    protected List<Respuesta> respuestas =  new ArrayList<Respuesta>();
+    // Lista con las respuestas sin filtrar por dificultad
+    private List<Respuesta> respuestas =  new ArrayList<Respuesta>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,52 +32,51 @@ public class Juego extends AppCompatActivity {
         // Objeto Textview donde ira la pregunta
         TextView preguntaView = findViewById(R.id.pregunta);
 
-
-        // Contiene el string con la pregunta numPregunta de planetaMostrado
+        // Contiene las preguntas
         List<Pregunta> preguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).getPreguntas();
-
 
         // Guarda las preguntas según la dificultad seleccionada
         List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
 
-        //Si el modo es facil
+        // Dificultad de juego: Facil
         if (Dificultad.dificultadSeleccionada){
 
+            // Recorre la lista de preguntas
             for (int i = 0 ; i < preguntas.size() ; i++){
 
+                // Si la pregunta es facil
                 if (preguntas.get(i).isDificultad()){
 
+                    // Se añade a la lista de preguntas filtradas
                     preguntasFiltradas.add(preguntas.get(i) );
                 }
             }
         }
+        //Dificultad de juego: Dificil
         else{
 
+            // Recorre la lista de preguntas
             for (int i = 0 ; i <  preguntas.size() ; i++){
 
-                if (preguntas.get(i).isDificultad() == false ){
+                // Si la pregunta es dificil
+                if ( ! preguntas.get(i).isDificultad() ){
 
+                    // Se añade a la lista de preguntas filtradas
                     preguntasFiltradas.add(preguntas.get(i) );
                 }
             }
         }
 
-
+        // Si tras filtrar las preguntas por dificultad hay más de 0
         if(!(preguntasFiltradas.size() == 0)) {
-            // coloca la pregunta en el textView
-            preguntaView.setText(preguntasFiltradas.get(numPregunta).getPregunta());
 
-            // Lista de respuestas de la pregunta
-            respuestas = preguntasFiltradas.get(numPregunta).getRespuestas();
-
-            // Instancia nuestro adaptador personalizado
-            RespuestaAdapter adaptador = new RespuestaAdapter(this, respuestas);
-
-            // La grid usa ahora este adaptador personalizado
-            gridRespuestas.setAdapter(adaptador);
+            // Se carga la pregunta y sus respuestas
+            cargarContenido( preguntaView, preguntasFiltradas, gridRespuestas );
         }
+        // Si el planeta no contiene preguntas con la dificultad
         else{
+            // Se pasa al siguiente planeta
             pasarPlaneta();
         }
 
@@ -91,7 +91,7 @@ public class Juego extends AppCompatActivity {
                 int maxPreguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).
                         getPreguntas().size();
 
-
+                // Guarda la respuesta seleccionada por el usuario
                 Integer respuestaSeleccionada = (Integer)view.getTag();
 
                 // Si la respuesta es correcta
@@ -109,51 +109,64 @@ public class Juego extends AppCompatActivity {
                     // Incrementamos 1 para mostrar la siguiente
                     numPregunta++;
 
-                    // recarga la actividad
+                    // Recarga la actividad
                     recreate();
                 }
 
-                //Si no quedan mas preguntas en el planeta
+                // Si no quedan mas preguntas en el planeta
                 else{
                     pasarPlaneta();
                 }
-
-
-
             }
         });
-
     }
 
+    // Carga la pregunta en el textview y sus respuestas en el gridview
+    private void cargarContenido(TextView preguntaView, List<Pregunta> preguntasFiltradas, GridView gridRespuestas) {
+
+        // coloca la pregunta en el textView
+        preguntaView.setText(preguntasFiltradas.get(numPregunta).getPregunta());
+
+        // Lista de respuestas de la pregunta
+        respuestas = preguntasFiltradas.get(numPregunta).getRespuestas();
+
+        // Instancia nuestro adaptador personalizado
+        RespuestaAdapter adaptador = new RespuestaAdapter(this, respuestas);
+
+        // La grid usa ahora este adaptador personalizado
+        gridRespuestas.setAdapter(adaptador);
+    }
+
+    // Pasa al siguiente planeta. Si es el último, abre la activity Resultado
     private void pasarPlaneta(){
 
-        Intent intent = new Intent(Juego.this, Contenido.class);
-        Intent intentResultado = new Intent(Juego.this, Resultado.class);
+        // Intents
+        Intent contenido = new Intent(Juego.this, Contenido.class);
+        Intent Resultado = new Intent(Juego.this, Resultado.class);
 
-        // El maximo de preguntas será igual al numero de preguntas que contenga el planeta
+        // El máximo de preguntas será igual al número de preguntas que contenga el planeta
         int maxPreguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).
                 getPreguntas().size();
 
+        // Si no es el último planeta
+        if (MainActivity.planetaMostrado < MainActivity.ultimoPlaneta ){
 
+            // Incrementamos 1 para mostrar el siguiente
+            MainActivity.planetaMostrado++;
 
-        //Si no quedan mas preguntas en el planeta
-        if(!(numPregunta < maxPreguntas-1)){
-            // Si no es el último planeta
-            if (MainActivity.planetaMostrado < MainActivity.ultimoPlaneta ){
+            // Reiniciamos el iterador de preguntas para que muestre la priemera del siguiente planeta
+            numPregunta = 0;
 
-                // Incrementamos 1 para mostrar el siguiente
-                MainActivity.planetaMostrado++;
+            // Abre la activity contenido
+            startActivity(contenido);
+        }
+        // Si es el último planeta
+        else{
+            // Abre la activity Resultado
+            startActivity(Resultado);
+        }
 
-                // Reiniciamos el iterador de preguntas para que muestre la priemera en el siguiente planeta
-                numPregunta = 0;
-
-                // Vuelve para mostrar el contenido
-                startActivity(intent);
-            }
-            else{
-                startActivity(intentResultado);
-            }
 
 
     }
-}}
+}

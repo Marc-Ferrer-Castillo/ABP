@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
     public static int ultimoPlaneta;
 
     /*Según el idioma seleccionado se empezara por un planeta u otro. Por defecto es el idioma de sistema*/
-    public static String idiomaSeleccionado = Locale.getDefault().getDisplayLanguage();
+    public static String idiomaSeleccionado = Locale.getDefault().getISO3Language();
 
-    public static String catalan = "ca";
-    public static String espanol = "es";
-    public static String ingles  = "en";
+    public static String catalan = "cat";
+    public static String espanol = "spa";
+    public static String ingles  = "eng";
 
     /*RUTAS A LOS FICHEROS JSON E IMAGENES*/
     public static final String SEPARADOR             = File.separator;
@@ -79,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentDificultad = new Intent(getApplicationContext(), Dificultad.class);
 
                 // Dependiendo del idiomaMostrado se empiza por un planeta u otro
-                if (idiomaSeleccionado == catalan){
+                if (idiomaSeleccionado.equals(catalan) ){
 
                     planetaMostrado = 0;
                 }
-                else if (idiomaSeleccionado == espanol){
+                else if (idiomaSeleccionado.equals(espanol)){
 
                     planetaMostrado = 3;
                 }

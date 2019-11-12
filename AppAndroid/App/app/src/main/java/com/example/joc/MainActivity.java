@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     // Lista de personajes
     public static  List<Personaje> personajes = new ArrayList<Personaje>();
 
-    public static final int REQUEST_CODE  = 1;
+    public static final int ACTIVITY_DIFICULTAD = 1;
 
     /*Iterador de planetas*/
     public static byte planetaMostrado;
@@ -68,8 +68,7 @@ public class MainActivity extends AppCompatActivity {
         // Controla que haya permisos de lectura
         controlarPermisos();
 
-        //Vuelve el iterador a 0
-        planetaMostrado = 0;
+
 
         // Click en INICIAR
         iniciar.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 ultimoPlaneta = planetaMostrado + 2;
 
                 // Inicia la actividad
-                startActivity(intentDificultad);
+                startActivityForResult(intentDificultad, ACTIVITY_DIFICULTAD);
             }
         });
 
@@ -105,34 +104,51 @@ public class MainActivity extends AppCompatActivity {
         cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLocale(catalan);
+                setLocale("ca");
                 planetaMostrado = 0;
-                idiomaSeleccionado = "ca";
+                idiomaSeleccionado = catalan;
+
             }
         });
         // Click en español
         esp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLocale(espanol);
+                setLocale("es");
                 planetaMostrado = 3;
-                idiomaSeleccionado = "es";
+                idiomaSeleccionado = espanol;
+
             }
         });
         // Click en ingles
         eng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLocale(ingles);
+                setLocale("en");
                 planetaMostrado = 6;
-                idiomaSeleccionado = "en";
+                idiomaSeleccionado = ingles;
+
             }
         });
 
 
-
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Si la actividad de la que volvemos
+        if (requestCode == ACTIVITY_DIFICULTAD) {
+
+            // Y devuelve RESULT_OK
+            if (resultCode == RESULT_OK) {
+
+                //Vuelve el iterador a 0
+                planetaMostrado = 0;
+            }
+        }
+    }
     // Controla permisos de lectura
     private void controlarPermisos() {
 
@@ -183,11 +199,11 @@ public class MainActivity extends AppCompatActivity {
         recreate();
     }
 
-    // Cuando el usuario ha respondido a la solicitud de permisos en tiempo real
+    // Cuando el usuario ha respondido a la solicitud de permisos en tiempo de ejecucion
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
-            case REQUEST_CODE: {
+            case ACTIVITY_DIFICULTAD: {
                 // Si se han otorgado permisos
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
@@ -206,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
     public void demanarPermisos(){
         // Demana permissos en temps d'execució
         ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE);
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, ACTIVITY_DIFICULTAD);
 
     }
 

@@ -38,7 +38,7 @@
     <Button
         android:id="@+id/btncontinuar"
         android:layout_width="match_parent"
-        android:layout_height="1200dp"
+        android:layout_height="1100dp"
         android:scaleType="centerCrop"
         android:background="@android:color/transparent"
         android:layout_alignParentBottom="true"

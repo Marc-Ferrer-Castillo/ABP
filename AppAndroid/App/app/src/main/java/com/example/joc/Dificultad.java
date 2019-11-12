@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 public class Dificultad extends AppCompatActivity {
 
+    public static final int CONTENIDO_ACTIVITY = 1;
+    public static final int REQUEST_CODE  = 1;
+
     public static boolean dificultadSeleccionada;
 
     @Override
@@ -21,7 +24,6 @@ public class Dificultad extends AppCompatActivity {
         Button dificil = findViewById(R.id.dificil);
         final TextView tiempo = findViewById(R.id.tiempo);
         final Intent intentContenido = new Intent(getApplicationContext(), Contenido.class);
-        final Intent intentMain = new Intent(getApplicationContext(), MainActivity.class);
 
         facil.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -29,7 +31,7 @@ public class Dificultad extends AppCompatActivity {
 
                 // Inicia la actividad
                 dificultadSeleccionada = true;
-                startActivity(intentContenido);
+                startActivityForResult(intentContenido, CONTENIDO_ACTIVITY);
 
             }
         });
@@ -40,7 +42,7 @@ public class Dificultad extends AppCompatActivity {
 
                 // Inicia la actividad
                 dificultadSeleccionada = false;
-                startActivity(intentContenido);
+                startActivityForResult(intentContenido, CONTENIDO_ACTIVITY);
 
             }
         });
@@ -54,10 +56,30 @@ public class Dificultad extends AppCompatActivity {
             public void onFinish() {
 
                 // Vuelve al main
-                startActivity(intentMain);
+                finish();
             }
         }.start();
 
+    }
+
+    // Resultado de startActivityForResult
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Si la actividad de la que volvemos
+        if (requestCode == CONTENIDO_ACTIVITY) {
+
+            // Y devuelve RESULT_OK
+            if (resultCode == RESULT_OK) {
+
+                // Devuelve RESULT OK a la clase Dificultad
+                setResult(Dificultad.RESULT_OK);
+
+                // Cerramos esta actividad también
+                finish();
+            }
+        }
     }
 
 }

@@ -17,6 +17,8 @@ import static com.example.joc.MainActivity.DIRECTORIO_IMAGENES;
 public class Contenido extends AppCompatActivity {
 
 
+    private static final byte JUEGO_ACTIVITY = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,7 @@ public class Contenido extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Juego.class);
                 // abre la activity del Juego
-                startActivity(intent);
+                startActivityForResult(intent, JUEGO_ACTIVITY);
             }
         });
 
@@ -50,13 +52,33 @@ public class Contenido extends AppCompatActivity {
         inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-
-                // abre la activity del menu principal
-                startActivity(intent);
+                // Devuelve RESULT OK a la clase Dificultad
+                setResult(Contenido.RESULT_OK);
+                // Cierra esta actividad
+                finish();
             }
         });
 
 
+    }
+
+    // Resultado de startActivityForResult
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Si la actividad de la que volvemos
+        if (requestCode == JUEGO_ACTIVITY) {
+
+            // Y devuelve RESULT_OK
+            if (resultCode == RESULT_OK) {
+
+                // Devuelve RESULT OK a la clase Dificultad
+                setResult(Contenido.RESULT_OK);
+
+                // Cerramos esta actividad también
+                finish();
+            }
+        }
     }
 }

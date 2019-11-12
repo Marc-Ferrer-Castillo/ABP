@@ -4,14 +4,9 @@
     android:id="@+id/pantallaContenido"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/narrador">
 
-    <ImageView
-        android:id="@+id/btncontinuar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/narrador" />
 
 
     <ImageButton
@@ -22,7 +17,8 @@
         android:layout_margin="10dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
-        android:src="@drawable/sortir" />
+        android:src="@drawable/sortir"
+        />
 
     <!--EL TEXTO SE CARGA EN TIEMPO DE EJECUCIÓN-->
     <TextView
@@ -38,6 +34,15 @@
         android:paddingBottom="498dp"
         android:paddingLeft="520dp"
         android:paddingEnd="170dp"/>
+
+    <Button
+        android:id="@+id/btncontinuar"
+        android:layout_width="match_parent"
+        android:layout_height="1200dp"
+        android:scaleType="centerCrop"
+        android:background="@android:color/transparent"
+        android:layout_alignParentBottom="true"
+        />
 
     <ImageView
         android:id="@+id/imagenNarrador"

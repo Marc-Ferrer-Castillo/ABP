@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 public class Dificultad extends AppCompatActivity {
 
-
     public static boolean dificultadSeleccionada;
 
     @Override
@@ -29,8 +28,9 @@ public class Dificultad extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Inicia la actividad
-                startActivity(intentContenido);
                 dificultadSeleccionada = true;
+                startActivity(intentContenido);
+
             }
         });
 
@@ -39,12 +39,13 @@ public class Dificultad extends AppCompatActivity {
             public void onClick (View v){
 
                 // Inicia la actividad
-                startActivity(intentContenido);
                 dificultadSeleccionada = false;
+                startActivity(intentContenido);
+
             }
         });
 
-        /*new CountDownTimer(30000, 1000) {
+        new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 tiempo.setText("seconds remaining: " + millisUntilFinished / 1000);
@@ -55,7 +56,7 @@ public class Dificultad extends AppCompatActivity {
                 // Vuelve al main
                 startActivity(intentMain);
             }
-        }.start();*/
+        }.start();
 
     }
 

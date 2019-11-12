@@ -37,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
     /*Iterador de planetas*/
     public static byte planetaMostrado;
+
     // Como mucho hay 3 planetas por idioma
     public static int ultimoPlaneta;
 
     /*Según el idioma seleccionado se empezara por un planeta u otro. Por defecto es el idioma de sistema*/
     public static String idiomaSeleccionado = Locale.getDefault().getISO3Language();
-
-    public static String catalan = "cat";
-    public static String espanol = "spa";
-    public static String ingles  = "eng";
+    private static final String catalan = "cat";
+    private static final String espanol = "spa";
+    private static final String ingles  = "eng";
 
     /*RUTAS A LOS FICHEROS JSON E IMAGENES*/
     public static final String SEPARADOR             = File.separator;

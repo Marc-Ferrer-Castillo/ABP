@@ -71,30 +71,32 @@ public class MainActivity extends AppCompatActivity {
         //Vuelve el iterador a 0
         planetaMostrado = 0;
 
-
         // Click en INICIAR
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            Intent intent = new Intent(getApplicationContext(), Dificultad.class);
+                Intent intentDificultad = new Intent(getApplicationContext(), Dificultad.class);
 
-            // Dependiendo del idiomaMostrado se empiza por un planeta u otro
-            if (idiomaSeleccionado == catalan){
-                planetaMostrado = 0;
-            }
-            else if (idiomaSeleccionado == espanol){
-                planetaMostrado = 3;
-            }
-            else {
-                planetaMostrado = 6;
+                // Dependiendo del idiomaMostrado se empiza por un planeta u otro
+                if (idiomaSeleccionado == catalan){
 
-            }
-            //El último planeta sera el planeta mostrado + 2 posiciones
-            ultimoPlaneta = planetaMostrado + 2;
+                    planetaMostrado = 0;
+                }
+                else if (idiomaSeleccionado == espanol){
 
-            // Inicia la actividad
-            startActivity(intent);
+                    planetaMostrado = 3;
+                }
+                else {
+
+                    planetaMostrado = 6;
+
+                }
+                //El último planeta sera el planeta mostrado + 2 posiciones
+                ultimoPlaneta = planetaMostrado + 2;
+
+                // Inicia la actividad
+                startActivity(intentDificultad);
             }
         });
 
@@ -170,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Cambia el idiomaMostrado  y recrea la actividad
-    public void setLocale(String lang) {
+    private void setLocale(String lang) {
 
         Locale locale = new Locale(lang);
         Resources res = getResources();

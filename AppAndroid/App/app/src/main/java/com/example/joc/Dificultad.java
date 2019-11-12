@@ -1,7 +1,6 @@
 package com.example.joc;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -22,7 +21,7 @@ public class Dificultad extends AppCompatActivity {
         Button facil = findViewById(R.id.facil);
         Button dificil = findViewById(R.id.dificil);
         final TextView tiempo = findViewById(R.id.tiempo);
-        final Intent intent = new Intent(getApplicationContext(), Contenido.class);
+        final Intent intentContenido = new Intent(getApplicationContext(), Contenido.class);
         final Intent intentMain = new Intent(getApplicationContext(), MainActivity.class);
 
         facil.setOnClickListener(new View.OnClickListener(){
@@ -30,7 +29,7 @@ public class Dificultad extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Inicia la actividad
-                startActivity(intent);
+                startActivity(intentContenido);
                 dificultadSeleccionada = true;
             }
         });
@@ -40,7 +39,7 @@ public class Dificultad extends AppCompatActivity {
             public void onClick (View v){
 
                 // Inicia la actividad
-                startActivity(intent);
+                startActivity(intentContenido);
                 dificultadSeleccionada = false;
             }
         });
@@ -57,6 +56,7 @@ public class Dificultad extends AppCompatActivity {
                 startActivity(intentMain);
             }
         }.start();*/
+
     }
 
 }

@@ -29,17 +29,23 @@ public class RespuestaAdapter extends ArrayAdapter {
 
     public View getView(int numRespuesta, View convertView, ViewGroup parent) {
 
+        // Inflater
         LayoutInflater inflater = (LayoutInflater)contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        // View donde ira el layout place_respuesta
         View rowView = inflater.inflate(R.layout.place_respuesta, null,true);
 
+        // View donde va la respuesta
         TextView campoRespuesta = rowView.findViewById(R.id.placeRespuesta);
 
+        // Añade la respuesta al View campoRespuesta
         campoRespuesta.setText( MainActivity.planetas.get(MainActivity.planetaMostrado).
                 getPreguntas().get(Juego.numPregunta).getRespuestas().get(numRespuesta).getRespuesta());
 
-        rowView.setTag(Integer.valueOf(numRespuesta));
+        // Guarda un int para saber qué respuesta se ha pulsado
+        rowView.setTag(numRespuesta);
 
+        // Retorna cada item de la grid con su layout y sus textos correspondientes
         return(rowView);
     }
 

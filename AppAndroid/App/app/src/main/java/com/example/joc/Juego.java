@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -35,6 +36,20 @@ public class Juego extends AppCompatActivity {
         // Guarda las preguntas según la dificultad seleccionada
         List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
+        // Imagen Salir
+        ImageView salir = findViewById(R.id.inicio);
+
+
+        // Click en salir
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Devuelve RESULT OK a la clase Contenido
+                setResult(Contenido.RESULT_OK);
+                // Cierra esta actividad
+                finish();
+            }
+        });
 
         // Dificultad de juego: Facil
         if (Dificultad.dificultadSeleccionada){

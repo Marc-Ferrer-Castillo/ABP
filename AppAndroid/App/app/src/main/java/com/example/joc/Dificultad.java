@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class Dificultad extends AppCompatActivity {
 
     public static final int CONTENIDO_ACTIVITY = 1;
-    public static final int REQUEST_CODE  = 1;
 
     public static boolean dificultadSeleccionada;
 

@@ -29,6 +29,9 @@ public class RespuestaAdapter extends ArrayAdapter {
 
     public View getView(int numRespuesta, View convertView, ViewGroup parent) {
 
+        // Guarda en planetas la lista de planetas del json
+        List<Planeta> planetas = Importar.planetas();
+
         // Inflater
         LayoutInflater inflater = (LayoutInflater)contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -39,7 +42,7 @@ public class RespuestaAdapter extends ArrayAdapter {
         TextView campoRespuesta = rowView.findViewById(R.id.placeRespuesta);
 
         // Añade la respuesta al View campoRespuesta
-        campoRespuesta.setText( MainActivity.planetas.get(MainActivity.planetaMostrado).
+        campoRespuesta.setText( planetas.get(MainActivity.planetaMostrado).
                 getPreguntas().get(Juego.numPregunta).getRespuestas().get(numRespuesta).getRespuesta());
 
         // Guarda un int para saber qué respuesta se ha pulsado

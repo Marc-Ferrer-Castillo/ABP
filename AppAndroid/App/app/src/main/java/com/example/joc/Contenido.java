@@ -11,8 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.io.File;
+import java.util.List;
 
-import static com.example.joc.MainActivity.DIRECTORIO_IMAGENES;
 
 public class Contenido extends AppCompatActivity {
 
@@ -29,11 +29,14 @@ public class Contenido extends AppCompatActivity {
         ImageButton inicio = findViewById(R.id.inicio);
         TextView informacion = findViewById(R.id.informacion);
 
+        // Guarda en planetas la lista de planetas del json
+        List<Planeta> planetas = Importar.planetas();
+
         //EL TEXTO SE CARGA DEL PLANTA planetaMostrado
-        informacion.setText(MainActivity.planetas.get(MainActivity.planetaMostrado).getContenido());
+        informacion.setText(planetas.get(MainActivity.planetaMostrado).getContenido());
 
         //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
-        String fname = new File(DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
+        String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
         Bitmap myBitmap = BitmapFactory.decodeFile(fname);
         imagenNarrador.setImageBitmap(myBitmap);
 
@@ -58,7 +61,6 @@ public class Contenido extends AppCompatActivity {
                 finish();
             }
         });
-
 
     }
 

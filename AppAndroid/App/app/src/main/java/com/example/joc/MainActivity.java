@@ -28,10 +28,6 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Lista de planetas
-    public static  List<Planeta> planetas = new ArrayList<Planeta>();
-    // Lista de personajes
-    public static  List<Personaje> personajes = new ArrayList<Personaje>();
 
     public static final int ACTIVITY_DIFICULTAD = 1;
 
@@ -47,12 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String espanol = "spa";
     private static final String ingles  = "eng";
 
-    /*RUTAS A LOS FICHEROS JSON E IMAGENES*/
-    public static final String SEPARADOR             = File.separator;
-    public static final String DIRECTORIO_CONTENIDO_ = Environment.getExternalStorageDirectory() + SEPARADOR + "contingut del joc";
-    public static final String RUTA_PLANETAS         = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
-    public static final String RUTA_PJS              = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges" + SEPARADOR + "personatges.JSON";
-    public static final String DIRECTORIO_IMAGENES   = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges"+ SEPARADOR + "imatges";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,14 +167,14 @@ public class MainActivity extends AppCompatActivity {
             }
             // Si s' ha concedit el permís
             else{
-                deserializarJsons();
+
             }
         }
         // Si executem una versió anterior a la versió Marshmallow (6.0),
         // no cal demanar cap permís, i podem executar el nostre codi directament
         else
         {
-            deserializarJsons();
+
         }
     }
 
@@ -207,11 +198,12 @@ public class MainActivity extends AppCompatActivity {
                 // Si se han otorgado permisos
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    deserializarJsons();
+
                 }
                 // Si no
                 else {
                     demanarPermisos();
+
                 }
                 return;
             }
@@ -226,24 +218,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Lee, deserializa los archivos JSON y los añade a la lista de objetos
-    public void deserializarJsons(){
-        Gson gson = new Gson();
 
-        try {
-            BufferedReader lectorPlanetas = new BufferedReader(new FileReader(RUTA_PLANETAS));
-            BufferedReader lectorPjs = new BufferedReader(new FileReader(RUTA_PJS));
-
-            planetas = gson.fromJson(lectorPlanetas, new TypeToken<List<Planeta>>(){}.getType());
-            personajes = gson.fromJson(lectorPjs, new TypeToken<List<Personaje>>(){}.getType());
-
-            Toast.makeText(this, "Contenidos Cargados Correctamente",
-                    Toast.LENGTH_LONG).show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "NO S'HA TROVAT " + Environment.getExternalStorageDirectory() + "/ contingut del joc",
-                    Toast.LENGTH_LONG).show();
-        }
-    }
 }

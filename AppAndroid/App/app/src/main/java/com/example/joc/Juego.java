@@ -26,6 +26,9 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
+        // Guarda en planetas la lista de planetas del json
+        final List<Planeta> planetas = Importar.planetas();
+
         // Objeto GridView donde iran las respuestas
         final GridView gridRespuestas = findViewById(R.id.listRespuestas);
 
@@ -33,7 +36,7 @@ public class Juego extends AppCompatActivity {
         TextView preguntaView = findViewById(R.id.pregunta);
 
         // Contiene las preguntas
-        List<Pregunta> preguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).getPreguntas();
+        List<Pregunta> preguntas = planetas.get(MainActivity.planetaMostrado).getPreguntas();
 
         // Guarda las preguntas según la dificultad seleccionada
         List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
@@ -90,7 +93,7 @@ public class Juego extends AppCompatActivity {
         // Si el planeta no contiene preguntas con la dificultad
         else{
             // Se pasa al siguiente planeta
-            pasarPlaneta();
+            pasarPlaneta(planetas);
         }
 
 
@@ -100,7 +103,7 @@ public class Juego extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 // El maximo de preguntas será igual al numero de preguntas que contenga el planeta
-                int maxPreguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).
+                int maxPreguntas = planetas.get(MainActivity.planetaMostrado).
                         getPreguntas().size();
 
                 // Guarda la respuesta seleccionada por el usuario
@@ -126,7 +129,7 @@ public class Juego extends AppCompatActivity {
                 }
                 // Si no quedan mas preguntas en el planeta
                 else{
-                    pasarPlaneta();
+                    pasarPlaneta(planetas);
                 }
             }
         });
@@ -149,14 +152,13 @@ public class Juego extends AppCompatActivity {
     }
 
     // Pasa al siguiente planeta. Si es el último, abre la activity Resultado
-    private void pasarPlaneta(){
+    private void pasarPlaneta(List<Planeta> planetas){
 
         // Intents
         Intent Resultado = new Intent(Juego.this, Resultado.class);
 
         // El máximo de preguntas será igual al número de preguntas que contenga el planeta
-        int maxPreguntas = MainActivity.planetas.get(MainActivity.planetaMostrado).
-                getPreguntas().size();
+        int maxPreguntas = planetas.get(MainActivity.planetaMostrado).getPreguntas().size();
 
         // Si no es el último planeta
         if (MainActivity.planetaMostrado < MainActivity.ultimoPlaneta ){

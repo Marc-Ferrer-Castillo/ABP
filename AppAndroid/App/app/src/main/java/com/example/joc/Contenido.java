@@ -79,6 +79,11 @@ public class Contenido extends AppCompatActivity {
                 // Cerramos esta actividad también
                 finish();
             }
+            // Si se ha llegado a la ultima pregunta
+            else{
+                // se recrea la actividad para mostrar el siguiente contenido
+                recreate();
+            }
         }
     }
 }

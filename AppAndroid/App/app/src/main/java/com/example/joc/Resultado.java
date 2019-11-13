@@ -21,8 +21,6 @@ public class Resultado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
 
-
-
         TextView aciertosView = findViewById(R.id.aciertos);
         ImageButton salir = findViewById(R.id.inicio);
         ImageView personaje =findViewById(R.id.personaje);
@@ -51,8 +49,9 @@ public class Resultado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Inicia la actividad
-                startActivity(intent);
+                // envia result_OK y Cierra esta actividad
+                setResult(Resultado.RESULT_OK);
+                finish();
             }
         });
     }

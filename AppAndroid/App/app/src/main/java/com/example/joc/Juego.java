@@ -19,6 +19,8 @@ public class Juego extends AppCompatActivity {
     // Lista con las respuestas sin filtrar por dificultad
     private List<Respuesta> respuestas =  new ArrayList<Respuesta>();
 
+    private static final byte RESULTADO_ACTIVITY = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,6 @@ public class Juego extends AppCompatActivity {
 
         // Imagen Salir
         ImageView salir = findViewById(R.id.inicio);
-
 
         // Click en salir
         salir.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +94,6 @@ public class Juego extends AppCompatActivity {
         }
 
 
-
         // Al pulsar sobre una respuesta
         gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -124,7 +124,6 @@ public class Juego extends AppCompatActivity {
                     // Recarga la actividad
                     recreate();
                 }
-
                 // Si no quedan mas preguntas en el planeta
                 else{
                     pasarPlaneta();
@@ -153,7 +152,6 @@ public class Juego extends AppCompatActivity {
     private void pasarPlaneta(){
 
         // Intents
-        Intent contenido = new Intent(Juego.this, Contenido.class);
         Intent Resultado = new Intent(Juego.this, Resultado.class);
 
         // El máximo de preguntas será igual al número de preguntas que contenga el planeta
@@ -169,14 +167,35 @@ public class Juego extends AppCompatActivity {
             // Reiniciamos el iterador de preguntas para que muestre la priemera del siguiente planeta
             numPregunta = 0;
 
-            // Abre la activity contenido
-            startActivity(contenido);
+            // Vuelve a la activity contenido
+            setResult(Juego.RESULT_FIRST_USER);
+            finish();
         }
         // Si es el último planeta
         else{
             // Abre la activity Resultado
-            startActivity(Resultado);
+            startActivityForResult(Resultado, RESULTADO_ACTIVITY);
         }
     }
 
+    // Resultado de startActivityForResult
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Si la actividad de la que volvemos
+        if (requestCode == RESULTADO_ACTIVITY) {
+
+            // Y devuelve RESULT_OK
+            if (resultCode == RESULT_OK) {
+
+                // Devuelve RESULT OK a la clase Resultado
+                setResult(Juego.RESULT_OK);
+
+                // Cerramos esta actividad también
+                finish();
+            }
+
+        }
+    }
 }

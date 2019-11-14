@@ -58,6 +58,7 @@
             this.textBoxContenido.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxContenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContenido.Location = new System.Drawing.Point(99, 182);
+            this.textBoxContenido.MaxLength = 1200;
             this.textBoxContenido.Multiline = true;
             this.textBoxContenido.Name = "textBoxContenido";
             this.textBoxContenido.Size = new System.Drawing.Size(1026, 336);

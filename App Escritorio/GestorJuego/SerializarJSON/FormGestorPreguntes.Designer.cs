@@ -97,7 +97,7 @@
             this.textBoxPregunta.Font = new System.Drawing.Font("Arial", 15.75F);
             this.textBoxPregunta.ForeColor = System.Drawing.Color.DimGray;
             this.textBoxPregunta.Location = new System.Drawing.Point(21, 67);
-            this.textBoxPregunta.MaxLength = 10;
+            this.textBoxPregunta.MaxLength = 80;
             this.textBoxPregunta.Name = "textBoxPregunta";
             this.textBoxPregunta.Size = new System.Drawing.Size(540, 25);
             this.textBoxPregunta.TabIndex = 1;
@@ -314,6 +314,7 @@
             this.textBoxResposta4.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta4.ForeColor = System.Drawing.Color.DimGray;
             this.textBoxResposta4.Location = new System.Drawing.Point(21, 290);
+            this.textBoxResposta4.MaxLength = 60;
             this.textBoxResposta4.Name = "textBoxResposta4";
             this.textBoxResposta4.Size = new System.Drawing.Size(540, 18);
             this.textBoxResposta4.TabIndex = 5;
@@ -326,6 +327,7 @@
             this.textBoxResposta3.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta3.ForeColor = System.Drawing.Color.DimGray;
             this.textBoxResposta3.Location = new System.Drawing.Point(21, 243);
+            this.textBoxResposta3.MaxLength = 60;
             this.textBoxResposta3.Name = "textBoxResposta3";
             this.textBoxResposta3.Size = new System.Drawing.Size(540, 18);
             this.textBoxResposta3.TabIndex = 4;
@@ -338,6 +340,7 @@
             this.textBoxResposta2.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta2.ForeColor = System.Drawing.Color.DimGray;
             this.textBoxResposta2.Location = new System.Drawing.Point(21, 195);
+            this.textBoxResposta2.MaxLength = 60;
             this.textBoxResposta2.Name = "textBoxResposta2";
             this.textBoxResposta2.Size = new System.Drawing.Size(540, 18);
             this.textBoxResposta2.TabIndex = 3;
@@ -349,6 +352,7 @@
             this.textBoxResposta1.Font = new System.Drawing.Font("Arial", 11.25F);
             this.textBoxResposta1.ForeColor = System.Drawing.Color.DimGray;
             this.textBoxResposta1.Location = new System.Drawing.Point(21, 146);
+            this.textBoxResposta1.MaxLength = 60;
             this.textBoxResposta1.Name = "textBoxResposta1";
             this.textBoxResposta1.Size = new System.Drawing.Size(540, 18);
             this.textBoxResposta1.TabIndex = 2;

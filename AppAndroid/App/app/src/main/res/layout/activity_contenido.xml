@@ -29,7 +29,7 @@
         android:layout_marginRight="500dp"
         android:textAlignment="textStart"
         android:textColor="@color/Blanco"
-        android:textSize="50sp"
+        android:textSize="30sp"
         android:paddingTop="250dp"
         android:paddingBottom="498dp"
         android:paddingLeft="520dp"

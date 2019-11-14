@@ -177,6 +177,7 @@ namespace SerializarJSON
                 {
                     Respuesta c = new Respuesta(textBoxResposta3.Text, radioButtonC.Checked);
                     listaRespuestas.Add(c);
+                    
                 }
                 else if (nRespostes == 4)
                 {
@@ -185,7 +186,7 @@ namespace SerializarJSON
                     listaRespuestas.Add(c);
                     listaRespuestas.Add(d);
                 }
-
+                
                 // Instancia pregunta y la añade a la lista de preguntas
                 Pregunta pregunta = new Pregunta(textBoxPregunta.Text, listaRespuestas, !radioButtonFacil.Checked);
                 listaPreguntas.Add(pregunta);
@@ -243,6 +244,9 @@ namespace SerializarJSON
                 // Si el elemento seleccionado tiene más de dos respuestas
                 if ( preguntaSeleccionada.respuestas.Count > 2 )
                 {
+                    // hay 3 respuestas
+                    nRespostes = 3;
+
                     // metodo: hace visible la respuesta 3
                     respuestaVisible(3, true);
 
@@ -252,6 +256,9 @@ namespace SerializarJSON
                     // Si el elemento seleccionado tiene 4 respuestas
                     if ( preguntaSeleccionada.respuestas.Count == 4 )
                     {
+                        // hay 4 respuestas
+                        nRespostes = 4;
+
                         // metodo: hace visible la respuesta 4
                         respuestaVisible(4, true);
 
@@ -304,12 +311,6 @@ namespace SerializarJSON
                 }
             }
 
-        }
-     
-        // Boton importar FALTA PROGRAMAR Y CAMBIAR NOMBRE
-        private void pictureBoxImportar_Click(object sender, EventArgs e)
-        {
-            //Importar JSON CODIGO
         }
 
         //Limpia todos los campos para poder añadir una nueva pregunta FALTA PROGRAMAR
@@ -454,6 +455,13 @@ namespace SerializarJSON
 
             radioButtonDificil.Checked = false;
             radioButtonFacil.Checked = false;
+
+            // Vuelve a 2 respuestas
+            nRespostes = 2;
+
+            // Oculta los dos ultimos campos
+            respuestaVisible(3, false);
+            respuestaVisible(4, false);
         }
 
         /// <summary>

@@ -597,8 +597,7 @@ namespace SerializarJSON
                 else
                 {
                     planetasOk = true;
-                }
-                
+                }                
                 
                 i++;
             }
@@ -672,6 +671,12 @@ namespace SerializarJSON
                 Personaje.rutaImagen1 = (abrirCarpetaExp.SelectedPath + @"\personatges\imatges\imagen1.png");
                 Personaje.rutaImagen2 = (abrirCarpetaExp.SelectedPath + @"\personatges\imatges\imagen2.png");
                 Personaje.rutaImagen3 = (abrirCarpetaExp.SelectedPath + @"\personatges\imatges\imagen3.png");
+
+                // Mensaje importacion correcta
+                MessageBox.Show(
+                        "Importació correcta",
+                        "Fet",
+                        MessageBoxButtons.OK);
 
             }
         }

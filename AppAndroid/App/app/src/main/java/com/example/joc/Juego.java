@@ -16,6 +16,7 @@ public class Juego extends AppCompatActivity {
 
     // Iterador de preguntas
     public static int numPregunta = 0;
+
     // Lista con las respuestas sin filtrar por dificultad
     private List<Respuesta> respuestas =  new ArrayList<Respuesta>();
 
@@ -27,7 +28,7 @@ public class Juego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
 
         // Guarda en planetas la lista de planetas del json
-        final List<Planeta> planetas = Importar.planetas();
+        final List<Planeta> planetas = Importar.planetas;
 
         // Objeto GridView donde iran las respuestas
         final GridView gridRespuestas = findViewById(R.id.listRespuestas);
@@ -140,6 +141,9 @@ public class Juego extends AppCompatActivity {
 
         // coloca la pregunta en el textView
         preguntaView.setText(preguntasFiltradas.get(numPregunta).getPregunta());
+
+        // Vacía todas las respuestas
+        respuestas.clear();
 
         // Lista de respuestas de la pregunta
         respuestas = preguntasFiltradas.get(numPregunta).getRespuestas();

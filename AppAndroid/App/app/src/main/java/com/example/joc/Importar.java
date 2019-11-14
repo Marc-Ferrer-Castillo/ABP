@@ -13,49 +13,37 @@ import java.util.List;
 public class Importar {
 
     /*RUTAS A LOS FICHEROS JSON E IMAGENES*/
-    public static final String SEPARADOR             = File.separator;
+    public static final String SEPARADOR = File.separator;
     public static final String DIRECTORIO_CONTENIDO_ = Environment.getExternalStorageDirectory() + SEPARADOR + "contingut del joc";
-    public static final String RUTA_PLANETAS         = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
-    public static final String RUTA_PJS              = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges" + SEPARADOR + "personatges.JSON";
-    public static final String DIRECTORIO_IMAGENES   = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges"+ SEPARADOR + "imatges";
+    public static final String RUTA_PLANETAS = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
+    public static final String RUTA_PJS = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges" + SEPARADOR + "personatges.JSON";
+    public static final String DIRECTORIO_IMAGENES = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges" + SEPARADOR + "imatges";
+    // Lista de planetas
+    public static List<Planeta> planetas = new ArrayList<Planeta>();
+    // Lista de personajes
+    public static List<Personaje> personajes = new ArrayList<Personaje>();
 
-    // Lee y deserializa los planeta.JSON y devuelve una lista de planetas
-    public static List<Planeta> planetas(){
+
+    // Lee y deserializa los planeta.JSON y personajes.JSON
+    public static void importarContenido() {
 
         Gson gson = new Gson();
-        // Lista de planetas
-        List<Planeta> planetas = new ArrayList<Planeta>();
-
 
         try {
             BufferedReader lectorPlanetas = new BufferedReader(new FileReader(RUTA_PLANETAS));
-
-            planetas = gson.fromJson(lectorPlanetas, new TypeToken<List<Planeta>>(){}.getType());
-
-
-        } catch (IOException e) {
-
-        }
-        return planetas;
-    }
-
-    // Lee, deserializa los personajes.JSON y devuelve una lista de personajes
-    public static List<Personaje> personajes(){
-
-        Gson gson = new Gson();
-
-        // Lista de personajes
-        List<Personaje> personajes = new ArrayList<Personaje>();
-
-        try {
             BufferedReader lectorPjs = new BufferedReader(new FileReader(RUTA_PJS));
-
-            personajes = gson.fromJson(lectorPjs, new TypeToken<List<Personaje>>(){}.getType());
+            planetas = gson.fromJson(lectorPlanetas, new TypeToken<List<Planeta>>() {
+            }.getType());
+            personajes = gson.fromJson(lectorPjs, new TypeToken<List<Personaje>>() {
+            }.getType());
 
 
         } catch (IOException e) {
 
         }
-        return personajes;
     }
+
 }
+
+
+

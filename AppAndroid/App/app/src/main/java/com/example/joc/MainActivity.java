@@ -167,14 +167,14 @@ public class MainActivity extends AppCompatActivity {
             }
             // Si s' ha concedit el permís
             else{
-
+                Importar.importarContenido();
             }
         }
         // Si executem una versió anterior a la versió Marshmallow (6.0),
         // no cal demanar cap permís, i podem executar el nostre codi directament
         else
         {
-
+            Importar.importarContenido();
         }
     }
 

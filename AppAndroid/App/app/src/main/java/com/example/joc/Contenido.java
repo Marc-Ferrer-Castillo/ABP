@@ -30,7 +30,7 @@ public class Contenido extends AppCompatActivity {
         TextView informacion = findViewById(R.id.informacion);
 
         // Guarda en planetas la lista de planetas del json
-        List<Planeta> planetas = Importar.planetas();
+        List<Planeta> planetas = Importar.planetas;
 
         //EL TEXTO SE CARGA DEL PLANTA planetaMostrado
         informacion.setText(planetas.get(MainActivity.planetaMostrado).getContenido());

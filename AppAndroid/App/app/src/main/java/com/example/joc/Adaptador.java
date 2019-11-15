@@ -23,27 +23,19 @@ public class Adaptador extends BaseAdapter {
     }
 
 
-
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = convertView;
-        CompleteListViewHolder viewHolder;
-
-        if (convertView == null){
+        if (view == null){
             LayoutInflater li = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = li.inflate(R.layout.place_respuesta, null);
-            viewHolder = new CompleteListViewHolder(view);
-            view.setTag(viewHolder);
-        }else {
-            viewHolder = (CompleteListViewHolder) view.getTag();
         }
 
-        viewHolder.mTVItem.setText(respuestas.get(position).getRespuesta());
-        view.setTag(position);
+        TextView  respuesta = (TextView) view.findViewById(R.id.placeRespuesta);
+        respuesta.setText(respuestas.get(position).getRespuesta());
 
         return view;
-
     }
 
 
@@ -64,10 +56,5 @@ public class Adaptador extends BaseAdapter {
         return 0;
     }
 
-    private class CompleteListViewHolder {
-        public TextView mTVItem;
-        public CompleteListViewHolder(View base) {
-            mTVItem = (TextView) base.findViewById(R.id.placeRespuesta);
-        }
-    }
+
 }

@@ -64,6 +64,7 @@ public class Juego extends AppCompatActivity {
         });
 
         GridView gridRespuestas = findViewById(R.id.gridRespuestas);
+
         // Al pulsar sobre un item del grid
         gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

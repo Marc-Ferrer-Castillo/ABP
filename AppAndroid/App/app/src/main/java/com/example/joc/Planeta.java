@@ -7,7 +7,7 @@ public class Planeta {
 
     private byte id;
     private String contenido;
-    private ArrayList<Pregunta> preguntas;
+    private List<Pregunta> preguntas;
     private byte idioma;
 
     public byte getId() {
@@ -18,7 +18,7 @@ public class Planeta {
         return contenido;
     }
 
-    public ArrayList<Pregunta> getPreguntas() {
+    public List<Pregunta> getPreguntas() {
         return  preguntas;
     }
 

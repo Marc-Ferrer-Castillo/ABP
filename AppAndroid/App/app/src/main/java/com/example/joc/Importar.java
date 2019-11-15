@@ -22,9 +22,9 @@ public class Importar {
 
 
     // Lista de planetas
-    private static List<Planeta> planetas = new ArrayList<Planeta>();
+    private static List<Planeta> planetas;
     // Lista de personajes
-    private static List<Personaje> personajes = new ArrayList<Personaje>();
+    private static List<Personaje> personajes;
 
 
     public static List<Planeta> getPlanetas() {

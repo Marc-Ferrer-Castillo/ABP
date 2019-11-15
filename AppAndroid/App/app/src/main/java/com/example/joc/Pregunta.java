@@ -5,7 +5,7 @@ import java.util.List;
 
 class Pregunta {
     private String pregunta;
-    private ArrayList<Respuesta> respuestas;
+    private List<Respuesta> respuestas;
     private boolean dificultad;
 
     public String getPregunta() {

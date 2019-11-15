@@ -17,17 +17,18 @@ public class RespuestaAdapter extends ArrayAdapter {
     public RespuestaAdapter(@NonNull Context contexto, List<Respuesta> respuestas) {
         super(contexto, R.layout.place_respuesta, respuestas);
 
+
         this.contexto = contexto;
         this.respuestas = respuestas;
     }
 
     public View getView(int numRespuesta, View convertView, ViewGroup parent) {
 
-        // Guarda en planetas la lista de planetas del json
+        // Guarda en planetas la lista de planetas
         List<Planeta> planetas = Importar.getPlanetas();
 
         // Inflater
-        LayoutInflater inflater = (LayoutInflater)contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         // View donde ira el layout place_respuesta
         View rowView = inflater.inflate(R.layout.place_respuesta, null,true);
@@ -44,7 +45,6 @@ public class RespuestaAdapter extends ArrayAdapter {
 
         // Guarda un int para saber qué respuesta se ha pulsado
         rowView.setTag(numRespuesta);
-
 
         // Retorna cada item de la grid con su layout y sus textos correspondientes
         return(rowView);

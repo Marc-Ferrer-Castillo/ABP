@@ -35,7 +35,6 @@ public class Importar {
         return personajes;
     }
 
-
     // Lee y deserializa los planeta.JSON y personajes.JSON y los guarda en listas (planteas / personajes)
     public void leerContenido() {
 

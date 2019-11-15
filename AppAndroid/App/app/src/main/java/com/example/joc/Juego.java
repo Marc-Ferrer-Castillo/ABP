@@ -1,14 +1,14 @@
 package com.example.joc;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,18 +99,17 @@ public class Juego extends AppCompatActivity {
 
 
     private void cargarContenido() {
-        
+        List<Respuesta> respuestas = preguntasFiltradas.get(preguntaMostrada).getRespuestas();
+
         TextView viewPregunta = findViewById(R.id.pregunta);
         GridView gridRespuestas = findViewById(R.id.gridRespuestas);
 
         viewPregunta.setText(preguntasFiltradas.get(preguntaMostrada).getPregunta());
 
         //Instancia nuestro adaptador personalizado
-        RespuestaAdapter adaptador = new RespuestaAdapter(this, preguntasFiltradas.get(preguntaMostrada).getRespuestas());
-        adaptador.clear();
-        adaptador.addAll(preguntasFiltradas.get(preguntaMostrada).getRespuestas());
-        gridRespuestas.setAdapter(adaptador);
+        Adaptador adaptador = new Adaptador(this, respuestas);
 
+        gridRespuestas.setAdapter(adaptador);
     }
 
     private void filtrarPreguntas(List<Pregunta> preguntas) {

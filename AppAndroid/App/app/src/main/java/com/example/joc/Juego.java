@@ -110,6 +110,7 @@ public class Juego extends AppCompatActivity {
         adaptador.clear();
         adaptador.addAll(preguntasFiltradas.get(preguntaMostrada).getRespuestas());
         gridRespuestas.setAdapter(adaptador);
+
     }
 
     private void filtrarPreguntas(List<Pregunta> preguntas) {

@@ -28,22 +28,31 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    public static final int ACTIVITY_DIFICULTAD = 1;
-
-    /*Iterador de planetas*/
-    public static byte planetaMostrado;
-
-    // Como mucho hay 3 planetas por idioma
-    public static int ultimoPlaneta;
-
-    /*Según el idioma seleccionado se empezara por un planeta u otro. Por defecto es el idioma de sistema*/
-    public static String idiomaSeleccionado = Locale.getDefault().getISO3Language();
+    // Idiomas
     private static final String catalan = "cat";
     private static final String espanol = "spa";
     private static final String ingles  = "eng";
+    public static final int ACTIVITY_DIFICULTAD = 1;
 
 
+    /*Iterador de planetas*/
+    private static int planetaMostrado;
+    // Como mucho hay 3 planetas por idioma
+    private static int ultimoPlaneta = planetaMostrado + 3;
+    /*Según el idioma seleccionado se empezara por un planeta u otro. Por defecto es el idioma de sistema*/
+    private static String idiomaSeleccionado = Locale.getDefault().getISO3Language();
+
+    public static int getPlanetaMostrado() {
+        return planetaMostrado;
+    }
+
+    public static int getUltimoPlaneta() {
+        return ultimoPlaneta;
+    }
+
+    public static String getIdiomaSeleccionado() {
+        return idiomaSeleccionado;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 //El último planeta sera el planeta mostrado + 2 posiciones
-                ultimoPlaneta = planetaMostrado + 2;
+                ultimoPlaneta = planetaMostrado + 2 ;
 
                 // Inicia la actividad
                 startActivityForResult(intentDificultad, ACTIVITY_DIFICULTAD);
@@ -143,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
     // Controla permisos de lectura
     private void controlarPermisos() {
 
+        // Objeto para importar
+        Importar contenido = new Importar();
+
         // Controlem la versió d'Android que estem executant.
         if (android.os.Build.VERSION.SDK_INT >= 23)
         {
@@ -167,14 +179,14 @@ public class MainActivity extends AppCompatActivity {
             }
             // Si s' ha concedit el permís
             else{
-                Importar.importarContenido();
+                contenido.leerContenido();
             }
         }
         // Si executem una versió anterior a la versió Marshmallow (6.0),
         // no cal demanar cap permís, i podem executar el nostre codi directament
         else
         {
-            Importar.importarContenido();
+            contenido.leerContenido();
         }
     }
 

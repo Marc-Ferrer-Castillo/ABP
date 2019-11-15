@@ -30,10 +30,10 @@ public class Contenido extends AppCompatActivity {
         TextView informacion = findViewById(R.id.informacion);
 
         // Guarda en planetas la lista de planetas del json
-        List<Planeta> planetas = Importar.planetas;
+        List<Planeta> planetas = Importar.getPlanetas();
 
         //EL TEXTO SE CARGA DEL PLANTA planetaMostrado
-        informacion.setText(planetas.get(MainActivity.planetaMostrado).getContenido());
+        informacion.setText(planetas.get( MainActivity.getPlanetaMostrado() ).getContenido() );
 
         //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
         String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
@@ -84,7 +84,8 @@ public class Contenido extends AppCompatActivity {
             // Si se ha llegado a la ultima pregunta
             else{
                 // se recrea la actividad para mostrar el siguiente contenido
-                recreate();
+                //recreate();
+
             }
         }
     }

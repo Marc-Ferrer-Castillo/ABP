@@ -18,30 +18,45 @@ public class Importar {
     public static final String RUTA_PLANETAS = DIRECTORIO_CONTENIDO_ + SEPARADOR + "planetas" + SEPARADOR + "planetas.JSON";
     public static final String RUTA_PJS = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges" + SEPARADOR + "personatges.JSON";
     public static final String DIRECTORIO_IMAGENES = DIRECTORIO_CONTENIDO_ + SEPARADOR + "personatges" + SEPARADOR + "imatges";
+
+
+
     // Lista de planetas
-    public static List<Planeta> planetas = new ArrayList<Planeta>();
+    private static List<Planeta> planetas = new ArrayList<Planeta>();
     // Lista de personajes
-    public static List<Personaje> personajes = new ArrayList<Personaje>();
+    private static List<Personaje> personajes = new ArrayList<Personaje>();
 
 
-    // Lee y deserializa los planeta.JSON y personajes.JSON
-    public static void importarContenido() {
+    public static List<Planeta> getPlanetas() {
+        return planetas;
+    }
+
+    public static List<Personaje> getPersonajes() {
+        return personajes;
+    }
+
+
+    // Lee y deserializa los planeta.JSON y personajes.JSON y los guarda en listas (planteas / personajes)
+    public void leerContenido() {
 
         Gson gson = new Gson();
 
         try {
+
+            // Lectores
             BufferedReader lectorPlanetas = new BufferedReader(new FileReader(RUTA_PLANETAS));
-            BufferedReader lectorPjs = new BufferedReader(new FileReader(RUTA_PJS));
-            planetas = gson.fromJson(lectorPlanetas, new TypeToken<List<Planeta>>() {
-            }.getType());
-            personajes = gson.fromJson(lectorPjs, new TypeToken<List<Personaje>>() {
-            }.getType());
+            BufferedReader lectorPjs      = new BufferedReader(new FileReader(RUTA_PJS));
+
+            // Deserializa y asigna a los atributos
+            planetas   = gson.fromJson(lectorPlanetas, new TypeToken<List<Planeta>>(){}.getType());
+            personajes = gson.fromJson(lectorPjs,      new TypeToken<List<Personaje>>(){}.getType());
 
 
         } catch (IOException e) {
 
         }
     }
+
 
 }
 

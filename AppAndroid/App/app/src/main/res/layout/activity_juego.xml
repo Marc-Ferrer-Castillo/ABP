@@ -36,7 +36,7 @@
 
     //GridView para las respuestas
     <GridView
-        android:id="@+id/listRespuestas"
+        android:id="@+id/gridRespuestas"
         android:layout_width="match_parent"
         android:layout_height="900dp"
         android:numColumns="2"

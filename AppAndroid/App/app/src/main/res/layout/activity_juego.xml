@@ -31,7 +31,8 @@
         android:layout_centerHorizontal="true"
         android:textSize="50sp"
         android:textColor="@color/Blanco"
-        android:layout_marginTop="360dp"/>
+        android:layout_marginTop="365dp"
+        android:text="PREGUNTA DE PRUBA"/>
 
     //GridView para las respuestas
     <GridView
@@ -41,15 +42,18 @@
         android:numColumns="2"
         android:layout_alignParentBottom="true"
         android:stretchMode="columnWidth"
-        android:gravity="center"
-        />
+        android:gravity="center"/>
+
     <TextView
         android:id="@+id/tiempo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        android:textSize="50sp"
-        android:textAlignment="center"/>
+        android:textSize="150sp"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+        android:text="30"
+        android:textColor="@color/Blanco"/>
 
 
 </RelativeLayout>

@@ -39,27 +39,32 @@ public class Juego extends AppCompatActivity {
     private boolean dificultadSeleccionada;
     private List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
-    private CountDownTimer contador = new CountDownTimer(30000, 1000) {
-        @Override
-        public void onTick(long millisUntilFinished) {
-        }
 
-        @Override
-        public void onFinish() {
-            aciertos = 0;
-            reiniciarPreguntas();
-            // envia result_OK y Cierra esta actividad
-            setResult(Resultado.RESULT_OK);
-            // Vuelve al main
-            finish();
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
+        final GridView gridRespuestas = findViewById(R.id.gridRespuestas);
+        final TextView contadorView = findViewById(R.id.tiempo);
+
+        final CountDownTimer contador = new CountDownTimer(30000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                contadorView.setText("" + millisUntilFinished / 1000);
+            }
+
+            @Override
+            public void onFinish() {
+                aciertos = 0;
+                reiniciarPreguntas();
+                // envia result_OK y Cierra esta actividad
+                setResult(Resultado.RESULT_OK);
+                // Vuelve al main
+                finish();
+            }
+        };
 
         // Lista de planetas
         final List<Planeta> planetas = Importar.getPlanetas();
@@ -70,9 +75,9 @@ public class Juego extends AppCompatActivity {
 
         filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
 
-        final GridView gridRespuestas = findViewById(R.id.gridRespuestas);
 
-        cargarContenido(gridRespuestas);
+
+        cargarContenido(gridRespuestas, contador);
 
         // Imagen Salir
         ImageView salir = findViewById(R.id.inicio);
@@ -101,13 +106,13 @@ public class Juego extends AppCompatActivity {
                 contador.cancel();
 
                 gridRespuestas.setEnabled(false);
-                juego(position, juegoLayout, gridRespuestas);
+                juego(position, juegoLayout, gridRespuestas, contador);
             }
         });
 
     }
 
-    private void juego(int position, RelativeLayout juegoLayout, final GridView gridRespuestas ) {
+    private void juego(int position, RelativeLayout juegoLayout, final GridView gridRespuestas, final CountDownTimer contador ) {
 
         // Siguiente Pregunta
         if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
@@ -123,7 +128,7 @@ public class Juego extends AppCompatActivity {
                     public void run() {
                         gridRespuestas.setEnabled(true);
                         preguntaMostrada++;
-                        cargarContenido(gridRespuestas);
+                        cargarContenido(gridRespuestas, contador);
                     }
                 }, 2000);   //5 seconds
 
@@ -131,7 +136,7 @@ public class Juego extends AppCompatActivity {
             else{
                 gridRespuestas.setEnabled(true);
                 preguntaMostrada++;
-                cargarContenido(gridRespuestas);
+                cargarContenido(gridRespuestas, contador);
             }
 
         }
@@ -207,7 +212,7 @@ public class Juego extends AppCompatActivity {
         snackbar.show();
     }
 
-    private void cargarContenido(final GridView gridRespuestas) {
+    private void cargarContenido(final GridView gridRespuestas, CountDownTimer contador) {
 
         List<Respuesta> respuestas = preguntasFiltradas.get(preguntaMostrada).getRespuestas();
 

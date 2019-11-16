@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
         return ultimoPlaneta;
     }
 
-    public static String getIdiomaSeleccionado() {
-        return idiomaSeleccionado;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,9 +143,11 @@ public class MainActivity extends AppCompatActivity {
 
                 //Vuelve el iterador a 0
                 planetaMostrado = 0;
+                //recreate();
             }
         }
     }
+
     // Controla permisos de lectura
     private void controlarPermisos() {
 

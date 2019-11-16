@@ -29,9 +29,9 @@ public class Juego extends AppCompatActivity {
     private static final byte RESULTADO_ACTIVIDAD = 1;
 
     private static int preguntaMostrada = 0;
-    private  int planetaMostrado;
+    private static int planetaMostrado;
     private boolean dificultadSeleccionada;
-    static List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
+    private List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
 
     @Override
@@ -46,8 +46,6 @@ public class Juego extends AppCompatActivity {
         Intent intentDoble = getIntent();
         planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
         dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
-
-
 
 
         filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
@@ -90,12 +88,15 @@ public class Juego extends AppCompatActivity {
                         // Devuelve RESULT OK a la clase Dificultad
                         setResult(Contenido.RESULT_FIRST_USER);
 
+                        reiniciarPreguntas();
+
                         //Cierra esta actividad
                         finish();
                     }
                     else{
-                        Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
+                        reiniciarPreguntas();
 
+                        Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
 
                         intentResultado.putExtra("planetaMostrado", planetaMostrado);
                         // abre la activity del Juego
@@ -103,7 +104,6 @@ public class Juego extends AppCompatActivity {
                         startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
                     }
                 }
-
 
             }
         });
@@ -176,11 +176,19 @@ public class Juego extends AppCompatActivity {
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_OK);
 
+                reiniciarPreguntas();
+
+
                 // Cerramos esta actividad también
                 finish();
             }
 
 
         }
+    }
+
+    private void reiniciarPreguntas() {
+        preguntasFiltradas.clear();
+        preguntaMostrada = 0;
     }
 }

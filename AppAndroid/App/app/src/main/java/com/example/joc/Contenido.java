@@ -17,6 +17,7 @@ import java.util.List;
 public class Contenido extends AppCompatActivity {
 
 
+    private boolean dificultadSeleccionada;
     private static final byte JUEGO_ACTIVITY = 1;
     private int planetaMostrado;
      // Guarda en planetas la lista de planetas del json
@@ -37,7 +38,7 @@ public class Contenido extends AppCompatActivity {
 
         Intent intentDoble = getIntent();
         planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
-        final boolean dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
+        dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
 
         cargarTexto();
 

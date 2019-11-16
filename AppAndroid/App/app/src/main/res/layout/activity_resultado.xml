@@ -11,43 +11,46 @@
         android:id="@+id/btniniciar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         android:src="@drawable/bg5" />
 
 
     <ImageView
         android:id="@+id/personaje"
-        android:layout_width="359dp"
-        android:layout_height="333dp"
+        android:layout_width="659dp"
+        android:layout_height="633dp"
         android:scaleType="fitCenter"
-        android:translationX="380dp"
-        android:translationY="420dp" />
+        android:src="@drawable/cat"
+        android:translationX="530dp"
+        android:translationY="355dp" />
 
     <TextView
         android:id="@+id/nombre"
         android:layout_width="407dp"
         android:layout_height="44dp"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:translationX="960dp"
-        android:translationY="430dp" />
+        android:textSize="40sp"
+        android:translationX="1560dp"
+        android:translationY="400dp"
+        android:text="NOMBRE"/>
 
     <TextView
         android:id="@+id/frase"
         android:layout_width="407dp"
         android:layout_height="44dp"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:translationX="960dp"
-        android:translationY="580dp" />
+        android:translationX="1560dp"
+        android:translationY="500dp"
+        android:textSize="40sp"
+        android:text="FRASE"/>
 
     <TextView
         android:id="@+id/aciertos"
         android:layout_width="690dp"
         android:layout_height="127dp"
-        android:translationX="830dp"
-        android:translationY="660dp"
-        android:textSize="40dp"
-        android:outlineAmbientShadowColor="@color/Blanco"/>
+        android:translationX="1560dp"
+        android:translationY="760dp"
+        android:textSize="40sp"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:text="ACIERTOS"/>
 
     <Button
         android:id="@+id/button"

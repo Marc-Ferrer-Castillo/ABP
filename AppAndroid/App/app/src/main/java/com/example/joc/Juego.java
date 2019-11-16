@@ -39,7 +39,7 @@ public class Juego extends AppCompatActivity {
     private boolean dificultadSeleccionada;
     private List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
-    private CountDownTimer contador = new CountDownTimer(5000, 1000) {
+    private CountDownTimer contador = new CountDownTimer(30000, 1000) {
         @Override
         public void onTick(long millisUntilFinished) {
         }
@@ -102,8 +102,6 @@ public class Juego extends AppCompatActivity {
 
                 gridRespuestas.setEnabled(false);
                 juego(position, juegoLayout, gridRespuestas);
-
-
             }
         });
 

@@ -40,7 +40,6 @@ public class Resultado extends AppCompatActivity {
         TextView nombre = findViewById(R.id.nombre);
         TextView frase = findViewById(R.id.nombre);
 
-
         if(aciertos < 3)
         {
             //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
@@ -64,11 +63,12 @@ public class Resultado extends AppCompatActivity {
             personaje.setImageBitmap(myBitmap);
         }
 
-        aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) + 1 );
+        aciertos++;
+        aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) );
         aciertos = 0;
 
         final TextView tiempo = findViewById(R.id.tiempo);
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 tiempo.setText("seconds remaining: " + millisUntilFinished / 1000);

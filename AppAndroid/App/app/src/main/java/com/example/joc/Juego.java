@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
@@ -13,17 +14,12 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.google.android.material.snackbar.Snackbar;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Juego extends AppCompatActivity {
 /*
-
  1. Recibimos la primera pregunta a mostrar con las variables:
     MainActivity.getPlanetaMostrado() y preguntaMostrada
 
@@ -57,7 +53,6 @@ public class Juego extends AppCompatActivity {
         planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
         dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
 
-
         filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
 
         final GridView gridRespuestas = findViewById(R.id.gridRespuestas);
@@ -80,107 +75,122 @@ public class Juego extends AppCompatActivity {
             }
         });
 
+
         final RelativeLayout juegoLayout;
-        juegoLayout = (RelativeLayout) findViewById(R.id.juegoLayout);
+        juegoLayout = findViewById(R.id.juegoLayout);
 
         // Al pulsar sobre un item del grid
         gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
 
-
-
-                // Siguiente Pregunta
-                if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
-
-                    if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()){
-                        Resultado.setAciertos(aciertos++);
-
-                        // Muestra un snackbar
-
-                        // Instancia un snackbar
-                        Snackbar snackbar = Snackbar.make(juegoLayout,getString(R.string.respuestaCorrecta),Snackbar.LENGTH_SHORT);
-
-                        // Colores del Snackbar
-                        View snackbarView = snackbar.getView();
-                        TextView snackText =  snackbarView.findViewById(R.id.snackbar_text);
-
-                        // Color del texto
-                        // Dependiendo de la versión de android
-                        snackText.setTextColor(Color.WHITE);
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                            snackText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                        } else {
-                            snackText.setGravity(Gravity.CENTER_HORIZONTAL);
-                        }
-
-                        // Color de fondo
-                        snackbarView.setBackgroundColor(Color.parseColor("#355e4e"));
-
-                        // Tamaño del texto
-                        snackText.setTextSize(50);
-
-                        // Tamaño del snackbar
-                        Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout)snackbar.getView();
-                        layout.setMinimumHeight(60);//your custom height.
-                        layout.setMinimumWidth(400);
-
-
-                        // Display the Snackbar
-                        snackbar.show();
-
-                    }
-
-                    // Pausa antes de pasar a la siguiente pregunta
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        public void run() {
-
-                            preguntaMostrada++;
-                            cargarContenido(gridRespuestas);
-                        }
-                    }, 2000);   //5 seconds
-
-
-                }
-                // Si no quedan mas preguntas
-                else{
-                    planetaMostrado++;
-
-                    // Siguiente planeta
-                    if ( planetaMostrado <= MainActivity.getUltimoPlaneta() ){
-
-                        // Devuelve RESULT OK a la clase Dificultad
-                        setResult(Contenido.RESULT_FIRST_USER);
-
-                        reiniciarPreguntas();
-
-                        //Cierra esta actividad
-                        finish();
-                    }
-                    // Pantalla resultado
-                    else{
-                        reiniciarPreguntas();
-
-                        Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
-
-                        intentResultado.putExtra("planetaMostrado", planetaMostrado);
-                        // abre la activity del Juego
-
-                        startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
-                    }
-                }
-
+            juego(position, juegoLayout, gridRespuestas);
             }
         });
 
-
-
-
     }
 
+    private void juego(int position, RelativeLayout juegoLayout, final GridView gridRespuestas ) {
 
-    private void cargarContenido(GridView gridRespuestas) {
+        // Siguiente Pregunta
+        if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
+
+            if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()) {
+                Resultado.setAciertos(aciertos++);
+
+                mostrarSnackBar(juegoLayout);
+
+                // Pausa antes de pasar a la siguiente pregunta
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+
+
+                        preguntaMostrada++;
+                        cargarContenido(gridRespuestas);
+                    }
+                }, 2000);   //5 seconds
+
+            }
+            else{
+                preguntaMostrada++;
+                cargarContenido(gridRespuestas);
+            }
+
+        }
+        // Si no quedan mas preguntas
+        else{
+
+            if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()) {
+                Resultado.setAciertos(aciertos++);
+
+                mostrarSnackBar(juegoLayout);
+            }
+
+            planetaMostrado++;
+
+            // Siguiente planeta
+            if ( planetaMostrado <= MainActivity.getUltimoPlaneta() ){
+
+                // Devuelve RESULT OK a la clase Dificultad
+                setResult(Contenido.RESULT_FIRST_USER);
+
+                reiniciarPreguntas();
+
+                //Cierra esta actividad
+                finish();
+            }
+            // Pantalla resultado
+            else{
+                reiniciarPreguntas();
+
+                Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
+
+                intentResultado.putExtra("planetaMostrado", planetaMostrado);
+                // abre la activity del Juego
+
+                startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
+            }
+
+        }
+    }
+
+    private void mostrarSnackBar(RelativeLayout juegoLayout) {
+        // Muestra un snackbar
+
+        // Instancia un snackbar
+        Snackbar snackbar = Snackbar.make(juegoLayout,getString(R.string.respuestaCorrecta),Snackbar.LENGTH_SHORT);
+
+        // Colores del Snackbar
+        View snackbarView = snackbar.getView();
+        TextView snackText =  snackbarView.findViewById(R.id.snackbar_text);
+
+        // Color del texto
+        // Dependiendo de la versión de android
+        snackText.setTextColor(Color.WHITE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            snackText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        } else {
+            snackText.setGravity(Gravity.CENTER_HORIZONTAL);
+        }
+
+        // Color de fondo
+        snackbarView.setBackgroundColor(Color.parseColor("#355e4e"));
+
+        // Tamaño del texto
+        snackText.setTextSize(50);
+
+        // Tamaño del snackbar
+        Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout)snackbar.getView();
+        layout.setMinimumHeight(60);//your custom height.
+        layout.setMinimumWidth(400);
+
+
+        // Display the Snackbar
+        snackbar.show();
+    }
+
+    private void cargarContenido(final GridView gridRespuestas) {
         List<Respuesta> respuestas = preguntasFiltradas.get(preguntaMostrada).getRespuestas();
 
         TextView viewPregunta = findViewById(R.id.pregunta);
@@ -189,8 +199,8 @@ public class Juego extends AppCompatActivity {
 
         //Instancia nuestro adaptador personalizado
         Adaptador adaptador = new Adaptador(this, respuestas);
-
         gridRespuestas.setAdapter(adaptador);
+
 
 
     }

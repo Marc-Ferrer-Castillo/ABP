@@ -53,7 +53,7 @@ public class Dificultad extends AppCompatActivity {
             }
         });
 
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 tiempo.setText("seconds remaining: " + millisUntilFinished / 1000);

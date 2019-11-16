@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,7 +22,20 @@ public class Contenido extends AppCompatActivity {
     private static final byte JUEGO_ACTIVITY = 1;
     private int planetaMostrado;
      // Guarda en planetas la lista de planetas del json
-     private List<Planeta> planetas = Importar.getPlanetas();
+    private List<Planeta> planetas = Importar.getPlanetas();
+
+    CountDownTimer contador = new CountDownTimer(5000, 1000) {
+        @Override
+        public void onTick(long l) {}
+
+        @Override
+        public void onFinish() {
+            // envia result_OK y Cierra esta actividad
+            setResult(Resultado.RESULT_OK);
+            // Vuelve al main
+            finish();
+        }
+    };
 
 
     @Override
@@ -33,14 +47,13 @@ public class Contenido extends AppCompatActivity {
         ImageView imagenNarrador = findViewById(R.id.imagenNarrador);
         ImageButton inicio = findViewById(R.id.inicio);
 
-
-
-
         Intent intentDoble = getIntent();
         planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
         dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
 
         cargarTexto();
+
+        contador(true);
 
         //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
         String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
@@ -56,7 +69,9 @@ public class Contenido extends AppCompatActivity {
 
                 intentContenido.putExtra("dificultad", dificultadSeleccionada);
                 intentContenido.putExtra("planetaMostrado", planetaMostrado);
+
                 // abre la activity del Juego
+                contador(false);
 
                 startActivityForResult(intentContenido, JUEGO_ACTIVITY);
             }
@@ -66,6 +81,7 @@ public class Contenido extends AppCompatActivity {
         inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contador(false);
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_OK);
                 // Cierra esta actividad
@@ -100,10 +116,24 @@ public class Contenido extends AppCompatActivity {
             }
             // Si se ha llegado a la ultima pregunta
             else{
+                contador(true);
                 // muestra el siguiente contenido
                 planetaMostrado++;
                 cargarTexto();
             }
         }
     }
+
+    private void contador(boolean on) {
+
+        if (on){
+            contador.start();
+        }
+        else{
+
+            contador.cancel();
+        }
+    }
+
+
 }

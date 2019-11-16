@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -65,6 +66,24 @@ public class Resultado extends AppCompatActivity {
 
         aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) );
         aciertos = 0;
+
+        final TextView tiempo = findViewById(R.id.tiempo);
+        new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                tiempo.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+
+                // envia result_OK y Cierra esta actividad
+                setResult(Resultado.RESULT_OK);
+                // Vuelve al main
+                finish();
+            }
+        }.start();
+
+
 
         salir.setOnClickListener(new View.OnClickListener(){
             @Override

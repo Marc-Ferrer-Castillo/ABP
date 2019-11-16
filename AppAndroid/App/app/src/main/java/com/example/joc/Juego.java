@@ -2,12 +2,22 @@ package com.example.joc;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +37,7 @@ public class Juego extends AppCompatActivity {
 */
 
     private static final byte RESULTADO_ACTIVIDAD = 1;
-
+    private static int aciertos;
     private static int preguntaMostrada = 0;
     private static int planetaMostrado;
     private boolean dificultadSeleccionada;
@@ -50,7 +60,9 @@ public class Juego extends AppCompatActivity {
 
         filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
 
-        cargarContenido();
+        final GridView gridRespuestas = findViewById(R.id.gridRespuestas);
+
+        cargarContenido(gridRespuestas);
 
         // Imagen Salir
         ImageView salir = findViewById(R.id.inicio);
@@ -68,21 +80,74 @@ public class Juego extends AppCompatActivity {
             }
         });
 
-        GridView gridRespuestas = findViewById(R.id.gridRespuestas);
+        final RelativeLayout juegoLayout;
+        juegoLayout = (RelativeLayout) findViewById(R.id.juegoLayout);
 
         // Al pulsar sobre un item del grid
         gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
+
+
+                // Siguiente Pregunta
                 if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
 
-                    preguntaMostrada++;
-                    cargarContenido();
+                    if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()){
+                        Resultado.setAciertos(aciertos++);
+
+                        // Muestra un snackbar
+
+                        // Instancia un snackbar
+                        Snackbar snackbar = Snackbar.make(juegoLayout,getString(R.string.respuestaCorrecta),Snackbar.LENGTH_SHORT);
+
+                        // Colores del Snackbar
+                        View snackbarView = snackbar.getView();
+                        TextView snackText =  snackbarView.findViewById(R.id.snackbar_text);
+
+                        // Color del texto
+                        // Dependiendo de la versión de android
+                        snackText.setTextColor(Color.WHITE);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                            snackText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                        } else {
+                            snackText.setGravity(Gravity.CENTER_HORIZONTAL);
+                        }
+
+                        // Color de fondo
+                        snackbarView.setBackgroundColor(Color.parseColor("#355e4e"));
+
+                        // Tamaño del texto
+                        snackText.setTextSize(50);
+
+                        // Tamaño del snackbar
+                        Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout)snackbar.getView();
+                        layout.setMinimumHeight(60);//your custom height.
+                        layout.setMinimumWidth(400);
+
+
+                        // Display the Snackbar
+                        snackbar.show();
+
+                    }
+
+                    // Pausa antes de pasar a la siguiente pregunta
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+
+                            preguntaMostrada++;
+                            cargarContenido(gridRespuestas);
+                        }
+                    }, 2000);   //5 seconds
+
+
                 }
+                // Si no quedan mas preguntas
                 else{
                     planetaMostrado++;
 
+                    // Siguiente planeta
                     if ( planetaMostrado <= MainActivity.getUltimoPlaneta() ){
 
                         // Devuelve RESULT OK a la clase Dificultad
@@ -93,6 +158,7 @@ public class Juego extends AppCompatActivity {
                         //Cierra esta actividad
                         finish();
                     }
+                    // Pantalla resultado
                     else{
                         reiniciarPreguntas();
 
@@ -114,11 +180,10 @@ public class Juego extends AppCompatActivity {
     }
 
 
-    private void cargarContenido() {
+    private void cargarContenido(GridView gridRespuestas) {
         List<Respuesta> respuestas = preguntasFiltradas.get(preguntaMostrada).getRespuestas();
 
         TextView viewPregunta = findViewById(R.id.pregunta);
-        GridView gridRespuestas = findViewById(R.id.gridRespuestas);
 
         viewPregunta.setText(preguntasFiltradas.get(preguntaMostrada).getPregunta());
 
@@ -126,6 +191,8 @@ public class Juego extends AppCompatActivity {
         Adaptador adaptador = new Adaptador(this, respuestas);
 
         gridRespuestas.setAdapter(adaptador);
+
+
     }
 
     private void filtrarPreguntas(List<Pregunta> preguntas) {

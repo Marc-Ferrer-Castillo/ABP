@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.FontResourcesParserCompat;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +13,20 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+
 public class Resultado extends AppCompatActivity {
 
 
-    public static int aciertos = 0;
+    private static int aciertos = 0;
+
+    public static int getAciertos() {
+        return aciertos;
+    }
+
+    public static void setAciertos(int aciertos) {
+        Resultado.aciertos = aciertos;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +39,31 @@ public class Resultado extends AppCompatActivity {
         TextView nombre = findViewById(R.id.nombre);
         TextView frase = findViewById(R.id.nombre);
 
-        final Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
         if(aciertos < 3)
         {
-            personaje.setImageResource(R.drawable.rocket);
+            //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
+            String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen1.png").getAbsolutePath();
+            Bitmap myBitmap = BitmapFactory.decodeFile(fname);
+            personaje.setImageBitmap(myBitmap);
+
         }
-        else if (aciertos > 7)
+        else if (aciertos < 7)
         {
-            personaje.setImageResource(R.drawable.narrador);
+            //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
+            String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
+            Bitmap myBitmap = BitmapFactory.decodeFile(fname);
+            personaje.setImageBitmap(myBitmap);
         }
         else
         {
-            personaje.setImageResource(R.drawable.cat);
+            //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
+            String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen3.png").getAbsolutePath();
+            Bitmap myBitmap = BitmapFactory.decodeFile(fname);
+            personaje.setImageBitmap(myBitmap);
         }
 
-        aciertosView.setText(getString(R.string.numAciertos) + String.valueOf(aciertos) );
+        aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) );
         aciertos = 0;
 
         salir.setOnClickListener(new View.OnClickListener(){

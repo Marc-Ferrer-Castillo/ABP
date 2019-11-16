@@ -6,4 +6,5 @@
     <string name="facil">Fàcil</string>
     <string name="iniciar">COMENÇAR</string>
     <string name="numAciertos">"El número d'encerts és de: "</string>
+    <string name="respuestaCorrecta">Resposta correcte!</string>
 </resources>

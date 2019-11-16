@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.ColorRes;
+
 import java.util.List;
 
 public class Adaptador extends BaseAdapter {
@@ -32,8 +35,9 @@ public class Adaptador extends BaseAdapter {
             view = li.inflate(R.layout.place_respuesta, null);
         }
 
-        TextView  respuesta = (TextView) view.findViewById(R.id.placeRespuesta);
+        final TextView respuesta = view.findViewById(R.id.placeRespuesta);
         respuesta.setText(respuestas.get(position).getRespuesta());
+
 
         return view;
     }

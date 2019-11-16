@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:layout_marginTop="100dp"
-        android:background="@color/colorPrimary"
-        android:layout_marginHorizontal="50dp"/>
+        android:background="@color/Azul"
+        android:layout_margin="50dp"/>
 
 </LinearLayout>

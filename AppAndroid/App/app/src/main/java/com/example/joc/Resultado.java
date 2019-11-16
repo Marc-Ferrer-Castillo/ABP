@@ -64,7 +64,7 @@ public class Resultado extends AppCompatActivity {
             personaje.setImageBitmap(myBitmap);
         }
 
-        aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) );
+        aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) + 1 );
         aciertos = 0;
 
         final TextView tiempo = findViewById(R.id.tiempo);

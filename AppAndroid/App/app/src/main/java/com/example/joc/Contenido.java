@@ -53,7 +53,7 @@ public class Contenido extends AppCompatActivity {
 
         cargarTexto();
 
-        contador(true);
+        contador.start();
 
         //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
         String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
@@ -71,7 +71,7 @@ public class Contenido extends AppCompatActivity {
                 intentContenido.putExtra("planetaMostrado", planetaMostrado);
 
                 // abre la activity del Juego
-                contador(false);
+                contador.cancel();
 
                 startActivityForResult(intentContenido, JUEGO_ACTIVITY);
             }
@@ -81,7 +81,7 @@ public class Contenido extends AppCompatActivity {
         inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contador(false);
+                contador.cancel();
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_OK);
                 // Cierra esta actividad
@@ -116,7 +116,7 @@ public class Contenido extends AppCompatActivity {
             }
             // Si se ha llegado a la ultima pregunta
             else{
-                contador(true);
+                contador.start();
                 // muestra el siguiente contenido
                 planetaMostrado++;
                 cargarTexto();
@@ -124,16 +124,7 @@ public class Contenido extends AppCompatActivity {
         }
     }
 
-    private void contador(boolean on) {
 
-        if (on){
-            contador.start();
-        }
-        else{
-
-            contador.cancel();
-        }
-    }
 
 
 }

@@ -21,7 +21,7 @@ public class Dificultad extends AppCompatActivity {
 
         Button facil = findViewById(R.id.facil);
         Button dificil = findViewById(R.id.dificil);
-        final TextView tiempo = findViewById(R.id.tiempo);
+
         final Intent intentContenido = new Intent(getApplicationContext(), Contenido.class);
 
         Intent intentDoble = getIntent();
@@ -56,7 +56,7 @@ public class Dificultad extends AppCompatActivity {
         new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                tiempo.setText("seconds remaining: " + millisUntilFinished / 1000);
+
             }
 
             public void onFinish() {

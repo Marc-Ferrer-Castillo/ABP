@@ -39,6 +39,21 @@ public class Juego extends AppCompatActivity {
     private boolean dificultadSeleccionada;
     private List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
+    private CountDownTimer contador = new CountDownTimer(5000, 1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+        }
+
+        @Override
+        public void onFinish() {
+            aciertos = 0;
+            reiniciarPreguntas();
+            // envia result_OK y Cierra esta actividad
+            setResult(Resultado.RESULT_OK);
+            // Vuelve al main
+            finish();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +98,12 @@ public class Juego extends AppCompatActivity {
         gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
+                contador.cancel();
 
-            juego(position, juegoLayout, gridRespuestas);
+                gridRespuestas.setEnabled(false);
+                juego(position, juegoLayout, gridRespuestas);
+
+
             }
         });
 
@@ -104,8 +123,7 @@ public class Juego extends AppCompatActivity {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
-
-
+                        gridRespuestas.setEnabled(true);
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas);
                     }
@@ -113,6 +131,7 @@ public class Juego extends AppCompatActivity {
 
             }
             else{
+                gridRespuestas.setEnabled(true);
                 preguntaMostrada++;
                 cargarContenido(gridRespuestas);
             }
@@ -191,6 +210,7 @@ public class Juego extends AppCompatActivity {
     }
 
     private void cargarContenido(final GridView gridRespuestas) {
+
         List<Respuesta> respuestas = preguntasFiltradas.get(preguntaMostrada).getRespuestas();
 
         TextView viewPregunta = findViewById(R.id.pregunta);
@@ -199,10 +219,10 @@ public class Juego extends AppCompatActivity {
 
         //Instancia nuestro adaptador personalizado
         Adaptador adaptador = new Adaptador(this, respuestas);
+
         gridRespuestas.setAdapter(adaptador);
 
-
-
+        contador.start();
     }
 
     private void filtrarPreguntas(List<Pregunta> preguntas) {
@@ -253,6 +273,7 @@ public class Juego extends AppCompatActivity {
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_OK);
 
+                aciertos = 0;
                 reiniciarPreguntas();
 
 

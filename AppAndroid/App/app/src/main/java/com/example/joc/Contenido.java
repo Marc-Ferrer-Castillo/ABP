@@ -18,6 +18,10 @@ public class Contenido extends AppCompatActivity {
 
 
     private static final byte JUEGO_ACTIVITY = 1;
+    private int planetaMostrado;
+     // Guarda en planetas la lista de planetas del json
+     private List<Planeta> planetas = Importar.getPlanetas();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +31,15 @@ public class Contenido extends AppCompatActivity {
         Button continuar = findViewById(R.id.btncontinuar);
         ImageView imagenNarrador = findViewById(R.id.imagenNarrador);
         ImageButton inicio = findViewById(R.id.inicio);
-        TextView informacion = findViewById(R.id.informacion);
 
-        // Guarda en planetas la lista de planetas del json
-        List<Planeta> planetas = Importar.getPlanetas();
 
-        //EL TEXTO SE CARGA DEL PLANTA planetaMostrado
-        informacion.setText(planetas.get( MainActivity.getPlanetaMostrado() ).getContenido() );
+
+
+        Intent intentDoble = getIntent();
+        planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
+        final boolean dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
+
+        cargarTexto();
 
         //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
         String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
@@ -45,9 +51,13 @@ public class Contenido extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Juego.class);
+                Intent intentContenido = new Intent(getApplicationContext(), Juego.class);
+
+                intentContenido.putExtra("dificultad", dificultadSeleccionada);
+                intentContenido.putExtra("planetaMostrado", planetaMostrado);
                 // abre la activity del Juego
-                startActivityForResult(intent, JUEGO_ACTIVITY);
+
+                startActivityForResult(intentContenido, JUEGO_ACTIVITY);
             }
         });
 
@@ -62,6 +72,12 @@ public class Contenido extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void cargarTexto() {
+        TextView informacion = findViewById(R.id.informacion);
+        //EL TEXTO SE CARGA DEL PLANTA planetaMostrado
+        informacion.setText(planetas.get( planetaMostrado ).getContenido() );
     }
 
     // Resultado de startActivityForResult
@@ -83,9 +99,9 @@ public class Contenido extends AppCompatActivity {
             }
             // Si se ha llegado a la ultima pregunta
             else{
-                // se recrea la actividad para mostrar el siguiente contenido
-                //recreate();
-
+                // muestra el siguiente contenido
+                planetaMostrado++;
+                cargarTexto();
             }
         }
     }

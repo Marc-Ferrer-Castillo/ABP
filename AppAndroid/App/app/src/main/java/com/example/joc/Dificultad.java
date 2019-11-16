@@ -12,7 +12,7 @@ public class Dificultad extends AppCompatActivity {
 
     public static final int CONTENIDO_ACTIVITY = 1;
 
-    public static boolean dificultadSeleccionada;
+    private boolean dificultadSeleccionada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,18 @@ public class Dificultad extends AppCompatActivity {
         final TextView tiempo = findViewById(R.id.tiempo);
         final Intent intentContenido = new Intent(getApplicationContext(), Contenido.class);
 
+        Intent intentDoble = getIntent();
+        int planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
+
+        intentContenido.putExtra("planetaMostrado", planetaMostrado);
+
         facil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
 
                 // Inicia la actividad
                 dificultadSeleccionada = true;
+                intentContenido.putExtra("dificultad", dificultadSeleccionada);
                 startActivityForResult(intentContenido, CONTENIDO_ACTIVITY);
 
             }
@@ -41,6 +47,7 @@ public class Dificultad extends AppCompatActivity {
 
                 // Inicia la actividad
                 dificultadSeleccionada = false;
+                intentContenido.putExtra("dificultad", dificultadSeleccionada);
                 startActivityForResult(intentContenido, CONTENIDO_ACTIVITY);
 
             }

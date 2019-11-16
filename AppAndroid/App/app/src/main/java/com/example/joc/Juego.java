@@ -1,8 +1,7 @@
 package com.example.joc;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,13 +25,14 @@ public class Juego extends AppCompatActivity {
     4.1 Si hay más preguntas se muestra la siguiente y llamamos a rellenar()
     4.2 Si no hay más preguntas pasamos de planeta (si quedan)
 */
-    private static int preguntaMostrada = 0;
 
+    private static final byte RESULTADO_ACTIVIDAD = 1;
+
+    private static int preguntaMostrada = 0;
+    private  int planetaMostrado;
+    private boolean dificultadSeleccionada;
     static List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
 
-    public int getPreguntaMostrada() {
-        return preguntaMostrada;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,14 @@ public class Juego extends AppCompatActivity {
         // Lista de planetas
         final List<Planeta> planetas = Importar.getPlanetas();
 
-        filtrarPreguntas( planetas.get(MainActivity.getPlanetaMostrado()).getPreguntas() );
+        Intent intentDoble = getIntent();
+        planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
+        dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
+
+
+
+
+        filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
 
         cargarContenido();
 
@@ -70,22 +77,30 @@ public class Juego extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if ( preguntaMostrada < preguntasFiltradas.size() ){
+                if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
 
                     preguntaMostrada++;
                     cargarContenido();
                 }
                 else{
-                    int planetaMostrado = MainActivity.getPlanetaMostrado();
                     planetaMostrado++;
 
-                    if ( planetaMostrado < MainActivity.getUltimoPlaneta() ){
+                    if ( planetaMostrado <= MainActivity.getUltimoPlaneta() ){
 
                         // Devuelve RESULT OK a la clase Dificultad
-                        //setResult(Contenido.RESULT_FIRST_USER);
+                        setResult(Contenido.RESULT_FIRST_USER);
 
                         //Cierra esta actividad
                         finish();
+                    }
+                    else{
+                        Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
+
+
+                        intentResultado.putExtra("planetaMostrado", planetaMostrado);
+                        // abre la activity del Juego
+
+                        startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
                     }
                 }
 
@@ -116,7 +131,7 @@ public class Juego extends AppCompatActivity {
     private void filtrarPreguntas(List<Pregunta> preguntas) {
 
         // Dificultad de juego: Facil
-        if (!Dificultad.dificultadSeleccionada){
+        if (!dificultadSeleccionada){
 
             // Recorre la lista de preguntas
             for (int i = 0 ; i < preguntas.size() ; i++){
@@ -147,5 +162,25 @@ public class Juego extends AppCompatActivity {
 
     }
 
+    // Resultado de startActivityForResult
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        // Si la actividad de la que volvemos
+        if (requestCode == RESULTADO_ACTIVIDAD) {
+
+            // Y devuelve RESULT_OK
+            if (resultCode == RESULT_OK) {
+
+                // Devuelve RESULT OK a la clase Dificultad
+                setResult(Contenido.RESULT_OK);
+
+                // Cerramos esta actividad también
+                finish();
+            }
+
+
+        }
+    }
 }

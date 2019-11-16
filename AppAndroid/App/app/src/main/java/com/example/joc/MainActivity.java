@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
     /*Según el idioma seleccionado se empezara por un planeta u otro. Por defecto es el idioma de sistema*/
     private static String idiomaSeleccionado = Locale.getDefault().getISO3Language();
 
-    public static int getPlanetaMostrado() {
-        return planetaMostrado;
-    }
 
     public static int getUltimoPlaneta() {
         return ultimoPlaneta;
@@ -75,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intentDificultad = new Intent(getApplicationContext(), Dificultad.class);
+
 
                 // Dependiendo del idiomaMostrado se empiza por un planeta u otro
                 if (idiomaSeleccionado.equals(catalan) ){
@@ -94,8 +91,11 @@ public class MainActivity extends AppCompatActivity {
                 //El último planeta sera el planeta mostrado + 2 posiciones
                 ultimoPlaneta = planetaMostrado + 2 ;
 
+                Intent intentPlaneta = new Intent(MainActivity.this, Dificultad.class);
+                intentPlaneta.putExtra("planetaMostrado", planetaMostrado);
+
                 // Inicia la actividad
-                startActivityForResult(intentDificultad, ACTIVITY_DIFICULTAD);
+                startActivityForResult(intentPlaneta, ACTIVITY_DIFICULTAD);
             }
         });
 

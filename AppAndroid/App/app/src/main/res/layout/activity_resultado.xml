@@ -26,7 +26,7 @@
     <TextView
         android:id="@+id/nombre"
         android:layout_width="407dp"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:textSize="40sp"
         android:translationX="1560dp"
         android:translationY="400dp"

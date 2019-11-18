@@ -37,8 +37,13 @@ public class Resultado extends AppCompatActivity {
         TextView aciertosView = findViewById(R.id.aciertos);
         ImageButton salir = findViewById(R.id.inicio);
         ImageView personaje =findViewById(R.id.personaje);
-        TextView nombre = findViewById(R.id.nombre);
-        TextView frase = findViewById(R.id.nombre);
+
+
+        Intent intentDoble = getIntent();
+        int planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
+
+        Personaje personaje1 = new Personaje();
+        personaje1.setNom(Importar.getPersonajes().get(0).getNom());
 
         if(aciertos < 3)
         {
@@ -46,6 +51,7 @@ public class Resultado extends AppCompatActivity {
             String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen1.png").getAbsolutePath();
             Bitmap myBitmap = BitmapFactory.decodeFile(fname);
             personaje.setImageBitmap(myBitmap);
+            mostrarPersonaje(planetaMostrado, 1);
 
         }
         else if (aciertos < 7)
@@ -54,6 +60,8 @@ public class Resultado extends AppCompatActivity {
             String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
             Bitmap myBitmap = BitmapFactory.decodeFile(fname);
             personaje.setImageBitmap(myBitmap);
+
+            mostrarPersonaje(planetaMostrado,2);
         }
         else
         {
@@ -61,6 +69,8 @@ public class Resultado extends AppCompatActivity {
             String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen3.png").getAbsolutePath();
             Bitmap myBitmap = BitmapFactory.decodeFile(fname);
             personaje.setImageBitmap(myBitmap);
+
+            mostrarPersonaje(planetaMostrado,3);
         }
 
         aciertos++;
@@ -85,6 +95,7 @@ public class Resultado extends AppCompatActivity {
 
 
 
+
         salir.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -94,5 +105,65 @@ public class Resultado extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void mostrarPersonaje(int planetaMostrado, int personaje){
+
+        TextView nombre = findViewById(R.id.nombre);
+        TextView frase = findViewById(R.id.frase);
+
+        if (planetaMostrado < 4)
+        {
+            switch (personaje) {
+                case 1:
+                    nombre.setText(Importar.getPersonajes().get(0).getNom());
+                    frase.setText(Importar.getPersonajes().get(0).getFrase());
+                    break;
+                case 2:
+                    nombre.setText(Importar.getPersonajes().get(1).getNom());
+                    frase.setText(Importar.getPersonajes().get(1).getFrase());
+                    break;
+                case 3:
+                    nombre.setText(Importar.getPersonajes().get(2).getNom());
+                    frase.setText(Importar.getPersonajes().get(2).getFrase());
+                    break;
+            }
+        }
+        else if(planetaMostrado < 7)
+        {
+            switch (personaje) {
+                case 1:
+                    nombre.setText(Importar.getPersonajes().get(3).getNom());
+                    frase.setText(Importar.getPersonajes().get(3).getFrase());
+                    break;
+                case 2:
+                    nombre.setText(Importar.getPersonajes().get(4).getNom());
+                    frase.setText(Importar.getPersonajes().get(4).getFrase());
+                    break;
+                case 3:
+                    nombre.setText(Importar.getPersonajes().get(5).getNom());
+                    frase.setText(Importar.getPersonajes().get(5).getFrase());
+                    break;
+            }
+
+        }
+        else if(planetaMostrado < 10)
+        {
+            switch (personaje) {
+                case 1:
+                    nombre.setText(Importar.getPersonajes().get(6).getNom());
+                    frase.setText(Importar.getPersonajes().get(6).getFrase());
+                    break;
+                case 2:
+                    nombre.setText(Importar.getPersonajes().get(7).getNom());
+                    frase.setText(Importar.getPersonajes().get(7).getFrase());
+                    break;
+                case 3:
+                    nombre.setText(Importar.getPersonajes().get(8).getNom());
+                    frase.setText(Importar.getPersonajes().get(8).getFrase());
+                    break;
+            }
+        }
+
     }
 }

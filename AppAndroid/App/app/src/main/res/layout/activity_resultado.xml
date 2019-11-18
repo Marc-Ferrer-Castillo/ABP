@@ -17,12 +17,11 @@
 
     <ImageView
         android:id="@+id/personaje"
-        android:layout_width="659dp"
-        android:layout_height="633dp"
+        android:layout_width="859dp"
+        android:layout_height="1033dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/cat"
-        android:translationX="530dp"
-        android:translationY="355dp" />
+        android:translationX="430dp"
+        android:translationY="295dp" />
 
     <TextView
         android:id="@+id/nombre"
@@ -31,16 +30,18 @@
         android:textSize="40sp"
         android:translationX="1560dp"
         android:translationY="400dp"
-        android:text="NOMBRE"/>
+        android:textColor="@color/Blanco"
+        />
 
     <TextView
         android:id="@+id/frase"
-        android:layout_width="407dp"
-        android:layout_height="44dp"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
         android:translationX="1560dp"
         android:translationY="500dp"
         android:textSize="40sp"
-        android:text="FRASE"/>
+        android:textColor="@color/Blanco"
+        />
 
     <TextView
         android:id="@+id/aciertos"
@@ -49,7 +50,7 @@
         android:translationX="1560dp"
         android:translationY="760dp"
         android:textSize="40sp"
-        android:outlineAmbientShadowColor="@color/Blanco"
+        android:textColor="@color/Blanco"
         android:text="ACIERTOS"/>
 
     <Button

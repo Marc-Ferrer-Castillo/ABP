@@ -171,6 +171,7 @@ public class Juego extends AppCompatActivity {
                 intentResultado.putExtra("planetaMostrado", planetaMostrado);
                 // abre la activity del Juego
 
+
                 startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
             }
 

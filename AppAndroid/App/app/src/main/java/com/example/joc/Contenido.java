@@ -24,7 +24,7 @@ public class Contenido extends AppCompatActivity {
      // Guarda en planetas la lista de planetas del json
     private List<Planeta> planetas = Importar.getPlanetas();
 
-    CountDownTimer contador = new CountDownTimer(5000, 1000) {
+    CountDownTimer contador = new CountDownTimer(30000, 1000) {
         @Override
         public void onTick(long l) {}
 

@@ -61,7 +61,7 @@ public class Juego extends AppCompatActivity {
 
                 if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(0).isEsCorrecta()){
 
-                    gridRespuestas.performItemClick(gridRespuestas.getChildAt(1), 0, gridRespuestas.getItemIdAtPosition(0));
+                    gridRespuestas.performItemClick(gridRespuestas.getChildAt(1), 0, gridRespuestas.getItemIdAtPosition(1));
                 }
                 else{
                     gridRespuestas.performItemClick(gridRespuestas.getChildAt(0), 0, gridRespuestas.getItemIdAtPosition(0));
@@ -70,7 +70,7 @@ public class Juego extends AppCompatActivity {
         };
 
         // Lista de planetas
-        final List<Planeta> planetas = Importar.getPlanetas();
+         List<Planeta> planetas = Importar.getPlanetas();
 
         Intent intentDoble = getIntent();
         planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
@@ -102,7 +102,7 @@ public class Juego extends AppCompatActivity {
         // Al pulsar sobre un item del grid
         gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
                 contador.cancel();
 

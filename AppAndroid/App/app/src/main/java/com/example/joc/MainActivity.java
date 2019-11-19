@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Vuelve el iterador a 0
                 planetaMostrado = 0;
-                //recreate();
+
             }
         }
     }

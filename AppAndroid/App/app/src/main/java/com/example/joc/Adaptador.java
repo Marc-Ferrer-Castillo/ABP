@@ -3,6 +3,7 @@ package com.example.joc;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,8 @@ public class Adaptador extends BaseAdapter {
 
         final TextView respuesta = view.findViewById(R.id.placeRespuesta);
         respuesta.setText(respuestas.get(position).getRespuesta());
+
+
 
 
         return view;

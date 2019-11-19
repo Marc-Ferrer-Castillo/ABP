@@ -9,9 +9,11 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
@@ -105,7 +107,11 @@ public class Juego extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
                 contador.cancel();
 
+
                 gridRespuestas.setEnabled(false);
+                LinearLayout respuesta = (LinearLayout) view;
+
+                respuesta.getChildAt(0).setBackgroundColor(Color.GREEN);
                 juego(position, juegoLayout, gridRespuestas, contador);
             }
         });
@@ -130,13 +136,20 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 2000);   //5 seconds
+                }, 2000);   //2 seconds
 
             }
             else{
-                gridRespuestas.setEnabled(true);
-                preguntaMostrada++;
-                cargarContenido(gridRespuestas, contador);
+                // Pausa antes de pasar a la siguiente pregunta
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        gridRespuestas.setEnabled(true);
+                        preguntaMostrada++;
+                        cargarContenido(gridRespuestas, contador);
+                    }
+                }, 2000);   //2 seconds
+
             }
 
         }

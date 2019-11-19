@@ -111,12 +111,14 @@ public class Juego extends AppCompatActivity {
                 gridRespuestas.setEnabled(false);
                 LinearLayout respuesta = (LinearLayout) view;
 
+                // Si la respuesta seleccionada es correcta
                 if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()){
-                    respuesta.getChildAt(0).setBackgroundColor(Color.GREEN);
-
+                    // Pone el fondo en verde
+                    respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#355e4e"));
                 }
+                // Si es incorrecta
                 else{
-                    respuesta.getChildAt(0).setBackgroundColor(Color.RED);
+                    respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#5e3535"));
 
                     GridView grid = (GridView) parent;
                     for (int i = 0 ; i < grid.getChildCount() ; i++){
@@ -124,8 +126,7 @@ public class Juego extends AppCompatActivity {
 
                         if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
 
-                            text.setBackgroundColor(Color.GREEN);
-
+                            text.setBackgroundColor(Color.parseColor("#355e4e"));
                         }
                     }
                 }

@@ -50,7 +50,7 @@ public class Juego extends AppCompatActivity {
         final GridView gridRespuestas = findViewById(R.id.gridRespuestas);
         final TextView contadorView = findViewById(R.id.tiempo);
 
-        final CountDownTimer contador = new CountDownTimer(30000, 1000) {
+        final CountDownTimer contador = new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 contadorView.setText("" + millisUntilFinished / 1000);
@@ -59,48 +59,18 @@ public class Juego extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                // Siguiente Pregunta
-                if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
+                int maxPreguntas = preguntasFiltradas.size();
+                int i = 0;
+                while (i < maxPreguntas){
 
-                    // Pausa antes de pasar a la siguiente pregunta
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        public void run() {
-                            gridRespuestas.setEnabled(true);
-                            preguntaMostrada++;
-                            cargarContenido(gridRespuestas, contador);
-                        }
-                    }, 2000);   //2 seconds
+                    if (!preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
 
-                }
-                // Si no quedan mas preguntas
-                else{
-
-
-                    planetaMostrado++;
-
-                    // Siguiente planeta
-                    if ( planetaMostrado <= MainActivity.getUltimoPlaneta() ){
-
-                        // Devuelve RESULT OK a la clase Dificultad
-                        setResult(Contenido.RESULT_FIRST_USER);
-
-                        reiniciarPreguntas();
-
-                        //Cierra esta actividad
-                        finish();
+                        gridRespuestas.performItemClick(gridRespuestas.getChildAt(i), 0, gridRespuestas.getItemIdAtPosition(0));
+                        i = maxPreguntas;
                     }
-                    // Pantalla resultado
-                    else{
-                        reiniciarPreguntas();
-
-                        Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
-
-                        intentResultado.putExtra("planetaMostrado", planetaMostrado);
-
-                        startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
-                    }
+                    i++;
                 }
+
             }
         };
 

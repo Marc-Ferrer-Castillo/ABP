@@ -59,19 +59,13 @@ public class Juego extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                int maxPreguntas = preguntasFiltradas.size();
-                int i = 0;
-                while (i < maxPreguntas){
+                if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(0).isEsCorrecta()){
 
-                    if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
-                        i++;
-                    }
-                    else{
-                        gridRespuestas.performItemClick(gridRespuestas.getChildAt(i), 0, gridRespuestas.getItemIdAtPosition(0));
-                        i = maxPreguntas;
-                    }
+                    gridRespuestas.performItemClick(gridRespuestas.getChildAt(1), 0, gridRespuestas.getItemIdAtPosition(0));
                 }
-
+                else{
+                    gridRespuestas.performItemClick(gridRespuestas.getChildAt(0), 0, gridRespuestas.getItemIdAtPosition(0));
+                }
             }
         };
 
@@ -83,9 +77,6 @@ public class Juego extends AppCompatActivity {
         dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
 
         filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
-
-
-
         cargarContenido(gridRespuestas, contador);
 
         // Imagen Salir
@@ -115,31 +106,38 @@ public class Juego extends AppCompatActivity {
 
                 contador.cancel();
 
-
                 gridRespuestas.setEnabled(false);
                 LinearLayout respuesta = (LinearLayout) view;
 
                 // Si la respuesta seleccionada es correcta
-                if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()){
-                    // Pone el fondo en verde
+                boolean repuestaCorrecta = preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta();
+                if(repuestaCorrecta ){
+
+                    // Pone el fondo de la respuesta en verde
                     respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#355e4e"));
                 }
                 // Si es incorrecta
                 else{
+                    // Pone el fondo de la respuesta pulsada en rojo
                     respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#5e3535"));
 
+                    // Por cada view dentro de la gridview
                     GridView grid = (GridView) parent;
                     for (int i = 0 ; i < grid.getChildCount() ; i++){
+
+                        // Coge cada elemento dentro de parent > LinearLayour > Textview
                         TextView text = (TextView)((LinearLayout)grid.getChildAt(i)).getChildAt(0);
 
+                        // Si la pregunta es correcta
                         if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
 
+                            // Cambia el fondo de color verde
                             text.setBackgroundColor(Color.parseColor("#355e4e"));
                         }
                     }
                 }
 
-                juego(position, juegoLayout, gridRespuestas, contador);
+                juego(position , juegoLayout, gridRespuestas, contador);
 
             }
         });
@@ -318,6 +316,7 @@ public class Juego extends AppCompatActivity {
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_OK);
 
+                planetaMostrado = 0;
                 aciertos = 0;
                 reiniciarPreguntas();
 

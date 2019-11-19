@@ -93,6 +93,7 @@ public class Contenido extends AppCompatActivity {
 
     private void cargarTexto() {
         TextView informacion = findViewById(R.id.informacion);
+
         //EL TEXTO SE CARGA DEL PLANTA planetaMostrado
         informacion.setText(planetas.get( planetaMostrado ).getContenido() );
     }

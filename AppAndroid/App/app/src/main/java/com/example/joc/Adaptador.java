@@ -39,18 +39,18 @@ public class Adaptador extends BaseAdapter {
         final TextView respuesta = view.findViewById(R.id.placeRespuesta);
         respuesta.setText(respuestas.get(position).getRespuesta());
 
-
-
-
         return view;
     }
 
 
     @Override
     public int getCount() {
+        int retorno = 0;
+
         if(respuestas != null)
-            return respuestas.size();
-        return 0;
+            retorno = respuestas.size();
+
+        return retorno;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Adaptador extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
 

@@ -111,8 +111,27 @@ public class Juego extends AppCompatActivity {
                 gridRespuestas.setEnabled(false);
                 LinearLayout respuesta = (LinearLayout) view;
 
-                respuesta.getChildAt(0).setBackgroundColor(Color.GREEN);
+                if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()){
+                    respuesta.getChildAt(0).setBackgroundColor(Color.GREEN);
+
+                }
+                else{
+                    respuesta.getChildAt(0).setBackgroundColor(Color.RED);
+
+                    GridView grid = (GridView) parent;
+                    for (int i = 0 ; i < grid.getChildCount() ; i++){
+                        TextView text = (TextView)((LinearLayout)grid.getChildAt(i)).getChildAt(0);
+
+                        if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
+
+                            text.setBackgroundColor(Color.GREEN);
+
+                        }
+                    }
+                }
+
                 juego(position, juegoLayout, gridRespuestas, contador);
+
             }
         });
 

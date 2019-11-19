@@ -63,12 +63,13 @@ public class Juego extends AppCompatActivity {
                 int i = 0;
                 while (i < maxPreguntas){
 
-                    if (!preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
-
+                    if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
+                        i++;
+                    }
+                    else{
                         gridRespuestas.performItemClick(gridRespuestas.getChildAt(i), 0, gridRespuestas.getItemIdAtPosition(0));
                         i = maxPreguntas;
                     }
-                    i++;
                 }
 
             }

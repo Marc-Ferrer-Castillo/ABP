@@ -9,7 +9,6 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -59,12 +58,49 @@ public class Juego extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                aciertos = 0;
-                reiniciarPreguntas();
-                // envia result_OK y Cierra esta actividad
-                setResult(Resultado.RESULT_OK);
-                // Vuelve al main
-                finish();
+
+                // Siguiente Pregunta
+                if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
+
+                    // Pausa antes de pasar a la siguiente pregunta
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            gridRespuestas.setEnabled(true);
+                            preguntaMostrada++;
+                            cargarContenido(gridRespuestas, contador);
+                        }
+                    }, 2000);   //2 seconds
+
+                }
+                // Si no quedan mas preguntas
+                else{
+
+
+                    planetaMostrado++;
+
+                    // Siguiente planeta
+                    if ( planetaMostrado <= MainActivity.getUltimoPlaneta() ){
+
+                        // Devuelve RESULT OK a la clase Dificultad
+                        setResult(Contenido.RESULT_FIRST_USER);
+
+                        reiniciarPreguntas();
+
+                        //Cierra esta actividad
+                        finish();
+                    }
+                    // Pantalla resultado
+                    else{
+                        reiniciarPreguntas();
+
+                        Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
+
+                        intentResultado.putExtra("planetaMostrado", planetaMostrado);
+
+                        startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
+                    }
+                }
             }
         };
 
@@ -105,6 +141,7 @@ public class Juego extends AppCompatActivity {
         gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
+
                 contador.cancel();
 
 
@@ -207,8 +244,8 @@ public class Juego extends AppCompatActivity {
 
                 startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
             }
-
         }
+
     }
 
     private void mostrarSnackBar(RelativeLayout juegoLayout) {

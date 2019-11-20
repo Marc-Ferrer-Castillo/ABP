@@ -1,5 +1,6 @@
 package com.example.joc;
 
+//Imports
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +11,10 @@ import android.widget.TextView;
 
 public class Dificultad extends AppCompatActivity {
 
+    //Variable necesaria para el intent para reconcer la actividad
     public static final int CONTENIDO_ACTIVITY = 1;
 
+    //Boleano para la seleccion de dificultad
     private boolean dificultadSeleccionada;
 
     @Override
@@ -19,9 +22,11 @@ public class Dificultad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dificultad);
 
+        //Asignacion de los botones de dificultad
         Button facil = findViewById(R.id.facil);
         Button dificil = findViewById(R.id.dificil);
 
+        //creamos el intent para cargar la activity contenido
         final Intent intentContenido = new Intent(getApplicationContext(), Contenido.class);
 
         Intent intentDoble = getIntent();
@@ -29,6 +34,7 @@ public class Dificultad extends AppCompatActivity {
 
         intentContenido.putExtra("planetaMostrado", planetaMostrado);
 
+        //Al hacer click sobre el nivel de dificultad carga el contenido y preguntas
         facil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -52,18 +58,19 @@ public class Dificultad extends AppCompatActivity {
 
             }
         });
-
+        //Contador de tiempo para que cuando pasa cierto tiempo se salga al menu de inicio
         new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {
 
             }
-
+            //Al terminar el tiempo cierra la actividad y va al main
             public void onFinish() {
 
                 // Vuelve al main
                 finish();
             }
+            //Empieza el contador
         }.start();
 
     }

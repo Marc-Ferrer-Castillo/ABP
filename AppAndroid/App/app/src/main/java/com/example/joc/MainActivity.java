@@ -1,5 +1,6 @@
 package com.example.joc;
 
+//Imports
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,18 +12,23 @@ import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    /*
+    El juego tiene 3 planetas por cada idioma, en este caso seria:
+    catalan = 0, 1, 2
+    español = 3, 4, 5
+    ingles = 6, 7, 8
+    segun selecionado empezar por el primero de cada uno de ellos
+    y ya pasamos a la pantalla de dificultad
+     */
 
     // Idiomas
     private static final String catalan = "cat";
@@ -42,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Se asocian ImageView a sus id que les corresponden
         ImageView cat = findViewById(R.id.catalan);
         ImageView esp = findViewById(R.id.castellano);
         ImageView eng = findViewById(R.id.ingles);

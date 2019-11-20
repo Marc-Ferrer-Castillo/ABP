@@ -69,6 +69,9 @@ public class Contenido extends AppCompatActivity {
 
                 intentContenido.putExtra("dificultad", dificultadSeleccionada);
                 intentContenido.putExtra("planetaMostrado", planetaMostrado);
+                int preguntaMostrada = 0;
+                intentContenido.putExtra("preguntaMostrada", preguntaMostrada);
+
 
                 // abre la activity del Juego
                 contador.cancel();

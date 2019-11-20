@@ -39,7 +39,7 @@ public class Juego extends AppCompatActivity {
     private static int planetaMostrado;
     private boolean dificultadSeleccionada;
     private List<Pregunta> preguntasFiltradas = new ArrayList<Pregunta>();
-
+    private int  maxPlaneta = 0;
 
 
     @Override
@@ -49,6 +49,21 @@ public class Juego extends AppCompatActivity {
 
         final GridView gridRespuestas = findViewById(R.id.gridRespuestas);
         final TextView contadorView = findViewById(R.id.tiempo);
+
+        Intent intentDoble = getIntent();
+        planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
+        dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
+        preguntaMostrada = intentDoble.getIntExtra("preguntaMostrada", 0);
+
+        if (planetaMostrado >= 0 && planetaMostrado <= 2){
+            maxPlaneta = 2;
+        }
+        else if(planetaMostrado >= 3 && planetaMostrado <= 5){
+            maxPlaneta = 5;
+        }
+        else{
+            maxPlaneta = 8;
+        }
 
         final CountDownTimer contador = new CountDownTimer(3000, 1000) {
             @Override
@@ -61,10 +76,10 @@ public class Juego extends AppCompatActivity {
 
                 if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(0).isEsCorrecta()){
 
-                    gridRespuestas.performItemClick(gridRespuestas.getChildAt(1), 0, gridRespuestas.getItemIdAtPosition(1));
+                    //gridRespuestas.performItemClick(gridRespuestas.getChildAt(1), 0, gridRespuestas.getItemIdAtPosition(1));
                 }
                 else{
-                    gridRespuestas.performItemClick(gridRespuestas.getChildAt(0), 0, gridRespuestas.getItemIdAtPosition(0));
+                    //gridRespuestas.performItemClick(gridRespuestas.getChildAt(0), 0, gridRespuestas.getItemIdAtPosition(0));
                 }
             }
         };
@@ -72,9 +87,7 @@ public class Juego extends AppCompatActivity {
         // Lista de planetas
          List<Planeta> planetas = Importar.getPlanetas();
 
-        Intent intentDoble = getIntent();
-        planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
-        dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
+
 
         filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
         cargarContenido(gridRespuestas, contador);
@@ -111,7 +124,8 @@ public class Juego extends AppCompatActivity {
 
                 // Si la respuesta seleccionada es correcta
                 boolean repuestaCorrecta = preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta();
-                if(repuestaCorrecta ){
+
+                /*if(repuestaCorrecta ){
 
                     // Pone el fondo de la respuesta en verde
                     respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#355e4e"));
@@ -136,7 +150,7 @@ public class Juego extends AppCompatActivity {
                         }
                     }
                 }
-
+*/
                 juego(position , juegoLayout, gridRespuestas, contador);
 
             }
@@ -162,7 +176,7 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 2000);   //2 seconds
+                }, 0000);   //2 seconds
 
             }
             else{
@@ -174,24 +188,22 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 2000);   //2 seconds
-
+                }, 0000);   //2 seconds
             }
-
         }
         // Si no quedan mas preguntas
         else{
 
             if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()) {
-                Resultado.setAciertos(aciertos++);
 
+                Resultado.setAciertos(aciertos++);
                 mostrarSnackBar(juegoLayout);
             }
 
             planetaMostrado++;
 
             // Siguiente planeta
-            if ( planetaMostrado <= MainActivity.getUltimoPlaneta() ){
+            if ( planetaMostrado <= maxPlaneta ){
 
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_FIRST_USER);
@@ -208,8 +220,6 @@ public class Juego extends AppCompatActivity {
                 Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
 
                 intentResultado.putExtra("planetaMostrado", planetaMostrado);
-                // abre la activity del Juego
-
 
                 startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
             }
@@ -316,7 +326,7 @@ public class Juego extends AppCompatActivity {
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_OK);
 
-                planetaMostrado = 0;
+
                 aciertos = 0;
                 reiniciarPreguntas();
 

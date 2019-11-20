@@ -18,13 +18,18 @@ import java.io.File;
 
 public class Resultado extends AppCompatActivity {
 
+    private final static int CATALAN = 4;
+    private final static int ESPANOL = 4;
+    private final static int INGLES = 4;
 
+    //variable para guardar el numero de aciertos total
     private static int aciertos = 0;
 
     public static int getAciertos() {
         return aciertos;
     }
 
+    //metodo para actualizar el numero de aciertos
     public static void setAciertos(int aciertos) {
         Resultado.aciertos = aciertos;
     }
@@ -34,35 +39,42 @@ public class Resultado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
 
+        //recuperamos los id del xml de los 3 views siguientes
         TextView aciertosView = findViewById(R.id.aciertos);
         ImageButton salir = findViewById(R.id.inicio);
         ImageView personaje =findViewById(R.id.personaje);
 
 
+        //recoge de la pantalla principal el planeta seleccionado
         Intent intentDoble = getIntent();
         int planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
 
+        //creamos un personaje y le asignamos el nombre con el metodo getPersonajes de la clase Importar
         Personaje personaje1 = new Personaje();
         personaje1.setNom(Importar.getPersonajes().get(0).getNom());
 
+        //mostraremos el personaje 1 si el usuario consigue menos de 3 aciertos
         if(aciertos < 3)
         {
-            //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
+            //CARGA imagen1.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
             String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen1.png").getAbsolutePath();
             Bitmap myBitmap = BitmapFactory.decodeFile(fname);
             personaje.setImageBitmap(myBitmap);
             mostrarPersonaje(planetaMostrado, 1);
 
         }
+        //mostraremos el personaje 2 si el usuario consigue menos de 7 aciertos
         else if (aciertos < 7)
         {
-            //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
+            //CARGA imagen2.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
             String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
             Bitmap myBitmap = BitmapFactory.decodeFile(fname);
             personaje.setImageBitmap(myBitmap);
 
+
             mostrarPersonaje(planetaMostrado,2);
         }
+        //mostraremos el personaje 3 si el usuario consigue 7 o más aciertos
         else
         {
             //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
@@ -74,9 +86,16 @@ public class Resultado extends AppCompatActivity {
         }
 
         aciertos++;
+
+        //mostramos por pantalla el numero de aciertos total
         aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) );
+
+        //reiniciamos el numero de aciertos
         aciertos = 0;
 
+
+        //creamos un temporizador al que le pasamos por parametro lo que va a durar en las unidades especificadas en el segundo parametro, en este caso milisegundos
+        //el temporizador lleva al usuario al inicio del juego tras 30 segundos
         final TextView tiempo = findViewById(R.id.tiempo);
         new CountDownTimer(30000, 1000) {
 
@@ -107,11 +126,14 @@ public class Resultado extends AppCompatActivity {
         });
     }
 
+    //metodo para mostrar el personaje segun el idioma mostrado para cargar el contenido en el idioma adecuado
     private void mostrarPersonaje(int planetaMostrado, int personaje){
 
+        //recogemos los id del xml
         TextView nombre = findViewById(R.id.nombre);
         TextView frase = findViewById(R.id.frase);
 
+        //planetas en catalan 0-2
         if (planetaMostrado < 4)
         {
             switch (personaje) {
@@ -129,6 +151,7 @@ public class Resultado extends AppCompatActivity {
                     break;
             }
         }
+        //planetas en castellano
         else if(planetaMostrado < 7)
         {
             switch (personaje) {

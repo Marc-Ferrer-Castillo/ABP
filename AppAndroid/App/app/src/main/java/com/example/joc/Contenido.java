@@ -18,12 +18,20 @@ import java.util.List;
 public class Contenido extends AppCompatActivity {
 
 
+    //variable para seleccionar la dificultad del juego
     private boolean dificultadSeleccionada;
+
+    //variable para volver a esta pantalla una vez hemos avanzado a la siguiente
     private static final byte JUEGO_ACTIVITY = 1;
+
+    //variable que nos mostrara el planeta en el cual nos encontramos
     private int planetaMostrado;
+
      // Guarda en planetas la lista de planetas del json
     private List<Planeta> planetas = Importar.getPlanetas();
 
+
+    //creamos un temporizador al que le pasamos por parametro lo que va a durar en las unidades especificadas en el segundo parametro, en este caso milisegundos
     CountDownTimer contador = new CountDownTimer(30000, 1000) {
         @Override
         public void onTick(long l) {}
@@ -43,16 +51,22 @@ public class Contenido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenido);
 
+        //recuperamos los id del xml de los 3 views siguientes
         Button continuar = findViewById(R.id.btncontinuar);
         ImageView imagenNarrador = findViewById(R.id.imagenNarrador);
         ImageButton inicio = findViewById(R.id.inicio);
 
+
+        //recoge de la pantalla principal y pantalla de dificultad el idioma seleccionado (es decir el planeta por el que el juego empezara)
+        // y la dificultad seleccionada respectivamente.
         Intent intentDoble = getIntent();
         planetaMostrado = intentDoble.getIntExtra("planetaMostrado", 0);
         dificultadSeleccionada = intentDoble.getBooleanExtra("dificultad", false);
 
+        //cargamos el contenido del planeta
         cargarTexto();
 
+        //empieza la cuenta atras para enviar al usuario al menu si no hay ningun click
         contador.start();
 
         //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview

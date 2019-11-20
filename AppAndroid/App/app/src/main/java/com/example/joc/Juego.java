@@ -47,7 +47,7 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
-        final GridView gridRespuestas = findViewById(R.id.gridRespuestas);
+        final GridView gridrespuestas = (GridView) findViewById(R.id.gridrespuestas);
         final TextView contadorView = findViewById(R.id.tiempo);
 
         Intent intentDoble = getIntent();
@@ -76,10 +76,10 @@ public class Juego extends AppCompatActivity {
 
                 if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(0).isEsCorrecta()){
 
-                    //gridRespuestas.performItemClick(gridRespuestas.getChildAt(1), 0, gridRespuestas.getItemIdAtPosition(1));
+                    gridrespuestas.performItemClick(gridrespuestas.getChildAt(1), 0, gridrespuestas.getItemIdAtPosition(1));
                 }
                 else{
-                    //gridRespuestas.performItemClick(gridRespuestas.getChildAt(0), 0, gridRespuestas.getItemIdAtPosition(0));
+                    gridrespuestas.performItemClick(gridrespuestas.getChildAt(0), 0, gridrespuestas.getItemIdAtPosition(0));
                 }
             }
         };
@@ -90,7 +90,7 @@ public class Juego extends AppCompatActivity {
 
 
         filtrarPreguntas( planetas.get(planetaMostrado).getPreguntas() );
-        cargarContenido(gridRespuestas, contador);
+        cargarContenido(gridrespuestas, contador);
 
         // Imagen Salir
         ImageView salir = findViewById(R.id.inicio);
@@ -113,19 +113,19 @@ public class Juego extends AppCompatActivity {
         juegoLayout = findViewById(R.id.juegoLayout);
 
         // Al pulsar sobre un item del grid
-        gridRespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridrespuestas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
                 contador.cancel();
 
-                gridRespuestas.setEnabled(false);
+                gridrespuestas.setEnabled(false);
                 LinearLayout respuesta = (LinearLayout) view;
 
                 // Si la respuesta seleccionada es correcta
                 boolean repuestaCorrecta = preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta();
 
-                /*if(repuestaCorrecta ){
+                if(repuestaCorrecta ){
 
                     // Pone el fondo de la respuesta en verde
                     respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#355e4e"));
@@ -150,8 +150,8 @@ public class Juego extends AppCompatActivity {
                         }
                     }
                 }
-*/
-                juego(position , juegoLayout, gridRespuestas, contador);
+
+                juego(position , juegoLayout, gridrespuestas, contador);
 
             }
         });
@@ -176,7 +176,7 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 0000);   //2 seconds
+                }, 1000);   //2 seconds
 
             }
             else{
@@ -188,7 +188,7 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 0000);   //2 seconds
+                }, 1000);   //2 seconds
             }
         }
         // Si no quedan mas preguntas
@@ -256,7 +256,6 @@ public class Juego extends AppCompatActivity {
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout)snackbar.getView();
         layout.setMinimumHeight(60);//your custom height.
         layout.setMinimumWidth(400);
-
 
         // Display the Snackbar
         snackbar.show();

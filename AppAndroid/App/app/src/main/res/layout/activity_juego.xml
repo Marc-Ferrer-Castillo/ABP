@@ -31,12 +31,11 @@
         android:layout_centerHorizontal="true"
         android:textSize="50sp"
         android:textColor="@color/Blanco"
-        android:layout_marginTop="365dp"
-        android:text="PREGUNTA DE PRUBA"/>
+        android:layout_marginTop="365dp"/>
 
     //GridView para las respuestas
     <GridView
-        android:id="@+id/gridRespuestas"
+        android:id="@+id/gridrespuestas"
         android:layout_width="match_parent"
         android:layout_height="780dp"
         android:numColumns="2"
@@ -54,6 +53,4 @@
         android:textAlignment="center"
         android:text="30"
         android:textColor="@color/Blanco"/>
-
-
 </RelativeLayout>

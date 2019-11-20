@@ -3,14 +3,11 @@ package com.example.joc;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import androidx.annotation.ColorRes;
 
 import java.util.List;
 
@@ -36,12 +33,11 @@ public class Adaptador extends BaseAdapter {
             view = li.inflate(R.layout.place_respuesta, null);
         }
 
-        final TextView respuesta = view.findViewById(R.id.placeRespuesta);
+        final TextView respuesta = view.findViewById(R.id.placerespuesta);
         respuesta.setText(respuestas.get(position).getRespuesta());
 
         return view;
     }
-
 
     @Override
     public int getCount() {
@@ -62,6 +58,5 @@ public class Adaptador extends BaseAdapter {
     public long getItemId(int i) {
         return i;
     }
-
 
 }

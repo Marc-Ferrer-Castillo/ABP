@@ -11,9 +11,15 @@ import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -159,7 +165,14 @@ public class MainActivity extends AppCompatActivity {
             }
             // Si s' ha concedit el permís
             else{
-                contenido.leerContenido();
+                // Si no se ha podido leer el contenido
+                if (!contenido.leerContenido()){
+
+                    RelativeLayout layout = findViewById(R.id.main);
+                    // Instancia un snackbar
+                    Snackbar snackbar = Snackbar.make(layout,"No s'ha pogut llegir el contingut del joc",Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
             }
         }
         // Si executem una versió anterior a la versió Marshmallow (6.0),

@@ -134,8 +134,9 @@ public class Resultado extends AppCompatActivity {
         TextView frase = findViewById(R.id.frase);
 
         //planetas en catalan 0-2
-        if (planetaMostrado < 4)
+        if (planetaMostrado < CATALAN)
         {
+            //segun el personaje que se tenga que mostrar dependiendo de los aciertos, cargaremos su contenido en catalan
             switch (personaje) {
                 case 1:
                     nombre.setText(Importar.getPersonajes().get(0).getNom());
@@ -152,8 +153,9 @@ public class Resultado extends AppCompatActivity {
             }
         }
         //planetas en castellano
-        else if(planetaMostrado < 7)
+        else if(planetaMostrado < ESPANOL)
         {
+            //segun el personaje que se tenga que mostrar dependiendo de los aciertos, cargaremos su contenido en español
             switch (personaje) {
                 case 1:
                     nombre.setText(Importar.getPersonajes().get(3).getNom());
@@ -170,9 +172,12 @@ public class Resultado extends AppCompatActivity {
             }
 
         }
-        else if(planetaMostrado < 10)
+        //planetas en ingles
+        else if(planetaMostrado < INGLES)
         {
+            //segun el personaje que se tenga que mostrar dependiendo de los aciertos, cargaremos su contenido en ingles
             switch (personaje) {
+
                 case 1:
                     nombre.setText(Importar.getPersonajes().get(6).getNom());
                     frase.setText(Importar.getPersonajes().get(6).getFrase());

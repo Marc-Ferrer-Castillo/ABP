@@ -71,7 +71,7 @@ public class Juego extends AppCompatActivity {
         establecerMaxPlaneta();
 
         // Contador del juego
-        final CountDownTimer contador = new CountDownTimer(3000, 1000) {
+        final CountDownTimer contador = new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 contadorView.setText("" + millisUntilFinished / 1000);
@@ -228,7 +228,7 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 2000);   //2 seconds
+                }, 0000);   //2 seconds
 
             }
             // Si no se ha acertado la respuesta
@@ -241,7 +241,7 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 2000);   //2 seconds
+                }, 0000);   //2 seconds
             }
         }
         // Si no quedan más preguntas por mostrar
@@ -405,7 +405,6 @@ public class Juego extends AppCompatActivity {
                 // Metodo para reinciar las preguntas y empezar por la primera al volver
                 reiniciarPreguntas();
 
-                android.os.Process.killProcess(android.os.Process.myPid());
                 // Cerramos esta actividad
                 finish();
             }

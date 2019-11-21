@@ -123,7 +123,9 @@ public class Juego extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
+                // Si la view devuelta no es nula
                 if (view != null){
+
                     // El contador se cancela
                     contador.cancel();
 

@@ -19,15 +19,13 @@ import java.io.File;
 public class Resultado extends AppCompatActivity {
 
     private final static int CATALAN = 4;
-    private final static int ESPANOL = 4;
-    private final static int INGLES = 4;
+    private final static int ESPANOL = 8;
+    private final static int INGLES = 10;
 
     //variable para guardar el numero de aciertos total
     private static int aciertos = 0;
 
-    public static int getAciertos() {
-        return aciertos;
-    }
+
 
     //metodo para actualizar el numero de aciertos
     public static void setAciertos(int aciertos) {
@@ -104,7 +102,6 @@ public class Resultado extends AppCompatActivity {
             }
 
             public void onFinish() {
-
                 // envia result_OK y Cierra esta actividad
                 setResult(Resultado.RESULT_OK);
                 // Vuelve al main

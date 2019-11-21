@@ -13,6 +13,8 @@
         android:textSize="50sp"
         android:layout_marginTop="100dp"
         android:background="@color/Azul"
-        android:layout_margin="50dp"/>
+        android:textColor="@color/Blanco"
+        android:layout_margin="50dp"
+        android:alpha="0.8"/>
 
 </LinearLayout>

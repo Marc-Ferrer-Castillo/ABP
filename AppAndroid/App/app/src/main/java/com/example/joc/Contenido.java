@@ -86,7 +86,6 @@ public class Contenido extends AppCompatActivity {
                 int preguntaMostrada = 0;
                 intentContenido.putExtra("preguntaMostrada", preguntaMostrada);
 
-
                 // abre la activity del Juego
                 contador.cancel();
 

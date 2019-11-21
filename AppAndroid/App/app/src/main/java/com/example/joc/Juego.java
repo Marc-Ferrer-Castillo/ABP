@@ -123,49 +123,51 @@ public class Juego extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 
-                // El contador se cancela
-                contador.cancel();
+                if (view != null){
+                    // El contador se cancela
+                    contador.cancel();
 
-                // Se bloquea el click para evitar posibles errores
-                gridrespuestas.setEnabled(false);
+                    // Se bloquea el click para evitar posibles errores
+                    gridrespuestas.setEnabled(false);
 
-                // Se obtiene el LinearLayout correspondiente al item seleccioando
-                LinearLayout respuesta = (LinearLayout) view;
+                    // Se obtiene el LinearLayout correspondiente al item seleccioando
+                    LinearLayout respuesta = (LinearLayout) view;
 
-                // Guarda TRUE si la respuesta seleccionada es correcta
-                boolean repuestaCorrecta = preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta();
+                    // Guarda TRUE si la respuesta seleccionada es correcta
+                    boolean repuestaCorrecta = preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta();
 
-                // Si la respuesta seleccionada es correcta
-                if(repuestaCorrecta ){
+                    // Si la respuesta seleccionada es correcta
+                    if(repuestaCorrecta ){
 
-                    // Pone el fondo de la respuesta en verde
-                    respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#355e4e"));
-                }
-                // Si es incorrecta
-                else{
-                    // Pone el fondo de la respuesta pulsada en rojo
-                    respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#5e3535"));
+                        // Pone el fondo de la respuesta en verde
+                        respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#355e4e"));
+                    }
+                    // Si es incorrecta
+                    else{
+                        // Pone el fondo de la respuesta pulsada en rojo
+                        respuesta.getChildAt(0).setBackgroundColor(Color.parseColor("#5e3535"));
 
-                    // Elemento parent casteado a GridView para buscar entre items
-                    GridView grid = (GridView) parent;
+                        // Elemento parent casteado a GridView para buscar entre items
+                        GridView grid = (GridView) parent;
 
-                    // Recorre las respuestas de la grid en busca de la respuesta correcta
-                    for (int i = 0 ; i < grid.getChildCount() ; i++){
+                        // Recorre las respuestas de la grid en busca de la respuesta correcta
+                        for (int i = 0 ; i < grid.getChildCount() ; i++){
 
-                        // Cada TextView de las views de la gridView
-                        TextView text = (TextView)((LinearLayout)grid.getChildAt(i)).getChildAt(0);
+                            // Cada TextView de las views de la gridView
+                            TextView text = (TextView)((LinearLayout)grid.getChildAt(i)).getChildAt(0);
 
-                        // Si la respuesta es correcta
-                        if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
+                            // Si la respuesta es correcta
+                            if(preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(i).isEsCorrecta()){
 
-                            // Cambia el fondo de color verde
-                            text.setBackgroundColor(Color.parseColor("#355e4e"));
+                                // Cambia el fondo de color verde
+                                text.setBackgroundColor(Color.parseColor("#355e4e"));
+                            }
                         }
                     }
-                }
 
-                // Método juego que decide si pasar a la siguiente pregunta o pasar planeta
-                juego(position , juegoLayout, gridrespuestas, contador);
+                    // Método juego que decide si pasar a la siguiente pregunta o pasar planeta
+                    juego(position , juegoLayout, gridrespuestas, contador);
+                }
 
             }
         });
@@ -401,6 +403,7 @@ public class Juego extends AppCompatActivity {
                 // Metodo para reinciar las preguntas y empezar por la primera al volver
                 reiniciarPreguntas();
 
+                android.os.Process.killProcess(android.os.Process.myPid());
                 // Cerramos esta actividad
                 finish();
             }

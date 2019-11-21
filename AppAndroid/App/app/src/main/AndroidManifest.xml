@@ -18,6 +18,7 @@
         <activity android:name=".Contenido"
             android:screenOrientation="sensorLandscape"/>
         <activity android:name=".Juego"
+            android:excludeFromRecents="true"
             android:screenOrientation="sensorLandscape"/>
         <activity android:name=".Dificultad"
             android:screenOrientation="sensorLandscape"/>

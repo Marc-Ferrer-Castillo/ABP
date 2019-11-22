@@ -268,8 +268,15 @@ public class Juego extends AppCompatActivity {
                 // Metodo para que al volver empiece por la pregunta 0 del siguiente planeta
                 reiniciarPreguntas();
 
-                //Cierra esta actividad
-                finish();
+                // Pausa antes de pasar a la siguiente pregunta
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        //Cierra esta actividad
+                        finish();
+                    }
+                }, 2000);   //2 seconds
+
             }
             // Muestra la Pantalla Resultado
             else{
@@ -277,12 +284,19 @@ public class Juego extends AppCompatActivity {
                 // Metodo para que al volver empiece por la pregunta 0 del siguiente planeta
                 reiniciarPreguntas();
 
-                //Intent para pasar el planetaMostrado
-                Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
-                intentResultado.putExtra("planetaMostrado", planetaMostrado);
+                // Pausa antes de pasar a la siguiente pregunta
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
 
-                // Se abre Resultado
-                startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
+                        //Intent para pasar el planetaMostrado
+                        Intent intentResultado = new Intent(getApplicationContext(), Resultado.class);
+                        intentResultado.putExtra("planetaMostrado", planetaMostrado);
+
+                        // Se abre Resultado
+                        startActivityForResult(intentResultado, RESULTADO_ACTIVIDAD );
+                    }
+                }, 2000);   //2 seconds
             }
         }
 

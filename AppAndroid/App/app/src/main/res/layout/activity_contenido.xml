@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/narrador">
+    android:background="@drawable/nave">
 
 
 
@@ -21,17 +21,15 @@
     <!--EL TEXTO SE CARGA EN TIEMPO DE EJECUCIÓN-->
     <TextView
         android:id="@+id/informacion"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
+        android:layout_width="1390dp"
+        android:layout_height="700dp"
         android:layout_marginRight="500dp"
         android:textAlignment="textStart"
         android:textColor="@color/Blanco"
         android:textSize="30sp"
-        android:paddingTop="250dp"
-        android:paddingBottom="498dp"
-        android:paddingLeft="520dp"
-        android:paddingEnd="170dp"/>
+        android:translationX="450dp"
+        android:translationY="230dp"
+        />
 
     <Button
         android:id="@+id/btncontinuar"
@@ -54,12 +52,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/informacion"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-175dp"
         android:text="@string/continuar"
-        android:textColor="#7B7B7B"
-        android:textSize="35sp" />
+        android:textColor="#000000"
+        android:textSize="35sp"
+        android:translationX="1000dp"
+        android:translationY="1100dp"/>
 
     <TextView
         android:id="@+id/tiempo"

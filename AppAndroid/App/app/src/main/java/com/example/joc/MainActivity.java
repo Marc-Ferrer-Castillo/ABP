@@ -13,13 +13,19 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.Locale;
 
+
+
+
 public class MainActivity extends AppCompatActivity {
+
 
 /*
     El juego tiene 3 planetas por cada idioma, en este caso seria:
@@ -43,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private static String idiomaSeleccionado = Locale.getDefault().getISO3Language();
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Controla que haya permisos de lectura
         controlarPermisos();
+
+
+        // Asociamos la TextView de inicio a su id
+        TextView tv = (TextView) findViewById(R.id.textoIniciar);
+        // Le mandamos la TextView a la clase TextoParpadeante
+        new TextoParpadeante(getBaseContext(),tv);
 
 
 
@@ -232,3 +245,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
+

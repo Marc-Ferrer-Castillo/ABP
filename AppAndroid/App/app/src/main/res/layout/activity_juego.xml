@@ -54,4 +54,5 @@
         android:textAlignment="center"
         android:text="30"
         android:textColor="@color/Blanco"/>
+
 </RelativeLayout>

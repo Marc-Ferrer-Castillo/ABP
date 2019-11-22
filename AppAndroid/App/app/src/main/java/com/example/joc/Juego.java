@@ -228,7 +228,7 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 0000);   //2 seconds
+                }, 2000);   //2 seconds
 
             }
             // Si no se ha acertado la respuesta
@@ -241,7 +241,7 @@ public class Juego extends AppCompatActivity {
                         preguntaMostrada++;
                         cargarContenido(gridRespuestas, contador);
                     }
-                }, 0000);   //2 seconds
+                }, 2000);   //2 seconds
             }
         }
         // Si no quedan más preguntas por mostrar

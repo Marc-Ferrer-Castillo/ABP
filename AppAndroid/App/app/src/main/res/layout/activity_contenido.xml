@@ -42,20 +42,21 @@
 
     <ImageView
         android:id="@+id/imagenNarrador"
-        android:layout_width="490dp"
-        android:layout_height="490dp"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         />
 
 
     <TextView
+        android:id="@+id/continuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/continuar"
         android:textColor="#000000"
         android:textSize="35sp"
-        android:translationX="1000dp"
+        android:translationX="1100dp"
         android:translationY="1100dp"/>
 
     <TextView

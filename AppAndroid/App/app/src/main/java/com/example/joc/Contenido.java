@@ -57,6 +57,11 @@ public class Contenido extends AppCompatActivity {
         ImageButton inicio = findViewById(R.id.inicio);
 
 
+        // Asociamos la TextView de inicio a su id
+        TextView tv = (TextView) findViewById(R.id.continuar);
+        // Le mandamos la TextView a la clase TextoParpadeante
+        new TextoParpadeante(getBaseContext(),tv);
+
         //recoge de la pantalla principal y pantalla de dificultad el idioma seleccionado (es decir el planeta por el que el juego empezara)
         // y la dificultad seleccionada respectivamente.
         Intent intentDoble = getIntent();
@@ -70,7 +75,7 @@ public class Contenido extends AppCompatActivity {
         contador.start();
 
         //CARGA imagen3.png DEL DIRECTORIO imatges Y LO COLOCA EN EL imageview
-        String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen2.png").getAbsolutePath();
+        String fname = new File(Importar.DIRECTORIO_IMAGENES, "imagen1.png").getAbsolutePath();
         Bitmap myBitmap = BitmapFactory.decodeFile(fname);
         imagenNarrador.setImageBitmap(myBitmap);
 

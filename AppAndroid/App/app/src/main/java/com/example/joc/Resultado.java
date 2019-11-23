@@ -37,6 +37,9 @@ public class Resultado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
 
+        // Esconde la UI del sistema
+        hideSystemUI();
+
         //recuperamos los id del xml de los 3 views siguientes
         TextView aciertosView = findViewById(R.id.aciertos);
         ImageButton salir = findViewById(R.id.inicio);
@@ -86,7 +89,7 @@ public class Resultado extends AppCompatActivity {
         aciertos++;
 
         //mostramos por pantalla el numero de aciertos total
-        aciertosView.setText(getString(R.string.numAciertos)+ "\t" + String.valueOf(aciertos) );
+        aciertosView.setText(getString(R.string.numAciertos)+ " " + String.valueOf(aciertos) );
 
         //reiniciamos el numero de aciertos
         aciertos = 0;
@@ -190,5 +193,16 @@ public class Resultado extends AppCompatActivity {
             }
         }
 
+    }
+    // Esconde la UI del sistema
+    private void hideSystemUI() {
+
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
     }
 }

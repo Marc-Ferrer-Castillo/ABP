@@ -51,6 +51,9 @@ public class Contenido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenido);
 
+        // Esconde la UI del sistema
+        hideSystemUI();
+
         //recuperamos los id del xml de los 3 views siguientes
         Button continuar = findViewById(R.id.btncontinuar);
         ImageView imagenNarrador = findViewById(R.id.imagenNarrador);
@@ -138,6 +141,9 @@ public class Contenido extends AppCompatActivity {
             }
             // Si se ha llegado a la ultima pregunta
             else{
+                // Esconde la UI del sistema
+                hideSystemUI();
+                // Empieza el contador
                 contador.start();
                 // muestra el siguiente contenido
                 planetaMostrado++;
@@ -146,7 +152,17 @@ public class Contenido extends AppCompatActivity {
         }
     }
 
+    // Esconde la UI del sistema
+    private void hideSystemUI() {
 
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+    }
 
 
 }

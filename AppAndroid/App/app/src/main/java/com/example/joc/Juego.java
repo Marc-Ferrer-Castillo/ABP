@@ -55,6 +55,9 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
+        // Esconde la UI del sistema
+        hideSystemUI();
+
         // GridView donde se mostrarán las respuestas de la pregunta
         final GridView gridrespuestas = findViewById(R.id.gridrespuestas);
         // TextView para mostrar el tiempo del contador
@@ -429,5 +432,17 @@ public class Juego extends AppCompatActivity {
     private void reiniciarPreguntas() {
         preguntasFiltradas.clear();
         preguntaMostrada = 0;
+    }
+
+    // Esconde la UI del sistema
+    private void hideSystemUI() {
+
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
     }
 }

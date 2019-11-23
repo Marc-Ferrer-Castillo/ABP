@@ -53,10 +53,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        hideSystemUI();
 
         //Se asocian ImageView a sus id que les corresponden
         ImageView cat = findViewById(R.id.catalan);
@@ -151,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        // Esconde la UI del sistema
+        hideSystemUI();
         // Al volver atrás recarga el metodo de iniciarVideo
         iniciarVideo();
     }
@@ -258,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Inicia el video de fondo
     private void iniciarVideo() {
         VideoView videoView = findViewById(R.id.video);
 
@@ -280,6 +289,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Esconde la UI del sistema
+    private void hideSystemUI() {
+
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+    }
 }
 
 

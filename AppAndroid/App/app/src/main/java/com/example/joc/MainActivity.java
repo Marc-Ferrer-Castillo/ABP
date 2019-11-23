@@ -2,10 +2,12 @@ package com.example.joc;
 
 //Imports
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -61,17 +64,16 @@ public class MainActivity extends AppCompatActivity {
         ImageView eng = findViewById(R.id.ingles);
         ImageView iniciar = findViewById(R.id.btniniciar);
 
-
         // Controla que haya permisos de lectura
         controlarPermisos();
-
 
         // Asociamos la TextView de inicio a su id
         TextView tv = (TextView) findViewById(R.id.textoIniciar);
         // Le mandamos la TextView a la clase TextoParpadeante
         new TextoParpadeante(getBaseContext(),tv);
 
-
+        // Inicia el video del fondo de la pantalla de inicio
+        iniciarVideo();
 
         // Click en INICIAR
         iniciar.setOnClickListener(new View.OnClickListener() {
@@ -135,7 +137,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        // Al volver atrás recarga el metodo de iniciarVideo
+        iniciarVideo();
     }
 
     @Override
@@ -243,6 +251,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void iniciarVideo() {
+        VideoView videoView = findViewById(R.id.video);
+
+        // Establece los parametros de las dimensiones del videoView para que ocupe toda la pantalla
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        videoView.setLayoutParams(new RelativeLayout.LayoutParams(metrics.widthPixels, metrics.heightPixels));
+
+        // Inicializa el video de la pantalla de inicio
+        Uri path = Uri.parse("android.resource://com.example.joc/" + R.raw.starwarstakeoff);
+        videoView.setVideoURI(path);
+        videoView.start();
+
+        // Hace que el video haga loop
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
 
 }
 

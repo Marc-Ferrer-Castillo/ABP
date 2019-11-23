@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
         // Controla que haya permisos de lectura
         controlarPermisos();
 
-        // Asociamos la TextView de inicio a su id
-        TextView tv = (TextView) findViewById(R.id.textoIniciar);
-        // Le mandamos la TextView a la clase TextoParpadeante
-        new TextoParpadeante(getBaseContext(),tv);
+
+        colocarTexto();
+
+
 
         // Inicia el video del fondo de la pantalla de inicio
         iniciarVideo();
@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
                 // Dependiendo del idiomaMostrado se empiza por un planeta u otro
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 setLocale("ca");
                 planetaMostrado = 0;
                 idiomaSeleccionado = catalan;
-
+                colocarTexto();
             }
         });
         // Click en español
@@ -123,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 setLocale("es");
                 planetaMostrado = 3;
                 idiomaSeleccionado = espanol;
-
+                colocarTexto();
             }
         });
         // Click en ingles
@@ -133,10 +132,20 @@ public class MainActivity extends AppCompatActivity {
                 setLocale("en");
                 planetaMostrado = 6;
                 idiomaSeleccionado = ingles;
-
+                colocarTexto();
             }
         });
 
+    }
+
+    // Coloca/refresca el texto de la pantalla según el idioma seleccionado
+    private void colocarTexto() {
+        // Asociamos la TextView de inicio a su id
+        TextView tv = findViewById(R.id.textoIniciar);
+        // Le damos el texto correspondiente
+        tv.setText(getResources().getString(R.string.iniciar));
+        // Le mandamos la TextView a la clase TextoParpadeante
+        new TextoParpadeante(getBaseContext(),tv);
     }
 
     @Override
@@ -158,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
 
                 //Vuelve el iterador a 0
                 planetaMostrado = 0;
-
             }
         }
     }
@@ -211,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Cambia el idiomaMostrado  y recrea la actividad
+    // Cambia el idiomaMostrado
     private void setLocale(String lang) {
 
         Locale locale = new Locale(lang);
@@ -220,7 +228,6 @@ public class MainActivity extends AppCompatActivity {
         Configuration conf = res.getConfiguration();
         conf.locale = locale;
         res.updateConfiguration(conf, dm);
-        recreate();
     }
 
     // Cuando el usuario ha respondido a la solicitud de permisos en tiempo de ejecucion

@@ -159,7 +159,7 @@ public class Juego extends AppCompatActivity {
                         GridView grid = (GridView) parent;
 
                         // Recorre las respuestas de la grid en busca de la respuesta correcta
-                        for (int i = 0 ; i < grid.getChildCount() ; i++){
+                        for (int i = 0 ; i < grid.getCount() ; i++){
 
                             // Cada TextView de las views de la gridView
                             TextView text = (TextView)((LinearLayout)grid.getChildAt(i)).getChildAt(0);
@@ -215,7 +215,7 @@ public class Juego extends AppCompatActivity {
     private void juego(int position, RelativeLayout juegoLayout, final GridView gridRespuestas, final CountDownTimer contador ) {
 
         // Si quedan más preguntas por mostrar
-        if ( preguntaMostrada < preguntasFiltradas.size() - 1 ){
+        if ( preguntaMostrada < preguntasFiltradas.size() -1){
 
             // Si se ha acertado la respuesta
             if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()) {
@@ -366,6 +366,7 @@ public class Juego extends AppCompatActivity {
 
         // Inicia el contador
         contador.start();
+
     }
 
     // Método para filtrar las preguntas según la dificultad seleccioanda

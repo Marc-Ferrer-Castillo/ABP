@@ -53,10 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,22 +157,6 @@ public class MainActivity extends AppCompatActivity {
         hideSystemUI();
         // Al volver atrás recarga el metodo de iniciarVideo
         iniciarVideo();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Si la actividad de la que volvemos
-        if (requestCode == ACTIVITY_DIFICULTAD) {
-
-            // Y devuelve RESULT_OK
-            if (resultCode == RESULT_OK) {
-
-                //Vuelve el iterador a 0
-                planetaMostrado = 0;
-            }
-        }
     }
 
     // Controla permisos de lectura

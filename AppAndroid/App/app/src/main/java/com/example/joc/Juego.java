@@ -55,6 +55,9 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
+        // Elimina la transición
+        overridePendingTransition(0, 0);
+
         // Esconde la UI del sistema
         hideSystemUI();
 

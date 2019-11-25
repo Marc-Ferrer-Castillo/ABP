@@ -22,6 +22,9 @@ public class Dificultad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dificultad);
 
+        // Elimina la transición
+        overridePendingTransition(0, 0);
+
         // Esconde la UI del sistema
         hideSystemUI();
 

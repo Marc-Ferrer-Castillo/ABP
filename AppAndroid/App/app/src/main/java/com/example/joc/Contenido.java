@@ -51,6 +51,9 @@ public class Contenido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contenido);
 
+        // Elimina la transición
+        overridePendingTransition(0, 0);
+
         // Esconde la UI del sistema
         hideSystemUI();
 

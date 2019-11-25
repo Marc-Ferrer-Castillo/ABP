@@ -82,21 +82,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 // Dependiendo del idiomaMostrado se empiza por un planeta u otro
                 if (idiomaSeleccionado.equals(catalan) ){
-
                     planetaMostrado = 0;
                 }
                 else if (idiomaSeleccionado.equals(espanol)){
-
                     planetaMostrado = 3;
                 }
                 else {
-
                     planetaMostrado = 6;
-
                 }
+
+                Resultado.reiniciarAciertos();
 
                 Intent intentPlaneta = new Intent(MainActivity.this, Dificultad.class);
                 intentPlaneta.putExtra("planetaMostrado", planetaMostrado);

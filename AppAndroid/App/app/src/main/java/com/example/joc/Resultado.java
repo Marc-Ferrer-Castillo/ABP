@@ -25,12 +25,16 @@ public class Resultado extends AppCompatActivity {
     //variable para guardar el numero de aciertos total
     private static int aciertos = 0;
 
-
+    public static void reiniciarAciertos() {
+        aciertos = 0;
+    }
 
     //metodo para actualizar el numero de aciertos
-    public static void setAciertos(int aciertos) {
-        Resultado.aciertos = aciertos;
+    public static void sumarAcierto() {
+        aciertos++;
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

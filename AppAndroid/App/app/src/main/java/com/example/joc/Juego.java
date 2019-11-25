@@ -36,8 +36,6 @@ public class Juego extends AppCompatActivity {
 
     // Usado iniciar la actividad resultado
     private static final byte RESULTADO_ACTIVIDAD = 1;
-    // Guarda el número de aciertos
-    private static int aciertos;
     // Guarada la pregunta que debe mostrarse
     private static int preguntaMostrada = 0;
     // Guarda el planeta que debe mostrarse
@@ -205,7 +203,7 @@ public class Juego extends AppCompatActivity {
             if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()) {
 
                 // Suma un acierto
-                Resultado.setAciertos(aciertos++);
+                Resultado.sumarAcierto();
 
                 // Método que muestra un snackbar
                 mostrarSnackBar(juegoLayout);
@@ -240,8 +238,8 @@ public class Juego extends AppCompatActivity {
             // Si se ha acertado la respuesta
             if (preguntasFiltradas.get(preguntaMostrada).getRespuestas().get(position).isEsCorrecta()) {
 
-                // Incrementa el número de aciertos
-                Resultado.setAciertos(aciertos++);
+                // Suma un acierto
+                Resultado.sumarAcierto();
                 // Muestra un snackbar
                 mostrarSnackBar(juegoLayout);
             }
@@ -403,9 +401,6 @@ public class Juego extends AppCompatActivity {
 
                 // Devuelve RESULT OK a la clase Dificultad
                 setResult(Contenido.RESULT_OK);
-
-                // Reinicia los aciertos
-                aciertos = 0;
 
                 // Metodo para reinciar las preguntas y empezar por la primera al volver
                 reiniciarPreguntas();

@@ -124,6 +124,7 @@ public class Resultado extends AppCompatActivity {
 
                 // envia result_OK y Cierra esta actividad
                 setResult(Resultado.RESULT_OK);
+                aciertos = 0;
                 finish();
             }
         });

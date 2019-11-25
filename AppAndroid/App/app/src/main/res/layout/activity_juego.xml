@@ -13,16 +13,7 @@
         android:src="@drawable/joc"
         android:alpha="0.8"/>
 
-    <ImageButton
-        android:id="@id/inicio"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_margin="7dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/home" />
+
 
     //Textview para las preguntas
     <TextView

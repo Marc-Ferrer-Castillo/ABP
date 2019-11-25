@@ -104,22 +104,6 @@ public class Juego extends AppCompatActivity {
         // Método que carga la pregunta y las respuestas en pantalla
         cargarContenido(gridrespuestas, contador);
 
-        // Imagen Salir (casita)
-        ImageView salir = findViewById(R.id.inicio);
-
-        // Click en salir
-        salir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // Devuelve RESULT OK a la clase Contenido
-                setResult(Contenido.RESULT_OK);
-
-                // Cierra esta actividad
-                finish();
-            }
-        });
-
 
         // RelativeLayout usado para mostrar un SnackBar
         final RelativeLayout juegoLayout = findViewById(R.id.juegoLayout);

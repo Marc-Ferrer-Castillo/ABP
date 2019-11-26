@@ -113,6 +113,7 @@ public class Contenido extends AppCompatActivity {
                 setResult(Contenido.RESULT_OK);
                 // Cierra esta actividad
                 finish();
+                Resultado.reiniciarAciertos();
             }
         });
 

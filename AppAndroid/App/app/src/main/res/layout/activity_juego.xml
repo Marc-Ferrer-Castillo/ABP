@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="50sp"
         android:textColor="@color/Blanco"
-        android:translationY="410dp"/>
+        android:translationY="400dp"/>
 
     //GridView para las respuestas
     <GridView

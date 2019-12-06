@@ -75,6 +75,7 @@
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
         android:textStyle="bold"
+        android:textColor="@color/Blanco"
         />
 
 

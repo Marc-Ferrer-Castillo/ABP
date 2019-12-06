@@ -18,7 +18,7 @@ public class Dificultad extends AppCompatActivity {
     private boolean dificultadSeleccionada;
 
     //constante de tiempo para el temporizador
-    public static final int TEMPORIZADOR = 3000000;
+    public static final int TEMPORIZADOR = 30000;
 
     //intervalo del temporizador
     public static final int INTERVALO_TEMPORIZADOR = 1000;

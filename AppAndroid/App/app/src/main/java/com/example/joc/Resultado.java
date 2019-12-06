@@ -105,7 +105,7 @@ public class Resultado extends AppCompatActivity {
         //creamos un temporizador al que le pasamos por parametro lo que va a durar en las unidades especificadas en el segundo parametro, en este caso milisegundos
         //el temporizador lleva al usuario al inicio del juego tras 30 segundos
         final TextView tiempo = findViewById(R.id.tiempo);
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(Dificultad.TEMPORIZADOR, Dificultad.INTERVALO_TEMPORIZADOR) {
 
             public void onTick(long millisUntilFinished) {
                 tiempo.setText("seconds remaining: " + millisUntilFinished / 1000);

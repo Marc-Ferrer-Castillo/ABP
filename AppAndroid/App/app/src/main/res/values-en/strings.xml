@@ -4,7 +4,7 @@
     <string name="app_name">Game</string>
     <string name="facil">Easy</string>
     <string name="dificil">Hard</string>
-    <string name="continuar">Press to continue</string>
+    <string name="continuar">Press to continue...</string>
     <string name="numAciertos">The number of hits is</string>
     <string name="respuestaCorrecta">Correct answer!</string>
 </resources>

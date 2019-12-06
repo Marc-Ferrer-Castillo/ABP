@@ -32,7 +32,7 @@ public class Contenido extends AppCompatActivity {
 
 
     //creamos un temporizador al que le pasamos por parametro lo que va a durar en las unidades especificadas en el segundo parametro, en este caso milisegundos
-    CountDownTimer contador = new CountDownTimer(30000, 1000) {
+    CountDownTimer contador = new CountDownTimer(Dificultad.TEMPORIZADOR, Dificultad.INTERVALO_TEMPORIZADOR) {
         @Override
         public void onTick(long l) {}
 
@@ -124,6 +124,9 @@ public class Contenido extends AppCompatActivity {
 
         //EL TEXTO SE CARGA DEL PLANTA planetaMostrado
         informacion.setText(planetas.get( planetaMostrado ).getContenido() );
+
+        mostrarProgreso();
+
     }
 
     // Resultado de startActivityForResult
@@ -155,6 +158,41 @@ public class Contenido extends AppCompatActivity {
             }
         }
     }
+
+    private void mostrarProgreso(){
+
+        //recuperamos el id del xml
+        TextView progreso = findViewById(R.id.progreso);
+
+        //switch para mostrar el progreso del juego
+        switch (planetaMostrado){
+
+            //si estamos en el primer planeta
+            case 0:
+            case 3:
+            case 6:
+                progreso.setText("1 / 3");
+                break;
+
+            //si estamos en el segundo planeta
+            case 1:
+            case 4:
+            case 7:
+                progreso.setText("2 / 3");
+                break;
+
+            //si estamos en el tercer planeta
+            case 2:
+            case 5:
+            case 8:
+                progreso.setText("3 / 3");
+                break;
+
+
+        }
+
+    }
+
 
     // Esconde la UI del sistema
     private void hideSystemUI() {

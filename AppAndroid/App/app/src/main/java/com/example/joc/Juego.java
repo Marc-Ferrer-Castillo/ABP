@@ -75,7 +75,7 @@ public class Juego extends AppCompatActivity {
         establecerMaxPlaneta();
 
         // Contador del juego
-        final CountDownTimer contador = new CountDownTimer(30000, 1000) {
+        final CountDownTimer contador = new CountDownTimer(Dificultad.TEMPORIZADOR, Dificultad.INTERVALO_TEMPORIZADOR) {
             @Override
             public void onTick(long millisUntilFinished) {
                 contadorView.setText("" + millisUntilFinished / 1000);

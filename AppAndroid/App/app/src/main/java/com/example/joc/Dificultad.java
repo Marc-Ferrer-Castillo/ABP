@@ -17,6 +17,12 @@ public class Dificultad extends AppCompatActivity {
     //Boleano para la seleccion de dificultad
     private boolean dificultadSeleccionada;
 
+    //constante de tiempo para el temporizador
+    public static final int TEMPORIZADOR = 3000000;
+
+    //intervalo del temporizador
+    public static final int INTERVALO_TEMPORIZADOR = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +71,7 @@ public class Dificultad extends AppCompatActivity {
             }
         });
         //Contador de tiempo para que cuando pasa cierto tiempo se salga al menu de inicio
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(TEMPORIZADOR, INTERVALO_TEMPORIZADOR) {
 
             public void onTick(long millisUntilFinished) {
 

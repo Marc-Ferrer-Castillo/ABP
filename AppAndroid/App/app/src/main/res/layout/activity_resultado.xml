@@ -25,13 +25,12 @@
 
     <TextView
         android:id="@+id/nombre"
-        android:layout_width="407dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:translationX="1560dp"
-        android:translationY="400dp"
         android:textColor="@color/Blanco"
-        />
+        android:textSize="100sp"
+        android:translationX="1560dp"
+        android:translationY="300dp" />
 
     <TextView
         android:id="@+id/frase"
@@ -41,15 +40,16 @@
         android:translationY="500dp"
         android:textSize="40sp"
         android:textColor="@color/Blanco"
+        android:lineSpacingExtra="20dp"
         />
 
     <TextView
         android:id="@+id/aciertos"
-        android:layout_width="690dp"
+        android:layout_width="wrap_content"
         android:layout_height="127dp"
         android:translationX="1560dp"
-        android:translationY="760dp"
-        android:textSize="40sp"
+        android:translationY="960dp"
+        android:textSize="55sp"
         android:textColor="@color/Blanco"
         android:text="ACIERTOS"/>
 

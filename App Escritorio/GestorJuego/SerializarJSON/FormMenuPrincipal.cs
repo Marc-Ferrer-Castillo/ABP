@@ -236,6 +236,9 @@ namespace SerializarJSON
             try
             {
                 importar();
+                colorPlanetas(0);
+                colorPlanetas(1);
+                colorPlanetas(2);
             }
             catch (Exception)
             {

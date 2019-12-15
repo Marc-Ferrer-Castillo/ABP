@@ -1,6 +1,6 @@
 # QUIZ GAME
 
-A content editable science-fiction game for mNACTEC museum 
+A content editable science-fiction game for [mNACTEC Museum](https://mnactec.cat/en)
 
 ![Image of a Rocket](https://raw.githubusercontent.com/Marc-Ferrer-Castillo/ABP/master/App%20Escritorio/UI/Imagenes/rocket.png)
 
@@ -15,7 +15,6 @@ A content editable science-fiction game for mNACTEC museum
  
 ### Prerequisites
 
-Newtonsoft.Json.12.0.2
 Android minimum API level: 19 (4.4 KitKat)
 Windows Machine with .NETFramework (Version v4.6.1)
 
@@ -27,6 +26,21 @@ Windows Machine with .NETFramework (Version v4.6.1)
 * [Daniel Domínguez](https://github.com/danieldodi)
 * [Carlos Aguilar](https://github.com/aguilar3061)
 
-## Wireframes
-![Windows app wireframe](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Wireframes/WireFrame%20App%20Windows.jpg)
-![Android app wireframe](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Wireframes/Wireframe%20APP%20Android.png)
+## Android Game Screenshots
+
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/lenguaje.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/dificultad.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/Narrador.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/juego.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/acierto.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/final.PNG)
+
+## Content Manager Screenshots
+
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/menuprincipal.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/menuprincipalcat.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/gestorcontingut.PNGG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/gestorpreguntas.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/help.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/gestorpjsvacio.PNG)
+![](https://github.com/Marc-Ferrer-Castillo/ABP/blob/master/Recursos/Screenshots/gestorpjs.PNG)

@@ -1,6 +1,7 @@
 # QUIZ GAME
 
 A content editable science-fiction game for [mNACTEC Museum](https://mnactec.cat/en)
+Sep 29, 2019 – Nov 20, 2019
 
 ![Image of a Rocket](https://raw.githubusercontent.com/Marc-Ferrer-Castillo/ABP/master/App%20Escritorio/UI/Imagenes/rocket.png)
 

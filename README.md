@@ -23,7 +23,7 @@ Windows Machine with .NETFramework (Version v4.6.1)
 
 * [Albert Ricart](https://github.com/albertricart)
 * [Iván Cabañas](https://github.com/ivancg86)
-* [Marc Ferrer](https://github.com/ivancg86)
+* [Marc Ferrer](https://github.com/Marc-Ferrer-Castillo/)
 * [Daniel Domínguez](https://github.com/danieldodi)
 * [Carlos Aguilar](https://github.com/aguilar3061)
 
